@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" media="all" href="style.css" />
+	<script type="text/javascript" src="jquery.js"></script>
+	<title>Reading XML with jQuery</title>
+     <script>
+     	$(document).ready(function(){
+			$.ajax({
+				type: "GET",
+				url: "http://localhost:8080/RT/rest/API/project/Test2",
+				dataType: "xml",
+				success: function(xml) {
+					
+					$(xml).find('workpackage').each(function(){						
+						$(this).find('member').each(function(){
+						var member = $(this).text();
+						 $('#members').append('<h4>Member name: ' + member + '</h4>');
+						});
+						$(this).find('email').each(function(){
+							var email = $(this).text();
+							 $('#email').append('<h4>Email: ' + email + '</h4>');
+							});
+					});
+					
+					$(xml).find('task').each(function(){						
+						$(this).find('description').each(function(){
+						var td = $(this).text();
+						 $('#desc').append('<h4>Task Description: ' + td + '</h4>');
+						});
+					
+					});
+					
+				}
+			});
+		});
+     </script>
+</head>
+<body>
+	<div id="page-wrap">
+     	<h1>Reading XML with jQuery</h1>
+     </div>
+     	<div id="members">
+     </div>
+     
+     <div id="email">
+     </div>
+     
+          <div id="desc">
+     </div>
+     
+</body>
+</html>
