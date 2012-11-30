@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project title="Test1" dateStart="2012-09-01" dateFinish="2012-12-01" dateStartRevised="2012-09-01" dateFinishRevised="2012-12-01">
+<project title="Test1" dateStart="2012-09-01" dateFinish="2012-12-01" dateStartRevised="2012-09-01" dateFinishRevised="2012-12-01" id="Test1">
   <coordinator>
     <idCoordinator>001</idCoordinator>
   </coordinator>
   <workpackage title="WP1">
     <partners>
-      <partner>002</partner>
-      <partner>003</partner>
-      <partner>004</partner>
+      <partner id="002"></partner>
+      <partner id="003"></partner>
+      <partner id="004"></partner>
     </partners>
     <task title="Task1">
       <partners>
-        <partner>002</partner>
-        <partner>003</partner>
-        <partner>004</partner>
+        <partner id="002"></partner>
+        <partner id="003"></partner>
+        <partner id="004"></partner>
       </partners>
       <description>Long description</description>
       <dateInit>2012-09-01</dateInit>
@@ -21,9 +21,9 @@
     </task>
     <task title="Task2">
       <partners>
-        <partner>002</partner>
-        <partner>003</partner>
-        <partner>004</partner>
+        <partner id="002"></partner>
+        <partner id="003"></partner>
+        <partner id="004"></partner>
       </partners>
       <description>Longer description</description>
       <dateInit>2012-09-01</dateInit>

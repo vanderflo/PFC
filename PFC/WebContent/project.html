@@ -9,7 +9,7 @@
      	$(document).ready(function(){
 			$.ajax({
 				type: "GET",
-				url: "http://localhost:8080/RT/rest/API/project/Test2",
+				url: "http://localhost:8080/PFC/rest/API/project/Test2",
 				dataType: "xml",
 				success: function(xml) {
 					
@@ -28,6 +28,7 @@
 						$(this).find('description').each(function(){
 						var td = $(this).text();
 						 $('#desc').append('<h4>Task Description: ' + td + '</h4>');
+						 $('<option/>').val(td).html(td).appendTo('#items');
 						});
 					
 					});
@@ -49,6 +50,9 @@
      
           <div id="desc">
      </div>
-     
+     <form id="form1">
+     <select id="items">
+	</select>
+     </form>
 </body>
 </html>

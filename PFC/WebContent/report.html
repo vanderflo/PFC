@@ -9,7 +9,7 @@
      	$(document).ready(function(){
 			$.ajax({
 				type: "GET",
-				url: "http://localhost:8080/RT/rest/hello",
+				url: "http://localhost:8080/PFC/rest/API/project/Test2",
 				dataType: "xml",
 				success: function(xml) {
 					alert("Success");
@@ -18,12 +18,17 @@
 						$(this).find('member').each(function(){
 						var member = $(this).text();
 						 $('#result').append('<h4>' + member + '</h4>');
+						 $('<option/>').val(members).html(members).appendTo('#items');
 						});
 					});
 				}
 			});
 		});
      </script>
+     
+ 
+     
+     
 </head>
 <body>
 	<div id="page-wrap">
@@ -31,5 +36,10 @@
      </div>
      	<div id="result">
      </div>
+      <form id="form1">
+     <select id="items">
+</select>
+</form>
+     
 </body>
 </html>
