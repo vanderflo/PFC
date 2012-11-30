@@ -3,6 +3,8 @@ package com.reportingtool.entities;
 import org.jdom2.*;
 import org.jdom2.input.SAXBuilder;
 
+import com.reportingtool.utils.CST;
+
 import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -208,5 +210,28 @@ public static Document addSchedule(Document doc, String dates){
 	
 }
 
+	public static Document getProjects(String path) {
+		
+		SAXBuilder builder = new SAXBuilder();
+		File xmlFile = new File(path);
+		Document document=new Document();
+		try {
+			document = (Document) builder.build(xmlFile);
+		} catch (JDOMException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+			System.out.println("Projects file doesn't exist");
+			
+		}
 
+	
+		return document;
+	
+	
+}
+
+	
+	
 }

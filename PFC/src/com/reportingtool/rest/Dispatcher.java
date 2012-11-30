@@ -14,6 +14,7 @@ import org.jdom2.Document;
 
 
 import com.reportingtool.entities.Project;
+import com.reportingtool.utils.CST;
 import com.reportingtool.utils.Commons;
 
 @Path ("/API")
@@ -52,5 +53,29 @@ public String getProjectInfo(@PathParam("projectId") String projectId) {
 
 	return result;
 }
+
+/**
+@GET
+@Produces ("text/xml")
+public String sayHello() {
+return "<projects><project><projectId>001</projectId><titleTest1</title><status>ongoing</status></project></projects>";
+}
+*/
+
+@Path ("/projects/")
+@GET
+@Produces ("text/xml")
+public String getProjects() {
+	System.out.println("Getting Projects info");	
+	Document d = Project.getProjects(formatFile(CST.PROJECTS_FILE));		
+	String result=Commons.docToString(d);
+	
+
+	return result;
+}
+
+
+
+
 }
 
