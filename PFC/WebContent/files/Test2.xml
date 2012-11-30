@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project title="Test2" dateStart="2012-09-01" dateFinish="2012-12-01" dateStartRevised="2012-09-01" dateFinishRevised="2012-12-01" id="Test2">
+  <coordinator>
+    <idCoordinator>001</idCoordinator>
+  </coordinator>
+  <workpackage title="WP1">
+    <partners>
+      <partner id="002"></partner>
+      <partner id="003"></partner>
+      <partner id="004"></partner>
+    </partners>
+    <task title="Task1">
+      <partners>
+        <partner id="002"></partner>
+        <partner id="003"></partner>
+        <partner id="004"></partner>
+      </partners>
+      <description>Long description</description>
+      <dateInit>2012-09-01</dateInit>
+      <datefinish>2012-12-01</datefinish>
+    </task>
+    <task title="Task2">
+      <partners>
+        <partner id="002"></partner>
+        <partner id="003"></partner>
+        <partner id="004"></partner>
+      </partners>
+      <description>Longer description</description>
+      <dateInit>2012-09-01</dateInit>
+      <datefinish>2012-12-01</datefinish>
+    </task>
+  </workpackage>
+  <reportSchedule>
+    <reports>
+      <date>2012-09-20</date>
+      <date>2012-10-20</date>
+    </reports>
+  </reportSchedule>
+</project>
