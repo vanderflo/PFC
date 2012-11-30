@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" media="all" href="style.css" />
+	<script type="text/javascript" src="jquery.js"></script>
+	<title>Reading XML with jQuery</title>
+     <script>
+     	$(document).ready(function(){
+     		
+     		// I am an alert box from a hyperlink   
+			  $('#mylink2').click(function() {
+			       alert("Hello Im an alert box");
+			      return false;
+			   });
+     		
+			$.ajax({
+				type: "GET",
+				url: "http://localhost:8080/PFC/rest/API/projects",
+				dataType: "xml",
+				success: function(xml) {
+					
+					$(xml).find('project').each(function(){		
+						
+		
+						$(this).find('title').each(function(){
+						var title = $(this).text();
+						 $('#project').append('<h2>Title: ' + title + '</h2>');
+						});
+						
+						$(this).find('id').each(function(){
+						var id = $(this).text();
+						$('#project').append('<h3>ID: ' + id + '</h3>');
+						});
+						
+						$(this).find('status').each(function(){
+						var status = $(this).text();
+						$('#project').append('<h4>Status: ' + status + '</h4>');
+						});						
+						
+						
+					});
+					
+					
+					
+				}
+			});
+			
+			
+			
+			
+		});
+     </script>
+</head>
+<body>
+	<div id="page-wrap">
+     	<h1>Current projects</h1>
+     </div>
+     	<div id="project">
+     	
+     </div> 
+     
+     <a id="mylink2" href="#">click me and show alert using hyperlink and an id</a>    
+   
+
+</body>
+</html>
