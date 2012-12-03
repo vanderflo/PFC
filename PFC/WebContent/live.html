@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+                    "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <script src="jquery-1.8.2.js"></script>
+  
+  <script>
+  $(document).ready(function(){
+    
+    $("p").live("click", function(){
+      $(this).after("<p>Another paragraph!</p>");
+    });
+
+  });
+  </script>
+  <style>
+  p { background:yellow; font-weight:bold; cursor:pointer; 
+      padding:5px; }
+  p.over { background: #ccc; }
+  span { color:red; }
+  </style>
+</head>
+<body>
+  <p>Click me!</p>
+  <span></span>
+</body>
+</html>
