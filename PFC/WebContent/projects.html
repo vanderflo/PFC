@@ -3,18 +3,12 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" type="text/css" media="all" href="style.css" />
-	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="jquery-1.8.2.js"></script>
 	<title>Reading XML with jQuery</title>
      <script>
      	$(document).ready(function(){
-     		
-     		// I am an alert box from a hyperlink   
-			  $('#mylink2').click(function() {
-			       alert("Hello Im an alert box");
-			      return false;
-			   });
-     		
-			$.ajax({
+     		//Llamada AJAX para recuperar los proyectos actuales.
+     		$.ajax({
 				type: "GET",
 				url: "http://localhost:8080/PFC/rest/API/projects",
 				dataType: "xml",
@@ -22,33 +16,77 @@
 					
 					$(xml).find('project').each(function(){		
 						
-		
+						var status;
+						var title;
+						var id;
+						
 						$(this).find('title').each(function(){
-						var title = $(this).text();
-						 $('#project').append('<h2>Title: ' + title + '</h2>');
+						title = $(this).text();
 						});
 						
 						$(this).find('id').each(function(){
-						var id = $(this).text();
-						$('#project').append('<h3>ID: ' + id + '</h3>');
+						id = $(this).text();
 						});
 						
 						$(this).find('status').each(function(){
-						var status = $(this).text();
-						$('#project').append('<h4>Status: ' + status + '</h4>');
-						});						
+						status = $(this).text();
+						});
+						
+						$('#projects').append('<h3><a id="linktest" projectid="'+id+'" href="#">' + title + '- Status '+status+'</a></h3>');
+						
 						
 						
 					});
-					
-					
-					
 				}
-			});
-			
-			
-			
-			
+			});//END Llamada AJAX
+     		
+     		//TEST
+			  $("#linktest").live("click",function() {
+				  alert("Hola");
+				  var id = $(this).attr('projectid');
+				  
+				  $.ajax({
+						type: "GET",
+						url: "http://localhost:8080/PFC/rest/API/project/"+id,
+						dataType: "xml",
+						success: function(xml) {
+							
+							$(xml).find('idCoordinator').each(function(){
+							var coordId=$(this).text();
+							$('#project').append('<h5>Coordinator: ' + coordId + '</h5>');
+							});
+							
+							$(xml).find('workpackage').each(function(){
+								var wpTitle=$(this).attr("title");
+								$(this).find('member').each(function(){
+									var member = $(this).text();
+									$('#project').append('<h6>Member name: ' + member + '</h6>');
+									});
+								$(this).find('email').each(function(){
+									var email = $(this).text();
+									$('#project').append('<h6>Email: ' + email + '</h6>');
+									});
+								$(this).find('task').each(function(){
+									var taskTitle=$(this).attr("title");
+									$('#project').append('<h5>Task: ' + taskTitle + '</h5>');
+										$(this).find('description').each(function(){
+										var taskDesc=$(this).text();
+										$('#project').append('<h6>' + taskDesc + '</h6>');
+										});
+									});
+							});
+							
+						}		
+							
+						
+					});//end Ajax
+				  
+			      return false;
+			   });
+     		
+     		//END TEST
+     		
+     		
 		});
      </script>
 </head>
@@ -56,11 +94,14 @@
 	<div id="page-wrap">
      	<h1>Current projects</h1>
      </div>
-     	<div id="project">
+     	<div id="projects">
      	
      </div> 
      
-     <a id="mylink2" href="#">click me and show alert using hyperlink and an id</a>    
+     <div id="project">
+     	
+     </div> 
+     
    
 
 </body>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projects>
 <project>
-<id>001</id>
+<id>Test1</id>
 <title>Test1</title>
 <status>ongoing</status>
 </project>
 <project>
-<id>002</id>
+<id>Test2</id>
 <title>Test2</title>
 <status>ongoing</status>
 </project>
