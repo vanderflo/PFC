@@ -5,11 +5,13 @@
     <member>Manu G</member>
     <id>001</id>
     <email>test@upm.es</email>
+    <name>UPM</name>
   </partner>
   <partner>
     <member>Paco P</member>
     <member>Lisardo G</member>
     <id>002</id>
     <email>test@uc3m.es</email>
-  </partner>
+    <name>UC3M</name>
+ </partner>
 </partners>

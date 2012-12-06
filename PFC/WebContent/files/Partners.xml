@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <partners>
-  <partner>
+  <partner id="001">
     <member>Lolo P</member>
     <member>Manu G</member>
-    <id>001</id>
     <email>test@upm.es</email>
+    <name>UPM</name>
   </partner>
-  <partner>
+  <partner id="002">
     <member>Paco P</member>
     <member>Lisardo G</member>
-    <id>002</id>
     <email>test@uc3m.es</email>
-  </partner>
+    <name>UC3M</name>
+ </partner>
+   <partner id="003">
+    <member>Fran</member>
+    <email>test@unex.es</email>
+    <name>UNEX</name>
+ </partner>
+   <partner id="004">
+    <member>John</member>
+    <email>test@usc.es</email>
+    <name>USC</name>
+ </partner>
 </partners>

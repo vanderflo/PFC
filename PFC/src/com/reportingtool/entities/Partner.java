@@ -32,7 +32,7 @@ public class Partner {
 	}
 	public static Document getCurrentPartnersFile(String name) throws IOException{
 		SAXBuilder builder = new SAXBuilder();
-		File xmlFile = new File(CST.PARTNERS_FILE);
+		File xmlFile = new File(name);
 		Document document=new Document();
 		try {
 			document = (Document) builder.build(xmlFile);

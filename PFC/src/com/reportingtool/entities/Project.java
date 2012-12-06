@@ -4,6 +4,8 @@ import org.jdom2.*;
 import org.jdom2.input.SAXBuilder;
 
 import com.reportingtool.utils.CST;
+import com.reportingtool.utils.Commons;
+
 
 import java.util.Iterator;
 import java.util.List;
@@ -48,38 +50,72 @@ public class Project {
 	 * @return	Documento del proyecto generado.
 	 * @throws IOException
 	 */
-	public static Document createProject(String title, String dateStart, String dateFinish,String idPartner) throws IOException{
+	public static String createProject(String path,String title, String dateStart, String dateFinish,String idPartner,String description, String status) throws IOException{
 		
 		//<project>
 		Element root = new Element("project");
-		root.setAttribute("title",title );
-		root.setAttribute("dateStart",dateStart);
-		root.setAttribute("dateFinish",dateFinish);
-		root.setAttribute("dateStartRevised",dateStart);
-		root.setAttribute("dateFinishRevised",dateFinish);
+		Long l=System.currentTimeMillis();
+		String id=Long.toString(l);
+		root.setAttribute("id",id );
 		
-			Element coordinator = new Element("coordinator");
-			Element idPartnerCoordinator = new Element("partner");
-			idPartnerCoordinator.setAttribute("id", idPartner);
-			coordinator.addContent(idPartnerCoordinator);
 		
-		root.addContent(coordinator);
+		Element metainfo = new Element("metainfo");
+		Element projectBrief=root.clone();
+			Element eTitle = new Element("title");
+			Element eDateStart = new Element("dateStart");
+			Element eDateFinish = new Element("dateFinish");
+			Element eCoordinator = new Element("coordinator");
+			Element eDesc = new Element("projectDescription");
+			Element eStatus = new Element("status");
+				Element ePartner = new Element("partner");
+				ePartner.setAttribute("id",idPartner );
+				eCoordinator.addContent(ePartner);
+				
+			eTitle.addContent(title);
+			eDateStart.addContent(dateStart);
+			eDateFinish.addContent(dateFinish);
+			eDesc.addContent(description);
+			eStatus.addContent(status);
+				
+			metainfo.addContent(eTitle);
+			projectBrief.addContent(eTitle.clone());
+			metainfo.addContent(eDateStart);
+			metainfo.addContent(eDateFinish);
+			metainfo.addContent(eCoordinator);
+			metainfo.addContent(eDesc);
+			metainfo.addContent(eStatus);
+			projectBrief.addContent(eStatus.clone());
 		
+		
+		//Add project to projects file
+		addProject(projectBrief,path+CST.PROJECTS_FILE);
+		
+		root.addContent(metainfo);
 		Document doc = new Document(root);
 		
+		//Format result as String
+		String result=Commons.docToString(doc);
+		Commons.writeFile(path+id,doc);
 		
-		
-		return doc;	
-			
-		
-		
+		return result;	
 		}
 	
+	public static void addProject(Element root,String path){
+		
+		Document doc=getProjects(path);
+		doc.getRootElement().addContent(root);
+		Commons.writeFile(path,doc);
+		
+		
+	}
 	
 	public static Document addWP(Document doc, String title, String partners){
 		
 		Element WP = new Element("workpackage");
 		WP.setAttribute("title",title);
+		Long l=System.currentTimeMillis();
+		WP.setAttribute("id",Long.toString(l) );
+
 		
 		Element ePartners = new Element("partners");
 		
@@ -103,7 +139,8 @@ public class Project {
 		
 		Element task = new Element("task");
 		task.setAttribute("title",title);
-		
+		Long l=System.currentTimeMillis();
+		task.setAttribute("id",Long.toString(l) );
 		Element ePartners = new Element("partners");
 		
 		StringTokenizer st=new StringTokenizer(partners,",");
@@ -174,7 +211,7 @@ public static Document addSchedule(Document doc, String dates){
 	 * @return	Documento con toda la informaci—n del proyecto.
 	 */
 	
-	public static Document getProjectInformation(String name) {
+	public static Document getProjectInformation(String name,String partnersFile) {
 	
 	Document doc = getCurrentProjectDocument(name);
 	
@@ -186,7 +223,7 @@ public static Document addSchedule(Document doc, String dates){
 		if(eObject.getName().equals("partner")){
 		String id =eObject.getAttribute("id").getValue();
 		System.out.println("[PROJECT] Partner identified: "+id);
-		List<Element> lPartner = Partner.getPartnerInfo(Partner.getCurrentPartnersFile(),id);
+		List<Element> lPartner = Partner.getPartnerInfo(Partner.getCurrentPartnersFile(partnersFile),id);
 		Iterator<Element> iter = lPartner.iterator();
 			while (iter.hasNext()){
 			Element e=iter.next();

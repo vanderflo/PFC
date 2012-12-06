@@ -2,11 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link rel="stylesheet" type="text/css" media="all" href="style.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<script type="text/javascript" src="jquery-1.8.2.js"></script>
 	<title>Reading XML with jQuery</title>
      <script>
      	$(document).ready(function(){
+     		$('#formulario').hide();
      		//Llamada AJAX para recuperar los proyectos actuales.
      		$.ajax({
 				type: "GET",
@@ -24,58 +25,65 @@
 						title = $(this).text();
 						});
 						
-						$(this).find('id').each(function(){
-						id = $(this).text();
-						});
+						id=$(this).attr("id");
 						
 						$(this).find('status').each(function(){
 						status = $(this).text();
 						});
 						
-						$('#projects').append('<h3><a id="linktest" projectid="'+id+'" href="#">' + title + '- Status '+status+'</a></h3>');
+						$('#projects').append('<h3><a id="projectButton" class="projectButton" projectid="'+id+'" href="#">' + title + '- Status '+status+'</a></h3>');
 						
 						
 						
 					});
+					$('#projects').append('<h3><a id="createProyect" class="projectButton" href="#">NEW PROJECT</a></h3>');
 				}
 			});//END Llamada AJAX
      		
-     		//TEST
-			  $("#linktest").live("click",function() {
-				  alert("Hola");
+     		//Mostrar proyecto
+			  $("#projectButton").live("click",function() {
+				  $('#formulario').hide();
 				  var id = $(this).attr('projectid');
-				  
+				  $('#project').empty();
 				  $.ajax({
 						type: "GET",
 						url: "http://localhost:8080/PFC/rest/API/project/"+id,
 						dataType: "xml",
 						success: function(xml) {
 							
-							$(xml).find('idCoordinator').each(function(){
-							var coordId=$(this).text();
-							$('#project').append('<h5>Coordinator: ' + coordId + '</h5>');
+							$(xml).find('metainfo').each(function(){								
+								$('#project').append('<h4>Project: ' + $(this).children('title').text() + '</h4>');
+								$(this).find('partner').each(function(){
+								var coordId=$(this).attr("id");
+								var coordName= $(this).children('name').text();
+								$('#project').append('<h5>Coordinator: ' + coordName + '('+coordId+')</h5>');
+								});
 							});
 							
 							$(xml).find('workpackage').each(function(){
 								var wpTitle=$(this).attr("title");
-								$(this).find('member').each(function(){
-									var member = $(this).text();
-									$('#project').append('<h6>Member name: ' + member + '</h6>');
-									});
-								$(this).find('email').each(function(){
-									var email = $(this).text();
-									$('#project').append('<h6>Email: ' + email + '</h6>');
-									});
+								$('#project').append('<h6>WP: ' + wpTitle + '</h6>');
+								
 								$(this).find('task').each(function(){
 									var taskTitle=$(this).attr("title");
 									$('#project').append('<h5>Task: ' + taskTitle + '</h5>');
+										
 										$(this).find('description').each(function(){
 										var taskDesc=$(this).text();
 										$('#project').append('<h6>' + taskDesc + '</h6>');
 										});
+										$(this).find('partner').each(function(){
+										$(this).find('member').each(function(){
+											var member = $(this).text();
+											$('#project').append('<h6>Member name: ' + member + '</h6>');
+											});										
+										$(this).find('email').each(function(){
+											var email = $(this).text();
+											$('#project').append('<h6>Email: ' + email + '</h6>');
+											});
 									});
-							});
-							
+								});
+							});//workpackage
 						}		
 							
 						
@@ -84,24 +92,111 @@
 			      return false;
 			   });
      		
-     		//END TEST
+     		//END Mostrar proyecto
+     		
+     		//Show new proyect form
+  			$("#createProyect").live("click",function() {
+  				$('#project').empty();
+  				$('#formulario').show();
+	  				  				
+	     			
+	     	});
+     		//END new proyect form
+     		
+     		
+     		//Send info new proyect
+     		$("#createProyectForm").submit(function(event){
+    		// setup some local variables
+    		var $form = $(this),
+        	// let's select and cache all the fields
+        	$inputs = $form.find("title, dateStart, dateFinish, desc"),
+        	// serialize the data in the form
+        	serializedData = $form.serialize();
+
+		    // let's disable the inputs for the duration of the ajax request
+		    $inputs.attr("disabled", "disabled");
+
+   			 // fire off the request to REST URL
+		    $.ajax({
+		        url: "http://localhost:8080/PFC/rest/API/create/project/",
+		        type: "post",
+		        data: serializedData,
+		        // callback handler that will be called on success
+		        success: function(response, textStatus, jqXHR){
+		            // log a message to the console
+		        console.log("Hooray, it worked!");
+		        },
+		        // callback handler that will be called on error
+		        error: function(jqXHR, textStatus, errorThrown){
+		            // log the error to the console
+		            console.log(
+		                "The following error occured: "+
+		                textStatus, errorThrown
+		            );
+		        },
+		        // callback handler that will be called on completion
+		        // which means, either on success or error
+		        complete: function(){
+		            // enable the inputs
+		            $inputs.removeAttr("disabled");
+		        }
+		    });
+		
+		    // prevent default posting of form
+		    event.preventDefault();
+		});
+     		
+     		
+     		//END send Info
      		
      		
 		});
      </script>
 </head>
-<body>
-	<div id="page-wrap">
-     	<h1>Current projects</h1>
-     </div>
-     	<div id="projects">
-     	
-     </div> 
+<body>     
      
-     <div id="project">
-     	
-     </div> 
-     
+     <header>
+		<h1>Administrator Menu</h1>
+	</header>
+
+	<aside id="projects">
+	</aside>
+	
+	<section>
+		<article id="project">			
+		</article>
+		
+	<article id="formulario">
+	<h2>Create new project</h2>
+	<form action="#" id="createProyectForm" method="post">
+		<fieldset>
+			<label for="title">Title:</label>
+			<input type="text" id="title" name="title" placeholder="PROJECT TITLE" />
+			
+			<label for="dateStart">Start Date:</label>
+			<input type="text" id="dateStart" name="dateStart" placeholder="DATE" />
+			
+			<label for="dateFinish">Finish Date:</label>
+			<input type="text" id="dateFinish" name="dateFinish" placeholder="DATE" />
+			
+			<label for="desc">Description:</label>
+			<textarea id="desc" name="desc" placeholder="Brief description of the project"></textarea>
+			<label for="submit"></label>			
+			<input type="submit" id="submit" value="Create Project" />
+			
+		</fieldset>
+	</form>
+</formulario>
+		
+		
+	</section>
+	
+	
+	
+	
+	<footer>
+		
+	</footer>
    
 
 </body>
