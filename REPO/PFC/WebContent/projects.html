@@ -7,8 +7,9 @@
 	<title>Reading XML with jQuery</title>
      <script>
      	$(document).ready(function(){
-     		$('#formulario').hide();
+     		$('#project').hide();
      		$('#wp').hide();
+     		$('#task').hide();
      		//Llamada AJAX para recuperar los proyectos actuales.
      		$.ajax({
 				type: "GET",
@@ -38,12 +39,14 @@
 						
 					});
 					$('#projects').append('<h3><a id="createProyect" class="projectButton" href="#">NEW PROJECT</a></h3>');
+					$('#projects').append('<h3><a id="createWp" class="projectButton" href="#">NEW WP</a></h3>');
+					$('#projects').append('<h3><a id="createTask" class="projectButton" href="#">NEW TASK</a></h3>');
 				}
 			});//END Llamada AJAX
      		
      		//Mostrar proyecto
 			  $("#projectButton").live("click",function() {
-				  $('#formulario').hide();
+				  $('#project').hide();
 				  var id = $(this).attr('projectid');
 				  $('#project').empty();
 				  $.ajax({
@@ -95,34 +98,35 @@
      		
      		//END Mostrar proyecto
      		
-     		//Show new proyect form
-  			$("#createProyectttt").live("click",function() {
-  				$('#project').empty();
-  				$('#formulario').show();
-	  				  				
-	     			
-	     	});
-     		//END new proyect form
-     		
-     		 //Show new proyect form
-  			$("#createTask").live("click",function() {  				
-  				$('#tasks').clone().insertAfter("#tasks");
-  				
-	  		});
-     		//END new proyect form
-     		
-     		//Show new proyect form
+     		//Show new Proyect form
   			$("#createProyect").live("click",function() {
-  				$('#project').empty();
-  				$('#wp').show();
-  				
+  				$('#wp').hide();
+  				$('#task').hide();
+		        $('#project').find("input[type=text], textarea").val("");
+  				$('#project').show();
 	  		});
      		//END new proyect form
      		
+     		//Show new Task form
+  			$("#createTask").live("click",function() {  				
+  				$('#project').hide();
+  				$('#wp').hide();
+  				$('#task').find("input[type=text], textarea").val("");
+  				$('#task').show();
+  			});
+     		//END new proyect form
+     		
+     		//Show new WP form
+  			$("#createWp").live("click",function() {
+  				$('#project').hide();
+  				$('#task').hide();
+  				$('#wp').find("input[type=text], textarea").val("");
+  				$('#wp').show();
+  			});
+     		//END new proyect form
      		
      		
-     		
-     		//Send info new proyect
+			//Send info new proyect
      		$("#createProyectForm").submit(function(event){
     		// setup some local variables
     		var $form = $(this),
@@ -142,7 +146,10 @@
 		        // callback handler that will be called on success
 		        success: function(response, textStatus, jqXHR){
 		            // log a message to the console
-		        console.log("Hooray, it worked!");
+		        console.log("Hooray, it worked!");	        
+		        $('#project').empty();
+  				$('#wp').find("input[type=text], textarea").val("");
+  				$('#wp').show();
 		        },
 		        // callback handler that will be called on error
 		        error: function(jqXHR, textStatus, errorThrown){
@@ -162,10 +169,20 @@
 		
 		    // prevent default posting of form
 		    event.preventDefault();
-		});
-     		
-     		
-     		//END send Info
+		});//END send Info
+		
+		
+		
+		//Send info new WP
+		$("#createWpForm").live("submit",function() {
+ 			//Recoger parámetros y enviarlos a createWP, incluyendo el projectId 			
+ 		});//END send new WP
+ 		
+ 		
+		//Send info new Task
+		$("#createTaskForm").live("submit",function() {
+ 			//Recoger parámetros y enviarlos a createTask, incluyendo el projectId y el WpId			
+ 		});//END send new Task
      		
      		
 		});
@@ -181,10 +198,9 @@
 	</aside>
 	
 	<section>
-		<article id="project">			
-		</article>
 		
-<article id="formulario">
+		
+<article id="project">
 	<h2>Create new project</h2>
 	<form action="#" id="createProyectForm" method="post">
 		<fieldset>
@@ -216,8 +232,29 @@
 			<label for="title">Coordinator:</label>
 			<input type="text" id="coordinator" name="coordinator" placeholder="COORDINATOR" />
 			
-			<div id="tasks">
-			<hr/>
+			<label for="effort">Effort:</label>
+			<input type="text" id="effort" name="effort" placeholder="EFFORT" />
+			
+			<label for="wpDateStart">Start Date:</label>
+			<input type="text" id="wpDateStart" name="wpDateStart" placeholder="DATE" />
+			
+			<label for="wpDateFinish">Finish Date:</label>
+			<input type="text" id="wpDateFinish" name="wpDateFinish" placeholder="DATE" />
+			
+			<label for="submitWp"></label>			
+			<input type="submit" id="submitWp" value="SAVE AND CREATE WP" />
+			
+			<label for="hidden"></label>
+			<input type="hidden" id="hidden" name="hidden" />
+			
+			</fieldset>
+	</form>
+</article>
+
+<article id="task">
+	<h2>Create Task</h2>
+	<form action="#" id="createTaskForm" method="post">
+		<fieldset id="newTask">
 			<label for="taskTitle">Task:</label>
 			<input type="text" id="taskTitle" name="taskTitle" placeholder="TASK TITLE" />
 			
@@ -229,24 +266,18 @@
 			
 			<label for="taskDesc">Description:</label>
 			<textarea id="desc" name="taskDesc" placeholder="Brief description of the task"></textarea>
-			</div>
-			<label for="createTask"></label>			
-			<input type="button" id="createTask" value="ADD NEW TASK" />
-			<hr/>
+			
 			<label for="submitTask"></label>			
-			<input type="submit" id="submitTask" value="SAVE AND CREATE WP" />
+			<input type="submit" id="submitTask" value="SAVE AND CREATE TASK" />
 			
 			<label for="hidden"></label>
 			<input type="hidden" id="hidden" name="hidden" />
-
 			
-		</fieldset>
+			</fieldset>
 	</form>
-	
 </article>
-		
-		
-	</section>
+			
+</section>
 	
 	
 	

@@ -113,6 +113,22 @@ public String createProject(@FormParam("title") String title,@FormParam("dateSta
 	return result;
 }
 
+@Path ("/create/WP/")
+@POST
+@Produces ("text/xml")
+public String createWP(@FormParam("title") String title,@FormParam("dateStart") String dateStart,@FormParam("dateFinish") String dateFinish,@FormParam("desc") String desc) {
+	System.out.println("Creating Project. Title:"+title);	
+	String result=null;
+	try {
+		result = Project.createProject(getPath(),title, dateStart, dateFinish, "001", desc, "active");
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+	return result;
+}
+
 
 
 }

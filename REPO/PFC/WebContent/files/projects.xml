@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projects>
-<project>
-<id>Test1</id>
-<title>Test1</title>
-<status>ongoing</status>
-</project>
-<project>
-<id>Test2</id>
-<title>Test2</title>
-<status>ongoing</status>
-</project>
+  <project id="Test1">
+    <title>Test1</title>
+    <status>active</status>
+  </project>
+  <project id="Test2">
+    <title>Test2</title>
+    <status>active</status>
+  </project>
+  <project id="1355244535874">
+    <title>Test13</title>
+    <status>active</status>
+  </project>
+  <project id="1355244768180">
+    <title>Test14</title>
+    <status>active</status>
+  </project> 
+  <project id="1355246330303">
+    <title>Test15</title>
+    <status>active</status>
+  </project>
+  <project id="1355246454807">
+    <title>Test16</title>
+    <status>active</status>
+  </project>
 </projects>
