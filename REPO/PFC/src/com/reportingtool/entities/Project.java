@@ -23,6 +23,8 @@ public class Project {
 	
 	public static Document getCurrentProjectDocument(String projectName){
 		SAXBuilder builder = new SAXBuilder();
+		if (!projectName.endsWith(".xml"))
+			projectName=projectName+"xml";
 		File xmlFile = new File(projectName);
 		Document document=new Document();
 		try {
@@ -109,7 +111,7 @@ public class Project {
 		
 	}
 	
-	public static Document addWP(Document doc, String title, String partners,String effort,String dateInit, String datefinish){
+	public static Document addWP(Document doc, String title, String partners,String effort,String dateInit, String datefinish,String path){
 		
 		Element WP = new Element("workpackage");
 		WP.setAttribute("title",title);
@@ -117,7 +119,7 @@ public class Project {
 		WP.setAttribute("id",Long.toString(l) );
 
 		
-		Element ePartners = new Element("partners");
+		Element ePartners = new Element("coordinator");
 		
 		StringTokenizer st=new StringTokenizer(partners,",");
 		   while (st.hasMoreTokens()){
@@ -140,16 +142,16 @@ public class Project {
 		WP.addContent(ePartners);
 		WP.addContent(eEffort);
 		WP.addContent(eDateInit);
-		WP.addContent(eDateFinish);
-		
+		WP.addContent(eDateFinish);		
 		doc.getRootElement().addContent(WP);
-		
+		System.out.println("***WP added: "+title);
+		Commons.writeFile(path,doc);
 		return doc;
 
 	}
 	
 	
-	public static Document addTask(Document doc, String WP, String title, String description, String partners, String dateInit, String datefinish){
+	public static Document addTask(Document doc, String WP, String title, String description, String partners, String dateInit, String datefinish,String effort,String path){
 		
 		Element task = new Element("task");
 		task.setAttribute("title",title);
@@ -176,10 +178,14 @@ public class Project {
 		Element eDateFinish = new Element("datefinish");
 		eDateFinish.addContent(datefinish);
 		
+		Element eEffort = new Element("effort");
+		eEffort.addContent(effort);
+		
 		task.addContent(ePartners);
 		task.addContent(eDescription);
 		task.addContent(eDateInit);
 		task.addContent(eDateFinish);
+		task.addContent(eEffort);
 		
 	
 		for(Object object : doc.getRootElement().getChildren("workpackage")) {
@@ -191,7 +197,7 @@ public class Project {
 			}						
 		}
 		
-				
+		Commons.writeFile(path,doc);		
 		return doc;
 
 	}

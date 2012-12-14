@@ -113,22 +113,29 @@ public String createProject(@FormParam("title") String title,@FormParam("dateSta
 	return result;
 }
 
-@Path ("/create/WP/")
+@Path ("/add/WP/{projectId}")
 @POST
 @Produces ("text/xml")
-public String createWP(@FormParam("title") String title,@FormParam("dateStart") String dateStart,@FormParam("dateFinish") String dateFinish,@FormParam("desc") String desc) {
-	System.out.println("Creating Project. Title:"+title);	
-	String result=null;
-	try {
-		result = Project.createProject(getPath(),title, dateStart, dateFinish, "001", desc, "active");
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	
+public String createWP(@PathParam("projectId") String projectId,@FormParam("title") String title,@FormParam("wpDateStart") String dateStart,@FormParam("wpDateFinish") String dateFinish,@FormParam("coordinator") String partners,@FormParam("effort") String effort) {
+	System.out.println("Creating WP for project "+projectId+". Title:"+title);	
+	Document d = Project.getCurrentProjectDocument(formatFile(projectId));
+	String path=getPath()+projectId;
+	d = Project.addWP(d,title, partners,effort,dateStart, dateFinish,path);
+	String result=Commons.docToString(d);
 	return result;
 }
 
+@Path ("/add/task/{projectId}/{wpId}")
+@POST
+@Produces ("text/xml")
+public String createTask(@PathParam("projectId") String projectId,@PathParam("wpId") String wpId,@FormParam("taskTitle") String title,@FormParam("taskDateStart") String dateStart,@FormParam("taskDateFinish") String dateFinish,@FormParam("taskPartners") String partners,@FormParam("taskDescription") String description,@FormParam("taskEffort") String effort) {
+	System.out.println("Creating Task for project "+projectId+". Title:"+title);	
+	Document d = Project.getCurrentProjectDocument(formatFile(projectId));
+	String path=getPath()+projectId;
+	d = Project.addTask(d,wpId,title,description,partners,dateStart,dateFinish,effort,path);
+	String result=Commons.docToString(d);
+	return result;
+}
 
 
 }

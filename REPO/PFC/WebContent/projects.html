@@ -7,7 +7,7 @@
 	<title>Reading XML with jQuery</title>
      <script>
      	$(document).ready(function(){
-     		$('#project').hide();
+     		$('#projectForm').hide();
      		$('#wp').hide();
      		$('#task').hide();
      		//Llamada AJAX para recuperar los proyectos actuales.
@@ -39,55 +39,81 @@
 						
 					});
 					$('#projects').append('<h3><a id="createProyect" class="projectButton" href="#">NEW PROJECT</a></h3>');
-					$('#projects').append('<h3><a id="createWp" class="projectButton" href="#">NEW WP</a></h3>');
-					$('#projects').append('<h3><a id="createTask" class="projectButton" href="#">NEW TASK</a></h3>');
+
 				}
 			});//END Llamada AJAX
      		
+			$('#nav > li > a').live("click",function() {
+			    if ($(this).attr('class') != 'active'){
+			      $('#nav li ul').slideUp();
+			      $(this).next().slideToggle();
+			      $('#nav li a').removeClass('active');
+			      $(this).addClass('active');
+			    }else{			    			      
+				      $(this).removeClass('active');
+				      $(this).next().slideUp();
+				    }
+			    
+			  });
+			
+			
      		//Mostrar proyecto
 			  $("#projectButton").live("click",function() {
-				  $('#project').hide();
-				  var id = $(this).attr('projectid');
-				  $('#project').empty();
+		     	$('#projectForm').hide();
+		     	$('#wp').hide();
+		     	$('#task').hide();
+		     	$('#project').empty();
+				$('#project').show();
+				  var id = $(this).attr('projectid');				 
 				  $.ajax({
 						type: "GET",
 						url: "http://localhost:8080/PFC/rest/API/project/"+id,
 						dataType: "xml",
 						success: function(xml) {
-							
-							$(xml).find('metainfo').each(function(){								
-								$('#project').append('<h4>Project: ' + $(this).children('title').text() + '</h4>');
+							var projectTitle;
+							var formHtml="";
+							$(xml).find('metainfo').each(function(){
+								projectTitle= $(this).children('title').text();
+								formHtml='<ul id="nav"><li><a href="#">'+ projectTitle + '</a></li>';
 								$(this).find('partner').each(function(){
 								var coordId=$(this).attr("id");
-								var coordName= $(this).children('name').text();
-								$('#project').append('<h5>Coordinator: ' + coordName + '('+coordId+')</h5>');
+								var coordName= $(this).children('name').text();								
+								formHtml=formHtml+'<li><a href="#">'+ coordName + '</a></li>';
 								});
 							});
-							
 							$(xml).find('workpackage').each(function(){
+								
 								var wpTitle=$(this).attr("title");
-								$('#project').append('<h6>WP: ' + wpTitle + '</h6>');
+								var wpId=$(this).attr("id");
+								formHtml=formHtml+'<li><a href="#">'+ wpTitle + '</a><ul>';
+								
+								
 								
 								$(this).find('task').each(function(){
 									var taskTitle=$(this).attr("title");
-									$('#project').append('<h5>Task: ' + taskTitle + '</h5>');
+									formHtml=formHtml+'<li><a href="#">'+ taskTitle + '</a></li>';
 										
 										$(this).find('description').each(function(){
 										var taskDesc=$(this).text();
-										$('#project').append('<h6>' + taskDesc + '</h6>');
+										formHtml=formHtml+'<li><a href="#">'+ taskDesc + '</a></li>';
 										});
-										$(this).find('partner').each(function(){
-										$(this).find('member').each(function(){
-											var member = $(this).text();
-											$('#project').append('<h6>Member name: ' + member + '</h6>');
-											});										
-										$(this).find('email').each(function(){
-											var email = $(this).text();
-											$('#project').append('<h6>Email: ' + email + '</h6>');
-											});
-									});
+										// $(this).find('partner').each(function(){
+										//$(this).find('member').each(function(){
+											//var member = $(this).text();
+											//$('#project').append('<h6>Member name: ' + member + '</h6>');
+											//});										
+										//$(this).find('email').each(function(){
+											//var email = $(this).text();
+											//$('#project').append('<h6>Email: ' + email + '</h6>');
+											//});
+									//});
 								});
-							});//workpackage
+								formHtml=formHtml+'<li><a id="createTask" projectId='+id+' wpId='+wpId+' href="#">ADD NEW TASK</a></li>';
+								formHtml=formHtml+'</ul>';
+							});//workpackage							
+							formHtml=formHtml+'<li><a id="createWp" projectId='+id+' href="#">ADD NEW WP TO PROJECT</a></li>';
+							$('#project').append(formHtml);
+
 						}		
 							
 						
@@ -102,8 +128,8 @@
   			$("#createProyect").live("click",function() {
   				$('#wp').hide();
   				$('#task').hide();
-		        $('#project').find("input[type=text], textarea").val("");
-  				$('#project').show();
+		        $('#projectForm').find("input[type=text], textarea").val("");
+  				$('#projectForm').show();
 	  		});
      		//END new proyect form
      		
@@ -113,6 +139,10 @@
   				$('#wp').hide();
   				$('#task').find("input[type=text], textarea").val("");
   				$('#task').show();
+  				var prId = $(this).attr('projectId');
+  				var wpId = $(this).attr('wpId');
+  				$('#task').find("input[name='prId']").val(prId);
+  				$('#task').find("input[name='wpId']").val(wpId);
   			});
      		//END new proyect form
      		
@@ -122,6 +152,10 @@
   				$('#task').hide();
   				$('#wp').find("input[type=text], textarea").val("");
   				$('#wp').show();
+  				var prId = $(this).attr('projectId');
+  				$('#wp').find("input[type=hidden]").val(prId);
+  				
+  				
   			});
      		//END new proyect form
      		
@@ -175,17 +209,77 @@
 		
 		//Send info new WP
 		$("#createWpForm").live("submit",function() {
- 			//Recoger parámetros y enviarlos a createWP, incluyendo el projectId 			
- 		});//END send new WP
+			var $form = $(this),
+        	$inputs = $form.find("title, wpDateStart, wpDateFinish, effort,coordinator"),
+        	serializedData = $form.serialize();	
+			var prId = $("#createWpForm :input[name='prId']").val();
+		    $inputs.attr("disabled", "disabled");
+			$.ajax({				
+				url: "http://localhost:8080/PFC/rest/API/add/WP/"+prId,
+				type: "post",
+		        data: serializedData,
+		        // callback handler that will be called on success
+		        success: function(response, textStatus, jqXHR){
+		            // log a message to the console
+		        console.log("Hooray, WP created!");   
+		        },
+		        // callback handler that will be called on error
+		        error: function(jqXHR, textStatus, errorThrown){
+		            // log the error to the console
+		            console.log(
+		                "The following error occured: "+
+		                textStatus, errorThrown
+		            );
+		        },
+		        // callback handler that will be called on completion
+		        // which means, either on success or error
+		        complete: function(){
+		            // enable the inputs
+		          $inputs.removeAttr("disabled");
+		        }
+		    });		
+		    // prevent default posting of form
+		    event.preventDefault();
+		});//END send WP
  		
  		
 		//Send info new Task
 		$("#createTaskForm").live("submit",function() {
- 			//Recoger parámetros y enviarlos a createTask, incluyendo el projectId y el WpId			
- 		});//END send new Task
-     		
-     		
-		});
+			var $form = $(this),
+        	$inputs = $form.find("taskTitle, taskDateStart, taskDateFinish, taskEffort,taskDescription,taskPartners"),
+        	serializedData = $form.serialize();	
+			var prId = $("#createTaskForm :input[name='prId']").val();
+			var wpId = $("#createTaskForm :input[name='wpId']").val();
+		    $inputs.attr("disabled", "disabled");
+			$.ajax({				
+				url: "http://localhost:8080/PFC/rest/API/add/task/"+prId+"/"+wpId,
+				type: "post",
+		        data: serializedData,
+		        // callback handler that will be called on success
+		        success: function(response, textStatus, jqXHR){
+		            // log a message to the console
+		        console.log("Hooray, WP created!");   
+		        },
+		        // callback handler that will be called on error
+		        error: function(jqXHR, textStatus, errorThrown){
+		            // log the error to the console
+		            console.log(
+		                "The following error occured: "+
+		                textStatus, errorThrown
+		            );
+		        },
+		        // callback handler that will be called on completion
+		        // which means, either on success or error
+		        complete: function(){
+		            // enable the inputs
+		          $inputs.removeAttr("disabled");
+		        }
+		    });		
+		    // prevent default posting of form
+		    event.preventDefault();
+		});//END send task
+     });
+     	
      </script>
 </head>
 <body>     
@@ -197,10 +291,12 @@
 	<aside id="projects">
 	</aside>
 	
-	<section>
-		
+<section>
 		
 <article id="project">
+</article>		
+
+<article id="projectForm">
 	<h2>Create new project</h2>
 	<form action="#" id="createProyectForm" method="post">
 		<fieldset>
@@ -241,11 +337,11 @@
 			<label for="wpDateFinish">Finish Date:</label>
 			<input type="text" id="wpDateFinish" name="wpDateFinish" placeholder="DATE" />
 			
-			<label for="submitWp"></label>			
-			<input type="submit" id="submitWp" value="SAVE AND CREATE WP" />
+			<label for="submit"></label>			
+			<input type="submit" id="submit" value="SAVE AND CREATE WP" />
 			
-			<label for="hidden"></label>
-			<input type="hidden" id="hidden" name="hidden" />
+			<label for="prId"></label>
+			<input type="hidden" id="prId" name="prId" />
 			
 			</fieldset>
 	</form>
@@ -264,14 +360,23 @@
 			<label for="taskDateFinish">Finish Date:</label>
 			<input type="text" id="taskDateFinish" name="taskDateFinish" placeholder="DATE" />
 			
-			<label for="taskDesc">Description:</label>
-			<textarea id="desc" name="taskDesc" placeholder="Brief description of the task"></textarea>
+			<label for="taskEffort">Effort:</label>
+			<input type="text" id="taskEffort" name="taskEffort" placeholder="DATE" />
+			
+			<label for="taskPartners">Partners:</label>
+			<input type="text" id="taskPartners" name="taskPartners" placeholder="DATE" />
+			
+			<label for="taskDescription">Description:</label>
+			<textarea id="taskDescription" name="taskDescription" placeholder="Brief description of the task"></textarea>
 			
 			<label for="submitTask"></label>			
 			<input type="submit" id="submitTask" value="SAVE AND CREATE TASK" />
 			
-			<label for="hidden"></label>
-			<input type="hidden" id="hidden" name="hidden" />
+			<label for="wpId"></label>
+			<input type="hidden" id="wpId" name="wpId" />
+			
+			<label for="prId"></label>
+			<input type="hidden" id="prId" name="prId" />
 			
 			</fieldset>
 	</form>
