@@ -38,46 +38,33 @@ public class Report {
 		
 	}
 	
-	public static Document addSubReport(String projectID, String date, String WP, String partnerID, String expenses, String status, String flag){
-		addSubReport(projectID,  date, WP,  partnerID,  expenses,  status,  flag, null);
-		return null;
-	}
+
 	
-	public static Document addSubReport(String projectID, String date, String WP, String partnerID, String expenses, String status, String flag, String explanation){
+	public static Document addSubReport(Document doc,String date, String WP,String partnerID){
 		
-		Document doc = getCurrentReportFile(projectID);
 		Element subreport = new Element("subreport");
+		subreport.setAttribute("partner", partnerID);
+		subreport.setAttribute("WP", WP);
 		
 		Element eDate= new Element("date");
-		eDate.addContent(date);
-		
-		Element ePartnerID= new Element("partner");
-		ePartnerID.addContent(partnerID);
-		
-		Element eWP= new Element("workpackage");
-		eWP.addContent(WP);
-		
+		eDate.addContent(date);		
+	
 		Element eExpenses= new Element("expenses");
-		eExpenses.addContent(expenses);
+		Element eFeedback= new Element("feedback");
 		
 		Element eStatus= new Element("status");
-		eStatus.addContent(status);
+		eStatus.addContent("empty");
 		
-		Element eFlag= new Element("flag");
-		eFlag.addContent(flag);
+		Element eFlag= new Element("flag");		
+			Element eExplanation= new Element("explanation");
+			eFlag.addContent(eExplanation);
 		
-		if (explanation != null){
-		Element eExplanation= new Element("explanation");
-		eExplanation.addContent(explanation);
-		eFlag.addContent(eExplanation);
-		}
 		
 		subreport.addContent(eDate);
-		subreport.addContent(ePartnerID);
-		subreport.addContent(eWP);
 		subreport.addContent(eExpenses);
 		subreport.addContent(eStatus);
 		subreport.addContent(eFlag);
+		subreport.addContent(eFeedback);
 		
 		doc.getRootElement().addContent(subreport);	
 		
@@ -85,7 +72,7 @@ public class Report {
 	}
 	
 	
-	public static Document addTaskReport(String projectID, String date, String WP, String partnerID, String taskID, String result,String effort,String work){
+	public static Document addTaskReport(Document doc, String date, String WP, String partnerID, String taskID, String result,String effort,String work){
 		
 		Element task = new Element("task");
 		task.setAttribute("id",taskID);
@@ -99,14 +86,22 @@ public class Report {
 		Element eEffort= new Element("effort");
 		eEffort.addContent(effort);
 		
+		/** TBD Paso el Doc o lo recupero desde aquí???
+		 * 
+		 */
 		
-		
-		//Get workpackage y añade info de este task. A ver cómo se mira si es sobreescritura...
-		Document doc = getCurrentReportFile(projectID);
+		//Get workpackage y añade info de este task. Hay que incluir info de partner.
 		for(Object object : doc.getRootElement().getChildren("workpackage")) {
 			Element eObject=(Element)object;
 			
-			if (eObject.getAttributeValue("title").equals(WP)){
+			if (eObject.getAttributeValue("id").equals(WP) && eObject.getAttributeValue("partner").equals(partnerID)){
+				//borrar este nodo y reemplazarlo por este nuevo
+				for(Object o : eObject.getChildren("task")) {
+					Element eTask=(Element)o;
+					if (eTask.getAttribute("id").equals(taskID))
+						eObject.removeContent(eTask);						
+				}
+
 				eObject.addContent(task);
 				break;
 				
@@ -117,11 +112,21 @@ public class Report {
 		return doc;
 	}
 	
-	/** TBD
-	 *   - Modificar valores de un o en uno, como por ejemplo el status.
-	 *   - Cómo relacionar el addsubreport con el addtask, cuándo y cómo se llaman entre sí
-	 *   - Denegar/Confirmar report una vez que el partner lo ha rellenado
-	 */
-	
+
+	public static Document updateSubReport(Document doc,String WP, String partnerID,String tag,String value){
+		
+		for(Object object : doc.getRootElement().getChildren("workpackage")) {
+			Element eObject=(Element)object;
+			
+			if (eObject.getAttributeValue("id").equals(WP) && eObject.getAttributeValue("partner").equals(partnerID)){
+				//borrar este nodo y reemplazarlo por este nuevo				
+				Element eElm=(Element)eObject.getChildren(tag);
+				eElm.setText(value);	
+				break;
+			}						
+		}
+		
+		return doc;
+	}
 
 }
