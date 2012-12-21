@@ -99,6 +99,10 @@ public class Project {
 		String result=Commons.docToString(doc);
 		Commons.writeFile(path+id,doc);
 		
+		//Crear fichero de report
+		Report.createReportFile(path+id+"_report");
+		
+		
 		return result;	
 		}
 	

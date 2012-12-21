@@ -17,6 +17,7 @@ import org.jdom2.Document;
 
 
 import com.reportingtool.entities.Project;
+import com.reportingtool.entities.Report;
 import com.reportingtool.utils.CST;
 import com.reportingtool.utils.Commons;
 
