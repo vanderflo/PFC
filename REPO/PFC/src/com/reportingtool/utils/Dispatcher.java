@@ -5,6 +5,13 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import com.reportingtool.entities.*;
 import org.jdom2.Document;
+import org.jdom2.Element;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.StringTokenizer;
+import java.util.Vector;
 
 public class Dispatcher {
 
@@ -28,20 +35,47 @@ public class Dispatcher {
 		System.out.println(System.getProperty("user.dir"));
 		//Document d = Project.getProjectInformation(System.getProperty("user.dir")+"/WebContent/files/Test2.xml","");
 		//Commons.writeFile("Resultado5.xml",d);
-		System.out.println(System.currentTimeMillis());
-		System.out.println(System.currentTimeMillis());
-		System.out.println(System.currentTimeMillis());
+		String start="12/2012";
+		String months="1,2,3,4,5,6";
+		Vector<String> result=new Vector<String>();
+		int monthStart=Integer.parseInt(start.substring(0,start.indexOf('/')));
+		int yearStart=Integer.parseInt(start.substring(start.indexOf('/')+1));
+		
+	    System.out.println("DATE: "+monthStart+" - "+yearStart);
 
 		
-		for (int i=0;i<1000000;i++){
-			i=i*10;
-			i=i/10;
-			
-		}
 		
-		System.out.println(System.currentTimeMillis());
-		System.out.println(System.currentTimeMillis());
-		System.out.println(System.currentTimeMillis());
+		// Constructor allows to set year, month and date
+	    Calendar cal1 = new GregorianCalendar();
+	    // Constructor could also be empty
+	    // Calendar cal2 = new GregorianCalendar();
+	    // Change the month
+	    cal1.set(Calendar.MONTH, monthStart-1);
+	    cal1.set(Calendar.YEAR, yearStart);
+
+	    System.out.println("Year: " + cal1.get(Calendar.YEAR));
+	    System.out.println("Month: " + (cal1.get(Calendar.MONTH) + 1));
+
+	    
+	    
+	    StringTokenizer st=new StringTokenizer(months,",");
+		   while (st.hasMoreTokens()){
+			   String s=st.nextToken();
+			   Calendar cal2=new GregorianCalendar();
+			   cal2.set(Calendar.MONTH, monthStart-1);
+			   cal2.set(Calendar.YEAR, yearStart);
+			   
+			   int month=Integer.parseInt(s);
+			   System.out.print("Report on month:"+month);
+			   cal2.add(Calendar.MONTH, month-1);
+			   SimpleDateFormat date_format = new SimpleDateFormat("MM/yyyy");
+			   System.out.println(". Date Report: "+date_format.format(cal2.getTime()));
+			   result.add(date_format.format(cal2.getTime()));
+		   }	
+	    
+	    
+	    // Format the output with leading zeros for days and month
+	    
 		
 
 	}

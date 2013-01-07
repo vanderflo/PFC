@@ -1,27 +1,21 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
-                    "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-  <script src="jquery-1.8.2.js"></script>
-  
-  <script>
-  $(document).ready(function(){
-    
-    $("p").live("click", function(){
-      $(this).after("<p>Another paragraph!</p>");
-    });
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script type="text/javascript" >
 
-  });
-  </script>
-  <style>
-  p { background:yellow; font-weight:bold; cursor:pointer; 
-      padding:5px; }
-  p.over { background: #ccc; }
-  span { color:red; }
-  </style>
-</head>
-<body>
-  <p>Click me!</p>
-  <span></span>
-</body>
-</html>
+$(document).ready(function(){
+$("#num1").keyup(function(){
+var texto_escrito = parseInt($("#num1").val()) + parseInt($("#num2").val());
+$("#un_div").html(texto_escrito);
+})
+$("#num2").keyup(function(){
+var texto_escrito = parseInt($("#num1").val()) + parseInt($("#num2").val());
+$("#un_div").html(texto_escrito);
+})
+})
+</script> 
+
+<form>
+<input type="text" name="num1" id="num1" maxlength="4" />
+<input type="text" name="num2" id="num2" maxlength="4" />
+</form>
+<br />
+<div id="un_div" style="background-color:#FFC; padding:12px">_</div>

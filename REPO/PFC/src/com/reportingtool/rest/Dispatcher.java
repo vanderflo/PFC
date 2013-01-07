@@ -101,11 +101,11 @@ return "<projects><project><projectId>001</projectId><titleTest1</title><status>
 @Path ("/create/project/")
 @POST
 @Produces ("text/xml")
-public String createProject(@FormParam("title") String title,@FormParam("dateStart") String dateStart,@FormParam("dateFinish") String dateFinish,@FormParam("desc") String desc) {
+public String createProject(@FormParam("title") String title,@FormParam("dateStart") String dateStart,@FormParam("duration") String duration,@FormParam("desc") String desc,@FormParam("reportSchedule") String reportSchedule) {
 	System.out.println("Creating Project. Title:"+title);	
 	String result=null;
 	try {
-		result = Project.createProject(getPath(),title, dateStart, dateFinish, "001", desc, "active");
+		result = Project.createProject(getPath(),title, dateStart, duration, "001", reportSchedule, desc, "active");
 	} catch (IOException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -137,6 +137,8 @@ public String createTask(@PathParam("projectId") String projectId,@PathParam("wp
 	String result=Commons.docToString(d);
 	return result;
 }
+
+
 
 
 }

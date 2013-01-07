@@ -3,11 +3,15 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link href=" http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/themes/base/jquery-ui.css" rel="Stylesheet">
 	<script type="text/javascript" src="jquery-1.8.2.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/jquery-ui.min.js"></script>
 	<title>Reading XML with jQuery</title>
      <script>
      	$(document).ready(function(){
      		$.getScript("projects.js");
+     		$.getScript("showProject.js");
+     		$.getScript("datePicker.js");
      		
 			$('#nav > li > a').live("click",function() {
 			    if ($(this).attr('class') != 'active'){
@@ -20,80 +24,15 @@
 				      $(this).next().slideUp();
 				    }
 			    
-			  });
+			  });			
 			
-			
-     		//Mostrar proyecto
-			  $("#projectButton").live("click",function() {
-		     	$('#projectForm').hide();
-		     	$('#wp').hide();
-		     	$('#task').hide();
-		     	$('#project').empty();
-				$('#project').show();
-				  var id = $(this).attr('projectid');				 
-				  $.ajax({
-						type: "GET",
-						url: "http://localhost:8080/PFC/rest/API/project/"+id,
-						dataType: "xml",
-						success: function(xml) {
-							var projectTitle;
-							var formHtml="";
-							$(xml).find('metainfo').each(function(){
-								projectTitle= $(this).children('title').text();
-								formHtml='<ul id="nav"><li><a href="#">'+ projectTitle + '</a></li>';
-								$(this).find('partner').each(function(){
-								var coordId=$(this).attr("id");
-								var coordName= $(this).children('name').text();								
-								formHtml=formHtml+'<li><a href="#">'+ coordName + '</a></li>';
-								});
-							});
-							$(xml).find('workpackage').each(function(){
-								
-								var wpTitle=$(this).attr("title");
-								var wpId=$(this).attr("id");
-								formHtml=formHtml+'<li><a href="#">'+ wpTitle + '</a><ul>';
-								
-								
-								
-								$(this).find('task').each(function(){
-									var taskTitle=$(this).attr("title");
-									formHtml=formHtml+'<li><a href="#">'+ taskTitle + '</a></li>';
-										
-										$(this).find('description').each(function(){
-										var taskDesc=$(this).text();
-										formHtml=formHtml+'<li><a href="#">'+ taskDesc + '</a></li>';
-										});
-										// $(this).find('partner').each(function(){
-										//$(this).find('member').each(function(){
-											//var member = $(this).text();
-											//$('#project').append('<h6>Member name: ' + member + '</h6>');
-											//});										
-										//$(this).find('email').each(function(){
-											//var email = $(this).text();
-											//$('#project').append('<h6>Email: ' + email + '</h6>');
-											//});
-									//});
-								});
-								formHtml=formHtml+'<li><a id="createTask" projectId='+id+' wpId='+wpId+' href="#">ADD NEW TASK</a></li>';
-								formHtml=formHtml+'</ul>';
-							});//workpackage							
-							formHtml=formHtml+'<li><a id="createWp" projectId='+id+' href="#">ADD NEW WP TO PROJECT</a></li>';
-							$('#project').append(formHtml);
-
-						}		
-							
-						
-					});//end Ajax
-				  
-			      return false;
-			   });
      		
-     		//END Mostrar proyecto
      		
      		//Show new Proyect form
   			$("#createProyect").live("click",function() {
   				$('#wp').hide();
   				$('#task').hide();
+  				$('#project').hide();
 		        $('#projectForm').find("input[type=text], textarea").val("");
   				$('#projectForm').show();
 	  		});
@@ -131,7 +70,7 @@
     		// setup some local variables
     		var $form = $(this),
         	// let's select and cache all the fields
-        	$inputs = $form.find("title, dateStart, dateFinish, desc"),
+        	$inputs = $form.find("title, dateStart, duration, reportSchedule, desc"),
         	// serialize the data in the form
         	serializedData = $form.serialize();
 
@@ -251,7 +190,7 @@
 <body>     
      
      <header>
-		<h1>Partner Menu</h1>
+		<h1>ADMIN Menu</h1>
 	</header>
 
 	<aside id="projects">
@@ -270,10 +209,13 @@
 			<input type="text" id="title" name="title" placeholder="PROJECT TITLE" />
 			
 			<label for="dateStart">Start Date:</label>
-			<input type="text" id="dateStart" name="dateStart" placeholder="DATE" />
+			<input type="text" id="dateStart" name="dateStart" placeholder="DATE"    />
 			
-			<label for="dateFinish">Finish Date:</label>
-			<input type="text" id="dateFinish" name="dateFinish" placeholder="DATE" />
+			<label for="duration">Finish Date:</label>
+			<input type="text" id="duration" name="duration" placeholder="DURATION (months)" />
+			
+			<label for="reportSchedule">Months with Reports</label>
+			<input type="text" id="reportSchedule" name="reportSchedule" placeholder="MONTHS" />
 			
 			<label for="desc">Description:</label>
 			<textarea id="desc" name="desc" placeholder="Brief description of the project"></textarea>

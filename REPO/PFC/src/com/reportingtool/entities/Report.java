@@ -43,6 +43,7 @@ public class Report {
 	public static Document addSubReport(Document doc,String date, String WP,String partnerID){
 		
 		Element subreport = new Element("subreport");
+		
 		subreport.setAttribute("partner", partnerID);
 		subreport.setAttribute("WP", WP);
 		
@@ -127,6 +128,22 @@ public class Report {
 		}
 		
 		return doc;
+	}
+	
+	
+	public static Document getSubReportForPartner(Document doc,String WP,String partnerID,String date){
+		Document d = new Document(doc.getRootElement());		
+		for(Object object : doc.getRootElement().getChildren("subreport")) {
+			Element eObject=(Element)object;
+			
+			if (eObject.getAttributeValue("partnerID").equals(WP) && eObject.getAttributeValue("wpID").equals(partnerID) && eObject.getAttributeValue("date").equals(date)){
+				d.addContent(eObject);
+			}						
+		}
+		
+		return d;
+		
+		
 	}
 
 }

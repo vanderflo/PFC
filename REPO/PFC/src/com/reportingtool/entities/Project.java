@@ -52,7 +52,7 @@ public class Project {
 	 * @return	Documento del proyecto generado.
 	 * @throws IOException
 	 */
-	public static String createProject(String path,String title, String dateStart, String dateFinish,String idPartner,String description, String status) throws IOException{
+	public static String createProject(String path,String title, String dateStart, String duration,String idPartner,String description, String reportSchedule,String status) throws IOException{
 		
 		//<project>
 		Element root = new Element("project");
@@ -65,9 +65,22 @@ public class Project {
 		Element projectBrief=root.clone();
 			Element eTitle = new Element("title");
 			Element eDateStart = new Element("dateStart");
-			Element eDateFinish = new Element("dateFinish");
+			Element eDuration = new Element("duration");
 			Element eCoordinator = new Element("coordinator");
 			Element eDesc = new Element("projectDescription");
+			
+			Element eReportSchedule = new Element("reportSchedule");
+			// Calcular report schedule
+			StringTokenizer st=new StringTokenizer(reportSchedule,",");
+			   while (st.hasMoreTokens()){
+				   String s=st.nextToken();
+				   //s=getMonth(dateStart,s);
+				   Element reportDate=new Element("reportDate");
+				   reportDate.setText(s);
+				   eReportSchedule.addContent(reportDate);
+			   }	
+			//
+			
 			Element eStatus = new Element("status");
 				Element ePartner = new Element("partner");
 				ePartner.setAttribute("id",idPartner );
@@ -75,14 +88,14 @@ public class Project {
 				
 			eTitle.addContent(title);
 			eDateStart.addContent(dateStart);
-			eDateFinish.addContent(dateFinish);
+			eDuration.addContent(duration);
 			eDesc.addContent(description);
 			eStatus.addContent(status);
 				
 			metainfo.addContent(eTitle);
 			projectBrief.addContent(eTitle.clone());
 			metainfo.addContent(eDateStart);
-			metainfo.addContent(eDateFinish);
+			metainfo.addContent(eDuration);
 			metainfo.addContent(eCoordinator);
 			metainfo.addContent(eDesc);
 			metainfo.addContent(eStatus);

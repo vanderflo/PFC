@@ -218,3 +218,6 @@ form, fieldset, input, textarea {
 #nav li {
     list-style:none;
 }
+.ui-datepicker-calendar {
+    display: none;
+    }
