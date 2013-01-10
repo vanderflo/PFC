@@ -138,7 +138,17 @@ public String createTask(@PathParam("projectId") String projectId,@PathParam("wp
 	return result;
 }
 
-
+@Path ("/report/get/{projectId}/{wpId}/{partnerId}")
+@POST
+@Produces ("text/xml")
+public String getReport(@PathParam("projectId") String projectId,@PathParam("wpId") String wpId,@PathParam("partnerId") String partnerId,@PathParam("date") String date) {
+	String rep_projectId=projectId+"_report";
+	System.out.println("Getting report for project "+projectId+". WpId:"+wpId+". PartnerId:"+partnerId);	
+	Document d = Report.getCurrentReportFile(formatFile(rep_projectId));
+	d = Report.getSubReportForPartner(d,wpId,partnerId);
+	String result=Commons.docToString(d);
+	return result;
+}
 
 
 }

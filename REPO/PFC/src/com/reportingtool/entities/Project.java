@@ -10,6 +10,7 @@ import com.reportingtool.utils.Commons;
 import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
+import java.util.Vector;
 import java.io.File;
 import java.io.IOException;
 
@@ -69,15 +70,16 @@ public class Project {
 			Element eCoordinator = new Element("coordinator");
 			Element eDesc = new Element("projectDescription");
 			
+			@SuppressWarnings("unchecked")
+			Vector<String> v=Commons.getSchedule(dateStart,reportSchedule);
+			
 			Element eReportSchedule = new Element("reportSchedule");
 			// Calcular report schedule
-			StringTokenizer st=new StringTokenizer(reportSchedule,",");
-			   while (st.hasMoreTokens()){
-				   String s=st.nextToken();
-				   //s=getMonth(dateStart,s);
-				   Element reportDate=new Element("reportDate");
-				   reportDate.setText(s);
-				   eReportSchedule.addContent(reportDate);
+			for( int i=0; i<v.size() ; i ++ ){ 
+				String s=v.elementAt(i);
+				Element reportDate=new Element("reportDate");
+				reportDate.setText(s);
+				 eReportSchedule.addContent(reportDate);
 			   }	
 			//
 			

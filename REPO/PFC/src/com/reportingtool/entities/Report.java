@@ -131,12 +131,12 @@ public class Report {
 	}
 	
 	
-	public static Document getSubReportForPartner(Document doc,String WP,String partnerID,String date){
+	public static Document getSubReportForPartner(Document doc,String WP,String partnerID){
 		Document d = new Document(doc.getRootElement());		
 		for(Object object : doc.getRootElement().getChildren("subreport")) {
 			Element eObject=(Element)object;
 			
-			if (eObject.getAttributeValue("partnerID").equals(WP) && eObject.getAttributeValue("wpID").equals(partnerID) && eObject.getAttributeValue("date").equals(date)){
+			if (eObject.getAttributeValue("partnerID").equals(partnerID) && eObject.getAttributeValue("wpID").equals(WP)){
 				d.addContent(eObject);
 			}						
 		}
