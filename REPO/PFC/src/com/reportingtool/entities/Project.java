@@ -7,6 +7,7 @@ import com.reportingtool.utils.CST;
 import com.reportingtool.utils.Commons;
 
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -308,6 +309,38 @@ public static Document addSchedule(Document doc, String dates){
 	
 }
 
+	
+	public static Document createReportStructure(Document doc){
+		
+		
+		//Get report dates	
+
+		
+		List<Element> oList=new ArrayList<Element>();
+		for(Object object : doc.getRootElement().getChildren("workpackage")) {
+			Element eObject=(Element)object;
+			
+			
+			
+			
+			//Get dates
+			//Get partners
+			//Compare with reportDates; if true, generate a new node for each partner
+			
+			if (eObject.getAttributeValue("id").equals("")){
+					for(Object o : eObject.getChildren()) {
+					Element eTmp=(Element)o;
+					System.out.println("Adding "+eTmp.getName());
+					oList.add(eTmp);
+				}
+								
+			}						
+		}
+		
+		
+		
+		return null;
+	}
 	
 	
 }

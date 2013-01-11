@@ -33,9 +33,9 @@ public class Dispatcher {
 	 */
 	public static void main(String[] args) throws IOException {
 		System.out.println(System.getProperty("user.dir"));
-		//Document d = Project.getProjectInformation(System.getProperty("user.dir")+"/WebContent/files/Test2.xml","");
+		Document doc = Project.getCurrentProjectDocument(System.getProperty("user.dir")+"/WebContent/files/Test1.xml");
 		//Commons.writeFile("Resultado5.xml",d);
-		String start="12/2012";
+		/*String start="12/2012";
 		String months="1,2,3,4,5,6";
 		Vector<String> result=new Vector<String>();
 		int monthStart=Integer.parseInt(start.substring(0,start.indexOf('/')));
@@ -45,11 +45,8 @@ public class Dispatcher {
 
 		
 		
-		// Constructor allows to set year, month and date
 	    Calendar cal1 = new GregorianCalendar();
-	    // Constructor could also be empty
-	    // Calendar cal2 = new GregorianCalendar();
-	    // Change the month
+
 	    cal1.set(Calendar.MONTH, monthStart-1);
 	    cal1.set(Calendar.YEAR, yearStart);
 
@@ -71,11 +68,16 @@ public class Dispatcher {
 			   SimpleDateFormat date_format = new SimpleDateFormat("MM/yyyy");
 			   System.out.println(". Date Report: "+date_format.format(cal2.getTime()));
 			   result.add(date_format.format(cal2.getTime()));
-		   }	
+		   }	*/
 	    
 	    
 	    // Format the output with leading zeros for days and month
 	    
+		
+		
+		
+		
+		
 		
 
 	}

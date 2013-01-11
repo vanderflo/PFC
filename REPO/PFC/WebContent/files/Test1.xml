@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+workpackage<?xml version="1.0" encoding="UTF-8"?>
 <project id="Test1">
   <metainfo>
     <title>Test1</title>
@@ -9,48 +9,28 @@
       <partner id="001" />
     </coordinator>
   </metainfo>
-  <workpackage id="1" title="WP1.1">
-    <partners>
-      <partner id="002" />
-      <partner id="003" />
-      <partner id="004" />
-    </partners>
-    <task id="1" title="Task1">
+  <workpackage title="WP 1" id="1355348593077">
+    <coordinator>
+      <leader id="001" />
+    </coordinator>
+    <effort>a lot</effort>
+    <dateInit>today</dateInit>
+    <datefinish>tomorrow</datefinish>
+	<task id="11" title="Task 1.1">
       <partners>
-        <partner id="002" />
-        <partner id="003" />
-        <partner id="004" />
+        <partner id="001" />
       </partners>
       <description>Long description</description>
       <dateInit>2012-09-01</dateInit>
       <datefinish>2012-12-01</datefinish>
     </task>
-    <task id="2" title="Task2">
+    <task id="12" title="Task 1.2">
       <partners>
         <partner id="002" />
-        <partner id="003" />
-        <partner id="004" />
       </partners>
       <description>Longer description</description>
       <dateInit>2012-09-01</dateInit>
       <datefinish>2012-12-01</datefinish>
-    </task>
-    <task title="task1" id="1355348063035">
-      <partners>
-        <partner id="001" />
-      </partners>
-      <description>Longerrr description</description>
-      <dateInit>qq</dateInit>
-      <datefinish>qq</datefinish>
-    </task>
-    <task title="Example task added" id="1355348419607">
-      <partners>
-        <partner id="001" />
-      </partners>
-      <description>such a desc</description>
-      <dateInit>today</dateInit>
-      <datefinish>tomorrow</datefinish>
-      <effort>a lot</effort>
     </task>
   </workpackage>
   <reportSchedule>
