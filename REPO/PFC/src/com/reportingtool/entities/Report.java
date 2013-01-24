@@ -12,10 +12,28 @@ public class Report {
 	
 	public static Document createReportFile(String projectID){
 		//Si está vacío,crear raiz; si no, <partner>
-		Element root = new Element("report");			
+		Element root = new Element("report");
 		Document doc = new Document(root);
 		Commons.writeFile(projectID,doc);
 		return doc;		
+	}
+	
+	public static  Document fillReportFile(Document doc){
+		
+		//Get init date y duration
+		//Get reportSchedule y crea un array o vector de arrays
+		//Para cada report, get partners, ve a cada WP, get tasks que estŽn en esa fecha y a–‡delo
+			// for each report
+				//getWP, for each WP
+					//comprueba que est‡ en el rango de fechas
+					//s’? getpartners
+					 //get tasks, y para cada task, comprueba si ese partner est‡ incluido en esa tarea; a–‡delo si ves que tal
+					
+		
+		
+		
+		
+		return null;
 	}
 	
 	public static Document getCurrentReportFile(String projectID){
