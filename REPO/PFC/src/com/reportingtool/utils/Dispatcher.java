@@ -138,7 +138,7 @@ public class Dispatcher {
 			   System.out.println(". Date Report: "+date_format.format(cal2.getTime()));
 			   result.add(date_format.format(cal2.getTime()));
 		   }	*/
-	    */
+	   
 	    
 	    // Format the output with leading zeros for days and month
 	    
@@ -149,7 +149,7 @@ public class Dispatcher {
 		
 		
 
-	}
+	
 	
 	public static void getPartnerParamsAndStart(){
 		
