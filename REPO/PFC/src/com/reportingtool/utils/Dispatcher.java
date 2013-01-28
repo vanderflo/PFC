@@ -63,7 +63,8 @@ public class Dispatcher {
 		Document d = Project.getCurrentProjectDocument(System.getProperty("user.dir")+"/WebContent/files/Test1.xml");
 		
 
-		
+		Element root = new Element("report");
+		Document docFinal = new Document(root);
 		
 		//Get init date y duration
 		Object metainfo= d.getRootElement().getChild("metainfo");	
@@ -83,23 +84,26 @@ public class Dispatcher {
 				String wpTitle=eO.getAttributeValue("title");
 				String wpInit=eO.getChildText("dateInit");
 				String wpFinish=eO.getChildText("dateFinish");
+				Iterator<Element> iTasks=eO.getDescendants(Filters.element("task"));
 				//if report date falls into WP execution
 				if(checkReportDate(reportDate,wpInit,wpFinish)){
 					System.out.println(wpTitle + "applies to report " + reportDate );
 					Iterator<Element> iPartners=eO.getDescendants(Filters.element("partner"));
 					while (iPartners.hasNext()){
 						Element ePartner=iPartners.next();
-						System.out.println(reportDate+" Partner found:"+ ePartner.getAttributeValue("id")+ "for WP: "+wpTitle);
+						System.out.println(reportDate+" Partner found: "+ ePartner.getAttributeValue("id")+ " for WP: "+wpTitle);
+						
+						createSubreport( ePartner.getAttributeValue("id"),eO,iTasks,reportDate,docFinal);
+						
 					}
-					//for each partner, 
-					//create subreport;
+					
 				}
-				//get all tasks, and check if partner is assigned and if task is still being executed
-				//a–ade task a cada subreport
 				
-			}}
-			
+				
+			}
 		}
+			
+	}
 		
 		
 		
@@ -144,7 +148,13 @@ public class Dispatcher {
 	    
 		
 		
+	public static Document createSubreport(String partnerId,Element wp,Iterator<Element> tasks,String reportDate, Document doc){
 		
+		Document d = Report.addSubReport( doc,reportDate,wp.getAttributeValue("id"),partnerId,tasks);
+		
+		return d;
+		
+	}
 		
 		
 		

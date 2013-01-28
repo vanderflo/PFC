@@ -2,6 +2,11 @@ package com.reportingtool.entities;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Iterator;
+
 import com.reportingtool.utils.*;
 import org.jdom2.Document;
 import org.jdom2.Element;
@@ -18,23 +23,7 @@ public class Report {
 		return doc;		
 	}
 	
-	public static  Document fillReportFile(Document doc){
-		
-		//Get init date y duration
-		//Get reportSchedule y crea un array o vector de arrays
-		//Para cada report, get partners, ve a cada WP, get tasks que estén en esa fecha y añádelo
-			// for each report
-				//getWP, for each WP
-					//comprueba que está en el rango de fechas
-					//sí? getpartners
-					 //get tasks, y para cada task, comprueba si ese partner está incluido en esa tarea; añádelo si ves que tal
-					
-		
-		
-		
-		
-		return null;
-	}
+
 	
 	public static Document getCurrentReportFile(String projectID){
 		
@@ -58,15 +47,15 @@ public class Report {
 	
 
 	
-	public static Document addSubReport(Document doc,String date, String WP,String partnerID){
+	public static Document addSubReport(Document doc,String date, String WP,String partnerID,Iterator<Element> tasks){
 		
 		Element subreport = new Element("subreport");
 		
 		subreport.setAttribute("partner", partnerID);
 		subreport.setAttribute("WP", WP);
+		subreport.setAttribute("date", date);
 		
-		Element eDate= new Element("date");
-		eDate.addContent(date);		
+	
 	
 		Element eExpenses= new Element("expenses");
 		Element eFeedback= new Element("feedback");
@@ -79,11 +68,22 @@ public class Report {
 			eFlag.addContent(eExplanation);
 		
 		
-		subreport.addContent(eDate);
 		subreport.addContent(eExpenses);
 		subreport.addContent(eStatus);
 		subreport.addContent(eFlag);
 		subreport.addContent(eFeedback);
+		
+		while (tasks.hasNext()){
+			Element t=tasks.next();
+			for(Object oPartner : t.getChildren("partner")) {
+			Element ePartner=(Element)oPartner;
+				if (ePartner.getAttributeValue("id").equals(partnerID) && checkReportDate(date,t.getChildText("dateInit"),t.getChildText("dateFinish"))){
+					subreport.addContent(addTaskReport(WP,partnerID,t.getAttributeValue("id"),"","",""));
+				}
+			}
+			
+			
+		}
 		
 		doc.getRootElement().addContent(subreport);	
 		
@@ -91,13 +91,13 @@ public class Report {
 	}
 	
 	
-	public static Document addTaskReport(Document doc, String date, String WP, String partnerID, String taskID, String result,String effort,String work){
+	public static Element addTaskReport(String WP, String partnerID, String taskID, String result,String effort,String work){
 		
 		Element task = new Element("task");
 		task.setAttribute("id",taskID);
 		
 		Element eWork= new Element("work");
-		eWork.addContent(date);
+		eWork.addContent(work);
 		
 		Element eResult= new Element("result");
 		eResult.addContent(result);
@@ -105,9 +105,14 @@ public class Report {
 		Element eEffort= new Element("effort");
 		eEffort.addContent(effort);
 		
+		
+		task.addContent(eWork);
+		task.addContent(eResult);
+		task.addContent(eEffort);
+		
 		/** TBD Paso el Doc o lo recupero desde aquÌ???
 		 * 
-		 */
+		 
 		
 		//Get workpackage y aÒade info de este task. Hay que incluir info de partner.
 		for(Object object : doc.getRootElement().getChildren("workpackage")) {
@@ -124,11 +129,13 @@ public class Report {
 				eObject.addContent(task);
 				break;
 				
-			}						
-		}
+			}		
 		
 		
-		return doc;
+		}*/
+		
+		
+		return task;
 	}
 	
 
@@ -162,6 +169,26 @@ public class Report {
 		return d;
 		
 		
+	}
+	
+	public static boolean checkReportDate(String date, String init, String finish){
+		try{
+		System.out.println("Date: "+date+". Date Init: "+init+". Date Finish:"+finish);
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Date dDate = sdf.parse(date , new ParsePosition(0));
+		Date dInit = sdf.parse(init , new ParsePosition(0));
+		Date dFinish = sdf.parse(finish , new ParsePosition(0));
+		System.out.println("Comparing:"+dDate.compareTo(dInit));
+		System.out.println("Comparing:"+dDate.compareTo(dFinish));
+		
+		if ((dDate.compareTo(dInit) >= 0) && (dDate.compareTo(dFinish) <= 0))
+			return true;
+		else
+			return false;
+		}catch (Exception e){
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 }
