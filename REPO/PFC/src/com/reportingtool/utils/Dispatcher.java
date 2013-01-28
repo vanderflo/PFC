@@ -6,10 +6,14 @@ import java.util.concurrent.atomic.AtomicLong;
 import com.reportingtool.entities.*;
 import org.jdom2.Document;
 import org.jdom2.Element;
+import org.jdom2.filter.Filters;
 
+import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Iterator;
 import java.util.StringTokenizer;
 import java.util.Vector;
 
@@ -28,12 +32,77 @@ public class Dispatcher {
 	            return now;
 	    }
 	}
+	
+	
+	public static boolean checkReportDate(String date, String init, String finish){
+		try{
+		System.out.println("Date: "+date+". Date Init: "+init+". Date Finish:"+finish);
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		Date dDate = sdf.parse(date , new ParsePosition(0));
+		Date dInit = sdf.parse(init , new ParsePosition(0));
+		Date dFinish = sdf.parse(finish , new ParsePosition(0));
+		System.out.println("Comparing:"+dDate.compareTo(dInit));
+		System.out.println("Comparing:"+dDate.compareTo(dFinish));
+		
+		if ((dDate.compareTo(dInit) >= 0) && (dDate.compareTo(dFinish) <= 0))
+			return true;
+		else
+			return false;
+		}catch (Exception e){
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) throws IOException {
 		System.out.println(System.getProperty("user.dir"));
 		Document doc = Project.getCurrentProjectDocument(System.getProperty("user.dir")+"/WebContent/files/Test1.xml");
+		Document d = Project.getCurrentProjectDocument(System.getProperty("user.dir")+"/WebContent/files/Test1.xml");
+		
+
+		
+		
+		//Get init date y duration
+		Object metainfo= d.getRootElement().getChild("metainfo");	
+		Element eMetainfo=(Element)metainfo;
+		String duration = eMetainfo.getChildText("duration");
+		String dateStart = eMetainfo.getChildText("dateStart");
+		System.out.println("Project duration: "+duration+"| Project start: "+dateStart);
+		//Get reportSchedule y crea un array o vector de arrays
+		Object reportSchedule = d.getRootElement().getChild("reportSchedule");
+		Element eReportSchedule=(Element)reportSchedule;
+		for(Object object : eReportSchedule.getChildren("date")) {
+			Element eObject=(Element)object;
+			String reportDate=eObject.getTextTrim();
+			System.out.println("Processing report date "+reportDate);
+			for(Object o : d.getRootElement().getChildren("workpackage")) {
+				Element eO=(Element)o;
+				String wpTitle=eO.getAttributeValue("title");
+				String wpInit=eO.getChildText("dateInit");
+				String wpFinish=eO.getChildText("dateFinish");
+				//if report date falls into WP execution
+				if(checkReportDate(reportDate,wpInit,wpFinish)){
+					System.out.println(wpTitle + "applies to report " + reportDate );
+					Iterator<Element> iPartners=eO.getDescendants(Filters.element("partner"));
+					while (iPartners.hasNext()){
+						Element ePartner=iPartners.next();
+						System.out.println(reportDate+" Partner found:"+ ePartner.getAttributeValue("id")+ "for WP: "+wpTitle);
+					}
+					//for each partner, 
+					//create subreport;
+				}
+				//get all tasks, and check if partner is assigned and if task is still being executed
+				//a–ade task a cada subreport
+				
+			}}
+			
+		}
+		
+		
+		
 		//Commons.writeFile("Resultado5.xml",d);
 		/*String start="12/2012";
 		String months="1,2,3,4,5,6";
@@ -69,7 +138,7 @@ public class Dispatcher {
 			   System.out.println(". Date Report: "+date_format.format(cal2.getTime()));
 			   result.add(date_format.format(cal2.getTime()));
 		   }	*/
-	    
+	    */
 	    
 	    // Format the output with leading zeros for days and month
 	    
