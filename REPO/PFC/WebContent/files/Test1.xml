@@ -2,8 +2,8 @@
 <project id="Test1">
   <metainfo>
     <title>Test1</title>
-    <dateStart>2012-09-01</dateStart>
-    <dateFinish>2012-12-01</dateFinish>
+    <dateStart>2012-01-01</dateStart>
+    <dateFinish>2014-12-01</dateFinish>
     <duration>8</duration>
     <description>Project Test 2 Description</description>
     <coordinator>
@@ -15,51 +15,53 @@
       <leader id="001" />
     </coordinator>
     <effort>a lot</effort>
-    <dateInit>2012-09-01</dateInit>
-    <dateFinish>2012-12-01</dateFinish>
+    <dateInit>2012-09-02</dateInit>
+    <dateFinish>2012-12-02</dateFinish>
 	<task id="11" title="Task 1.1">
       <partners>
         <partner id="001" />
       </partners>
       <description>Long description</description>
-      <dateInit>2012-10-01</dateInit>
-      <dateFinish>2013-12-01</dateFinish>
+      <dateInit>2012-09-03</dateInit>
+      <dateFinish>2013-12-03</dateFinish>
     </task>
     <task id="12" title="Task 1.2">
       <partners>
         <partner id="002" />
+		<partner id="001" />
       </partners>
       <description>Longer description</description>
-      <dateInit>2012-09-01</dateInit>
-      <dateFinish>2012-12-01</dateFinish>
+      <dateInit>2012-09-03</dateInit>
+      <dateFinish>2012-12-03</dateFinish>
      </task>
   </workpackage>
-  <reportSchedule>
-      <date>2012-09-20</date>
-      <date>2013-10-20</date>
-  </reportSchedule>
   <workpackage title="WP 2" id="1355348593078">
     <coordinator>
       <leader id="001" />
     </coordinator>
     <effort>a lot</effort>
-    <dateInit>2013-09-01</dateInit>
-    <dateFinish>2013-12-01</dateFinish>
+    <dateInit>2013-09-02</dateInit>
+    <dateFinish>2013-12-02</dateFinish>
 	<task id="21" title="Task 2.1">
       <partners>
         <partner id="003" />
       </partners>
       <description>Long description</description>
-      <dateInit>2012-09-01</dateInit>
-      <dateFinish>2013-10-01</dateFinish>
+      <dateInit>2012-09-03</dateInit>
+      <dateFinish>2013-10-03</dateFinish>
     </task>
     <task id="22" title="Task 2.2">
       <partners>
         <partner id="004" />
+		<partner id="001" />
       </partners>
       <description>Longer description</description>
-      <dateInit>2012-09-01</dateInit>
-      <dateFinish>2012-12-01</dateFinish>
+      <dateInit>2013-09-03</dateInit>
+      <dateFinish>2013-12-03</dateFinish>
     </task>
   </workpackage>
+    <reportSchedule>
+      <date>2012-09-20</date>
+      <date>2013-09-20</date>
+  </reportSchedule>
 </project>
