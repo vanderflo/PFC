@@ -59,7 +59,6 @@ public class Dispatcher {
 	 */
 	public static void main(String[] args) throws IOException {
 		System.out.println(System.getProperty("user.dir"));
-		Document doc = Project.getCurrentProjectDocument(System.getProperty("user.dir")+"/WebContent/files/Test1.xml");
 		Document d = Project.getCurrentProjectDocument(System.getProperty("user.dir")+"/WebContent/files/Test1.xml");
 		
 
@@ -71,30 +70,30 @@ public class Dispatcher {
 		Element eMetainfo=(Element)metainfo;
 		String duration = eMetainfo.getChildText("duration");
 		String dateStart = eMetainfo.getChildText("dateStart");
-		System.out.println("Project duration: "+duration+"| Project start: "+dateStart);
+		System.out.println("[MAIN] Project duration: "+duration+" | Project start: "+dateStart);
 		//Get reportSchedule y crea un array o vector de arrays
 		Object reportSchedule = d.getRootElement().getChild("reportSchedule");
 		Element eReportSchedule=(Element)reportSchedule;
 		for(Object object : eReportSchedule.getChildren("date")) {
 			Element eObject=(Element)object;
 			String reportDate=eObject.getTextTrim();
-			System.out.println("Processing report date "+reportDate);
+			System.out.println("[MAIN]  Processing report date: "+reportDate);
 			for(Object o : d.getRootElement().getChildren("workpackage")) {
 				Element eO=(Element)o;
 				String wpTitle=eO.getAttributeValue("title");
 				String wpInit=eO.getChildText("dateInit");
 				String wpFinish=eO.getChildText("dateFinish");
-				Iterator<Element> iTasks=eO.getDescendants(Filters.element("task"));
 				//if report date falls into WP execution
 				if(checkReportDate(reportDate,wpInit,wpFinish)){
-					System.out.println(wpTitle + "applies to report " + reportDate );
+					System.out.println("[MAIN] "+wpTitle + " applies to report " + reportDate );
 					Iterator<Element> iPartners=eO.getDescendants(Filters.element("partner"));
 					while (iPartners.hasNext()){
 						Element ePartner=iPartners.next();
-						System.out.println(reportDate+" Partner found: "+ ePartner.getAttributeValue("id")+ " for WP: "+wpTitle);
+						System.out.println("[MAIN] ["+reportDate+"] Partner found: "+ ePartner.getAttributeValue("id")+ " for WP: "+wpTitle);
 						
-						createSubreport( ePartner.getAttributeValue("id"),eO,iTasks,reportDate,docFinal);
-						
+						Element e = createSubreport( ePartner.getAttributeValue("id"),eO,eO.getDescendants(Filters.element("task")),reportDate,docFinal);
+						e.detach();
+						docFinal.getRootElement().addContent(e);
 					}
 					
 				}
@@ -102,6 +101,9 @@ public class Dispatcher {
 				
 			}
 		}
+		
+		
+		Commons.writeFile("testReport",docFinal);
 			
 	}
 		
@@ -148,11 +150,11 @@ public class Dispatcher {
 	    
 		
 		
-	public static Document createSubreport(String partnerId,Element wp,Iterator<Element> tasks,String reportDate, Document doc){
+	public static Element createSubreport(String partnerId,Element wp,Iterator<Element> tasks,String reportDate, Document doc){
 		
-		Document d = Report.addSubReport( doc,reportDate,wp.getAttributeValue("id"),partnerId,tasks);
+		Element e = Report.addSubReport( doc,reportDate,wp.getAttributeValue("id"),partnerId,tasks);
 		
-		return d;
+		return e;
 		
 	}
 		

@@ -8,22 +8,70 @@ import java.util.Date;
 import java.util.Iterator;
 
 import com.reportingtool.utils.*;
+
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
+import org.jdom2.filter.Filters;
 import org.jdom2.input.SAXBuilder;
 
 public class Report {
 	
 	public static Document createReportFile(String projectID){
-		//Si está vacío,crear raiz; si no, <partner>
+		
+		Document d = Project.getCurrentProjectDocument(projectID);		
+
 		Element root = new Element("report");
-		Document doc = new Document(root);
-		Commons.writeFile(projectID,doc);
-		return doc;		
+		Document docFinal = new Document(root);
+		
+		//Get init date y duration
+		Object metainfo= d.getRootElement().getChild("metainfo");	
+		Element eMetainfo=(Element)metainfo;
+		String duration = eMetainfo.getChildText("duration");
+		String dateStart = eMetainfo.getChildText("dateStart");
+		System.out.println("[MAIN] Project duration: "+duration+" | Project start: "+dateStart);
+		//Get reportSchedule y crea un array o vector de arrays
+		Object reportSchedule = d.getRootElement().getChild("reportSchedule");
+		Element eReportSchedule=(Element)reportSchedule;
+		for(Object object : eReportSchedule.getChildren("date")) {
+			Element eObject=(Element)object;
+			String reportDate=eObject.getTextTrim();
+			System.out.println("[MAIN]  Processing report date: "+reportDate);
+			for(Object o : d.getRootElement().getChildren("workpackage")) {
+				Element eO=(Element)o;
+				String wpTitle=eO.getAttributeValue("title");
+				String wpInit=eO.getChildText("dateInit");
+				String wpFinish=eO.getChildText("dateFinish");
+				//if report date falls into WP execution
+				if(checkReportDate(reportDate,wpInit,wpFinish)){
+					System.out.println("[MAIN] "+wpTitle + " applies to report " + reportDate );
+					Iterator<Element> iPartners=eO.getDescendants(Filters.element("partner"));
+					while (iPartners.hasNext()){
+						Element ePartner=iPartners.next();
+						System.out.println("[MAIN] ["+reportDate+"] Partner found: "+ ePartner.getAttributeValue("id")+ " for WP: "+wpTitle);						
+						Element e = createSubreport( ePartner.getAttributeValue("id"),eO,eO.getDescendants(Filters.element("task")),reportDate,docFinal);
+						e.detach();
+						docFinal.getRootElement().addContent(e);
+					}
+					
+				}
+				
+				
+			}
+		}
+		
+		
+		Commons.writeFile(projectID+"_report",docFinal);
+		return docFinal;		
 	}
 	
-
+	public static Element createSubreport(String partnerId,Element wp,Iterator<Element> tasks,String reportDate, Document doc){
+		
+		Element e = Report.addSubReport( doc,reportDate,wp.getAttributeValue("id"),partnerId,tasks);
+		
+		return e;
+		
+	}
 	
 	public static Document getCurrentReportFile(String projectID){
 		
@@ -47,8 +95,8 @@ public class Report {
 	
 
 	
-	public static Document addSubReport(Document doc,String date, String WP,String partnerID,Iterator<Element> tasks){
-		
+	public static Element addSubReport(Document doc,String date, String WP,String partnerID,Iterator<Element> tasks){
+		System.out.println("[addSubReport START]");
 		Element subreport = new Element("subreport");
 		
 		subreport.setAttribute("partner", partnerID);
@@ -75,8 +123,10 @@ public class Report {
 		
 		while (tasks.hasNext()){
 			Element t=tasks.next();
-			for(Object oPartner : t.getChildren("partner")) {
+			System.out.println("[addSubReport] Task:"+t.getAttributeValue("title"));
+			for(Object oPartner : t.getDescendants(Filters.element("partner"))) {
 			Element ePartner=(Element)oPartner;
+			System.out.println("[addSubReport] Partner:"+ePartner.getAttributeValue("id"));
 				if (ePartner.getAttributeValue("id").equals(partnerID) && checkReportDate(date,t.getChildText("dateInit"),t.getChildText("dateFinish"))){
 					subreport.addContent(addTaskReport(WP,partnerID,t.getAttributeValue("id"),"","",""));
 				}
@@ -86,8 +136,8 @@ public class Report {
 		}
 		
 		doc.getRootElement().addContent(subreport);	
-		
-		return doc;		
+		System.out.println("[addSubReport END]");
+		return subreport;		
 	}
 	
 	
@@ -108,32 +158,7 @@ public class Report {
 		
 		task.addContent(eWork);
 		task.addContent(eResult);
-		task.addContent(eEffort);
-		
-		/** TBD Paso el Doc o lo recupero desde aquí???
-		 * 
-		 
-		
-		//Get workpackage y añade info de este task. Hay que incluir info de partner.
-		for(Object object : doc.getRootElement().getChildren("workpackage")) {
-			Element eObject=(Element)object;
-			
-			if (eObject.getAttributeValue("id").equals(WP) && eObject.getAttributeValue("partner").equals(partnerID)){
-				//borrar este nodo y reemplazarlo por este nuevo
-				for(Object o : eObject.getChildren("task")) {
-					Element eTask=(Element)o;
-					if (eTask.getAttribute("id").equals(taskID))
-						eObject.removeContent(eTask);						
-				}
-
-				eObject.addContent(task);
-				break;
-				
-			}		
-		
-		
-		}*/
-		
+		task.addContent(eEffort);		
 		
 		return task;
 	}
