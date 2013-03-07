@@ -150,6 +150,20 @@ public String getReport(@PathParam("projectId") String projectId,@PathParam("wpI
 	return result;
 }
 
+//Get ProjectReport File
+
+@Path ("/report/get/{projectId}")
+@POST
+@Produces ("text/xml")
+public String getReportFile(@PathParam("projectId") String projectId) {
+	String rep_projectId=projectId+"_report";
+	System.out.println("Getting report for project "+projectId);	
+	Document d = Report.getCurrentReportFile(formatFile(rep_projectId));
+	String result=Commons.docToString(d);
+	return result;
+}
+
+
 
 }
 

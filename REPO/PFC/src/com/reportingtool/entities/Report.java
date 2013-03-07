@@ -2,9 +2,11 @@ package com.reportingtool.entities;
 
 import java.io.File;
 import java.io.IOException;
+
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
 import java.util.Iterator;
 
 import com.reportingtool.utils.*;
@@ -21,6 +23,15 @@ public class Report {
 		
 		Document d = Project.getCurrentProjectDocument(projectID);		
 
+		Element root = new Element("report");
+		Document docFinal = new Document(root);
+
+		Document doc = new Document(root);
+		Commons.writeFile(projectID+"_report",doc);
+		return doc;		
+	}
+	
+	/*public static  Document fillReportFile(Document d){
 		Element root = new Element("report");
 		Document docFinal = new Document(root);
 		
@@ -63,15 +74,15 @@ public class Report {
 		
 		Commons.writeFile(projectID+"_report",docFinal);
 		return docFinal;		
-	}
+	}*/
 	
-	public static Element createSubreport(String partnerId,Element wp,Iterator<Element> tasks,String reportDate, Document doc){
+	/*public static Element createSubreport(String partnerId,Element wp,Iterator<Element> tasks,String reportDate, Document doc){
 		
 		Element e = Report.addSubReport( doc,reportDate,wp.getAttributeValue("id"),partnerId,tasks);
 		
 		return e;
 		
-	}
+	}*/
 	
 	public static Document getCurrentReportFile(String projectID){
 		
@@ -95,15 +106,16 @@ public class Report {
 	
 
 	
-	public static Element addSubReport(Document doc,String date, String WP,String partnerID,Iterator<Element> tasks){
-		System.out.println("[addSubReport START]");
+
+	public static Document addSubReport(Document doc,String date, String WP,String partnerID,Iterator<Element> tasks){
+		
+
 		Element subreport = new Element("subreport");
 		
 		subreport.setAttribute("partner", partnerID);
 		subreport.setAttribute("WP", WP);
 		subreport.setAttribute("date", date);
-		
-	
+
 	
 		Element eExpenses= new Element("expenses");
 		Element eFeedback= new Element("feedback");
@@ -115,33 +127,58 @@ public class Report {
 			Element eExplanation= new Element("explanation");
 			eFlag.addContent(eExplanation);
 		
-		
+
 		subreport.addContent(eExpenses);
 		subreport.addContent(eStatus);
 		subreport.addContent(eFlag);
 		subreport.addContent(eFeedback);
 		
 		while (tasks.hasNext()){
-			Element t=tasks.next();
-			System.out.println("[addSubReport] Task:"+t.getAttributeValue("title"));
-			for(Object oPartner : t.getDescendants(Filters.element("partner"))) {
-			Element ePartner=(Element)oPartner;
-			System.out.println("[addSubReport] Partner:"+ePartner.getAttributeValue("id"));
-				if (ePartner.getAttributeValue("id").equals(partnerID) && checkReportDate(date,t.getChildText("dateInit"),t.getChildText("dateFinish"))){
-					subreport.addContent(addTaskReport(WP,partnerID,t.getAttributeValue("id"),"","",""));
-				}
+		Element task=tasks.next();
+		Iterator<Element> partnersForThisTask=task.getDescendants(Filters.element("partner"));
+		while(partnersForThisTask.hasNext()){
+			Element p = partnersForThisTask.next();
+			if(p.getAttributeValue("id").equals(partnerID)){
+				Element tReport=addTaskReport(task.getAttributeValue("id"));
+				subreport.addContent(tReport);
+				System.out.println("Task "+task.getAttributeValue("id")+" added to report "+partnerID+"|"+WP+"|"+date);
+				break;
 			}
-			
 			
 		}
 		
+
+		}
+		
+		System.out.println("[REPORT] Adding subreport");
 		doc.getRootElement().addContent(subreport);	
-		System.out.println("[addSubReport END]");
-		return subreport;		
+		
+
+		return doc;		
 	}
 	
+	public static Element addTaskReport(String taskID){
+		
+		Element task = new Element("task");
+		task.setAttribute("id",taskID);
+		
+		Element eWork= new Element("work");
+		
+		Element eResult= new Element("result");
+		
+		Element eEffort= new Element("effort");
+		
+		task.addContent(eWork);
+		task.addContent(eResult);
+		task.addContent(eEffort);
+
+		
+		return task;
+	}
 	
-	public static Element addTaskReport(String WP, String partnerID, String taskID, String result,String effort,String work){
+
+	public static Element addTaskReport(Document doc, String date, String WP, String partnerID, String taskID, String result,String effort,String work){
+
 		
 		Element task = new Element("task");
 		task.setAttribute("id",taskID);
@@ -155,11 +192,39 @@ public class Report {
 		Element eEffort= new Element("effort");
 		eEffort.addContent(effort);
 		
+
 		
 		task.addContent(eWork);
 		task.addContent(eResult);
 		task.addContent(eEffort);		
 		
+
+		task.addContent(eWork);
+		task.addContent(eResult);
+		task.addContent(eEffort);
+		
+		/** TBD Paso el Doc o lo recupero desde aquí???
+		
+		//Get workpackage y añade info de este task. Hay que incluir info de partner.
+		for(Object object : doc.getRootElement().getChildren("workpackage")) {
+			Element eObject=(Element)object;
+			
+			if (eObject.getAttributeValue("id").equals(WP) && eObject.getAttributeValue("partner").equals(partnerID)){
+				//borrar este nodo y reemplazarlo por este nuevo
+				for(Object o : eObject.getChildren("task")) {
+					Element eTask=(Element)o;
+					if (eTask.getAttribute("id").equals(taskID))
+						eObject.removeContent(eTask);						
+				}
+
+				eObject.addContent(task);
+				break;
+				
+			}						
+		}*/
+		
+		
+
 		return task;
 	}
 	

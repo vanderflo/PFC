@@ -10,12 +10,11 @@ import org.jdom2.filter.Filters;
 
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.Iterator;
-import java.util.StringTokenizer;
 import java.util.Vector;
+
+import java.util.Iterator;
+
 
 public class Dispatcher {
 
@@ -59,12 +58,12 @@ public class Dispatcher {
 	 */
 	public static void main(String[] args) throws IOException {
 		System.out.println(System.getProperty("user.dir"));
-		Document d = Project.getCurrentProjectDocument(System.getProperty("user.dir")+"/WebContent/files/Test1.xml");
-		
+
+		Document d = Project.getCurrentProjectDocument(System.getProperty("user.dir")+"/WebContent/files/Test1.xml");		
 
 		Element root = new Element("report");
-		Document docFinal = new Document(root);
-		
+		Document doc = new Document(root);						
+
 		//Get init date y duration
 		Object metainfo= d.getRootElement().getChild("metainfo");	
 		Element eMetainfo=(Element)metainfo;
@@ -87,25 +86,28 @@ public class Dispatcher {
 				if(checkReportDate(reportDate,wpInit,wpFinish)){
 					System.out.println("[MAIN] "+wpTitle + " applies to report " + reportDate );
 					Iterator<Element> iPartners=eO.getDescendants(Filters.element("partner"));
+					Vector<String> partners = new Vector<String>();
 					while (iPartners.hasNext()){
 						Element ePartner=iPartners.next();
-						System.out.println("[MAIN] ["+reportDate+"] Partner found: "+ ePartner.getAttributeValue("id")+ " for WP: "+wpTitle);
-						
-						Element e = createSubreport( ePartner.getAttributeValue("id"),eO,eO.getDescendants(Filters.element("task")),reportDate,docFinal);
-						e.detach();
-						docFinal.getRootElement().addContent(e);
+						if (!partners.contains(ePartner.getAttributeValue("id"))){
+						partners.add(ePartner.getAttributeValue("id"));
+						//System.out.println(reportDate+" Partner found:"+ ePartner.getAttributeValue("id")+ "for WP: "+wpTitle);
+						System.out.println("<report WP="+wpTitle+" partner="+ePartner.getAttributeValue("id")+" reportDate="+reportDate);
+						Report.addSubReport(doc,reportDate, wpTitle,ePartner.getAttributeValue("id"),eO.getDescendants(Filters.element("task")));
+						}else
+							System.out.println("[REPORT] Partner="+ePartner.getAttributeValue("id")+" was already processed for WP "+wpTitle );
 					}
-					
 				}
-				
-				
+
 			}
 		}
-		
-		
-		Commons.writeFile("testReport",docFinal);
-			
+		System.out.println(Commons.docToString(doc));
 	}
+		
+		
+	
+			
+	
 		
 		
 		
@@ -143,7 +145,7 @@ public class Dispatcher {
 			   SimpleDateFormat date_format = new SimpleDateFormat("MM/yyyy");
 			   System.out.println(". Date Report: "+date_format.format(cal2.getTime()));
 			   result.add(date_format.format(cal2.getTime()));
-		   }	*/
+		   }	
 	   
 	    
 	    // Format the output with leading zeros for days and month
@@ -156,7 +158,7 @@ public class Dispatcher {
 		
 		return e;
 		
-	}
+	}*/
 		
 		
 		
