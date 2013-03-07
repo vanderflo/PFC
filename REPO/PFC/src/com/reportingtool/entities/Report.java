@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Vector;
 
 import java.util.Iterator;
 
@@ -19,22 +20,18 @@ import org.jdom2.input.SAXBuilder;
 
 public class Report {
 	
-	public static Document createReportFile(String projectID){
-		
-		Document d = Project.getCurrentProjectDocument(projectID);		
+	public static Document createReportFile(String projectID){		
 
 		Element root = new Element("report");
-		Document docFinal = new Document(root);
-
 		Document doc = new Document(root);
 		Commons.writeFile(projectID+"_report",doc);
 		return doc;		
 	}
 	
-	/*public static  Document fillReportFile(Document d){
+	public static  Document fillReportFile(Document d){
 		Element root = new Element("report");
-		Document docFinal = new Document(root);
-		
+		Document doc = new Document(root);			
+
 		//Get init date y duration
 		Object metainfo= d.getRootElement().getChild("metainfo");	
 		Element eMetainfo=(Element)metainfo;
@@ -57,32 +54,28 @@ public class Report {
 				if(checkReportDate(reportDate,wpInit,wpFinish)){
 					System.out.println("[MAIN] "+wpTitle + " applies to report " + reportDate );
 					Iterator<Element> iPartners=eO.getDescendants(Filters.element("partner"));
+					Vector<String> partners = new Vector<String>();
 					while (iPartners.hasNext()){
 						Element ePartner=iPartners.next();
-						System.out.println("[MAIN] ["+reportDate+"] Partner found: "+ ePartner.getAttributeValue("id")+ " for WP: "+wpTitle);						
-						Element e = createSubreport( ePartner.getAttributeValue("id"),eO,eO.getDescendants(Filters.element("task")),reportDate,docFinal);
-						e.detach();
-						docFinal.getRootElement().addContent(e);
+						if (!partners.contains(ePartner.getAttributeValue("id"))){
+						partners.add(ePartner.getAttributeValue("id"));
+						//System.out.println(reportDate+" Partner found:"+ ePartner.getAttributeValue("id")+ "for WP: "+wpTitle);
+						System.out.println("<report WP="+wpTitle+" partner="+ePartner.getAttributeValue("id")+" reportDate="+reportDate);
+						addSubReport(doc,reportDate, wpTitle,ePartner.getAttributeValue("id"),eO.getDescendants(Filters.element("task")));
+						}else
+							System.out.println("[REPORT] Partner="+ePartner.getAttributeValue("id")+" was already processed for WP "+wpTitle );
 					}
-					
 				}
-				
-				
+
 			}
 		}
+		System.out.println(Commons.docToString(doc));
 		
 		
-		Commons.writeFile(projectID+"_report",docFinal);
-		return docFinal;		
-	}*/
+		Commons.writeFile(d.getRootElement().getAttributeValue("id")+"_report",doc);
+		return doc;	
+	}
 	
-	/*public static Element createSubreport(String partnerId,Element wp,Iterator<Element> tasks,String reportDate, Document doc){
-		
-		Element e = Report.addSubReport( doc,reportDate,wp.getAttributeValue("id"),partnerId,tasks);
-		
-		return e;
-		
-	}*/
 	
 	public static Document getCurrentReportFile(String projectID){
 		
@@ -229,15 +222,48 @@ public class Report {
 	}
 	
 
-	public static Document updateSubReport(Document doc,String WP, String partnerID,String tag,String value){
+	public static Document updateSubReport(Document doc,String WP, String partnerID,String date,String expenses,String status,String flag,String explanation,String feedback){
 		
-		for(Object object : doc.getRootElement().getChildren("workpackage")) {
-			Element eObject=(Element)object;
-			
-			if (eObject.getAttributeValue("id").equals(WP) && eObject.getAttributeValue("partner").equals(partnerID)){
-				//borrar este nodo y reemplazarlo por este nuevo				
-				Element eElm=(Element)eObject.getChildren(tag);
-				eElm.setText(value);	
+		if (status==null || status.equals(""))
+			status="saved";
+		
+		if(flag==null || flag.equals(""))
+			flag="green";
+		
+		if(explanation==null)
+			explanation="";
+		
+		for(Object object : doc.getRootElement().getChildren("subreport")) {
+			Element eObject=(Element)object;			
+			if (eObject.getAttributeValue("id").equals(WP) && eObject.getAttributeValue("partner").equals(partnerID)&&eObject.getAttributeValue("date").equals(date)){
+				eObject.getChild("feedback").setText(feedback);
+				eObject.getChild("status").setText(status);
+				eObject.getChild("flag").setText(flag);
+				eObject.getChild("flag").getChild("explanation").setText(explanation);
+				break;
+			}						
+		}
+		
+		return doc;
+	}
+	
+	public static Document updateTaskReport(Document doc,String WP, String partnerID,String date,String task,String work,String result,String effort){
+		
+
+		
+		for(Object object : doc.getRootElement().getChildren("subreport")) {
+			Element eObject=(Element)object;			
+			if (eObject.getAttributeValue("id").equals(WP) && eObject.getAttributeValue("partner").equals(partnerID)&&eObject.getAttributeValue("date").equals(date)){
+				for(Object tObject : eObject.getChildren("task")) {
+					Element taskObject=(Element)tObject;
+					if(taskObject.getAttributeValue("id").equals(task)){
+					taskObject.getChild("work").setText(work);
+					taskObject.getChild("result").setText(result);
+					taskObject.getChild("effort").setText(effort);
+					break;
+					}
+				}
+				
 				break;
 			}						
 		}
@@ -280,5 +306,9 @@ public class Report {
 			return false;
 		}
 	}
+	
+
+	
+	
 
 }
