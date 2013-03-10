@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report>
+  <subreport partner="001" WP="WP 1" date="2012-09-20">
+    <expenses />
+    <status>empty</status>
+    <flag>
+      <explanation />
+    </flag>
+    <feedback />
+    <task id="11">
+      <work />
+      <result />
+      <effort />
+    </task>
+    <task id="12">
+      <work />
+      <result />
+      <effort />
+    </task>
+  </subreport>
+  <subreport partner="002" WP="WP 1" date="2012-09-20">
+    <expenses />
+    <status>empty</status>
+    <flag>
+      <explanation />
+    </flag>
+    <feedback />
+    <task id="12">
+      <work />
+      <result />
+      <effort />
+    </task>
+  </subreport>
+  <subreport partner="003" WP="WP 2" date="2013-09-20">
+    <expenses />
+    <status>empty</status>
+    <flag>
+      <explanation />
+    </flag>
+    <feedback />
+    <task id="21">
+      <work />
+      <result />
+      <effort />
+    </task>
+  </subreport>
+  <subreport partner="004" WP="WP 2" date="2013-09-20">
+    <expenses />
+    <status>empty</status>
+    <flag>
+      <explanation />
+    </flag>
+    <feedback />
+    <task id="22">
+      <work />
+      <result />
+      <effort />
+    </task>
+  </subreport>
+  <subreport partner="001" WP="WP 2" date="2013-09-20">
+    <expenses />
+    <status>empty</status>
+    <flag>
+      <explanation />
+    </flag>
+    <feedback />
+    <task id="22">
+      <work />
+      <result />
+      <effort />
+    </task>
+  </subreport>
+</report>
