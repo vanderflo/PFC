@@ -153,7 +153,7 @@ public String getReport(@PathParam("projectId") String projectId,@PathParam("wpI
 //Get ProjectReport File
 
 @Path ("/report/get/{projectId}")
-@POST
+@GET
 @Produces ("text/xml")
 public String getReportFile(@PathParam("projectId") String projectId) {
 	String rep_projectId=projectId+"_report";
