@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report>
   <subreport partner="001" WP="WP 1" date="2012-09-20">
-    <expenses />
-    <status>empty</status>
-    <flag>
-      <explanation />
-    </flag>
-    <feedback />
+    <expenses>1,200 EUR </expenses>
+    <status>Saved</status>
+    <flag>Red</flag>
+    <explanation>Latest development still missing  </explanation>
+	<feedback>Overall good job</feedback>
     <task id="11">
       <work />
       <result />
@@ -19,12 +18,11 @@
     </task>
   </subreport>
   <subreport partner="002" WP="WP 1" date="2012-09-20">
-    <expenses />
-    <status>empty</status>
-    <flag>
-      <explanation />
-    </flag>
-    <feedback />
+    <expenses>1,400 EUR </expenses>
+    <status>Sent</status>
+    <flag>Green</flag>
+    <explanation>NA</explanation>
+	<feedback>Job accomplished</feedback>
     <task id="12">
       <work />
       <result />
@@ -32,12 +30,11 @@
     </task>
   </subreport>
   <subreport partner="003" WP="WP 2" date="2013-09-20">
-    <expenses />
-    <status>empty</status>
-    <flag>
-      <explanation />
-    </flag>
-    <feedback />
+    <expenses>1,o00 EUR </expenses>
+    <status>Saved</status>
+    <flag>Red</flag>
+    <explanation>Latest development under test </explanation>
+	<feedback>Really good job</feedback>
     <task id="21">
       <work />
       <result />
@@ -45,12 +42,11 @@
     </task>
   </subreport>
   <subreport partner="004" WP="WP 2" date="2013-09-20">
-    <expenses />
-    <status>empty</status>
-    <flag>
-      <explanation />
-    </flag>
-    <feedback />
+     <expenses>1,500 EUR </expenses>
+    <status>Saved</status>
+    <flag>Green</flag>
+    <explanation>NA</explanation>
+	<feedback>Well done</feedback>
     <task id="22">
       <work />
       <result />
@@ -58,12 +54,11 @@
     </task>
   </subreport>
   <subreport partner="001" WP="WP 2" date="2013-09-20">
-    <expenses />
-    <status>empty</status>
-    <flag>
-      <explanation />
-    </flag>
-    <feedback />
+    <expenses>1,800 EUR </expenses>
+    <status>Saved</status>
+    <flag>Green</flag>
+    <explanation>NA</explanation>
+	<feedback>Finished</feedback>
     <task id="22">
       <work />
       <result />
