@@ -43,14 +43,17 @@
      		
     		$("#triggerPartner").live("click",function() {
     			$('#topArticle').empty();
+    			$('#midArticle').hide();
+    			$('#secondArticleContainer').hide();
     			var partnerID = $(this).attr('partnerid');
     			var partnerName = $(this).attr('partnername');
-    			$('#topArticle').append('<h2><a>Partner '+partnerName+' taking part in WPs:</a></h2>');
+    			$('#topArticle').append('<h1 class="settings_form_head_title">Partner '+partnerName+'</h1>');
+    			$('#topArticle').append('<h1 class="settings_form_title">Taking part in WPs</h1>');
     			$(xmlReport).find('subreport').each(function(){
 					var reportWP=$(this).attr("WP");
 					var partnerWP=$(this).attr("partner");
 						if(partnerID == partnerWP){
-						$('#topArticle').append('<h4><a href="#" id="triggerWP" partnerID="'+partnerID+'" partnername="'+partnerName+'" wp="'+reportWP+'">'+reportWP+'</a></h4>');
+						$('#topArticle').append('<a href="#" id="triggerWP" partnerID="'+partnerID+'" partnername="'+partnerName+'" wp="'+reportWP+'">'+reportWP+'</a>');
 						}
 					});//workpackage
     	        $('#topArticleContainer').show();
@@ -63,7 +66,7 @@
     			var partnerID = $(this).attr('partnerid');
     			var partnerName = $(this).attr('partnername');
     			var wp=$(this).attr('wp');
-    			$('#midArticle').append('<h2><a>Reports by Partner '+partnerName+' for WP '+wp+'</a></h2>');
+    			$('#midArticle').append('<h2 class="settings_form_title">Reports for WP '+wp+'</h2>');
     			$(xmlReport).find('subreport').each(function(){
 					var reportWP=$(this).attr("WP");
 					var partnerWP=$(this).attr("partner");
@@ -72,6 +75,7 @@
 						$('#midArticle').append('<h4><a href="#" id="triggerReport" partnerID="'+partnerID+'" partnername="'+partnerName+'" wp="'+reportWP+'" reportdate="'+reportDate+'">'+reportDate+'</a></h4>');
 						}
 					});
+    			$('#midArticle').show();
     		   });
      		
     		$("#triggerReport").live("click",function() {
@@ -90,12 +94,17 @@
 						var feedback= $(this).children('feedback').text();	
 						var flag= $(this).children('flag').text();
 						var explanation= $(this).children('explanation').text();
-						$('#secondArticle').append('<h2><a>Report by Partner '+partnerName+' for WP '+wp+' on date '+date+'</a></h2>');
-						$('#secondArticle').append('<h4><a>Expenses:'+expenses+'</a></h4>');
-						$('#secondArticle').append('<h4><a>Status:'+status+'</a></h4>');
-						$('#secondArticle').append('<h4><a>Feedback:'+feedback+'</a></h4>');
-						$('#secondArticle').append('<h4><a>Flag:'+flag+'</a></h4>');
-						$('#secondArticle').append('<h4><a>Explanation:'+explanation+'</a></h4>');
+						$('#secondArticle').append('<h2 class="settings_form_head_title">Report by Partner '+partnerName+' for WP '+wp+' on date '+date+'</h2>');
+						$('#secondArticle').append('<h6 class="settings_form_title">Expenses</h6>');
+						$('#secondArticle').append('<a>'+expenses+'</a>');
+						$('#secondArticle').append('<h2 class="settings_form_title">Status</h2>');
+						$('#secondArticle').append('<a>'+status+'</a>');
+						$('#secondArticle').append('<h2 class="settings_form_title">Feedback</h2>');
+						$('#secondArticle').append('<a>'+feedback+'</a>');
+						$('#secondArticle').append('<h2 class="settings_form_title">Flag</h2>');
+						$('#secondArticle').append('<a>'+flag+'</a>');
+						$('#secondArticle').append('<h2 class="settings_form_title">Explanation</h2>');
+						$('#secondArticle').append('<a>'+explanation+'</a>');
 
 
 						}

@@ -58,6 +58,11 @@ header h1{
     text-shadow: 0 1px 0 rgba(0,0,0,.9);            
 }
 
+h6{
+    margin: 0;          
+}
+
+
 header h2{
     color: yellow;
     margin: 0;
@@ -350,4 +355,91 @@ figcaption{
 	border-width:0px 0px 1px 0px;
 }.Table_Menu_Partner tr:last-child td:last-child{
 	border-width:0px 0px 0px 0px;
+}
+
+ol{
+	counter-reset: li; /* Initiate a counter */
+	list-style: none; /* Remove default numbering */
+	*list-style: decimal; /* Keep using default numbering for IE6/7 */
+	font: 15px 'trebuchet MS', 'lucida sans';
+	padding: 0;
+	margin-bottom: 4em;
+	text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+
+ol ol{
+	margin: 0 0 0 2em; /* Add some left margin for inner lists */
+}
+
+
+.rounded-list a{
+	position: relative;
+	display: block;
+	padding: .4em .4em .4em 2em;
+	*padding: .4em;
+	margin: .5em 0;
+	background: #ddd;
+	color: #444;
+	text-decoration: none;
+	border-radius: .3em;
+	transition: all .3s ease-out;
+	text-align: center;	
+}
+
+.rounded-list a:hover{
+	background: #eee;
+}
+
+.rounded-list a:hover:before{
+    transform: rotate(360deg);	
+}
+
+.rounded-list a:before{
+	content: normal;
+	counter-increment: li;
+	position: absolute;	
+	left: -1.3em;
+	top: 50%;
+	margin-top: -1.3em;
+	background: #87ceeb;
+	height: 2em;
+	width: 50%;
+	line-height: 2em;
+	border: .3em solid #fff;
+	text-align: center;
+	font-weight: bold;
+	border-radius: 2em;
+	transition: all .3s ease-out;
+	text-align: center;
+}
+
+.settings_form_title {
+color: yellow;
+line-height: 25px;
+font-weight: bold;
+font-size: 13px;
+font-family: arial;
+border-radius: 6px 6px 6px 6px;
+-webkit-border-radius: 6px 6px 6px 6px;
+-moz-border-radius: 6px 6px 6px 6px;
+width: 100%;
+background-color: #52463b;
+text-align: center;
+vertical-align: middle;
+}
+
+.settings_form_head_title {
+color: yellow;
+text-transform:uppercase;
+line-height: 25px;
+font-weight: bold;
+font-size: 18px;
+font-family: arial;
+border-radius: 6px 6px 6px 6px;
+-webkit-border-radius: 6px 6px 6px 6px;
+-moz-border-radius: 6px 6px 6px 6px;
+width: 100%;
+background-color: blue;
+text-align: center;
+vertical-align: middle;
 }
