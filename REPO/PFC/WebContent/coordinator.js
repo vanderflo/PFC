@@ -5,22 +5,20 @@
 				dataType: "xml",
 				success: function(xml) {
 					$(xml).find('workpackage').each(function(){
-						
-						var wpTitle=$(this).attr("title");
-						var wpId=$(this).attr("id");
-						var wpInfo;
-						$('#coordinatorWP').append('<li><a href="#">'+ wpTitle + '</a><li>');
-						});//workpackage
-					
-						var partnersArray = new Array();
-						$(xml).find('partner').each(function(){
-						var partnerID=$(this).attr("id");
-						if( jQuery.inArray(partnerID, partnersArray) == -1 ){
-						var partnerName= $(this).children('name').text();	
-						$('#coordinatorPartners').append('<li><a href="#" id="triggerPartner" class="triggerPartner" partnerID="'+partnerID+'" partnername="'+partnerName+'">'+ partnerName + '</a></li>');
-						partnersArray.push(partnerID);
-						}
-						});//partner
+					var wpTitle=$(this).attr("title");
+					var wpId=$(this).attr("id");
+					$('#coordinatorWP').append('<li><a href="#" id="triggerWP" class="triggerWP" wpid="'+wpId+'" wptitle="'+wpTitle+'">'+ wpTitle + '</a><li>');
+					});//workpackage
+				
+					var partnersArray = new Array();
+					$(xml).find('partner').each(function(){
+					var partnerID=$(this).attr("id");
+					if( jQuery.inArray(partnerID, partnersArray) == -1 ){
+					var partnerName= $(this).children('name').text();	
+					$('#coordinatorPartners').append('<li><a href="#" id="triggerPartner" class="triggerPartner" partnerID="'+partnerID+'" partnername="'+partnerName+'">'+ partnerName + '</a></li>');
+					partnersArray.push(partnerID);
+					}
+					});//partner
 					
 
 				}
@@ -37,9 +35,46 @@
      		         }
      		    });
 
-     		  
+    		$("#triggerWP").live("click",function() {
+    			$('#topArticle').empty();
+    			$('#midArticle').hide();
+    			$('#secondArticleContainer').hide();
+    			var wpTitle = $(this).attr('wptitle');
+    			var wpID = $(this).attr('wpid');
+    			$('#topArticle').append('<h1 class="settings_form_head_title">WP '+wpTitle+'</h1>');
+    			$('#topArticle').append('<h1 class="settings_form_title">Report Dates</h1>');
+    			var reportsArray = new Array();
+    			$(xmlReport).find('subreport').each(function(){
+					var wp=$(this).attr("WP");
+					var reportDate=$(this).attr("date");
+					if( jQuery.inArray(reportDate, reportsArray) == -1 ){
+					if(wpTitle == wp){
+						$('#topArticle').append('<a href="#" id="triggerPartnerForReport" reportdate="'+reportDate+'" wpid="'+wpTitle+'">'+reportDate+'</a>');
+						}
+					reportsArray.push(reportDate);
+					}
+					});//workpackage
+    	        $('#topArticleContainer').show();
+
+    		   });  
      	
-     		
+    		$("#triggerPartnerForReport").live("click",function() {
+    			$('#midArticle').empty();
+    			$('#secondArticleContainer').hide();
+    			var date = $(this).attr('reportdate');
+    			var wpID = $(this).attr('wpid');
+    			var wp=$(this).attr('wpid');
+    			$('#midArticle').append('<h2 class="settings_form_title">Partners reporting on date '+date+'</h2>');
+    			$(xmlReport).find('subreport').each(function(){
+					var reportWP=$(this).attr("WP");
+					var partnerID=$(this).attr("partner");
+					var reportDate=$(this).attr("date");
+						if(reportDate == date && reportWP == wp){
+						$('#midArticle').append('<h4><a href="#" id="triggerReport" partnerID="'+partnerID+'" partnername="'+partnerID+'" wp="'+reportWP+'" reportdate="'+reportDate+'">'+partnerID+'</a></h4>');
+						}
+					});
+    			$('#midArticle').show();
+    		   });
      		
     		$("#triggerPartner").live("click",function() {
     			$('#topArticle').empty();
@@ -53,14 +88,14 @@
 					var reportWP=$(this).attr("WP");
 					var partnerWP=$(this).attr("partner");
 						if(partnerID == partnerWP){
-						$('#topArticle').append('<a href="#" id="triggerWP" partnerID="'+partnerID+'" partnername="'+partnerName+'" wp="'+reportWP+'">'+reportWP+'</a>');
+						$('#topArticle').append('<a href="#" id="triggerWPforPartner" partnerID="'+partnerID+'" partnername="'+partnerName+'" wp="'+reportWP+'">'+reportWP+'</a>');
 						}
 					});//workpackage
     	        $('#topArticleContainer').show();
 
     		   });
     		
-    		$("#triggerWP").live("click",function() {
+    		$("#triggerWPforPartner").live("click",function() {
     			$('#midArticle').empty();
     			$('#secondArticleContainer').hide();
     			var partnerID = $(this).attr('partnerid');
@@ -78,6 +113,10 @@
     			$('#midArticle').show();
     		   });
      		
+    		
+    		
+    		
+    		
     		$("#triggerReport").live("click",function() {
     			$('#secondArticle').empty();
     			var partnerID = $(this).attr('partnerid');
