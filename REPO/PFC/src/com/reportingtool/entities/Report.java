@@ -48,6 +48,7 @@ public class Report {
 			for(Object o : d.getRootElement().getChildren("workpackage")) {
 				Element eO=(Element)o;
 				String wpTitle=eO.getAttributeValue("title");
+				String wpID=eO.getAttributeValue("id");
 				String wpInit=eO.getChildText("dateInit");
 				String wpFinish=eO.getChildText("dateFinish");
 				//if report date falls into WP execution
@@ -61,7 +62,7 @@ public class Report {
 						partners.add(ePartner.getAttributeValue("id"));
 						//System.out.println(reportDate+" Partner found:"+ ePartner.getAttributeValue("id")+ "for WP: "+wpTitle);
 						System.out.println("<report WP="+wpTitle+" partner="+ePartner.getAttributeValue("id")+" reportDate="+reportDate);
-						addSubReport(doc,reportDate, wpTitle,ePartner.getAttributeValue("id"),eO.getDescendants(Filters.element("task")));
+						addSubReport(doc,reportDate, wpTitle,wpID,ePartner.getAttributeValue("id"),eO.getDescendants(Filters.element("task")));
 						}else
 							System.out.println("[REPORT] Partner="+ePartner.getAttributeValue("id")+" was already processed for WP "+wpTitle );
 					}
@@ -100,13 +101,14 @@ public class Report {
 
 	
 
-	public static Document addSubReport(Document doc,String date, String WP,String partnerID,Iterator<Element> tasks){
+	public static Document addSubReport(Document doc,String date, String WP,String wpID,String partnerID,Iterator<Element> tasks){
 		
 
 		Element subreport = new Element("subreport");
 		
 		subreport.setAttribute("partner", partnerID);
 		subreport.setAttribute("WP", WP);
+		subreport.setAttribute("WPID", wpID);
 		subreport.setAttribute("date", date);
 
 	

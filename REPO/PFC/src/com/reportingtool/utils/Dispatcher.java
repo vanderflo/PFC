@@ -80,6 +80,7 @@ public class Dispatcher {
 			for(Object o : d.getRootElement().getChildren("workpackage")) {
 				Element eO=(Element)o;
 				String wpTitle=eO.getAttributeValue("title");
+				String wpId=eO.getAttributeValue("id");
 				String wpInit=eO.getChildText("dateInit");
 				String wpFinish=eO.getChildText("dateFinish");
 				//if report date falls into WP execution
@@ -93,7 +94,7 @@ public class Dispatcher {
 						partners.add(ePartner.getAttributeValue("id"));
 						//System.out.println(reportDate+" Partner found:"+ ePartner.getAttributeValue("id")+ "for WP: "+wpTitle);
 						System.out.println("<report WP="+wpTitle+" partner="+ePartner.getAttributeValue("id")+" reportDate="+reportDate);
-						Report.addSubReport(doc,reportDate, wpTitle,ePartner.getAttributeValue("id"),eO.getDescendants(Filters.element("task")));
+						Report.addSubReport(doc,reportDate, wpTitle,wpId,ePartner.getAttributeValue("id"),eO.getDescendants(Filters.element("task")));
 						}else
 							System.out.println("[REPORT] Partner="+ePartner.getAttributeValue("id")+" was already processed for WP "+wpTitle );
 					}

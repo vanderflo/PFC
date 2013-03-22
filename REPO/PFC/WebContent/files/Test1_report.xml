@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report>
-  <subreport partner="001" WP="WP 1" date="2012-09-20">
+  <subreport partner="001" WP="WP 1" WPID="1355348593079" date="2012-09-20">
     <expenses>1,200 EUR </expenses>
     <status>Saved</status>
     <flag>Red</flag>
@@ -17,7 +17,7 @@
       <effort />
     </task>
   </subreport>
-  <subreport partner="002" WP="WP 1" date="2012-09-20">
+  <subreport partner="002" WP="WP 1" WPID="1355348593079" date="2012-09-20">
     <expenses>1,400 EUR </expenses>
     <status>Sent</status>
     <flag>Green</flag>
@@ -29,7 +29,7 @@
       <effort />
     </task>
   </subreport>
-  <subreport partner="003" WP="WP 2" date="2013-09-20">
+  <subreport partner="003" WP="WP 2" WPID="1355348593078" date="2013-09-20">
     <expenses>1,o00 EUR </expenses>
     <status>Saved</status>
     <flag>Red</flag>
@@ -41,7 +41,7 @@
       <effort />
     </task>
   </subreport>
-  <subreport partner="004" WP="WP 2" date="2013-09-20">
+  <subreport partner="004" WP="WP 2" WPID="1355348593078" date="2013-09-20">
      <expenses>1,500 EUR </expenses>
     <status>Saved</status>
     <flag>Green</flag>
@@ -53,7 +53,7 @@
       <effort />
     </task>
   </subreport>
-  <subreport partner="001" WP="WP 2" date="2013-09-20">
+  <subreport partner="001" WP="WP 2" WPID="1355348593078" date="2013-09-20">
     <expenses>1,800 EUR </expenses>
     <status>Saved</status>
     <flag>Green</flag>

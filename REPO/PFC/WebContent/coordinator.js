@@ -45,11 +45,12 @@
     			$('#topArticle').append('<h1 class="settings_form_title">Report Dates</h1>');
     			var reportsArray = new Array();
     			$(xmlReport).find('subreport').each(function(){
-					var wp=$(this).attr("WP");
+					var wpFromSubreport=$(this).attr("WP");
+					var wpIdFromSubreport=$(this).attr("WPID");
 					var reportDate=$(this).attr("date");
 					if( jQuery.inArray(reportDate, reportsArray) == -1 ){
-					if(wpTitle == wp){
-						$('#topArticle').append('<a href="#" id="triggerPartnerForReport" reportdate="'+reportDate+'" wpid="'+wpTitle+'">'+reportDate+'</a>');
+					if(wpID == wpIdFromSubreport){
+						$('#topArticle').append('<a href="#" id="triggerPartnerForReport" reportdate="'+reportDate+'" wptitle="'+wpFromSubreport+'" wpid="'+wpIdFromSubreport+'">'+reportDate+'</a>');
 						}
 					reportsArray.push(reportDate);
 					}
@@ -63,14 +64,14 @@
     			$('#secondArticleContainer').hide();
     			var date = $(this).attr('reportdate');
     			var wpID = $(this).attr('wpid');
-    			var wp=$(this).attr('wpid');
     			$('#midArticle').append('<h2 class="settings_form_title">Partners reporting on date '+date+'</h2>');
     			$(xmlReport).find('subreport').each(function(){
+					var reportWPID=$(this).attr("WPID");
 					var reportWP=$(this).attr("WP");
 					var partnerID=$(this).attr("partner");
 					var reportDate=$(this).attr("date");
-						if(reportDate == date && reportWP == wp){
-						$('#midArticle').append('<h4><a href="#" id="triggerReport" partnerID="'+partnerID+'" partnername="'+partnerID+'" wp="'+reportWP+'" reportdate="'+reportDate+'">'+partnerID+'</a></h4>');
+						if(reportDate == date && reportWPID == wpID){
+						$('#midArticle').append('<h4><a href="#" id="triggerReport" partnerID="'+partnerID+'" partnername="'+partnerID+'" wptitle="'+reportWP+'" wpid="'+reportWPID+'"reportdate="'+reportDate+'">'+partnerID+'</a></h4>');
 						}
 					});
     			$('#midArticle').show();
@@ -86,9 +87,10 @@
     			$('#topArticle').append('<h1 class="settings_form_title">Taking part in WPs</h1>');
     			$(xmlReport).find('subreport').each(function(){
 					var reportWP=$(this).attr("WP");
+					var reportWPID=$(this).attr("WPID");
 					var partnerWP=$(this).attr("partner");
 						if(partnerID == partnerWP){
-						$('#topArticle').append('<a href="#" id="triggerWPforPartner" partnerID="'+partnerID+'" partnername="'+partnerName+'" wp="'+reportWP+'">'+reportWP+'</a>');
+						$('#topArticle').append('<a href="#" id="triggerWPforPartner" partnerID="'+partnerID+'" partnername="'+partnerName+'" wptitle="'+reportWP+'" wpid="'+reportWPID+'">'+reportWP+'</a>');
 						}
 					});//workpackage
     	        $('#topArticleContainer').show();
@@ -100,14 +102,15 @@
     			$('#secondArticleContainer').hide();
     			var partnerID = $(this).attr('partnerid');
     			var partnerName = $(this).attr('partnername');
-    			var wp=$(this).attr('wp');
-    			$('#midArticle').append('<h2 class="settings_form_title">Reports for WP '+wp+'</h2>');
+    			var wpID=$(this).attr('wpid');
+    			var wpTitle=$(this).attr('wptitle');
+    			$('#midArticle').append('<h2 class="settings_form_title">Reports for WP '+wpTitle+'</h2>');
     			$(xmlReport).find('subreport').each(function(){
-					var reportWP=$(this).attr("WP");
+					var reportWP=$(this).attr("WPID");
 					var partnerWP=$(this).attr("partner");
 					var reportDate=$(this).attr("date");
-						if(partnerID == partnerWP && reportWP == wp){
-						$('#midArticle').append('<h4><a href="#" id="triggerReport" partnerID="'+partnerID+'" partnername="'+partnerName+'" wp="'+reportWP+'" reportdate="'+reportDate+'">'+reportDate+'</a></h4>');
+						if(partnerID == partnerWP && reportWP == wpID){
+						$('#midArticle').append('<h4><a href="#" id="triggerReport" partnerID="'+partnerID+'" partnername="'+partnerName+'" wpid="'+reportWP+'" reportdate="'+reportDate+'">'+reportDate+'</a></h4>');
 						}
 					});
     			$('#midArticle').show();
@@ -121,19 +124,21 @@
     			$('#secondArticle').empty();
     			var partnerID = $(this).attr('partnerid');
     			var date = $(this).attr('reportdate');
-    			var wp=$(this).attr('wp');
+    			var wpId=$(this).attr('wpid');
+    			var wpTitle=$(this).attr('wptitle');
     			var partnerName = $(this).attr('partnername');
     			$(xmlReport).find('subreport').each(function(){
 					var reportWP=$(this).attr("WP");
+					var reportWPID=$(this).attr("WPID");
 					var partnerWP=$(this).attr("partner");
 					var reportDate=$(this).attr("date");
-						if(partnerID == partnerWP && reportWP == wp && reportDate==date){
+						if(partnerID == partnerWP && reportWPID == wpId && reportDate==date){
 						var expenses= $(this).children('expenses').text();	
 						var status= $(this).children('status').text();	
 						var feedback= $(this).children('feedback').text();	
 						var flag= $(this).children('flag').text();
 						var explanation= $(this).children('explanation').text();
-						$('#secondArticle').append('<h2 class="settings_form_head_title">Report by Partner '+partnerName+' for WP '+wp+' on date '+date+'</h2>');
+						$('#secondArticle').append('<h2 class="settings_form_head_title">Report by Partner '+partnerName+' for WP '+reportWP+' on date '+date+'</h2>');
 						$('#secondArticle').append('<h6 class="settings_form_title">Expenses</h6>');
 						$('#secondArticle').append('<a>'+expenses+'</a>');
 						$('#secondArticle').append('<h2 class="settings_form_title">Status</h2>');
