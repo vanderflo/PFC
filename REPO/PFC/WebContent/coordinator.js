@@ -150,7 +150,22 @@
 						$('#secondArticle').append('<h2 class="settings_form_title">Explanation</h2>');
 						$('#secondArticle').append('<a>'+explanation+'</a>');
 
+						$(this).find('task').each(function(){
+							taskID = $(this).attr("id");
+							var work= $(this).children('work').text();	
+							var result= $(this).children('result').text();	
+							var effort= $(this).children('effort').text();
+							$('#secondArticle').append('<h6 class="settings_form_head_sub_title">Task '+taskID+'</h6>');
+							$('#secondArticle').append('<h6 class="settings_form_sub_title">Work</h6>');
+							$('#secondArticle').append('<a>'+work+'</a>');
+							$('#secondArticle').append('<h6 class="settings_form_sub_title">Result</h6>');
+							$('#secondArticle').append('<a>'+result+'</a>');
+							$('#secondArticle').append('<h6 class="settings_form_sub_title">Effort</h6>');
+							$('#secondArticle').append('<a>'+effort+'</a>');
 
+
+						});	
+						
 						}
 					});
     	        $('#secondArticleContainer').show();
