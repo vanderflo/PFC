@@ -151,11 +151,11 @@
 						$('#secondArticle').append('<a>'+explanation+'</a>');
 
 						$(this).find('task').each(function(){
-							taskID = $(this).attr("id");
+							var taskTitle = $(this).attr("title");
 							var work= $(this).children('work').text();	
 							var result= $(this).children('result').text();	
 							var effort= $(this).children('effort').text();
-							$('#secondArticle').append('<h6 class="settings_form_head_sub_title">Task '+taskID+'</h6>');
+							$('#secondArticle').append('<h6 class="settings_form_head_sub_title">Task '+taskTitle+'</h6>');
 							$('#secondArticle').append('<h6 class="settings_form_sub_title">Work</h6>');
 							$('#secondArticle').append('<a>'+work+'</a>');
 							$('#secondArticle').append('<h6 class="settings_form_sub_title">Result</h6>');

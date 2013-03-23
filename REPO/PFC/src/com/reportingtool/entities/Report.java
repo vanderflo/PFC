@@ -134,7 +134,7 @@ public class Report {
 		while(partnersForThisTask.hasNext()){
 			Element p = partnersForThisTask.next();
 			if(p.getAttributeValue("id").equals(partnerID)){
-				Element tReport=addTaskReport(task.getAttributeValue("id"));
+				Element tReport=addTaskReport(task.getAttributeValue("id"),task.getAttributeValue("title"));
 				subreport.addContent(tReport);
 				System.out.println("Task "+task.getAttributeValue("id")+" added to report "+partnerID+"|"+WP+"|"+date);
 				break;
@@ -152,10 +152,12 @@ public class Report {
 		return doc;		
 	}
 	
-	public static Element addTaskReport(String taskID){
+	public static Element addTaskReport(String taskID,String taskTitle){
 		
 		Element task = new Element("task");
 		task.setAttribute("id",taskID);
+		task.setAttribute("title",taskTitle);
+
 		
 		Element eWork= new Element("work");
 		
