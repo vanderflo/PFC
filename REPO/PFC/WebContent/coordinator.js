@@ -41,6 +41,7 @@
     			$('#secondArticleContainer').hide();
     			var wpTitle = $(this).attr('wptitle');
     			var wpID = $(this).attr('wpid');
+    			currentWP=wpID;
     			$('#topArticle').append('<h1 class="settings_form_head_title">WP '+wpTitle+'</h1>');
     			$('#topArticle').append('<h1 class="settings_form_title">Report Dates</h1>');
     			var reportsArray = new Array();
@@ -83,6 +84,7 @@
     			$('#secondArticleContainer').hide();
     			var partnerID = $(this).attr('partnerid');
     			var partnerName = $(this).attr('partnername');
+    			currentPartner=partnerID;
     			$('#topArticle').append('<h1 class="settings_form_head_title">Partner '+partnerName+'</h1>');
     			$('#topArticle').append('<h1 class="settings_form_title">Taking part in WPs</h1>');
     			$(xmlReport).find('subreport').each(function(){
@@ -123,7 +125,9 @@
     		$("#triggerReport").live("click",function() {
     			$('#secondArticle').empty();
     			var partnerID = $(this).attr('partnerid');
+    			currentPartner=partnerID;
     			var date = $(this).attr('reportdate');
+    			currentReport=date;
     			var wpId=$(this).attr('wpid');
     			var wpTitle=$(this).attr('wptitle');
     			var partnerName = $(this).attr('partnername');
@@ -146,22 +150,23 @@
 						$('#secondArticle').append('<h2 class="settings_form_title">Feedback</h2>');
 						$('#secondArticle').append('<a>'+feedback+'</a>');
 						$('#secondArticle').append('<h2 class="settings_form_title">Flag</h2>');
-						$('#secondArticle').append('<a>'+flag+'</a>');
+						$('#secondArticle').append('<a class="edit">'+flag+'</a>');
 						$('#secondArticle').append('<h2 class="settings_form_title">Explanation</h2>');
 						$('#secondArticle').append('<a>'+explanation+'</a>');
 
 						$(this).find('task').each(function(){
 							var taskTitle = $(this).attr("title");
+							var taskId = $(this).attr("id");
 							var work= $(this).children('work').text();	
 							var result= $(this).children('result').text();	
 							var effort= $(this).children('effort').text();
 							$('#secondArticle').append('<h6 class="settings_form_head_sub_title">Task '+taskTitle+'</h6>');
 							$('#secondArticle').append('<h6 class="settings_form_sub_title">Work</h6>');
-							$('#secondArticle').append('<a>'+work+'</a>');
+							$('#secondArticle').append('<a class="edit" taskid="'+taskId+'">'+work+'</a>');
 							$('#secondArticle').append('<h6 class="settings_form_sub_title">Result</h6>');
-							$('#secondArticle').append('<a>'+result+'</a>');
+							$('#secondArticle').append('<a class="edit" taskid="'+taskId+'">'+result+'</a>');
 							$('#secondArticle').append('<h6 class="settings_form_sub_title">Effort</h6>');
-							$('#secondArticle').append('<a>'+effort+'</a>');
+							$('#secondArticle').append('<a class="edit" taskid="'+taskId+'">'+effort+'</a>');
 
 
 						});	

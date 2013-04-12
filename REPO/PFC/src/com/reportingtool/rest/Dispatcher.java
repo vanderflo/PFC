@@ -3,15 +3,25 @@ package com.reportingtool.rest;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.servlet.ServletContext;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MultivaluedMap;
+import javax.ws.rs.core.UriInfo;
+
 
 import org.jdom2.Document;
 
@@ -20,6 +30,7 @@ import com.reportingtool.entities.Project;
 import com.reportingtool.entities.Report;
 import com.reportingtool.utils.CST;
 import com.reportingtool.utils.Commons;
+import com.sun.jersey.core.util.MultivaluedMapImpl;
 
 @Path ("/API")
 @XmlRootElement
@@ -163,6 +174,36 @@ public String getReportFile(@PathParam("projectId") String projectId) {
 	return result;
 }
 
+@Path ("/testlm")
+@GET
+@Produces ("application/x-www-form-urlencoded")
+public MultivaluedMap<String, String> testLastmile(@QueryParam("serviceId") String serviceId,@QueryParam("userId.msisdn") String msisdn,@QueryParam("userId.alias") String alias) {
+	MultivaluedMap<String, String> result=new MultivaluedMapImpl();
+	System.out.println("Service ID:"+serviceId+". MDN:"+msisdn+".Alias:"+alias);
+	result.putSingle("subscription_data", "abc#1231231312321;subscriptionType1;billed;2012-06-19 12:01:00 0200;;2012-06-26 12:01:00 0200");
+	return result;
+}
+
+@Path ("/subscriptions")
+@POST
+@Consumes("application/x-www-form-urlencoded")
+public void post(MultivaluedMap<String, String> formParams,@Context UriInfo uriInfo) {
+	
+		HashMap<String,String> hmOptions=new HashMap<String,String>();
+		for(String k : formParams.keySet()){       
+        System.out.println("Key "+k);  
+        System.out.println("Value "+formParams.getFirst(k));
+        hmOptions.put(k, formParams.getFirst(k));
+      }
+		
+		MultivaluedMap<String, String> queryParams = uriInfo.getQueryParameters();		
+		for(String k : queryParams.keySet()){       
+	        System.out.println("Key Query "+k);  
+	        System.out.println("Value Query"+queryParams.getFirst(k));
+	        hmOptions.put(k, queryParams.getFirst(k));
+	      }
+		System.out.println(hmOptions.size());
+   }
 
 
 }

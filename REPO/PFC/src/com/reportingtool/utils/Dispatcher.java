@@ -58,51 +58,9 @@ public class Dispatcher {
 	 */
 	public static void main(String[] args) throws IOException {
 		System.out.println(System.getProperty("user.dir"));
-
-		Document d = Project.getCurrentProjectDocument(System.getProperty("user.dir")+"/WebContent/files/Test1.xml");		
-
-		Element root = new Element("report");
-		Document doc = new Document(root);						
-
-		//Get init date y duration
-		Object metainfo= d.getRootElement().getChild("metainfo");	
-		Element eMetainfo=(Element)metainfo;
-		String duration = eMetainfo.getChildText("duration");
-		String dateStart = eMetainfo.getChildText("dateStart");
-		System.out.println("[MAIN] Project duration: "+duration+" | Project start: "+dateStart);
-		//Get reportSchedule y crea un array o vector de arrays
-		Object reportSchedule = d.getRootElement().getChild("reportSchedule");
-		Element eReportSchedule=(Element)reportSchedule;
-		for(Object object : eReportSchedule.getChildren("date")) {
-			Element eObject=(Element)object;
-			String reportDate=eObject.getTextTrim();
-			System.out.println("[MAIN]  Processing report date: "+reportDate);
-			for(Object o : d.getRootElement().getChildren("workpackage")) {
-				Element eO=(Element)o;
-				String wpTitle=eO.getAttributeValue("title");
-				String wpId=eO.getAttributeValue("id");
-				String wpInit=eO.getChildText("dateInit");
-				String wpFinish=eO.getChildText("dateFinish");
-				//if report date falls into WP execution
-				if(checkReportDate(reportDate,wpInit,wpFinish)){
-					System.out.println("[MAIN] "+wpTitle + " applies to report " + reportDate );
-					Iterator<Element> iPartners=eO.getDescendants(Filters.element("partner"));
-					Vector<String> partners = new Vector<String>();
-					while (iPartners.hasNext()){
-						Element ePartner=iPartners.next();
-						if (!partners.contains(ePartner.getAttributeValue("id"))){
-						partners.add(ePartner.getAttributeValue("id"));
-						//System.out.println(reportDate+" Partner found:"+ ePartner.getAttributeValue("id")+ "for WP: "+wpTitle);
-						System.out.println("<report WP="+wpTitle+" partner="+ePartner.getAttributeValue("id")+" reportDate="+reportDate);
-						Report.addSubReport(doc,reportDate, wpTitle,wpId,ePartner.getAttributeValue("id"),eO.getDescendants(Filters.element("task")));
-						}else
-							System.out.println("[REPORT] Partner="+ePartner.getAttributeValue("id")+" was already processed for WP "+wpTitle );
-					}
-				}
-
-			}
-		}
-		System.out.println(Commons.docToString(doc));
+		 Date date=new Date();
+		 SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
+		 System.out.println(sdf.format(date));
 	}
 		
 		
