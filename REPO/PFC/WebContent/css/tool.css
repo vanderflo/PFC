@@ -474,3 +474,35 @@ background-color: green;
 text-align: center;
 vertical-align: middle;
 }
+
+.styled-select select {
+   background: transparent;
+   width: 268px;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 34px;
+   -webkit-appearance: none;
+   }
+.styled-select {
+   width: 240px;
+   height: 34px;
+   overflow: hidden;
+   background: url(arrow.png) no-repeat right #ddd;
+   border: 1px solid #ccc;
+   }
+   
+ #div-1b {
+ position:absolute;
+ top:0;
+ right:0;
+ width:200px;
+}
+#div-1a {
+ position:absolute;
+ top:0;
+ left:0;
+ width:200px;
+}

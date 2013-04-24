@@ -25,22 +25,11 @@
         var currentProject="Test1";
     	var currentPartner;
     	var currentWP;
+    	var currentReport;
         // When document ready, call initMenu() function 
         $(document).ready(function() {
-        	
-        	
-        	$('.edit').live('click', function(){
-        		var taskId=$(this).attr("taskid");
-	            $(this).editable('http://www.example.com/save.php', { 
-	            	data  	  : " {'green':'GREEN','red':'RED'}",
-	                type 	  : 'select',
-	                cancel    : 'Cancel',
-	                submit    : 'OK',
-	                indicator : '<img src="http://www.lottocrawler.com/images/waiting.gif">',
-	                tooltip   : 'Click to edit...'
-	            });
-            });
-        $('#topArticleContainer').hide();
+    	$.getScript("jEditableSelectors.js");
+		$('#topArticleContainer').hide();
         $('#secondArticleContainer').hide();
         initMenu();
 		$.getScript("coordinator.js");
@@ -86,6 +75,15 @@
 			</section>
             
         </article>
+             <article id="testArticleContainer">
+		     <div class="styled-select" id="div-1a">
+		     <select id="testArticle">
+			</select></div>
+			<div class="styled-select" id="div-1b">
+			<select id="testmidArticle">
+			</select></div>
+
+        </article>  
         <article id="secondArticleContainer">       
 		<section id="secondArticle" class="rounded-list">
 		</section>
@@ -103,7 +101,8 @@
 	</div>
             </section>
             <footer>Posted on <span>April 28th, 2011</span></footer>             
-        </article>        
+        </article>
+   
     </div>
 </div>
 </body>

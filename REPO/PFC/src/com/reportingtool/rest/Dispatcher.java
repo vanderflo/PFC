@@ -205,6 +205,21 @@ public void post(MultivaluedMap<String, String> formParams,@Context UriInfo uriI
 		System.out.println(hmOptions.size());
    }
 
+@Path ("/report/edit/{projectId}/{wpId}/{reportDate}/{partnerId}")
+@POST
+@Consumes("application/x-www-form-urlencoded")
+public String editReport(@FormParam("id") String field,@FormParam("value") String value) {
+	System.out.println("Field:"+field+" - Value:"+value);
+	return value;
+}	
+
+@Path ("/report/edit/{projectId}/{wpId}/{reportDate}/{partnerId}/{taskId}")
+@POST
+@Consumes("application/x-www-form-urlencoded")
+public String editTask(@FormParam("id") String field,@FormParam("value") String value) {
+	System.out.println("Field:"+field+" - Value:"+value);
+	return value;
+}
 
 }
 
