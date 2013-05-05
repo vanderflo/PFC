@@ -205,20 +205,28 @@ public void post(MultivaluedMap<String, String> formParams,@Context UriInfo uriI
 		System.out.println(hmOptions.size());
    }
 
-@Path ("/report/edit/{projectId}/{wpId}/{reportDate}/{partnerId}")
+@Path ("/report/edit/{projectId}/{wpId}/{partnerId}/{reportDate}")
 @POST
 @Consumes("application/x-www-form-urlencoded")
-public String editReport(@FormParam("id") String field,@FormParam("value") String value) {
+public String editReport(@FormParam("id") String field,@FormParam("value") String value, @PathParam("projectId") String projectId,@PathParam("wpId") String wpId,@PathParam("partnerId") String partnerId,@PathParam("reportDate") String date) {
+	String rep_projectId=projectId+"_report";
+	Document doc = Report.getCurrentReportFile(formatFile(rep_projectId));
+	String path=getPath()+rep_projectId;
+	Report.updateSubReport(doc, wpId, partnerId, date, field, value,path);
 	System.out.println("Field:"+field+" - Value:"+value);
+	
 	return value;
 }	
 
-@Path ("/report/edit/{projectId}/{wpId}/{reportDate}/{partnerId}/{taskId}")
+@Path ("/task/edit/{projectId}/{wpId}/{partnerId}/{reportDate}/{taskId}")
 @POST
 @Consumes("application/x-www-form-urlencoded")
-public String editTask(@FormParam("id") String field,@FormParam("value") String value) {
-	System.out.println("Field:"+field+" - Value:"+value);
-	return value;
+public String editTask(@FormParam("id") String field,@FormParam("value") String value, @PathParam("projectId") String projectId,@PathParam("wpId") String wpId,@PathParam("partnerId") String partnerId,@PathParam("reportDate") String date,@PathParam("taskId") String taskId ) {
+	String rep_projectId=projectId+"_report";
+	Document doc = Report.getCurrentReportFile(formatFile(rep_projectId));
+	String path=getPath()+rep_projectId;
+	Report.updateTaskReport(doc, wpId, partnerId, date, taskId,field, value,path);
+	System.out.println("Field:"+field+" - Value:"+value);	return value;
 }
 
 }

@@ -6,6 +6,7 @@ import org.jdom2.input.SAXBuilder;
 import com.reportingtool.utils.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.StringTokenizer;
 import java.io.File;
@@ -30,6 +31,9 @@ public class Partner {
 		}
 		
 	}
+	
+	
+	
 	public static Document getCurrentPartnersFile(String name) throws IOException{
 		SAXBuilder builder = new SAXBuilder();
 		File xmlFile = new File(name);
@@ -66,6 +70,20 @@ public class Partner {
 		}
 		return oList;
 	}
+	
+	public static HashMap<String,String> getPartnersName(Document doc){
+		HashMap<String,String> result=new HashMap<String,String>();
+		for(Object object : doc.getRootElement().getChildren("partner")) {
+			Element eObject=(Element)object;
+			String id=eObject.getAttributeValue("id");
+			Element eName=(Element)eObject.getChild("name");
+			String name=eName.getValue();
+			result.put(id, name);
+		}
+		return result;
+		
+	}
+	
 	
 	public static Document createPartnerFile(String name) throws IOException{
 		

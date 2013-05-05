@@ -37,7 +37,6 @@
 
     		$("#triggerWP").live("click",function() {
     			$('#topArticle').empty();
-    			$('#testArticle').empty();
     			$('#midArticle').hide();
     			$('#secondArticleContainer').hide();
     			var wpTitle = $(this).attr('wptitle');
@@ -45,7 +44,6 @@
     			$('#topArticle').append('<h1 class="settings_form_head_title">WP '+wpTitle+'</h1>');
     			$('#topArticle').append('<h1 class="settings_form_title">Report Dates</h1>');
     			$('#div-1a').append('<h1 class="settings_form_title">Report Dates</h1>');
-    			$('#testArticle').append('<option selected="selected">Report Dates for WP '+wpTitle+'</option>');
     			
     			var reportsArray = new Array();
     			$(xmlReport).find('subreport').each(function(){
@@ -55,7 +53,6 @@
 					if( jQuery.inArray(reportDate, reportsArray) == -1 ){
 					if(wpID == wpIdFromSubreport){
 						$('#topArticle').append('<a href="#" id="triggerPartnerForReport" reportdate="'+reportDate+'" wptitle="'+wpFromSubreport+'" wpid="'+wpIdFromSubreport+'">'+reportDate+'</a>');
-		    			$('#testArticle').append('<option id="triggerPartnerForReport" reportdate="'+reportDate+'" wptitle="'+wpFromSubreport+'" wpid="'+wpIdFromSubreport+'">'+reportDate+'</option>');
 
 					}
 					reportsArray.push(reportDate);
@@ -67,22 +64,19 @@
      	
     		$("#triggerPartnerForReport").live("click",function() {
     			$('#midArticle').empty();
-    			$('#testmidArticle').empty();
     			$('#secondArticleContainer').hide();
     			var date = $(this).attr('reportdate');
     			var wpID = $(this).attr('wpid');
     			$('#midArticle').append('<h2 class="settings_form_title">Partners reporting on date '+date+'</h2>');
-    			$('#testmidArticle').append('<option class="settings_form_title">Partners reporting on date '+date+'</option>');
 
     			$(xmlReport).find('subreport').each(function(){
 					var reportWPID=$(this).attr("WPID");
 					var reportWP=$(this).attr("WP");
 					var partnerID=$(this).attr("partner");
+					var partnerName=$(this).attr("partnerName");
 					var reportDate=$(this).attr("date");
 						if(reportDate == date && reportWPID == wpID){
-						$('#midArticle').append('<h4><a href="#" id="triggerReport" partnerID="'+partnerID+'" partnername="'+partnerID+'" wptitle="'+reportWP+'" wpid="'+reportWPID+'"reportdate="'+reportDate+'">'+partnerID+'</a></h4>');
-						$('#testmidArticle').append('<option id="triggerReport" partnerID="'+partnerID+'" partnername="'+partnerID+'" wptitle="'+reportWP+'" wpid="'+reportWPID+'"reportdate="'+reportDate+'">'+partnerID+'</option>');
-
+						$('#midArticle').append('<h4><a href="#" id="triggerReport" partnerID="'+partnerID+'" partnername="'+partnerName+'" wptitle="'+reportWP+'" wpid="'+reportWPID+'"reportdate="'+reportDate+'">'+partnerName+'</a></h4>');
 						}
 					});
     			$('#midArticle').show();
@@ -90,7 +84,6 @@
      		
     		$("#triggerPartner").live("click",function() {
     			$('#topArticle').empty();
-    			$('#testArticle').empty();
     			$('#midArticle').hide();
     			$('#secondArticleContainer').hide();
     			var partnerID = $(this).attr('partnerid');
@@ -98,16 +91,12 @@
     			currentPartner=partnerID;
     			$('#topArticle').append('<h1 class="settings_form_head_title">Partner '+partnerName+'</h1>');
     			$('#topArticle').append('<h1 class="settings_form_title">Taking part in WPs</h1>');
-    			$('#testArticle').append('<option>Select WP for '+partnerName+'</option>');
-
     			$(xmlReport).find('subreport').each(function(){
 					var reportWP=$(this).attr("WP");
 					var reportWPID=$(this).attr("WPID");
 					var partnerWP=$(this).attr("partner");
 						if(partnerID == partnerWP){
 						$('#topArticle').append('<a href="#" id="triggerWPforPartner" partnerID="'+partnerID+'" partnername="'+partnerName+'" wptitle="'+reportWP+'" wpid="'+reportWPID+'">'+reportWP+'</a>');
-						$('#testArticle').append('<option class="rounded-list" id="triggerWPforPartner" partnerID="'+partnerID+'" partnername="'+partnerName+'" wptitle="'+reportWP+'" wpid="'+reportWPID+'">'+reportWP+'</option>');
-
 						}
 					});//workpackage
     	        $('#topArticleContainer').show();
@@ -116,22 +105,18 @@
     		
     		$("#triggerWPforPartner").live("click",function() {
     			$('#midArticle').empty();
-    			$('#testmidArticle').empty();
     			$('#secondArticleContainer').hide();
     			var partnerID = $(this).attr('partnerid');
     			var partnerName = $(this).attr('partnername');
     			var wpID=$(this).attr('wpid');
     			var wpTitle=$(this).attr('wptitle');
     			$('#midArticle').append('<h2 class="settings_form_title">Reports for WP '+wpTitle+'</h2>');
-    			$('#testmidArticle').append('<option>Reports for WP '+wpTitle+'</option>');
     			$(xmlReport).find('subreport').each(function(){
 					var reportWP=$(this).attr("WPID");
 					var partnerWP=$(this).attr("partner");
 					var reportDate=$(this).attr("date");
 						if(partnerID == partnerWP && reportWP == wpID){
 						$('#midArticle').append('<h4><a href="#" id="triggerReport" partnerID="'+partnerID+'" partnername="'+partnerName+'" wpid="'+reportWP+'" reportdate="'+reportDate+'">'+reportDate+'</a></h4>');
-						$('#testmidArticle').append('<option class="rounded-list" id="triggerReport" partnerID="'+partnerID+'" partnername="'+partnerName+'" wpid="'+reportWP+'" reportdate="'+reportDate+'">'+reportDate+'</option>');
-
 						}
 					});
     			$('#midArticle').show();
@@ -164,7 +149,7 @@
 						var explanation= $(this).children('explanation').text();
 						$('#secondArticle').append('<h2 class="settings_form_head_title">Report by Partner '+partnerName+' for WP '+reportWP+' on date '+date+'</h2>');
 						$('#secondArticle').append('<h6 class="settings_form_title">Expenses</h6>');
-						$('#secondArticle').append('<a>'+expenses+'</a>');
+						$('#secondArticle').append('<a class="editTextArea" id="expenses">'+expenses+'</a>');
 						$('#secondArticle').append('<h2 class="settings_form_title">Status</h2>');
 						$('#secondArticle').append('<a class="editStatus" id="status">'+status+'</a>');
 						$('#secondArticle').append('<h2 class="settings_form_title">Feedback</h2>');

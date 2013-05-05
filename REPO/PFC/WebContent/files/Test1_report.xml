@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report>
-  <subreport partner="001" WP="WP 1" WPID="1355348593079" date="2012-09-20">
+  <subreport partner="001" partnerName="UPM" WP="HARDWARE" WPID="1355348593079" date="2012-09-20">
     <expenses>1,200 EUR </expenses>
     <status>Saved</status>
     <flag>Red</flag>
@@ -17,7 +17,7 @@
       <effort>Mucho</effort>
     </task>
   </subreport>
-  <subreport partner="002" WP="WP 1" WPID="1355348593079" date="2012-09-20">
+  <subreport partner="002" partnerName="UC3M" WP="HARDWARE" WPID="1355348593079" date="2012-09-20">
     <expenses>1,400 EUR </expenses>
     <status>Sent</status>
     <flag>Green</flag>
@@ -29,7 +29,7 @@
       <effort>Mucho</effort>
     </task>
   </subreport>
-  <subreport partner="003" WP="WP 2" WPID="1355348593078" date="2013-09-20">
+  <subreport partner="003" partnerName="UNEX" WP="SOFTWARE" WPID="1355348593078" date="2013-09-20">
     <expenses>1,o00 EUR </expenses>
     <status>Saved</status>
     <flag>Red</flag>
@@ -41,25 +41,25 @@
       <effort>Mucho</effort>
     </task>
   </subreport>
-  <subreport partner="004" WP="WP 2" WPID="1355348593078" date="2013-09-20">
+  <subreport partner="004" partnerName="USC" WP="SOFTWARE" WPID="1355348593078" date="2013-09-20">
      <expenses>1,500 EUR </expenses>
     <status>Saved</status>
     <flag>Green</flag>
     <explanation>NA</explanation>
 	<feedback>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</feedback>
-    <task id="22" title="Tarea veintidós">
+    <task id="22" title="Tarea veintidos">
 	  <work>A lot</work>
       <result>Bom</result>
       <effort>Mucho</effort>
     </task>
   </subreport>
-  <subreport partner="001" WP="WP 2" WPID="1355348593078" date="2013-09-20">
+  <subreport partner="001" partnerName="UPM" WP="SOFTWARE" WPID="1355348593078" date="2013-09-20">
     <expenses>1,800 EUR </expenses>
     <status>Saved</status>
     <flag>Green</flag>
     <explanation>NA</explanation>
 	<feedback>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</feedback>
-    <task id="22" title="Tarea veintidós">
+    <task id="22" title="Tarea veintidos">
        <work>A lot</work>
       <result>Bom</result>
       <effort>Mucho</effort>

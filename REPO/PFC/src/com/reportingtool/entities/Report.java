@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Vector;
 
 import java.util.Iterator;
@@ -31,7 +32,8 @@ public class Report {
 	public static  Document fillReportFile(Document d){
 		Element root = new Element("report");
 		Document doc = new Document(root);			
-
+		Document partner=Partner.getCurrentPartnersFile();
+		HashMap<String, String> partnersMap=Partner.getPartnersName(partner);
 		//Get init date y duration
 		Object metainfo= d.getRootElement().getChild("metainfo");	
 		Element eMetainfo=(Element)metainfo;
@@ -62,7 +64,7 @@ public class Report {
 						partners.add(ePartner.getAttributeValue("id"));
 						//System.out.println(reportDate+" Partner found:"+ ePartner.getAttributeValue("id")+ "for WP: "+wpTitle);
 						System.out.println("<report WP="+wpTitle+" partner="+ePartner.getAttributeValue("id")+" reportDate="+reportDate);
-						addSubReport(doc,reportDate, wpTitle,wpID,ePartner.getAttributeValue("id"),eO.getDescendants(Filters.element("task")));
+						addSubReport(doc,reportDate, wpTitle,wpID,ePartner.getAttributeValue("id"),partnersMap.get(ePartner.getAttributeValue("id")),eO.getDescendants(Filters.element("task")));
 						}else
 							System.out.println("[REPORT] Partner="+ePartner.getAttributeValue("id")+" was already processed for WP "+wpTitle );
 					}
@@ -80,6 +82,7 @@ public class Report {
 	
 	public static Document getCurrentReportFile(String projectID){
 		
+		System.out.println("getCurrentReportFile "+projectID);
 		SAXBuilder builder = new SAXBuilder();
 		File xmlFile = new File(projectID);
 		Document document=new Document();
@@ -88,6 +91,7 @@ public class Report {
 		} catch (JDOMException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
+			e.printStackTrace();
 			System.out.println("There's no file with this name. Lo creamos y punto.");
 			document=createReportFile(projectID);
 		}
@@ -101,7 +105,7 @@ public class Report {
 
 	
 
-	public static Document addSubReport(Document doc,String date, String WP,String wpID,String partnerID,Iterator<Element> tasks){
+	public static Document addSubReport(Document doc,String date, String WP,String wpID,String partnerID,String partnerName,Iterator<Element> tasks){
 		
 
 		Element subreport = new Element("subreport");
@@ -110,6 +114,7 @@ public class Report {
 		subreport.setAttribute("WP", WP);
 		subreport.setAttribute("WPID", wpID);
 		subreport.setAttribute("date", date);
+		subreport.setAttribute("partnerName", partnerName);
 
 	
 		Element eExpenses= new Element("expenses");
@@ -226,52 +231,42 @@ public class Report {
 	}
 	
 
-	public static Document updateSubReport(Document doc,String WP, String partnerID,String date,String expenses,String status,String flag,String explanation,String feedback){
-		
-		if (status==null || status.equals(""))
-			status="saved";
-		
-		if(flag==null || flag.equals(""))
-			flag="green";
-		
-		if(explanation==null)
-			explanation="";
-		
+	public static Document updateSubReport(Document doc,String WP, String partnerID,String date,String field,String value,String path){
+System.out.println("Modifying subreport for WP:"+WP+"|partnerID:"+partnerID+"|date:"+date);
 		for(Object object : doc.getRootElement().getChildren("subreport")) {
-			Element eObject=(Element)object;			
-			if (eObject.getAttributeValue("id").equals(WP) && eObject.getAttributeValue("partner").equals(partnerID)&&eObject.getAttributeValue("date").equals(date)){
-				eObject.getChild("feedback").setText(feedback);
-				eObject.getChild("status").setText(status);
-				eObject.getChild("flag").setText(flag);
-				eObject.getChild("flag").getChild("explanation").setText(explanation);
+			Element eObject=(Element)object;
+			if (eObject.getAttributeValue("WPID").equals(WP) && eObject.getAttributeValue("partner").equals(partnerID)&&eObject.getAttributeValue("date").equals(date)){
+				eObject.getChild(field).setText(value);
+				System.out.println("Report - Subreport modified, field "+field+" value "+value);
 				break;
 			}						
 		}
-		
+		System.out.println("about to write "+path);
+		Commons.writeFile(path,doc);
 		return doc;
 	}
 	
-	public static Document updateTaskReport(Document doc,String WP, String partnerID,String date,String task,String work,String result,String effort){
+	public static Document updateTaskReport(Document doc,String WP, String partnerID,String date,String task,String field,String value,String path){
 		
-
+		System.out.println("Modifying task for WP:"+WP+"|partnerID:"+partnerID+"|date:"+date+"|task:"+task);
 		
 		for(Object object : doc.getRootElement().getChildren("subreport")) {
 			Element eObject=(Element)object;			
-			if (eObject.getAttributeValue("id").equals(WP) && eObject.getAttributeValue("partner").equals(partnerID)&&eObject.getAttributeValue("date").equals(date)){
+			if (eObject.getAttributeValue("WPID").equals(WP) && eObject.getAttributeValue("partner").equals(partnerID)&&eObject.getAttributeValue("date").equals(date)){
 				for(Object tObject : eObject.getChildren("task")) {
 					Element taskObject=(Element)tObject;
 					if(taskObject.getAttributeValue("id").equals(task)){
-					taskObject.getChild("work").setText(work);
-					taskObject.getChild("result").setText(result);
-					taskObject.getChild("effort").setText(effort);
-					break;
+						taskObject.getChild(field).setText(value);
+						System.out.println("Report - Task modified, field "+field+" value "+value);
+						break;
 					}
 				}
 				
 				break;
 			}						
 		}
-		
+		System.out.println("about to write tsk on "+path);
+		Commons.writeFile(path,doc);
 		return doc;
 	}
 	

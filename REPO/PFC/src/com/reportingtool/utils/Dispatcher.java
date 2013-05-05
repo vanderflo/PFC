@@ -11,6 +11,7 @@ import org.jdom2.filter.Filters;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Vector;
 
 import java.util.Iterator;
@@ -58,9 +59,9 @@ public class Dispatcher {
 	 */
 	public static void main(String[] args) throws IOException {
 		System.out.println(System.getProperty("user.dir"));
-		 Date date=new Date();
-		 SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
-		 System.out.println(sdf.format(date));
+		Document partner=Partner.getCurrentPartnersFile();
+		HashMap<String, String> partners=Partner.getPartnersName(partner);
+		System.out.println(partners.get("001"));
 	}
 		
 		

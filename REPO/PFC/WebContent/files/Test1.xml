@@ -10,7 +10,7 @@
       <partner id="001" />
     </coordinator>
   </metainfo>
- <workpackage title="WP 1" id="1355348593079">
+ <workpackage title="HARDWARE" id="1355348593079">
     <coordinator>
       <leader id="001" />
     </coordinator>
@@ -35,7 +35,7 @@
       <dateFinish>2012-12-03</dateFinish>
      </task>
   </workpackage>
-  <workpackage title="WP 2" id="1355348593078">
+  <workpackage title="SOFTWARE" id="1355348593078">
     <coordinator>
       <leader id="001" />
     </coordinator>

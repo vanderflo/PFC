@@ -1,0 +1,50 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" debug="true">
+
+<head>
+<link rel="stylesheet" type="text/css" href="css/tool.css" />
+<link href=" http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/themes/base/jquery-ui.css" rel="Stylesheet">
+<script type="text/javascript" src="jquery-1.8.2.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/jquery-ui.min.js"></script>
+<script src="jquery.jeditable.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+
+$(function() {
+        
+
+
+  $(".editable_textarea").editable("http://www.appelsiini.net/projects/jeditable/php/save.php", { 
+      indicator : "<img src='img/indicator.gif'>",
+      type   : 'textarea',
+      submitdata: { _method: "put" },
+      select : true,
+      submit : 'OK',
+      cancel : 'cancel',
+      cssclass : "editable"
+  });
+ 
+  
+
+});
+</script>
+
+
+
+</head>
+
+<body>
+
+            
+
+    <h2>Normal textarea</h2>
+    
+    <a class="editable_textarea" id="paragraph_1">yfufuyfasdas</a>
+
+
+
+
+
+
+</body>
+</html>
