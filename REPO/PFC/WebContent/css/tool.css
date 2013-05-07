@@ -98,7 +98,7 @@ footer{
 /* --------------------------------------------------- */        
 
 #main{
-    margin: 20px auto 0 auto;
+    margin: 10px auto 0 auto;
     width: 90%;
 }
 
@@ -117,7 +117,7 @@ article{
     position: relative;            
     padding: 20px;
     margin: 0 0 20px 0;
-    text-align: center;
+    text-align: left;
     background: #fff;
     box-shadow: 0 1px 1px #999;
     border-radius:5px;            
@@ -263,6 +263,73 @@ figcaption{
     color: #444;
 }
 
+///////////// END WP-PARTNER MENU
+#topmenu li{
+  margin: 0 0 3px 0;             
+}
+
+#topmenu a{
+  display: block;
+  *display: inline-block;
+  *width: 240px;
+  text-decoration: none;	            
+  background: #ddd;
+  color: #444;	
+  padding: 10px 5px;
+  text-transform: uppercase;
+  font: bold 12px Arial,Helvetica;          
+  border-radius:5px;
+  box-shadow: 0 1px 0 #ccc;   
+}
+
+#topmenu a:hover{
+    color: #eee;
+    background: #9c9c9c;
+    background: linear-gradient(top, #bbb, #999);          
+}
+
+#topmenu .topexpandable{
+    position: relative; 
+}
+
+#topmenu .topexpandable:before,
+#topmenu .topexpandable:after{
+  content: '';
+  position: absolute;
+  right: 5px;
+  margin-top: 5px;
+  border-top: 6px solid #444;
+  border-right: 6px solid transparent;
+  border-left: 6px solid transparent;          
+}
+
+#topmenu .topexpandable:before{
+   border-top-color: #fff;
+   margin-top: 6px;
+}
+
+#topmenu .topexpanded:after{
+  border-top: 0;
+  border-bottom: 6px solid #444;       
+}
+
+#topmenu .topexpanded:before{
+    border-top: 0;
+    border-bottom: 6px solid #fff;               
+}
+
+#topmenu ul a{
+    background: #f2f2f2;
+    text-transform: none;
+    font-weight: normal;            
+}
+
+#topmenu ul a:hover{
+    background: #fafafa;
+    color: #444;
+}
+
+///////////// END COORDINATOR MENU
 .Web_OnlineTools_Table {
 
 	margin:0px;padding:0px;
@@ -494,15 +561,27 @@ vertical-align: middle;
    border: 1px solid #ccc;
    }
    
- #div-1b {
- position:absolute;
- top:0;
- right:0;
- width:200px;
+
+   
+   a.topbutton {
+    background-color: #E0EAF1;
+    border-bottom: 1px solid #B3CEE1;
+    border-right: 1px solid #B3CEE1;
+    color: #3E6D8E;
+    font-size: 90%;
+    line-height: 2.4;
+    margin: 2px 2px 2px 0;
+    padding: 3px 4px;
+    text-decoration: none;
+    white-space: nowrap;
 }
-#div-1a {
- position:absolute;
- top:0;
- left:0;
- width:200px;
+   
+ .line-separator{
+
+height:1px;
+
+background:#717171;
+
+border-bottom:1px solid #313030;
+
 }

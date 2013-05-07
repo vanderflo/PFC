@@ -6,22 +6,14 @@
 <script type="text/javascript" src="jquery-1.8.2.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/jquery-ui.min.js"></script>
 <script type="text/javascript" src="http://www.appelsiini.net/download/jquery.jeditable.js"></script>
+<script type="text/javascript" src="initCoordinatorMenu.js"></script>
+
 
 <script>
 
 		
-        function initMenu() {
-          $('#menu ul').hide(); // Hide the submenu
-          if ($('#menu li').has('ul')) $('#menu ul').prev().addClass('expandable'); // Expand/collapse a submenu when it exists  
-          $('.expandable').click(
-            function() {
-                $(this).next().slideToggle();
-                $(this).toggleClass('expanded');
-              }
-            );
-          }
 
-        
+        var xmlReport;
         var currentProject="Test1";
     	var currentPartner;
     	var currentWP;
@@ -32,7 +24,10 @@
 		$('#topArticleContainer').hide();
         $('#secondArticleContainer').hide();
         initMenu();
-		$.getScript("coordinator.js");
+        initTopMenu();
+        getProjects();
+		$('#menu').hide();
+        $.getScript("coordinator.js");
 
         });    
     </script>
@@ -48,7 +43,16 @@
 <div id="main" class="clearfix">
     <aside>
         <nav>
+         <ul id="topmenu">
+                       <li>
+                   <a href="#">Select Project</a>
+                    <ul id="coordinatorProjects">                
+                   
+                    </ul>        
+                </li>
+         </ul>
             <ul id="menu">
+
                <li>
                    <a href="#">Work packages</a>
                     <ul id="coordinatorWP">                
@@ -66,16 +70,14 @@
     </aside>
     
     <div id="content">
-        <article id="topArticleContainer">
-            <section id="topArticle" class="rounded-list">
 
-            </section>
+        <article id="secondArticleContainer">
+         <section id="topArticle">
+		</section>
             
-            <section id="midArticle"  class="rounded-list">
-			</section>
-            
-        </article>
-        <article id="secondArticleContainer">       
+        <section id="midArticle">
+		</section> 
+		   
 		<section id="secondArticle" class="rounded-list">
 		</section>
         </article>
