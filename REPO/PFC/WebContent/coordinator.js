@@ -9,99 +9,56 @@
     		$("#triggerWP").live("click",function() {
     			$('#topArticle').empty();
     			$('#secondArticle').empty();
-    			$('#midArticle').hide();
-    			$('#secondArticleContainer').show();
+    			$('#secondArticleContainer').hide();
+    			$('#topArticleContainer').show();
+
     			var wpTitle = $(this).attr('wptitle');
     			var wpID = $(this).attr('wpid');
-    			$('#topArticle').append('<h1 class="settings_form_head_titleee">Selected WorkPackage: '+wpTitle+'</h1>');
-    			//$('#topArticle').append('<a class="settings_form_titleee">Report Dates:</a>');
+    			$('#topArticle').append('<h1 class="settings_form_head_titleee"><a>WorkPackage: '+wpTitle+'</a><div class="line-separator"></div></h1>');
+				//$('#topArticle').append('<h6><div class="Table_Menu_Partner"></div></h6>');
     			
     			var reportsArray = new Array();
     			$(xmlReport).find('subreport').each(function(){
 					var wpFromSubreport=$(this).attr("WP");
 					var wpIdFromSubreport=$(this).attr("WPID");
+					var partnerName=$(this).attr("partnerName");
+					var partnerID=$(this).attr("partner");
 					var reportDate=$(this).attr("date");
-					if( jQuery.inArray(reportDate, reportsArray) == -1 ){
+					//if( jQuery.inArray(reportDate, reportsArray) == -1 ){
 					if(wpID == wpIdFromSubreport){
-						$('#topArticle').append('<a href="#" id="triggerPartnerForReport" class="topbutton" reportdate="'+reportDate+'" wptitle="'+wpFromSubreport+'" wpid="'+wpIdFromSubreport+'">'+reportDate+'</a>');
-
+						$('#topArticle').append('<h4><a href="#" id="triggerReport" class="topbuttonNO" partnerid="'+partnerID+'" partnername="'+partnerName+'" reportdate="'+reportDate+'" wptitle="'+wpFromSubreport+'" wpid="'+wpIdFromSubreport+'">'+reportDate+' by partner '+partnerName+'</a></h4>');
 					}
-					reportsArray.push(reportDate);
-					}
+					//reportsArray.push(reportDate);
+					//}
 					});//workpackage
-
     		   });  
      	
-    		$("#triggerPartnerForReport").live("click",function() {
-    			$('#midArticle').empty();
-    			$('#secondArticleContainer').show();
-    			var date = $(this).attr('reportdate');
-    			var wpID = $(this).attr('wpid');
-    			//$('#midArticle').append('<h2 class="settings_form_titleee">Partners reporting on date '+date+'</h2>');
-
-    			$(xmlReport).find('subreport').each(function(){
-					var reportWPID=$(this).attr("WPID");
-					var reportWP=$(this).attr("WP");
-					var partnerID=$(this).attr("partner");
-					var partnerName=$(this).attr("partnerName");
-					var reportDate=$(this).attr("date");
-						if(reportDate == date && reportWPID == wpID){
-						//$('#midArticle').append('<h4><a href="#" id="triggerReport" partnerID="'+partnerID+'" partnername="'+partnerName+'" wptitle="'+reportWP+'" wpid="'+reportWPID+'"reportdate="'+reportDate+'">'+partnerName+'</a></h4>');
-						$('#midArticle').append('<a href="#" class="topbutton" id="triggerReport" partnerID="'+partnerID+'" partnername="'+partnerName+'" wptitle="'+reportWP+'" wpid="'+reportWPID+'"reportdate="'+reportDate+'">'+partnerName+'</a>');
-						}
-					});
-    			$('#midArticle').show();
-    		   });
+    		
      		
     		$("#triggerPartner").live("click",function() {
     			$('#topArticle').empty();
     			$('#secondArticle').empty();
-    			$('#midArticle').hide();
-    			$('#secondArticleContainer').show();
+    			$('#secondArticleContainer').hide();
+    			$('#topArticleContainer').show();
     			var partnerID = $(this).attr('partnerid');
     			var partnerName = $(this).attr('partnername');
     			currentPartner=partnerID;
-    			$('#topArticle').append('<h1 class="settings_form_head_titleee">Partner: '+partnerName+'</h1>');
-    			//$('#topArticle').append('<a class="settings_form_titleee">Taking part in WPs</a>');
+    			$('#topArticle').append('<h1 class="settings_form_head_titleee"><a>Partner: '+partnerName+'</a><div class="line-separator"></div></h1>');
     			$(xmlReport).find('subreport').each(function(){
 					var reportWP=$(this).attr("WP");
 					var reportWPID=$(this).attr("WPID");
 					var partnerWP=$(this).attr("partner");
+					var reportDate=$(this).attr("date");
 						if(partnerID == partnerWP){
-						$('#topArticle').append('<a href="#" id="triggerWPforPartner" class="topbutton" partnerID="'+partnerID+'" partnername="'+partnerName+'" wptitle="'+reportWP+'" wpid="'+reportWPID+'">'+reportWP+'</a>');
+						$('#topArticle').append('<h4><a href="#" id="triggerReport" class="topbuttonNO" partnerID="'+partnerID+'" partnername="'+partnerName+'" wptitle="'+reportWP+'" wpid="'+reportWPID+'" reportdate="'+reportDate+'">'+reportWP+' on '+reportDate+'</a></h4>');
 						}
 					});//workpackage
 
     		   });
     		
-    		$("#triggerWPforPartner").live("click",function() {
-    			$('#midArticle').empty();
-    			$('#secondArticleContainer').show();
-    			var partnerID = $(this).attr('partnerid');
-    			var partnerName = $(this).attr('partnername');
-    			var wpID=$(this).attr('wpid');
-    			var wpTitle=$(this).attr('wptitle');
-    			//$('#midArticle').append('<h2 class="settings_form_titleee">Reports for WP '+wpTitle+'</h2>');
-    			$(xmlReport).find('subreport').each(function(){
-					var reportWP=$(this).attr("WPID");
-					var partnerWP=$(this).attr("partner");
-					var reportDate=$(this).attr("date");
-						if(partnerID == partnerWP && reportWP == wpID){
-						//$('#midArticle').append('<h4><a href="#" id="triggerReport" partnerID="'+partnerID+'" partnername="'+partnerName+'" wpid="'+reportWP+'" reportdate="'+reportDate+'">'+reportDate+'</a></h4>');
-						$('#midArticle').append('<a href="#" class="topbutton" id="triggerReport" partnerID="'+partnerID+'" partnername="'+partnerName+'" wpid="'+reportWP+'" reportdate="'+reportDate+'">'+reportDate+'</a>');
 
-						}
-					});
-    			$('#midArticle').show();
-    		   });
-     		
-    		
-    		
-    		
-    		
     		$("#triggerReport").live("click",function() {
     			$('#secondArticle').empty();
-				$('#secondArticle').append('<div class="line-separator"></div>');
     			var partnerID = $(this).attr('partnerid');
     			currentPartner=partnerID;
     			var date = $(this).attr('reportdate');
