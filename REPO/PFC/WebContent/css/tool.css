@@ -583,7 +583,8 @@ height:1px;
 
 background:#717171;
 
-border-bottom:1px solid #313030;
+border-bottom:
+px dotted #313030;
 
 }
 
@@ -591,8 +592,57 @@ border-bottom:1px solid #313030;
 
 
 /* Test for tables */
-.css3Header{ float:left; width:100%; border:1px #F1F1F1 solid;}
-.table1Header{ float:left; width:20%;font-style:italic;}
+.tableHeader{ float:left; width:100%; }
+.table1Header{ width:7%;}
+.table2Header{ width:25%;}
+.table7Header{ width:25%;}
+.table3Header{ width:8%;}
+.table4Header{ width:5%;}
+.table5Header{ width:5%;}
+.table6Header{ width:25%;}
+.table1Header,.table2Header,.table3Header,.table4Header,.table5Header,.table6Header,.table7Header{ 
+float:left;
+font-style:bold;
+color:black;
+color: #444;
+font-size: 12px;
+font-weight: normal;
+}
 
-.css3{ float:left; width:100%; border:1px #F1F1F1 solid;margin-top:5px;}
-.table1{ float:left; width:20%;border-top:1px solid grey;border-bottom:1px solid grey;}
+.table{ float:left; width:100%;margin-top:5px;}
+.table1{ width:7%;}
+.table2{ width:25%;}
+.table7{ width:25%;}
+.table3{ width:8%;}
+.table4,.table4-red,.table4-green{ width:5%;}
+.table5{ width:5%;}
+.table6{ width:25%;}
+.table1,.table2,.table3,.table4,.table4-red,.table4-green,.table5,.table6,.table7{ float:left;color:#777;padding-top:2px;}
+
+#content h3 {
+font-weight: bold;
+font-size: 110%;
+color: #8F8781;
+margin-bottom: .5em;
+border-bottom: 1px solid #aaaaaa;
+}
+
+#secondArticle h1 {
+font-weight: bold;
+font-size: 120%;
+color: #8F8781;
+margin-bottom: .5em;
+border-bottom: 1px dotted #aaaaaa;
+}
+
+#secondArticle h5 {
+font-weight: bold;
+font-size: 120%;
+color: black;
+margin-bottom: .5em;
+}
+
+.odd div{background-color:#f2f2f2;}
+
+.table div.table4{background-color:white;color:white;}
+
