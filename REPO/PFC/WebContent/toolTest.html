@@ -1,44 +1,8 @@
-<!DOCTYPE html>
-<html>
 <head>	
-<link rel="stylesheet" type="text/css" href="css/tool.css" />
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>    
-    <script type="text/javascript">
-    
-    function DropDown(el) {
-        this.dd = el;
-        this.placeholder = this.dd.children('span');
-        this.opts = this.dd.find('ul.dropdown > li');
-        this.val = '';
-        this.index = -1;
-        this.initEvents();
-    }
-    DropDown.prototype = {
-        initEvents : function() {
-            var obj = this;
-     
-            obj.dd.on('click', function(event){
-                $(this).toggleClass('active');
-                return false;
-            });
-     
-            obj.opts.on('click',function(){
-                var opt = $(this);
-                obj.val = opt.text();
-                obj.index = opt.index();
-                obj.placeholder.text('Gender: ' + obj.val);
-            });
-        },
-        getValue : function() {
-            return this.val;
-        },
-        getIndex : function() {
-            return this.index;
-        }
-    } 
-    </script>
-    
+<link rel="stylesheet" type="text/css" href="css/tool.css">
+
 </head>
+<body>
 <header>
     <hgroup class="clearfix"> 
         <h1><a href="#">UC3M <span>Reporting Tool</span></a></h1> 
@@ -49,24 +13,23 @@
 <div id="main" class="clearfix">
     <aside>
         <nav>
-            <ul id="menu">
+         <ul id="topmenu">
+                       <li>
+                   <a class="topexpandable topexpanded" href="#">Select Project</a>
+                    <ul style="display: block;" id="coordinatorProjects">                
+                   
+                    <li><a href="#" id="selectProject" class="selectProject" projectid="Test1" projecttile="Test1">Test1</a></li><li></li><li><a href="#" id="selectProject" class="selectProject" projectid="Test2" projecttile="Test2">Test2</a></li><li></li><li><a href="#" id="selectProject" class="selectProject" projectid="1355244535874" projecttile="Test13">Test13</a></li><li></li><li><a href="#" id="selectProject" class="selectProject" projectid="1355244768180" projecttile="Test14">Test14</a></li><li></li><li><a href="#" id="selectProject" class="selectProject" projectid="1355246330303" projecttile="Test15">Test15</a></li><li></li><li><a href="#" id="selectProject" class="selectProject" projectid="1355246454807" projecttile="Test16">Test16</a></li><li></li></ul>        
+                </li>
+         </ul>
+            <ul style="display: block;" id="menu">
+
                <li>
-                    <a href="#">Categories</a>
-                    <ul>                
-                        <li><a href="#">Css</a></li>
-                        <li><a href="#">Graphic Design</a></li>
-                        <li><a href="#">Tools</a></li>
-                        <li><a href="#">Web design</a></li>                      
-                    </ul>        
+                   <a class="expandable expanded" href="#">Work packages</a>
+                    <ul style="display: block;" id="coordinatorWP"><li><a href="#" id="triggerWP" class="triggerWP" wpid="1355348593079" wptitle="HARDWARE">HARDWARE</a></li><li></li><li><a href="#" id="triggerWP" class="triggerWP" wpid="1355348593078" wptitle="SOFTWARE">SOFTWARE</a></li><li></li></ul>        
                 </li>
                 <li>
-                    <a href="#">Work</a>
-                    <ul>
-                        <li><a href="#">Websites</a></li>
-                        <li><a href="#">Logos and icons</a></li>
-                        <li><a href="#">User Interfaces</a></li>
-                        <li><a href="#">Other stuff</a></li>                
-                    </ul>
+                    <a class="expandable" href="#">Partners</a>
+                    <ul style="display: none;" id="coordinatorPartners"><li><a href="#" id="triggerPartner" class="triggerPartner" partnerid="001" partnername="UPM">UPM</a></li><li><a href="#" id="triggerPartner" class="triggerPartner" partnerid="002" partnername="UC3M">UC3M</a></li><li><a href="#" id="triggerPartner" class="triggerPartner" partnerid="003" partnername="UNEX">UNEX</a></li><li><a href="#" id="triggerPartner" class="triggerPartner" partnerid="004" partnername="USC">USC</a></li></ul>
                 </li>
                                  
             </ul>
@@ -75,24 +38,62 @@
     
     <div id="content">
 
-        <article>        
-           <section class="main">
-				<div class="wrapper-demo">
-					<div id="dd" class="wrapper-dropdown-1" tabindex="1">
-						<span>Gender</span>
-					    <ul class="dropdown" tabindex="1">
-					        <li><a href="#">Male</a></li>
-					        <li><a href="#">Female</a></li>
-					    </ul>
-					</div>
-				​</div>
-			</section>
-                  
-        </article>        
+        <article style="display: block;" id="topArticleContainer">
+         <section id="topArticle"><h1 class="settings_form_head_titleee"><a>WorkPackage: HARDWARE</a><div class="line-separator"></div></h1>
+        	 	 <div class="css3Header">
+        	 		<div class="table1Header">Date</div>
+				    <div class="table1Header">Comments</div>
+				    <div class="table1Header">Flag</div>
+				    <div class="table1Header">Effort</div>
+				    <div class="table1Header">Status</div>
+				 </div>   
+        	 <div class="css3">
+				 	<div class="table1">2013-05</div>
+				    <div class="table1">Completed successfully</div>
+				    <div class="table1">Green</div>
+				    <div class="table1">1 month</div>
+				    <div class="table1">SAVED</div>
+				    
+				    <div class="table1">2013-06</div>
+				    <div class="table1">Completed almost successfully</div>
+				    <div class="table1">RED</div>
+				    <div class="table1">1 month</div>
+				    <div class="table1">SENT</div>
+				    
+				</div> 
+				<h1 class="settings_form_head_titleee"><a>.</a></h1>
+		</section>  
+        </article>
+        
+        <article style="display: block;" id="secondArticleContainer">
+
+        <section id="midArticle">
+		</section> 
+		   
+		<section id="secondArticle" class="rounded-list"><h1>Report Information</h1><h5>Partner: UC3M</h5><h5>Work Package: HARDWARE</h5><h5>Date: 2012-09-20</h5><h6 class="settings_form_title">Expenses</h6><a class="editTextArea" id="expenses">1,400 EUR</a><h2 class="settings_form_title">Status</h2><a class="editStatus" id="status">Sent</a><h2 class="settings_form_title">Feedback</h2><a title="Click to edit..." class="editTextArea" id="feedback">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</a><h2 class="settings_form_title">Flag</h2><a class="editFlag" id="flag">Green</a><h2 class="settings_form_title">Explanation</h2><a class="editTextArea" id="explanation">NA</a><h6 class="settings_form_head_sub_title">Task Tarea doce</h6><h6 class="settings_form_sub_title">Work</h6><a class="editTask" id="work" taskid="12">A lot</a><h6 class="settings_form_sub_title">Result</h6><a class="editTask" id="result" taskid="12">Bom</a><h6 class="settings_form_sub_title">Effort</h6><a class="editTask" id="effort" taskid="12">Mucho</a></section>
+        </article>
+        
+        
+        <article id="lastArticleContainer">      
+            <section id="lastArticle">
+                <h1><a>Instructions Page</a></h1>
+                <h2 class="edit">Please select partner bla bla bla bla bla</h2>
+                <figure>
+                    <img src="http://www.red-team-design.com/wp-content/uploads/2011/04/css3-tooltips.png" alt="CSS3 tooltips" height="200" width="600">
+                    <figcaption>CSS3 gradients, box shadows, pseudo-elements.</figcaption>                    
+                </figure>
+                                <div class="Table_Menu_Partner">
+
+	</div>
+            </section>
+            <footer>Posted on <span>April 28th, 2011</span></footer>             
+        </article>
+   
     </div>
 </div>
+
 <footer>
-    Design and code by <a href="http://www.red-team-design.com/">RedTeamDesign</a>
+    Design and code by Fernando Flores
 </footer>
 
-</html>
+</body>

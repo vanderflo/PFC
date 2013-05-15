@@ -586,3 +586,13 @@ background:#717171;
 border-bottom:1px solid #313030;
 
 }
+
+
+
+
+/* Test for tables */
+.css3Header{ float:left; width:100%; border:1px #F1F1F1 solid;}
+.table1Header{ float:left; width:20%;font-style:italic;}
+
+.css3{ float:left; width:100%; border:1px #F1F1F1 solid;margin-top:5px;}
+.table1{ float:left; width:20%;border-top:1px solid grey;border-bottom:1px solid grey;}
