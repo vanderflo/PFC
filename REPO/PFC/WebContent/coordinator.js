@@ -26,7 +26,7 @@
 					var reportDate=$(this).attr("date");
 					//if( jQuery.inArray(reportDate, reportsArray) == -1 ){
 					if(wpID == wpIdFromSubreport){
-						$('#topArticle').append('<h4><a href="#" id="triggerReport" class="topbuttonNO" partnerid="'+partnerID+'" partnername="'+partnerName+'" reportdate="'+reportDate+'" wptitle="'+wpFromSubreport+'" wpid="'+wpIdFromSubreport+'">'+reportDate+' by partner '+partnerName+'</a></h4>');
+						$('#table').append('<h4><a href="#" id="triggerReport" class="topbuttonNO" partnerid="'+partnerID+'" partnername="'+partnerName+'" reportdate="'+reportDate+'" wptitle="'+wpFromSubreport+'" wpid="'+wpIdFromSubreport+'">'+reportDate+' by partner '+partnerName+'</a></h4>');
 					}
 					//reportsArray.push(reportDate);
 					//}
@@ -43,16 +43,35 @@
     			var partnerID = $(this).attr('partnerid');
     			var partnerName = $(this).attr('partnername');
     			currentPartner=partnerID;
-    			$('#topArticle').append('<h1 class="settings_form_head_titleee"><a>Partner: '+partnerName+'</a><div class="line-separator"></div></h1>');
+    			$('#topArticle').append('<h3> Partner: '+partnerName+'</h3>');
+    			$('#topArticle').append('<div class="tableHeader"><div class="table5Header">Status</div><div class="table1Header">Date</div><div class="table7Header">Partner</div><div class="table2Header">Workpackage</div><div class="table3Header">Effort</div><div class="table6Header">Comments</div><div class="table4Header">Flag</div>');
+    			var count =1;
     			$(xmlReport).find('subreport').each(function(){
 					var reportWP=$(this).attr("WP");
 					var reportWPID=$(this).attr("WPID");
 					var partnerWP=$(this).attr("partner");
 					var reportDate=$(this).attr("date");
+					var status= $(this).children('status').text();	
+					var feedback= $(this).children('feedback').text();	
+					var flag= $(this).children('flag').text();
 						if(partnerID == partnerWP){
-						$('#topArticle').append('<h4><a href="#" id="triggerReport" class="topbuttonNO" partnerID="'+partnerID+'" partnername="'+partnerName+'" wptitle="'+reportWP+'" wpid="'+reportWPID+'" reportdate="'+reportDate+'">'+reportWP+' on '+reportDate+'</a></h4>');
+						var even=isEven(count);
+						//$('#topArticle').append('<h4><a href="#" id="triggerReport" class="topbuttonNO" partnerID="'+partnerID+'" partnername="'+partnerName+'" wptitle="'+reportWP+'" wpid="'+reportWPID+'" reportdate="'+reportDate+'">'+reportWP+' on '+reportDate+'</a></h4>');
+						$('#topArticle').append('<div class="table5'+even+'">'+status+'</div>');
+						$('#topArticle').append('<div class="table1'+even+'"><a href="#" id="triggerReport" class="topbuttonNO" partnerID="'+partnerID+'" partnername="'+partnerName+'" wptitle="'+reportWP+'" wpid="'+reportWPID+'" reportdate="'+reportDate+'">'+reportDate+'</a></div>');
+						$('#topArticle').append('<div class="table7'+even+'">'+partnerName+'</div>');
+						$('#topArticle').append('<div class="table2'+even+'">'+reportWP+'</div>');
+						$('#topArticle').append('<div class="table3'+even+'">1 month</div>');
+						$('#topArticle').append('<div class="table6'+even+'">'+feedback+'</div>');
+						if (flag=='Red'){
+						$('#topArticle').append('<div class="table4'+even+'"><img src="http://www.boycottowl.com/images/icon_red_flag.gif"></img></div>');
+						}else{
+							$('#topArticle').append('<div class="table4'+even+'"><img src="http://www.lajaula.com.py/iconos/844357/original/flag_green.png"></img></div>');
+						}
+						count++;
 						}
 					});//workpackage
+    			$('#topArticle').append('<h3>_</h3>');
 
     		   });
     		
@@ -80,10 +99,7 @@
 						var explanation= $(this).children('explanation').text();
 						//$('#secondArticle').append('<h2 class="settings_form_head_title">Report by Partner '+partnerName+' for WP '+reportWP+' on date '+date+'</h2>');
 						$('#secondArticle').append('<h1>Report Information</h1>');
-						$('#secondArticle').append('<h5>Partner: '+partnerName+'</h5>');
-						$('#secondArticle').append('<h5>Work Package: '+reportWP+'</h5>');
-						$('#secondArticle').append('<h5>Date: '+date+'</h5>');
-
+						$('#secondArticle').append('<h5>By '+partnerName+' on '+date+' for workpackage '+reportWP+'</h5>');
 						$('#secondArticle').append('<h6 class="settings_form_title">Expenses</h6>');
 						$('#secondArticle').append('<a class="editTextArea" id="expenses">'+expenses+'</a>');
 						$('#secondArticle').append('<h2 class="settings_form_title">Status</h2>');

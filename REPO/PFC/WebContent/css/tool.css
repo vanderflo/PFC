@@ -593,8 +593,8 @@ px dotted #313030;
 
 /* Test for tables */
 .tableHeader{ float:left; width:100%; }
-.table1Header{ width:7%;}
-.table2Header{ width:25%;}
+.table1Header{ width:10%;}
+.table2Header{ width:22%;}
 .table7Header{ width:25%;}
 .table3Header{ width:8%;}
 .table4Header{ width:5%;}
@@ -607,17 +607,19 @@ color:black;
 color: #444;
 font-size: 12px;
 font-weight: normal;
+padding-bottom:5px;
 }
 
-.table{ float:left; width:100%;margin-top:5px;}
-.table1{ width:7%;}
-.table2{ width:25%;}
-.table7{ width:25%;}
-.table3{ width:8%;}
-.table4,.table4-red,.table4-green{ width:5%;}
-.table5{ width:5%;}
-.table6{ width:25%;}
-.table1,.table2,.table3,.table4,.table4-red,.table4-green,.table5,.table6,.table7{ float:left;color:#777;padding-top:2px;}
+.tableList{ float:left; width:100%;margin-top:5px;}
+.table1,.table1odd{ width:10%;}
+.table2,.table2odd{ width:22%;}
+.table7,.table7odd{ width:25%;}
+.table3,.table3odd{ width:8%;}
+.table4,.table4odd{ width:5%;}
+.table5,.table5odd{ width:5%;}
+.table6,.table6odd{ width:25%;}
+.table1,.table2,.table3,.table4,.table5,.table6,.table7{ float:left;color:#777;padding-top:2px;}
+.table1odd,.table2odd,.table3odd,.table4odd,.table5odd,.table6odd,.table7odd{ float:left;color:#777;padding-top:2px;background-color:#f2f2f2;}
 
 #content h3 {
 font-weight: bold;
@@ -637,12 +639,14 @@ border-bottom: 1px dotted #aaaaaa;
 
 #secondArticle h5 {
 font-weight: bold;
-font-size: 120%;
-color: black;
+font-weight: italic;
+font-size: 100%;
+color: #8F8781;
 margin-bottom: .5em;
+padding-bottom: 5px;
 }
 
 .odd div{background-color:#f2f2f2;}
 
-.table div.table4{background-color:white;color:white;}
+.tableList div.table4{background-color:white;color:white;}
 

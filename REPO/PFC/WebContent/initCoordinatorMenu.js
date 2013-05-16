@@ -84,3 +84,11 @@
 				}
 			});//END Llamada AJAX
  		}
+ 		
+ 		function isEven(someNumber){
+ 		    if (someNumber%2 == 0){
+ 		    	return "";
+ 		    }else{
+ 		    	return "odd";
+ 		    }
+ 		};
