@@ -14,23 +14,43 @@
 
     			var wpTitle = $(this).attr('wptitle');
     			var wpID = $(this).attr('wpid');
-    			$('#topArticle').append('<h1 class="settings_form_head_titleee"><a>WorkPackage: '+wpTitle+'</a><div class="line-separator"></div></h1>');
-				//$('#topArticle').append('<h6><div class="Table_Menu_Partner"></div></h6>');
+    			//$('#topArticle').append('<h1 class="settings_form_head_titleee"><a>WorkPackage: '+wpTitle+'</a><div class="line-separator"></div></h1>');
+    			$('#topArticle').append('<h3> Workpackage: '+wpTitle+'</h3>');
+    			$('#topArticle').append('<div class="tableHeader"><div class="table5Header">Status</div><div class="table1Header">Date</div><div class="table7Header">Partner</div><div class="table2Header">Workpackage</div><div class="table3Header">Effort</div><div class="table6Header">Comments</div><div class="table4Header">Flag</div>');
+    			var count="1";
     			
     			var reportsArray = new Array();
     			$(xmlReport).find('subreport').each(function(){
-					var wpFromSubreport=$(this).attr("WP");
-					var wpIdFromSubreport=$(this).attr("WPID");
-					var partnerName=$(this).attr("partnerName");
+    				var wpIdFromSubreport =$(this).attr("WPID");
+    				var reportWP=$(this).attr("WP");
 					var partnerID=$(this).attr("partner");
+					var partnerName=$(this).attr("partnerName");
 					var reportDate=$(this).attr("date");
+					var status= $(this).children('status').text();	
+					var feedback= $(this).children('feedback').text();	
+					var flag= $(this).children('flag').text();					
 					//if( jQuery.inArray(reportDate, reportsArray) == -1 ){
 					if(wpID == wpIdFromSubreport){
-						$('#table').append('<h4><a href="#" id="triggerReport" class="topbuttonNO" partnerid="'+partnerID+'" partnername="'+partnerName+'" reportdate="'+reportDate+'" wptitle="'+wpFromSubreport+'" wpid="'+wpIdFromSubreport+'">'+reportDate+' by partner '+partnerName+'</a></h4>');
+						//$('#table').append('<h4><a href="#" id="triggerReport" class="topbuttonNO" partnerid="'+partnerWP+'" partnername="'+partnerName+'" reportdate="'+reportDate+'" wptitle="'+wpFromSubreport+'" wpid="'+wpIdFromSubreport+'">'+reportDate+' by partner '+partnerName+'</a></h4>');
+						var even=isEven(count);
+						//$('#topArticle').append('<h4><a href="#" id="triggerReport" class="topbuttonNO" partnerID="'+partnerID+'" partnername="'+partnerName+'" wptitle="'+reportWP+'" wpid="'+reportWPID+'" reportdate="'+reportDate+'">'+reportWP+' on '+reportDate+'</a></h4>');
+						$('#topArticle').append('<div class="table5'+even+'">'+status+'</div>');
+						$('#topArticle').append('<div class="table1'+even+'"><a href="#" id="triggerReport" class="topbuttonNO" partnerID="'+partnerID+'" partnername="'+partnerName+'" wptitle="'+wpTitle+'" wpid="'+wpID+'" reportdate="'+reportDate+'">'+reportDate+'</a></div>');
+						$('#topArticle').append('<div class="table7'+even+'">'+partnerName+'</div>');
+						$('#topArticle').append('<div class="table2'+even+'">'+reportWP+'</div>');
+						$('#topArticle').append('<div class="table3'+even+'">1 month</div>');
+						$('#topArticle').append('<div class="table6'+even+'">'+feedback+'</div>');
+						if (flag.toLowerCase()=='red'){
+						$('#topArticle').append('<div class="table4'+even+'"><img src="http://www.boycottowl.com/images/icon_red_flag.gif"></img></div>');
+						}else{
+							$('#topArticle').append('<div class="table4'+even+'"><img src="http://www.lajaula.com.py/iconos/844357/original/flag_green.png"></img></div>');
+						}
+						count++;
 					}
 					//reportsArray.push(reportDate);
 					//}
 					});//workpackage
+    			$('#topArticle').append('<h3>_</h3>');
     		   });  
      	
     		
@@ -63,7 +83,7 @@
 						$('#topArticle').append('<div class="table2'+even+'">'+reportWP+'</div>');
 						$('#topArticle').append('<div class="table3'+even+'">1 month</div>');
 						$('#topArticle').append('<div class="table6'+even+'">'+feedback+'</div>');
-						if (flag=='Red'){
+						if (flag.toLowerCase()=='red'){
 						$('#topArticle').append('<div class="table4'+even+'"><img src="http://www.boycottowl.com/images/icon_red_flag.gif"></img></div>');
 						}else{
 							$('#topArticle').append('<div class="table4'+even+'"><img src="http://www.lajaula.com.py/iconos/844357/original/flag_green.png"></img></div>');
