@@ -58,10 +58,44 @@ public class Dispatcher {
 	 * @param args
 	 */
 	public static void main(String[] args) throws IOException {
-		System.out.println(System.getProperty("user.dir"));
+	/**	System.out.println(System.getProperty("user.dir"));
 		Document partner=Partner.getCurrentPartnersFile();
 		HashMap<String, String> partners=Partner.getPartnersName(partner);
-		System.out.println(partners.get("001"));
+		System.out.println(partners.get("001"));**/
+		long l=System.currentTimeMillis();
+		HashMap<String,String> file=new HashMap<String,String>();
+		Vector<String> list=new Vector<String>();
+		for (int i=1000000000; i<1000065000;i++){
+			String s=String.valueOf(i);
+			file.put(s,"+"+s);
+		}
+		
+		for (int i=1000055500; i<1000075500;i++){
+			String s=String.valueOf(i);
+			list.add(s);
+		}
+		
+		for (int j=0;j<50;j++){
+		for (int i=0; i<list.size();i++){
+			String s= list.get(i);
+			if(file.containsKey(s)){
+				
+				System.out.println("Coincidencia "+file.get(s));
+			}
+			
+			
+		}
+		}
+		long l2=System.currentTimeMillis();
+		
+		long finaltime=l2-l;
+		System.out.println("Time: "+finaltime);
+
+		
+
+		
+		
+		
 	}
 		
 		
