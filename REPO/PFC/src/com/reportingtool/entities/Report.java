@@ -118,6 +118,15 @@ public class Report {
 
 	
 		Element eExpenses= new Element("expenses");
+		Element concept = new Element("concept");
+		Element description = new Element("description");
+		Element amount = new Element("amount");
+		eExpenses.setAttribute("id","0");
+		eExpenses.addContent(concept);
+		eExpenses.addContent(description);
+		eExpenses.addContent(amount);
+
+
 		Element eFeedback= new Element("feedback");
 		
 		Element eStatus= new Element("status");

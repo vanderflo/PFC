@@ -5,9 +5,15 @@
 	                type 	  : 'select',
 	                cancel    : 'Cancel',
 	                submit    : 'OK',
-	    	         indicator : '<img src="img/indicator.gif">',
-	                tooltip   : 'Click to edit...'
+	    	        indicator : '<img src="img/indicator.gif">',
+	                tooltip   : 'Click to edit...',
+	                callback  : function(value,settings){
+	                	getReport();
+	        			showListOfReportsByWP('HARDWARE','1355348593079');
+	        			showReport(currentPartner,currentReport,currentWP,currentPartnerName);	
+	                }
 	            });
+        		
             });
        $('.editTextArea').live('click', function(){
     		var URL="http://localhost:8080/PFC/rest/API/report/edit/"+currentProject+"/"+currentWP+"/"+currentPartner+"/"+currentReport;
@@ -16,7 +22,12 @@
     	         cancel    : 'Cancel',
     	         submit    : 'OK',
     	         indicator : '<img src="img/indicator.gif">',
-    	         tooltip   : 'Click to edit...'
+    	         tooltip   : 'Click to edit...',
+    	         callback  : function(value,settings){
+	                	getReport();
+	        			showListOfReportsByWP('HARDWARE','1355348593079');
+	        			showReport(currentPartner,currentReport,currentWP,currentPartnerName);	
+	                }
             });
     		
         });
@@ -28,7 +39,12 @@
                 cancel    : 'Cancel',
                 submit    : 'OK',
    	         indicator : '<img src="img/indicator.gif">',
-                tooltip   : 'Click to edit...'
+                tooltip   : 'Click to edit...',
+                callback  : function(value,settings){
+                	getReport();
+        			showListOfReportsByWP('HARDWARE','1355348593079');
+        			showReport(currentPartner,currentReport,currentWP,currentPartnerName);	
+                }
             });
         });
         

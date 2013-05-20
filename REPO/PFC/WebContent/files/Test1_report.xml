@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report>
   <subreport partner="001" partnerName="UPM" WP="HARDWARE" WPID="1355348593079" date="2012-09-20">
-    <expenses>1,200 EUR </expenses>
+    <expenses id="0">
+    	<concept>Travel</concept>
+    	<description>Flight John</description>
+    	<amount>900 EUR</amount>
+     </expenses>
+     <expenses id="1">
+    	<concept>Equipment</concept>
+    	<description>Laptop Paul</description>
+    	<amount>1900 EUR</amount>
+     </expenses>
     <status>Saved</status>
     <flag>Red</flag>
     <explanation>Latest development still missing  </explanation>
@@ -18,8 +27,12 @@
     </task>
   </subreport>
   <subreport partner="002" partnerName="UC3M" WP="HARDWARE" WPID="1355348593079" date="2012-09-20">
-    <expenses>1,400 EUR </expenses>
-    <status>Sent</status>
+    <expenses id="0">
+    	<concept>Travel</concept>
+    	<description>Flight John</description>
+    	<amount>900 EUR</amount>
+     </expenses> 
+        <status>Sent</status>
     <flag>Green</flag>
     <explanation>NA</explanation>
 	<feedback>Sed ut perspiciatis</feedback>
@@ -30,8 +43,11 @@
     </task>
   </subreport>
   <subreport partner="003" partnerName="UNEX" WP="SOFTWARE" WPID="1355348593078" date="2013-09-20">
-    <expenses>1,o00 EUR </expenses>
-    <status>Saved</status>
+    <expenses id="0">
+    	<concept>Travel</concept>
+    	<description>Flight John</description>
+    	<amount>900 EUR</amount>
+     </expenses>    <status>Saved</status>
     <flag>Red</flag>
     <explanation>Latest development under test </explanation>
 	<feedback>Sed ut perspiciatis</feedback>
@@ -42,8 +58,12 @@
     </task>
   </subreport>
   <subreport partner="004" partnerName="USC" WP="SOFTWARE" WPID="1355348593078" date="2013-09-20">
-     <expenses>1,500 EUR </expenses>
-    <status>Saved</status>
+    <expenses id="0">
+    	<concept>Travel</concept>
+    	<description>Flight John</description>
+    	<amount>900 EUR</amount>
+     </expenses>
+     <status>Saved</status>
     <flag>Green</flag>
     <explanation>NA</explanation>
 	<feedback>Sed ut perspiciatis</feedback>
@@ -54,8 +74,11 @@
     </task>
   </subreport>
   <subreport partner="001" partnerName="UPM" WP="SOFTWARE" WPID="1355348593078" date="2013-09-20">
-    <expenses>1,800 EUR </expenses>
-    <status>Saved</status>
+    <expenses id="0">
+    	 <concept>Travel</concept>
+    	<description>Flight John</description>
+    	<amount>900 EUR</amount>
+     </expenses>    <status>Saved</status>
     <flag>Green</flag>
     <explanation>NA</explanation>
 	<feedback>Sed ut perspiciatis</feedback>

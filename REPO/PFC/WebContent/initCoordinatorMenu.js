@@ -47,15 +47,8 @@
 			});//END Llamada AJAX
      		
      		    
-
-     		    $.ajax({
-     		    type: "GET",
-     		    url: "http://localhost:8080/PFC/rest/API/report/get/Test1",
- 				dataType: "xml",
-     		     success : function(data) {
-     		    	xmlReport = data;
-     		         }
-     		    });
+				getReport();
+     		    
      		 $('#menu').show();
      		}
  		
@@ -92,3 +85,16 @@
  		    	return "odd";
  		    }
  		};
+ 		
+ 		function getReport(){
+ 			$.ajax({
+     		    type: "GET",
+     		    url: "http://localhost:8080/PFC/rest/API/report/get/Test1",
+ 				dataType: "xml",
+ 				async: false,
+     		     success : function(data) {
+     		    	xmlReport = data;
+     		         }
+     		    });
+ 			
+ 		}
