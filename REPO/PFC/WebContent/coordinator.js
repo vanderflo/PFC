@@ -22,7 +22,7 @@
     			var partnerID = $(this).attr('partnerid');
     			var partnerName = $(this).attr('partnername');
     			currentPartner=partnerID;
-    			$('#topArticle').append('<h3> Partner: '+partnerName+'</h3>');
+    			$('#topArticle').append('<h4 class="settings_form_head_title"> Partner: '+partnerName+'</h4>');
     			$('#topArticle').append('<div class="tableHeader"><div class="table5Header">Status</div><div class="table1Header">Date</div><div class="table7Header">Partner</div><div class="table2Header">Workpackage</div><div class="table3Header">Effort</div><div class="table6Header">Comments</div><div class="table4Header">Flag</div>');
     			var count =1;
     			$(xmlReport).find('subreport').each(function(){
@@ -88,9 +88,9 @@
 						var flag= $(this).children('flag').text();
 						var explanation= $(this).children('explanation').text();
 						//$('#secondArticle').append('<h2 class="settings_form_head_title">Report by Partner '+partnerName+' for WP '+reportWP+' on date '+date+'</h2>');
-						$('#secondArticle').append('<h1>Report Information</h1>');
-						$('#secondArticle').append('<h5>By '+partnerName+' on '+date+' for workpackage '+reportWP+'</h5>');
-						$('#secondArticle').append('<a href="#" class="testUpdate" id="testUpdate">UPDATE</a>');
+						$('#secondArticle').append('<h6 class="settings_form_head_title">Report</h6>');
+						$('#secondArticle').append('<a>By '+partnerName+' on '+date+' for workpackage '+reportWP+'</a>');
+						
 						$('#secondArticle').append('<h2 class="settings_form_title">Status</h2>');
 						$('#secondArticle').append('<a class="editStatus" id="status">'+status+'</a>');
 						$('#secondArticle').append('<h2 class="settings_form_title">Feedback</h2>');
@@ -107,7 +107,7 @@
 							var concept= $(this).children('concept').text();	
 							var description= $(this).children('description').text();	
 							var amount= $(this).children('amount').text();
-							$('#secondArticle').append('<h6 class="settings_form_title">Expense</h6>');
+							$('#secondArticle').append('<h2 class="settings_form_title">Expense</h2>');
 							$('#secondArticle').append('<a class="editTextArea" eId="'+eId+'" id="expenses">'+concept+'</a>');
 							$('#secondArticle').append('<a class="editTextArea" eId="'+eId+'" id="expenses">'+description+'</a>');
 							$('#secondArticle').append('<a class="editTextArea" eId="'+eId+'" id="expenses">'+amount+'</a>');
@@ -120,12 +120,12 @@
 							var work= $(this).children('work').text();	
 							var result= $(this).children('result').text();	
 							var effort= $(this).children('effort').text();
-							$('#secondArticle').append('<h6 class="settings_form_head_sub_title">Task '+taskTitle+'</h6>');
-							$('#secondArticle').append('<h6 class="settings_form_sub_title">Work</h6>');
+							$('#secondArticle').append('<h4 class="settings_form_head_title">Task '+taskTitle+'</h4>');
+							$('#secondArticle').append('<h2 class="settings_form_title">Work</h2>');
 							$('#secondArticle').append('<a class="editTask" id="work" taskid="'+taskId+'">'+work+'</a>');
-							$('#secondArticle').append('<h6 class="settings_form_sub_title">Result</h6>');
+							$('#secondArticle').append('<h2 class="settings_form_title">Result</h2>');
 							$('#secondArticle').append('<a class="editTask" id="result" taskid="'+taskId+'">'+result+'</a>');
-							$('#secondArticle').append('<h6 class="settings_form_sub_title">Effort</h6>');
+							$('#secondArticle').append('<h2 class="settings_form_title">Effort</h2>');
 							$('#secondArticle').append('<a class="editTask" id="effort" taskid="'+taskId+'">'+effort+'</a>');
 
 
@@ -143,7 +143,7 @@
     			$('#topArticleContainer').show();
     			
     			//$('#topArticle').append('<h1 class="settings_form_head_titleee"><a>WorkPackage: '+wpTitle+'</a><div class="line-separator"></div></h1>');
-    			$('#topArticle').append('<h3> Workpackage: '+wpTitle+'</h3>');
+    			$('#topArticle').append('<h4 class="settings_form_head_title"> Workpackage: '+wpTitle+'</h4>');
     			$('#topArticle').append('<div class="tableHeader"><div class="table5Header">Status</div><div class="table1Header">Date</div><div class="table7Header">Partner</div><div class="table2Header">Workpackage</div><div class="table3Header">Effort</div><div class="table6Header">Comments</div><div class="table4Header">Flag</div>');
     			var count="1";
     			

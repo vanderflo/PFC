@@ -40,7 +40,6 @@ body{
 }
 
 header{
-    padding: 10px 0;            
     background-color: #4d4d4d;
     background-image: linear-gradient(top, #6f3736, #4c2626);  
     box-shadow: 0 1px 0 #fff, 0 -3px 3px #000 inset;
@@ -448,10 +447,10 @@ ol ol{
 .rounded-list a{
 	position: relative;
 	display: block;
-	padding: .4em .4em .4em 2em;
+	/*padding: .4em .4em .4em 2em;*/
 	*padding: .4em;
 	margin: .5em 0;
-	background: #ddd;
+	background: white;
 	color: #444;
 	text-decoration: none;
 	border-radius: .3em;
@@ -487,7 +486,7 @@ ol ol{
 }
 
 .settings_form_title {
-color: yellow;
+
 line-height: 25px;
 font-weight: bold;
 font-size: 13px;
@@ -496,7 +495,9 @@ border-radius: 6px 6px 6px 6px;
 -webkit-border-radius: 6px 6px 6px 6px;
 -moz-border-radius: 6px 6px 6px 6px;
 width: 100%;
-background-color: #52463b;
+background-color: #ddd;
+color: #52463b;
+border-color:#52463b;
 text-align: center;
 vertical-align: middle;
 }
@@ -527,7 +528,7 @@ border-radius: 6px 6px 6px 6px;
 -webkit-border-radius: 6px 6px 6px 6px;
 -moz-border-radius: 6px 6px 6px 6px;
 width: 100%;
-background-color: blue;
+background-color: #52463b;
 text-align: center;
 vertical-align: middle;
 }
@@ -629,7 +630,16 @@ padding-bottom:5px;
 #content h3 {
 font-weight: bold;
 font-size: 110%;
-color: #8F8781;
+/*color: #8F8781;*/
+margin-bottom: .5em;
+border-bottom: 1px solid #aaaaaa;
+color:white;
+}
+
+#content h4 {
+font-weight: bold;
+font-size: 110%;
+/*color: #8F8781;*/
 margin-bottom: .5em;
 border-bottom: 1px solid #aaaaaa;
 }
