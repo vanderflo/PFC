@@ -91,8 +91,7 @@
 						$('#secondArticle').append('<h6 class="settings_form_head_title">Report</h6>');
 						$('#secondArticle').append('<a>By '+partnerName+' on '+date+' for workpackage '+reportWP+'</a>');
 						
-						$('#secondArticle').append('<h2 class="settings_form_title">Status</h2>');
-						$('#secondArticle').append('<a class="editStatus" id="status">'+status+'</a>');
+						$('#secondArticle').append('<h2 class="settings_form_title_editable" id="status">'+status+'</h2>');
 						$('#secondArticle').append('<h2 class="settings_form_title">Feedback</h2>');
 						$('#secondArticle').append('<a class="editTextArea" id="feedback">'+feedback+'</a>');
 						$('#secondArticle').append('<h2 class="settings_form_title">Flag</h2>');

@@ -458,6 +458,20 @@ ol ol{
 	text-align: center;	
 }
 
+.expenses{
+	position: relative;
+	display: block;
+	/*padding: .4em .4em .4em 2em;*/
+	*padding: .4em;
+	margin: .5em 0;
+	background: black;
+	color: #444;
+	text-decoration: none;
+	border-radius: .3em;
+	transition: all .3s ease-out;
+	text-align: center;	
+}
+
 .rounded-list a:hover{
 	background: #eee;
 }
@@ -485,7 +499,23 @@ ol ol{
 	text-align: center;
 }
 
-.settings_form_title {
+#expenses{
+	position: relative;
+	display: inline;
+	/*padding: .4em .4em .4em 2em;*/
+	*padding: .4em;
+	margin: .5em 0;
+	background: black;
+	color: #444;
+	text-decoration: none;
+	border-radius: .3em;
+	transition: all .3s ease-out;
+	text-align: center;
+	width:30%;
+}
+
+
+.settings_form_title,.settings_form_title_editable {
 
 line-height: 25px;
 font-weight: bold;
@@ -611,9 +641,13 @@ float:left;
 font-style:bold;
 color:black;
 color: #444;
-font-size: 12px;
+font-size: 11px;
 font-weight: bold;
-padding-bottom:5px;
+padding-bottom:3px;
+padding-top:3px;
+background-color: #cccccc;
+text-transform: uppercase;
+font-family: arial;
 }
 
 .tableList{ float:left; width:100%;margin-top:5px;}
@@ -624,8 +658,8 @@ padding-bottom:5px;
 .table4,.table4odd{ width:5%;}
 .table5,.table5odd{ width:5%;}
 .table6,.table6odd{ width:25%;}
-.table1,.table2,.table3,.table4,.table5,.table6,.table7{ float:left;color:#777;padding-top:2px;}
-.table1odd,.table2odd,.table3odd,.table4odd,.table5odd,.table6odd,.table7odd{ float:left;color:#777;padding-top:2px;background-color:#f2f2f2;}
+.table1,.table2,.table3,.table4,.table5,.table6,.table7{ float:left;color:#777;padding-top:2px;background-color:#f2f2f2;}
+.table1odd,.table2odd,.table3odd,.table4odd,.table5odd,.table6odd,.table7odd{ float:left;color:#777;padding-top:2px;}
 
 #content h3 {
 font-weight: bold;

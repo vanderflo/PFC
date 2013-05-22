@@ -31,7 +31,7 @@
             });
     		
         });
-        $('.editStatus').live('click', function(){
+        $('.settings_form_title_editable').live('click', function(){
     		var URL="http://localhost:8080/PFC/rest/API/report/edit/"+currentProject+"/"+currentWP+"/"+currentPartner+"/"+currentReport;
     		$(this).editable(URL, { 
             	data  	  : " {'Saved':'Saved','Completed':'Completed','Pending':'Pending','Waiting for revision':'Waiting for revision'}",
