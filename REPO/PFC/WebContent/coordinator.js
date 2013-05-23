@@ -71,7 +71,7 @@
     		
     		
     		function showReport(partnerID,date,wpId,partnerName){
-    			$('#secondArticle').empty();
+    			$('#projectSection').empty();
     			currentPartner=partnerID;
     			currentReport=date;
     			currentWP=wpId;
@@ -85,32 +85,38 @@
 
 						var status= $(this).children('status').text();	
 						var feedback= $(this).children('feedback').text();	
-						var flag= $(this).children('flag').text();
+						var flag= $(this).children('flag').text().toLowerCase();
 						var explanation= $(this).children('explanation').text();
 						//$('#secondArticle').append('<h2 class="settings_form_head_title">Report by Partner '+partnerName+' for WP '+reportWP+' on date '+date+'</h2>');
-						$('#secondArticle').append('<h6 class="settings_form_head_title">Report</h6>');
-						$('#secondArticle').append('<a>By '+partnerName+' on '+date+' for workpackage '+reportWP+'</a>');
+						$('#projectSection').append('<h6 class="settings_form_head_title">Report</h6>');
+						$('#projectSection').append('<div class="statusContainer"><a>By: '+partnerName+'<br>Report Date: '+date+'<br>Workpackage '+reportWP+'<br>Total effort: 1 month<br>Current status: '+status+'</a></div>');
 						
-						$('#secondArticle').append('<h2 class="settings_form_title_editable" id="status">'+status+'</h2>');
-						$('#secondArticle').append('<h2 class="settings_form_title">Feedback</h2>');
-						$('#secondArticle').append('<a class="editTextArea" id="feedback">'+feedback+'</a>');
-						$('#secondArticle').append('<h2 class="settings_form_title">Flag</h2>');
-						$('#secondArticle').append('<a class="editFlag" id="flag">'+flag+'</a>');
-						$('#secondArticle').append('<h2 class="settings_form_title">Explanation</h2>');
-						$('#secondArticle').append('<a class="editTextArea" id="explanation">'+explanation+'</a>');
-
-												
-						$('#secondArticle').append('<h2 class="settings_form_title">Expenses</h2>');
-
+						
+						$('#projectSection').append('<h2 class="settings_form_title">Expenses</h2>');
 						$(this).find('expenses').each(function(){
 							var eId = $(this).attr("id");
 							var concept= $(this).children('concept').text();	
 							var description= $(this).children('description').text();	
 							var amount= $(this).children('amount').text();
-			    			$('#secondArticle').append('<div class="tableList"><div class="table6">'+concept+'</div><div class="table6">'+description+'</div><div class="table6">'+amount+'</div><div class="table6">DELETE</div></div>');
+			    			$('#projectSection').append('<div class="tableList"><div class="table6odd">'+concept+'</div><div class="table6odd">'+description+'</div><div class="table6odd">'+amount+'</div><div class="table6odd">DELETE</div></div>');
 
 						});
-						$('#secondArticle').append('<a><img src="http://www.rrconsultores.com.mx/icons/16x16/add_outline.png"/>ADD MORE EXPENSES</a>');
+						$('#projectSection').append('<a><br><img src="css/add.png"/></a>');
+						
+						
+						
+						$('#projectSection').append('<h2 class="settings_form_title">Raise a red flag in case any blocking issue came up</h2>');
+						if(flag=="red"){
+						$('#projectSection').append('<div class="statusContainer"><button class="button" id="editflag" color="green">GREEN FLAG</button><button class="color red button">RED FLAG</button></div>');
+						}else{
+							$('#projectSection').append('<div class="statusContainer"><button class="color green button">GREEN FLAG</button><button class="button" id="editflag" color="red">RED FLAG</button></div>');
+						}
+						$('#projectSection').append('<a class="editTextArea" id="explanation">'+explanation+'</a>');
+
+						$('#projectSection').append('<h2 class="settings_form_title">CONFIRM/MODIFY REPORT STATUS</h2>');
+						$('#projectSection').append('<div class="statusContainer"><button class="color blue button">Block</button><button class="color blue button">Accept</button><button class="color blue button">Reject</button><button class="color blue button">Open</button><a class="editTextArea">'+feedback+'</a></div>');
+
+
 
 						$(this).find('task').each(function(){
 							var taskTitle = $(this).attr("title");

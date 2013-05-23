@@ -15,6 +15,33 @@
 	            });
         		
             });
+	
+	$('#editflag').live('click', function(){
+	var color = $(this).attr('color');
+	
+	$.ajax({				
+		url: "http://localhost:8080/PFC/rest/API/report/edit/"+currentProject+"/"+currentWP+"/"+currentPartner+"/"+currentReport,
+		type: "post",
+        data: {
+            id: "flag",
+            value: color,
+        },
+        success: function(response, textStatus, jqXHR){
+        	getReport();
+			showListOfReportsByWP('HARDWARE','1355348593079');
+			showReport(currentPartner,currentReport,currentWP,currentPartnerName);   
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+            console.log(
+                "The following error occured: "+
+                textStatus, errorThrown
+            );
+        }
+    });		
+    // prevent default posting of form
+    event.preventDefault();
+	});	
+	
        $('.editTextArea').live('click', function(){
     		var URL="http://localhost:8080/PFC/rest/API/report/edit/"+currentProject+"/"+currentWP+"/"+currentPartner+"/"+currentReport;
     		$(this).editable(URL, { 
