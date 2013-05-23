@@ -100,19 +100,18 @@
 						$('#secondArticle').append('<a class="editTextArea" id="explanation">'+explanation+'</a>');
 
 												
+						$('#secondArticle').append('<h2 class="settings_form_title">Expenses</h2>');
 
 						$(this).find('expenses').each(function(){
 							var eId = $(this).attr("id");
 							var concept= $(this).children('concept').text();	
 							var description= $(this).children('description').text();	
 							var amount= $(this).children('amount').text();
-							$('#secondArticle').append('<h2 class="settings_form_title">Expense</h2>');
-							$('#secondArticle').append('<a class="editTextArea" eId="'+eId+'" id="expenses">'+concept+'</a>');
-							$('#secondArticle').append('<a class="editTextArea" eId="'+eId+'" id="expenses">'+description+'</a>');
-							$('#secondArticle').append('<a class="editTextArea" eId="'+eId+'" id="expenses">'+amount+'</a>');
+			    			$('#secondArticle').append('<div class="tableList"><div class="table6">'+concept+'</div><div class="table6">'+description+'</div><div class="table6">'+amount+'</div><div class="table6">DELETE</div></div>');
 
 						});
-						
+						$('#secondArticle').append('<a><img src="http://www.rrconsultores.com.mx/icons/16x16/add_outline.png"/>ADD MORE EXPENSES</a>');
+
 						$(this).find('task').each(function(){
 							var taskTitle = $(this).attr("title");
 							var taskId = $(this).attr("id");
