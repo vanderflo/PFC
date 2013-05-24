@@ -9,7 +9,6 @@
 <script type="text/javascript" src="http://www.appelsiini.net/download/jquery.jeditable.js"></script>
 <script type="text/javascript" src="initCoordinatorMenu.js"></script>
 
-
 <script>
 
 		
@@ -20,8 +19,10 @@
     	var currentWP;
     	var currentReport;
     	var currentPartnerName;
-        // When document ready, call initMenu() function 
-        $(document).ready(function() {
+        // When document ready, call initMenu() function     	
+        $(document).ready(function() {  		
+        	
+        initSearchBox();	
     	$.getScript("jEditableSelectors.js");
 		$('#topArticleContainer').hide();
         $('#secondArticleContainer').hide();
@@ -73,15 +74,17 @@
     <div id="content">
 
         <article id="topArticleContainer">
-         <section id="topArticle">
-				
+         <section id="topArticle">		 
 		</section>
-            
+		<div id="searchInputContainer">
+		<input id="searchInput" value="Type To Filter"><br/>
+		</div>
+		
         </article>
         
         <article id="secondArticleContainer">
 
-        <section id="projectSection" class="rounded-list">
+        <section id="projectSection">
 		</section> 
 		   
 		<section id="secondArticle" class="rounded-list">

@@ -98,3 +98,31 @@
      		    });
  			
  		}
+ 		
+ 		function initSearchBox(){
+ 			$.expr[':'].containsIgnoreCase = function(n,i,m){
+                return jQuery(n).text().toUpperCase().indexOf(m[3].toUpperCase())>=0;
+            };
+        
+            $("#searchInput").keyup(function(){
+
+                $("#reportGridBody").find("tr").hide();
+                var data = this.value.split(" ");
+                var jo = $("#reportGridBody").find("tr");
+                if (data!=""){
+                $.each(data, function(i, v){
+
+                     //Use the new containsIgnoreCase function instead
+                     jo = jo.filter("*:containsIgnoreCase('"+v+"')");
+                });
+                }
+                jo.show();
+
+            }).focus(function(){
+                this.value="";
+                $(this).css({"color":"black"});
+                $(this).unbind('focus');
+            }).css({"color":"#C0C0C0"});
+ 			
+ 		}
+ 		

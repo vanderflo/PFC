@@ -22,32 +22,23 @@
     			var partnerID = $(this).attr('partnerid');
     			var partnerName = $(this).attr('partnername');
     			currentPartner=partnerID;
-    			$('#topArticle').append('<h4 class="settings_form_head_title"> Partner: '+partnerName+'</h4>');
-    			$('#topArticle').append('<div class="tableHeader"><div class="table5Header">Status</div><div class="table1Header">Date</div><div class="table7Header">Partner</div><div class="table2Header">Workpackage</div><div class="table3Header">Effort</div><div class="table6Header">Comments</div><div class="table4Header">Flag</div>');
-    			var count =1;
+    			$('#topArticle').append('<h3> Partner: '+partnerName+'</h3>');
+    			$('#topArticle').append('<div class="tableHeader"><table id="reportGrid" summary="List of Reports"><thead><tr><th class="thstatus">Status</th><th class="thdate">Date</th><th class="thpartner">Partner</th><th class="thwp">Workpackage</th><th class="theffort">Effort</th><th class="thflag">Flag</th></tr></thead><tbody id="reportGridBody"></tbody></table></div>');
     			$(xmlReport).find('subreport').each(function(){
 					var reportWP=$(this).attr("WP");
 					var reportWPID=$(this).attr("WPID");
 					var partnerWP=$(this).attr("partner");
 					var reportDate=$(this).attr("date");
 					var status= $(this).children('status').text();	
-					var feedback= $(this).children('feedback').text();	
 					var flag= $(this).children('flag').text();
 						if(partnerID == partnerWP){
-						var even=isEven(count);
-						//$('#topArticle').append('<h4><a href="#" id="triggerReport" class="topbuttonNO" partnerID="'+partnerID+'" partnername="'+partnerName+'" wptitle="'+reportWP+'" wpid="'+reportWPID+'" reportdate="'+reportDate+'">'+reportWP+' on '+reportDate+'</a></h4>');
-						$('#topArticle').append('<div class="table5'+even+'">'+status+'</div>');
-						$('#topArticle').append('<div class="table1'+even+'"><a href="#" id="triggerReport" class="topbuttonNO" partnerID="'+partnerID+'" partnername="'+partnerName+'" wptitle="'+reportWP+'" wpid="'+reportWPID+'" reportdate="'+reportDate+'">'+reportDate+'</a></div>');
-						$('#topArticle').append('<div class="table7'+even+'">'+partnerName+'</div>');
-						$('#topArticle').append('<div class="table2'+even+'">'+reportWP+'</div>');
-						$('#topArticle').append('<div class="table3'+even+'">1 month</div>');
-						$('#topArticle').append('<div class="table6'+even+'">'+feedback+'</div>');
+						var flagMarkup;
 						if (flag.toLowerCase()=='red'){
-						$('#topArticle').append('<div class="table4'+even+'"><img src="http://www.boycottowl.com/images/icon_red_flag.gif"></img></div>');
+							flagMarkup='<img src="http://www.boycottowl.com/images/icon_red_flag.gif"></img>';
 						}else{
-							$('#topArticle').append('<div class="table4'+even+'"><img src="http://www.lajaula.com.py/iconos/844357/original/flag_green.png"></img></div>');
-						}
-						count++;
+							flagMarkup='<img src="http://www.lajaula.com.py/iconos/844357/original/flag_green.png"></img>';
+							}
+						$('#reportGridBody').append('<tr><td>'+status+'</td><td><a href="#" id="triggerReport" class="topbuttonNO" partnerID="'+partnerID+'" partnername="'+partnerName+'" wptitle="'+reportWP+'" wpid="'+reportWPID+'" reportdate="'+reportDate+'">'+reportDate+'</a></td><td>'+partnerName+'</td><td>'+reportWP+'</td><td>1 month</td><td>'+flagMarkup+'</td></tr>');
 						}
 					});//workpackage
     			$('#topArticle').append('<h3>_</h3>');
@@ -88,32 +79,44 @@
 						var flag= $(this).children('flag').text().toLowerCase();
 						var explanation= $(this).children('explanation').text();
 						//$('#secondArticle').append('<h2 class="settings_form_head_title">Report by Partner '+partnerName+' for WP '+reportWP+' on date '+date+'</h2>');
-						$('#projectSection').append('<h6 class="settings_form_head_title">Report</h6>');
-						$('#projectSection').append('<div class="statusContainer"><a>By: '+partnerName+'<br>Report Date: '+date+'<br>Workpackage '+reportWP+'<br>Total effort: 1 month<br>Current status: '+status+'</a></div>');
+						$('#projectSection').append('<h1>Report</h1>');
+						$('#projectSection').append('<div class="Table_Menu_Partner"/>');
 						
-						
-						$('#projectSection').append('<h2 class="settings_form_title">Expenses</h2>');
+		    			$('#projectSection').append('<div class="tableHeader"><table id="reportInformation" summary="Report information"><tbody id="reportInformationBody"></tbody></table></div>');
+		    			
+		    			$('#reportInformationBody').append('<tr><td class="tdfield">Partner:</td><td class="tdvalue">'+partnerName+'</td></tr>');
+		    			$('#reportInformationBody').append('<tr><td class="tdfield">Report Date:</td><td class="tdvalue">'+date+'</td></tr>');
+		    			$('#reportInformationBody').append('<tr><td class="tdfield">Workpackage</td><td class="tdvalue">'+reportWP+'</td></tr>');
+		    			$('#reportInformationBody').append('<tr><td class="tdfield">Total Effort</td><td class="tdvalue">1 month</td></tr>');
+		    			$('#reportInformationBody').append('<tr><td class="tdfield">Status</td><td class="tdvalue"> '+status+'</td></tr>');
+
+
+						$('#projectSection').append('<h3>Expenses</h3>');
+		    			$('#projectSection').append('<div class="tableHeader"><table id="expensesGrid" summary="List of Expenses"><thead><tr><th class="thconcept">Concept</th><th class="thdescription">Description</th><th class="thamount">Amount</th></thead><tbody id="expensesGridBody"></tbody></table></div>');
+
 						$(this).find('expenses').each(function(){
 							var eId = $(this).attr("id");
-							var concept= $(this).children('concept').text();	
+							var concept= $(this).children('concept').text();							
 							var description= $(this).children('description').text();	
 							var amount= $(this).children('amount').text();
-			    			$('#projectSection').append('<div class="tableList"><div class="table6odd">'+concept+'</div><div class="table6odd">'+description+'</div><div class="table6odd">'+amount+'</div><div class="table6odd">DELETE</div></div>');
+							var st='<tr><td>'+concept+'</td><td>'+description+'</td><td>'+amount+'</td></tr>';
+			    			$('#expensesGridBody').append(st);
 
 						});
 						$('#projectSection').append('<a><br><img src="css/add.png"/></a>');
 						
 						
 						
-						$('#projectSection').append('<h2 class="settings_form_title">Raise a red flag in case any blocking issue came up</h2>');
+						$('#projectSection').append('<h3>Flag</h3>');
+						$('#projectSection').append('<p>Raise a red flag in case any blocking issue came up duerint this reporting period</p>');
 						if(flag=="red"){
 						$('#projectSection').append('<div class="statusContainer"><button class="button" id="editflag" color="green">GREEN FLAG</button><button class="color red button">RED FLAG</button></div>');
 						}else{
 							$('#projectSection').append('<div class="statusContainer"><button class="color green button">GREEN FLAG</button><button class="button" id="editflag" color="red">RED FLAG</button></div>');
 						}
-						$('#projectSection').append('<a class="editTextArea" id="explanation">'+explanation+'</a>');
+						$('#projectSection').append('<label>Explanation/Comments:</label><br><textarea class="editTextArea" id="explanation">'+explanation+'</textarea>');
 
-						$('#projectSection').append('<h2 class="settings_form_title">CONFIRM/MODIFY REPORT STATUS</h2>');
+						$('#projectSection').append('<h3>Confirm/Modify Report status</h3>');
 						$('#projectSection').append('<div class="statusContainer"><button class="color blue button" id="editStatus" value="blocked">Block</button><button id="editStatus" class="color blue button" value="accepted">Accept</button><button id="editStatus" value="rejected" class="color blue button">Reject</button><button id="editStatus" class="color blue button" value="open">Open</button><a class="editTextArea" id="feedback">'+feedback+'</a></div>');
 
 
@@ -145,13 +148,8 @@
     			$('#secondArticle').empty();
     			$('#secondArticleContainer').hide();
     			$('#topArticleContainer').show();
-    			
-    			//$('#topArticle').append('<h1 class="settings_form_head_titleee"><a>WorkPackage: '+wpTitle+'</a><div class="line-separator"></div></h1>');
-    			$('#topArticle').append('<h4 class="settings_form_head_title"> Workpackage: '+wpTitle+'</h4>');
-    			$('#topArticle').append('<div class="tableHeader"><div class="table5Header">Status</div><div class="table1Header">Date</div><div class="table7Header">Partner</div><div class="table2Header">Workpackage</div><div class="table3Header">Effort</div><div class="table6Header">Comments</div><div class="table4Header">Flag</div>');
-    			var count="1";
-    			
-    			var reportsArray = new Array();
+    			$('#topArticle').append('<h3> Workpackage: '+wpTitle+'</h3>');
+    			$('#topArticle').append('<div class="tableHeader"><table id="reportGrid" summary="List of Reports"><thead><tr><th class="thstatus">Status</th><th class="thdate">Date</th><th class="thpartner">Partner</th><th class="thwp">Workpackage</th><th class="theffort">Effort</th><th class="thflag">Flag</th></tr></thead><tbody id="reportGridBody"></tbody></table></div>');
     			$(xmlReport).find('subreport').each(function(){
     				var wpIdFromSubreport =$(this).attr("WPID");
     				var reportWP=$(this).attr("WP");
@@ -159,29 +157,17 @@
 					var partnerName=$(this).attr("partnerName");
 					var reportDate=$(this).attr("date");
 					var status= $(this).children('status').text();	
-					var feedback= $(this).children('feedback').text();	
 					var flag= $(this).children('flag').text();					
-					//if( jQuery.inArray(reportDate, reportsArray) == -1 ){
 					if(wpID == wpIdFromSubreport){
-						//$('#table').append('<h4><a href="#" id="triggerReport" class="topbuttonNO" partnerid="'+partnerWP+'" partnername="'+partnerName+'" reportdate="'+reportDate+'" wptitle="'+wpFromSubreport+'" wpid="'+wpIdFromSubreport+'">'+reportDate+' by partner '+partnerName+'</a></h4>');
-						var even=isEven(count);
-						//$('#topArticle').append('<h4><a href="#" id="triggerReport" class="topbuttonNO" partnerID="'+partnerID+'" partnername="'+partnerName+'" wptitle="'+reportWP+'" wpid="'+reportWPID+'" reportdate="'+reportDate+'">'+reportWP+' on '+reportDate+'</a></h4>');
-						$('#topArticle').append('<div class="table5'+even+'">'+status+'</div>');
-						$('#topArticle').append('<div class="table1'+even+'"><a href="#" id="triggerReport" class="topbuttonNO" partnerID="'+partnerID+'" partnername="'+partnerName+'" wptitle="'+wpTitle+'" wpid="'+wpID+'" reportdate="'+reportDate+'">'+reportDate+'</a></div>');
-						$('#topArticle').append('<div class="table7'+even+'">'+partnerName+'</div>');
-						$('#topArticle').append('<div class="table2'+even+'">'+reportWP+'</div>');
-						$('#topArticle').append('<div class="table3'+even+'">1 month</div>');
-						$('#topArticle').append('<div class="table6'+even+'">'+feedback+'</div>');
+						var flagMarkup;
 						if (flag.toLowerCase()=='red'){
-						$('#topArticle').append('<div class="table4'+even+'"><img src="http://www.boycottowl.com/images/icon_red_flag.gif"></img></div>');
+							flagMarkup='<img src="http://www.boycottowl.com/images/icon_red_flag.gif"></img>';
 						}else{
-							$('#topArticle').append('<div class="table4'+even+'"><img src="http://www.lajaula.com.py/iconos/844357/original/flag_green.png"></img></div>');
-						}
-						count++;
-					}
-					//reportsArray.push(reportDate);
-					//}
-					});//workpackage
-    			$('#topArticle').append('<h3>_</h3>');
+							flagMarkup='<img src="http://www.lajaula.com.py/iconos/844357/original/flag_green.png"></img>';
+							}
+						$('#reportGridBody').append('<tr><td>'+status+'</td><td><a href="#" id="triggerReport" class="topbuttonNO" partnerID="'+partnerID+'" partnername="'+partnerName+'" wptitle="'+reportWP+'" wpid="'+wpIdFromSubreport+'" reportdate="'+reportDate+'">'+reportDate+'</a></td><td>'+partnerName+'</td><td>'+reportWP+'</td><td>1 month</td><td>'+flagMarkup+'</td></tr>');
+						
+						}					
+					});
      		}
      		

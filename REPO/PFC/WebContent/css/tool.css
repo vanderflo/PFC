@@ -120,7 +120,7 @@ article{
     position: relative;            
     padding: 20px;
     margin: 0 0 20px 0;
-    text-align: center;
+    text-align: left;
     background: #fff;
     box-shadow: 0 1px 1px #999;
     border-radius:5px;            
@@ -597,83 +597,6 @@ px dotted #313030;
 
 }
 
-
-
-
-/* Test for tables */
-.tableHeader{ float:left; width:100%;}
-.table1Header{ width:10%;}
-.table2Header{ width:22%;}
-.table7Header{ width:25%;}
-.table3Header{ width:8%;}
-.table4Header{ width:5%;}
-.table5Header{ width:5%;}
-.table6Header{ width:25%;}
-
-.table1Header,.table2Header,.table3Header,.table4Header,.table5Header,.table6Header,.table7Header{ 
-float:left;
-font-style:bold;
-color:black;
-color: #444;
-font-size: 11px;
-font-weight: bold;
-padding-bottom:3px;
-padding-top:3px;
-background-color: #cccccc;
-text-transform: uppercase;
-font-family: arial;
-}
-
-.tableList{ float:left; width:100%;margin-top:5px;}
-.table1,.table1odd{ width:10%;}
-.table2,.table2odd{ width:22%;}
-.table7,.table7odd{ width:25%;}
-.table3,.table3odd{ width:8%;}
-.table4,.table4odd{ width:5%;}
-.table5,.table5odd{ width:5%;}
-.table6,.table6odd{ width:25%;}
-.table1,.table2,.table3,.table4,.table5,.table6,.table7{ float:left;color:#777;padding-top:2px;background-color:#f2f2f2;height: 18px;}
-.table1odd,.table2odd,.table3odd,.table4odd,.table5odd,.table6odd,.table7odd{ float:left;color:#777;padding-top:2px;height: 18px;}
-
-#content h3 {
-font-weight: bold;
-font-size: 110%;
-/*color: #8F8781;*/
-margin-bottom: .5em;
-border-bottom: 1px solid #aaaaaa;
-color:white;
-}
-
-#content h4 {
-font-weight: bold;
-font-size: 110%;
-/*color: #8F8781;*/
-margin-bottom: .5em;
-border-bottom: 1px solid #aaaaaa;
-}
-
-#secondArticle h1 {
-font-weight: bold;
-font-size: 120%;
-color: #8F8781;
-margin-bottom: .5em;
-border-bottom: 1px dotted #aaaaaa;
-}
-
-#secondArticle h5 {
-font-weight: bold;
-font-weight: italic;
-font-size: 100%;
-color: #8F8781;
-margin-bottom: .5em;
-padding-bottom: 5px;
-}
-
-.odd div{background-color:#f2f2f2;}
-
-.tableList div.table4{background-color:white;color:white;}
-
-
 /* Buttons*/
 
 .button{
@@ -780,7 +703,183 @@ border-width:1px;
 -webkit-border-radius: 6px 6px 6px 6px;
 -moz-border-radius: 6px 6px 6px 6px;
 width: 100%;
-text-align: center;
+text-align: left;
 vertical-align: middle;
+margin-bottom:15px;
 }
+
+/*Table report grid*/
+#reportGrid
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	width: 100%;
+	text-align: left;
+	border-collapse: collapse;
+}
+#reportGrid th
+{
+	font-size: 14px;
+	font-weight: normal;
+	padding: 5px 5px;
+	color: #039;
+}
+#reportGrid td
+{
+	padding: 5px 5px;
+	color: #669;
+	border-top: 1px solid #e8edff;
+}
+
+#reportGrid tr:hover td
+{
+	color: #339;
+	background: #eff2ff;
+}
+
+th.thstatus  {
+  width: 10%;
+}
+th.thdate  {
+  width: 10%;
+}
+th.thpartner  {
+  width: 30%;
+}
+th.thwp  {
+  width: 30%;
+}
+th.theffort  {
+  width: 10%;
+}
+th.thflag  {
+  width: 5%;
+}
+
+/*Table expenses grid*/
+
+#expensesGrid
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	margin-top: 15px;
+	width: 50%;
+	text-align: left;
+	border-collapse: collapse;
+}
+#expensesGrid th
+{	
+	font-weight: normal;
+	font-size: 14px;
+	border-bottom: 2px solid #6678b1;
+	border-right: 30px solid #fff;
+	border-left: 30px solid #fff;
+	color: #039;
+	
+}
+#expensesGrid td
+{
+	padding: 5px 2px 0px 2px;
+	border-right: 30px solid #fff;
+	border-left: 30px solid #fff;
+	color: #669;
+}
+
+
+#expensesGrid tr:hover td
+{
+	color: #339;
+	background: #eff2ff;
+}
+
+th.thconcept  {
+  width: 20%;
+}
+th.thdescription  {
+  width: 60%;
+}
+th.thamount  {
+  width: 20%;
+}
+
+
+/*Report grid*/
+
+#reportInformation
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	margin-top: 25px;
+	margin-bottom: 15px;
+	width: 40%;
+	text-align: left;
+	border-collapse: collapse;
+}
+
+#reportInformation td
+{
+	padding: 5px 2px 0px 2px;
+	border-right: 30px solid #fff;
+	border-left: 30px solid #fff;
+	color: #669;	
+}
+
+.tdfield
+{
+	font-weight: bold;
+}
+
+
+td.tdfield  {
+  width: 15%;
+}
+td.tdvalue  {
+  width: 85%;
+}
+
+
+
+
+
+#content h3 {
+font-weight: bold;
+font-size: 110%;
+margin-bottom: .5em;
+margin-top: .1em;
+border-bottom: 1px solid #cccccc;
+color:black;
+line-height: 25px;
+font-family: 'Lucida sans', Arial, Helvetica;
+}
+
+#content h4 {
+font-weight: bold;
+font-size: 110%;
+/*color: #8F8781;*/
+margin-bottom: .5em;
+border-bottom: 1px solid #aaaaaa;
+}
+
+input{
+margin-top: 15px;
+background-image: url('http://www.autoreseditores.com/images/icons/zoom.png');
+background-repeat:no-repeat;
+background-position: right;
+border-radius: 6px 6px 6px 6px;
+}
+
+textareaaa {
+width: 379px;
+background: #efefef;
+border: 1px solid #ddd;
+font-size: 0.9em;
+color: #ccc;
+height: 25px;
+padding: 10px;
+margin-top: 3px;
+height: 85px;
+}
+
+
+
 
