@@ -114,7 +114,7 @@
 						$('#projectSection').append('<a class="editTextArea" id="explanation">'+explanation+'</a>');
 
 						$('#projectSection').append('<h2 class="settings_form_title">CONFIRM/MODIFY REPORT STATUS</h2>');
-						$('#projectSection').append('<div class="statusContainer"><button class="color blue button">Block</button><button class="color blue button">Accept</button><button class="color blue button">Reject</button><button class="color blue button">Open</button><a class="editTextArea">'+feedback+'</a></div>');
+						$('#projectSection').append('<div class="statusContainer"><button class="color blue button" id="editStatus" value="blocked">Block</button><button id="editStatus" class="color blue button" value="accepted">Accept</button><button id="editStatus" value="rejected" class="color blue button">Reject</button><button id="editStatus" class="color blue button" value="open">Open</button><a class="editTextArea" id="feedback">'+feedback+'</a></div>');
 
 
 

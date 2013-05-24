@@ -632,8 +632,8 @@ font-family: arial;
 .table4,.table4odd{ width:5%;}
 .table5,.table5odd{ width:5%;}
 .table6,.table6odd{ width:25%;}
-.table1,.table2,.table3,.table4,.table5,.table6,.table7{ float:left;color:#777;padding-top:2px;background-color:#f2f2f2;}
-.table1odd,.table2odd,.table3odd,.table4odd,.table5odd,.table6odd,.table7odd{ float:left;color:#777;padding-top:2px;}
+.table1,.table2,.table3,.table4,.table5,.table6,.table7{ float:left;color:#777;padding-top:2px;background-color:#f2f2f2;height: 18px;}
+.table1odd,.table2odd,.table3odd,.table4odd,.table5odd,.table6odd,.table7odd{ float:left;color:#777;padding-top:2px;height: 18px;}
 
 #content h3 {
 font-weight: bold;

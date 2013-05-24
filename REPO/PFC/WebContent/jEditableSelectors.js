@@ -1,22 +1,4 @@
-	$('.editFlag').live('click', function(){
-		var URL="http://localhost:8080/PFC/rest/API/report/edit/"+currentProject+"/"+currentWP+"/"+currentPartner+"/"+currentReport;
-        		$(this).editable(URL, { 
-	            	data  	  : " {'green':'GREEN','red':'RED'}",
-	                type 	  : 'select',
-	                cancel    : 'Cancel',
-	                submit    : 'OK',
-	    	        indicator : '<img src="img/indicator.gif">',
-	                tooltip   : 'Click to edit...',
-	                callback  : function(value,settings){
-	                	getReport();
-	        			showListOfReportsByWP('HARDWARE','1355348593079');
-	        			showReport(currentPartner,currentReport,currentWP,currentPartnerName);	
-	                }
-	            });
-        		
-            });
-	
-	$('#editflag').live('click', function(){
+$('#editflag').live('click', function(){
 	var color = $(this).attr('color');
 	
 	$.ajax({				
@@ -42,6 +24,31 @@
     event.preventDefault();
 	});	
 	
+$('#editStatus').live('click', function(){
+	var value = $(this).attr('value');
+	
+	$.ajax({				
+		url: "http://localhost:8080/PFC/rest/API/report/edit/"+currentProject+"/"+currentWP+"/"+currentPartner+"/"+currentReport,
+		type: "post",
+        data: {
+            id: "status",
+            value: value,
+        },
+        success: function(response, textStatus, jqXHR){
+        	getReport();
+			showListOfReportsByWP('HARDWARE','1355348593079');
+			showReport(currentPartner,currentReport,currentWP,currentPartnerName);   
+        },
+        error: function(jqXHR, textStatus, errorThrown){
+            console.log(
+                "The following error occured: "+
+                textStatus, errorThrown
+            );
+        }
+    });		
+    // prevent default posting of form
+    event.preventDefault();
+	});	
        $('.editTextArea').live('click', function(){
     		var URL="http://localhost:8080/PFC/rest/API/report/edit/"+currentProject+"/"+currentWP+"/"+currentPartner+"/"+currentReport;
     		$(this).editable(URL, { 
