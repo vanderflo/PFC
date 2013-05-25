@@ -79,8 +79,9 @@
 						var flag= $(this).children('flag').text().toLowerCase();
 						var explanation= $(this).children('explanation').text();
 						//$('#secondArticle').append('<h2 class="settings_form_head_title">Report by Partner '+partnerName+' for WP '+reportWP+' on date '+date+'</h2>');
-						$('#projectSection').append('<h1>Report</h1>');
-						$('#projectSection').append('<div class="Table_Menu_Partner"/>');
+						$('#projectSection').append('<h2>Report</h2>');
+						$('#projectSection').append('<h3>Info</h3>');
+						//$('#projectSection').append('<div class="Table_Menu_Partner"/>');
 						
 		    			$('#projectSection').append('<div class="tableHeader"><table id="reportInformation" summary="Report information"><tbody id="reportInformationBody"></tbody></table></div>');
 		    			
@@ -103,7 +104,7 @@
 			    			$('#expensesGridBody').append(st);
 
 						});
-						$('#projectSection').append('<a><br><img src="css/add.png"/></a>');
+						$('#expensesGridBody').append('<tr><td></td><td></td><td><a href="#" class="addExpenses">add+</a></td></tr>');
 						
 						
 						
@@ -120,19 +121,19 @@
 						$('#projectSection').append('<div class="statusContainer"><button class="color blue button" id="editStatus" value="blocked">Block</button><button id="editStatus" class="color blue button" value="accepted">Accept</button><button id="editStatus" value="rejected" class="color blue button">Reject</button><button id="editStatus" class="color blue button" value="open">Open</button><a class="editTextArea" id="feedback">'+feedback+'</a></div>');
 
 
-
+						$('#secondArticle').append('<h2>Tasks</h2>');
 						$(this).find('task').each(function(){
 							var taskTitle = $(this).attr("title");
 							var taskId = $(this).attr("id");
 							var work= $(this).children('work').text();	
 							var result= $(this).children('result').text();	
 							var effort= $(this).children('effort').text();
-							$('#secondArticle').append('<h4 class="settings_form_head_title">Task '+taskTitle+'</h4>');
-							$('#secondArticle').append('<h2 class="settings_form_title">Work</h2>');
+							$('#secondArticle').append('<h3>Task '+taskTitle+'</h3>');
+							$('#secondArticle').append('<h4>Work</h4>');
 							$('#secondArticle').append('<a class="editTask" id="work" taskid="'+taskId+'">'+work+'</a>');
-							$('#secondArticle').append('<h2 class="settings_form_title">Result</h2>');
+							$('#secondArticle').append('<h4>Result</h4>');
 							$('#secondArticle').append('<a class="editTask" id="result" taskid="'+taskId+'">'+result+'</a>');
-							$('#secondArticle').append('<h2 class="settings_form_title">Effort</h2>');
+							$('#secondArticle').append('<h4>Effort</h4>');
 							$('#secondArticle').append('<a class="editTask" id="effort" taskid="'+taskId+'">'+effort+'</a>');
 
 

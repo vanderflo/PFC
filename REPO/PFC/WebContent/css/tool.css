@@ -766,6 +766,7 @@ th.thflag  {
 	width: 50%;
 	text-align: left;
 	border-collapse: collapse;
+	margin-bottom: 25px;
 }
 #expensesGrid th
 {	
@@ -809,7 +810,7 @@ th.thamount  {
 {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
 	font-size: 12px;
-	margin-top: 25px;
+	margin-top: 15px;
 	margin-bottom: 15px;
 	width: 40%;
 	text-align: left;
@@ -841,23 +842,26 @@ td.tdvalue  {
 
 
 
-#content h3 {
+#content h2,h3,h4 {
 font-weight: bold;
 font-size: 110%;
 margin-bottom: .5em;
 margin-top: .1em;
 border-bottom: 1px solid #cccccc;
+border-top: 1px solid #cccccc;
 color:black;
 line-height: 25px;
 font-family: 'Lucida sans', Arial, Helvetica;
+background: #f1f1f1;
+padding-left: 15px;
 }
 
 #content h4 {
-font-weight: bold;
-font-size: 110%;
-/*color: #8F8781;*/
-margin-bottom: .5em;
-border-bottom: 1px solid #aaaaaa;
+padding-left: 30px;
+}
+#content h2 {
+padding-left: 2px;
+background: #cccccc;
 }
 
 input{
@@ -868,7 +872,7 @@ background-position: right;
 border-radius: 6px 6px 6px 6px;
 }
 
-textareaaa {
+textarea {
 width: 379px;
 background: #efefef;
 border: 1px solid #ddd;
@@ -877,9 +881,32 @@ color: #ccc;
 height: 25px;
 padding: 10px;
 margin-top: 3px;
-height: 85px;
+margin-bottom: 15px;
 }
 
 
-
+.addExpenses {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+	background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+	background-color:#ededed;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	display:inline-block;
+	color:#777777;
+	font-family:arial;
+	font-size:13px;
+	font-weight:bold;
+	padding:2px 10px;
+	text-decoration:none;
+}.addExpenses:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+	background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+	background-color:#dfdfdf;
+}.addExpenses:active {
+	position:relative;
+	top:1px;
+}
 
