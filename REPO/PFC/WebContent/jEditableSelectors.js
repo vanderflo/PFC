@@ -90,6 +90,7 @@ $('#editStatus').live('click', function(){
     	         cancel    : 'Cancel',
     	         submit    : 'OK',
     	         indicator : '<img src="img/indicator.gif">',
+    	         height	   : '100',
     	         tooltip   : 'Click to edit...'
             });
         });

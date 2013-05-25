@@ -8,6 +8,7 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/jquery-ui.min.js"></script>
 <script type="text/javascript" src="http://www.appelsiini.net/download/jquery.jeditable.js"></script>
 <script type="text/javascript" src="initCoordinatorMenu.js"></script>
+<link rel="stylesheet" href="css/font-awesome.min.css">
 
 <script>
 
@@ -25,7 +26,7 @@
         initSearchBox();	
     	$.getScript("jEditableSelectors.js");
 		$('#topArticleContainer').hide();
-        $('#secondArticleContainer').hide();
+        $('#reportArticle').hide();
         initMenu();
         initTopMenu();
         getProjects();
@@ -75,20 +76,18 @@
 
         <article id="topArticleContainer">
          <section id="topArticle">		 
-		</section>
-		<div id="searchInputContainer">
-		<input id="searchInput" value="Type To Filter"><br/>
-		</div>
+		 </section>
+		<div class="input-prepend">
+          <span class="add-on"><i class="icon-search"></i></span>
+          <input class="span2" id="searchInput" placeholder="Search Reports">
+        </div>
 		
         </article>
         
-        <article id="secondArticleContainer">
-
-        <section id="projectSection">
-		</section> 
-		   
-		<section id="secondArticle" class="rounded-list">
-		</section>
+        <article id="reportArticle">
+	        <section id="projectSection"></section> 
+			<section id="taskSection">
+			</section>
         </article>
         
         

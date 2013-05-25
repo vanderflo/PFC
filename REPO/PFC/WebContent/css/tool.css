@@ -774,7 +774,7 @@ th.thflag  {
 	font-size: 14px;
 	border-bottom: 2px solid #6678b1;
 	border-right: 30px solid #fff;
-	border-left: 30px solid #fff;
+	/*border-left: 30px solid #fff;*/
 	color: #039;
 	
 }
@@ -782,7 +782,7 @@ th.thflag  {
 {
 	padding: 5px 2px 0px 2px;
 	border-right: 30px solid #fff;
-	border-left: 30px solid #fff;
+	/*border-left: 30px solid #fff;*/
 	color: #669;
 }
 
@@ -810,9 +810,7 @@ th.thamount  {
 {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
 	font-size: 12px;
-	margin-top: 15px;
-	margin-bottom: 15px;
-	width: 40%;
+	width: 80%;
 	text-align: left;
 	border-collapse: collapse;
 }
@@ -821,7 +819,7 @@ th.thamount  {
 {
 	padding: 5px 2px 0px 2px;
 	border-right: 30px solid #fff;
-	border-left: 30px solid #fff;
+	/*border-left: 30px solid #fff;*/
 	color: #669;	
 }
 
@@ -842,7 +840,7 @@ td.tdvalue  {
 
 
 
-#content h2,h3,h4 {
+#content h1,h2,h3 {
 font-weight: bold;
 font-size: 110%;
 margin-bottom: .5em;
@@ -853,24 +851,28 @@ color:black;
 line-height: 25px;
 font-family: 'Lucida sans', Arial, Helvetica;
 background: #f1f1f1;
-padding-left: 15px;
+padding-left: 25px;
 }
 
 #content h4 {
-padding-left: 30px;
+padding-left: 35px;
+font-weight: bold;
+font-size: 110%;
+}
+#content h1 {
+padding-left: 2px;
+font-size: 160%;
 }
 #content h2 {
 padding-left: 2px;
-background: #cccccc;
+font-size: 130%;
+}
+#content h5,h6 {
+background-color:white;
+border-bottom: 1px solid #cccccc;
+border-top: 1px solid #cccccc;
 }
 
-input{
-margin-top: 15px;
-background-image: url('http://www.autoreseditores.com/images/icons/zoom.png');
-background-repeat:no-repeat;
-background-position: right;
-border-radius: 6px 6px 6px 6px;
-}
 
 textarea {
 width: 379px;
@@ -908,5 +910,110 @@ margin-bottom: 15px;
 }.addExpenses:active {
 	position:relative;
 	top:1px;
+}
+
+.subsection{
+margin-left:45px;
+margin-bottom: 35px;
+	
+}
+/*FontAwesome*/
+
+[class^="icon-"], [class*=" icon-"] {
+font-family: FontAwesome;
+font-weight: normal;
+font-style: normal;
+text-decoration: inherit;
+-webkit-font-smoothing: antialiased;
+display: inline;
+width: auto;
+height: auto;
+line-height: normal;
+vertical-align: baseline;
+background-image: none;
+background-position: 0% 0%;
+background-repeat: repeat;
+margin-top: 0;
+}
+
+
+.icon-flag-green:before{
+width:18px;
+display:inline-block;
+content:"\F024";
+color:green;
+font-size:160%;
+}
+.icon-flag-red:before{
+width:24px;
+display:inline-block;
+content:"\F024";
+color:red;
+font-size:160%;
+}
+
+.input-prepend {
+display: inline-block;
+margin-bottom: 10px;
+margin-top: 10px;
+margin-left:5px;
+vertical-align: middle;
+font-size: 0;
+white-space: nowrap;
+}
+.input-prepend .add-on {
+display: inline-block;
+width: auto;
+height: 20px;
+min-width: 16px;
+padding: 4px 5px;
+font-size: 14px;
+font-weight: normal;
+line-height: 20px;
+text-align: center;
+text-shadow: 0 1px 0 #fff;
+background-color: #eee;
+border: 1px solid #ccc;
+border-radius: 6px 0px 0px 6px;
+}
+input.span2, textarea.span2, .uneditable-input.span2 {
+display: inline-block;
+width: 150px;
+height: 20px;
+min-width: 16px;
+padding: 4px 5px;
+font-size: 14px;
+font-weight: normal;
+line-height: 20px;
+text-align: center;
+text-shadow: 0 1px 0 #fff;
+background-color: white;
+border: 1px solid #ccc;
+border-radius: 0px 6px 6px 0px;
+}
+
+#content h5 {
+margin-left: 25px;
+width: 70%;
+padding-top: 10px;
+padding-bottom: 10px;
+background-color:white;
+}
+#content h6 {
+margin-left: 45px;
+width: 70%;
+padding-top: 10px;
+padding-bottom: 10px;
+background-color:white;
+}
+.editTask textarea {
+    font: inherit;
+    color: inherit;
+    border: inherit;
+    background-color: inherit;
+    
+}
+.editTask button {
+ editTask: 1px solid #dddddd; background: #f6f6f6 50% 50% repeat-x; font-weight: bold; color: #38385c;
 }
 
