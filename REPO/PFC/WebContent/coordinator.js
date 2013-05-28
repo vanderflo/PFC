@@ -55,6 +55,7 @@
     		
     		function showReport(partnerID,date,wpId,partnerName){
     			$('#projectSection').empty();
+    			$('#taskSection').empty();
     			currentPartner=partnerID;
     			currentReport=date;
     			currentWP=wpId;
@@ -96,7 +97,7 @@
 			    			$('#expensesGridBody').append(st);
 
 						});
-						$('#expensesGridBody').append('<tr><td></td><td></td><td><a href="#" class="addExpenses">add+</a></td></tr>');
+						$('#expensesGridBody').append('<tr><td></td><td></td><td><button href="#" class="btn btn-small" href="#"><i class="icon-plus"></i> Add</button></td></tr>');
 						
 						
 						
@@ -107,12 +108,12 @@
 						}else{
 							$('#flagContainer').append('<div class="statusContainer"><button class="color green button">GREEN FLAG</button><button class="button" id="editflag" color="red">RED FLAG</button></div>');
 						}
-						$('#flagContainer').append('<label><span class="icon-edit">&nbsp;</span> Explanation/Comments</label><br><h5 class="editTextArea" id="explanation">'+explanation+'</h5>');
+						$('#flagContainer').append('<h4><span class="icon-edit">&nbsp;</span> Explanation/Comments</h4><h5 class="editTextArea" id="explanation">'+explanation+'</h5>');
 
 						$('#projectSection').append('<h3><span class="icon-comments"></span>&nbsp;Status and Feedback</h3>');
 						$('#projectSection').append('<div id="statusContainer" class="subsection"><p>Explanation of the statuses</p></div>');
 						$('#statusContainer').append('<div class="statusContainer"><button class="color blue button" id="editStatus" value="blocked">Block</button><button id="editStatus" class="color blue button" value="accepted">Accept</button><button id="editStatus" value="rejected" class="color blue button">Reject</button><button id="editStatus" class="color blue button" value="open">Open</button></div>');
-						$('#statusContainer').append('<label><span class="icon-edit">&nbsp;</span>Leave Feedback</label><br><h5 class="editTextArea" id="feedback">'+feedback+'</h5>')
+						$('#statusContainer').append('<h4><span class="icon-edit">&nbsp;</span>Leave Feedback</label></h4><h5 class="editTextArea" id="feedback">'+feedback+'</h5>')
 
 						$('#taskSection').append('<h2><span class="icon-tasks"></span>&nbsp;Tasks</h2>');
 						$(this).find('task').each(function(){
@@ -126,7 +127,7 @@
 							$('#taskSection').append('<h6 class="editTask" id="work" taskid="'+taskId+'">'+work+'</h6>');
 							$('#taskSection').append('<h4><span class="icon-edit">&nbsp;</span>Result</h4>');
 							$('#taskSection').append('<h6 class="editTask" id="result" taskid="'+taskId+'">'+result+'</h6>');
-							$('#taskSection').append('<h4>Effort</h4>');
+							$('#taskSection').append('<h4><span class="icon-user-md">&nbsp;</span>Effort</h4>');
 							$('#taskSection').append('<h6 class="editTask" id="effort" taskid="'+taskId+'">'+effort+'</h6>');
 
 

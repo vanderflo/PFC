@@ -443,136 +443,6 @@ ol ol{
 	margin: 0 0 0 2em; /* Add some left margin for inner lists */
 }
 
-
-.rounded-list a{
-	display: block;
-	/*padding: .4em .4em .4em 2em;*/
-	*padding: .4em;
-	margin: .5em 0;
-	background: white;
-	color: #444;
-	text-decoration: none;
-	border-radius: .3em;
-	transition: all .3s ease-out;
-	text-align: center;	
-}
-
-
-
-.rounded-list a:hover{
-	background: #eee;
-}
-
-.rounded-list a:hover:before{
-    transform: rotate(360deg);	
-}
-
-.rounded-list a:before{
-	content: normal;
-	counter-increment: li;
-	position: absolute;	
-	left: -1.3em;
-	top: 50%;
-	margin-top: -1.3em;
-	background: #87ceeb;
-	height: 2em;
-	width: 50%;
-	line-height: 2em;
-	border: .3em solid #fff;
-	text-align: center;
-	font-weight: bold;
-	border-radius: 2em;
-	transition: all .3s ease-out;
-	text-align: center;
-}
-
-
-
-.settings_form_title,.settings_form_title_editable {
-
-line-height: 25px;
-font-weight: bold;
-font-size: 13px;
-font-family: arial;
-border-radius: 6px 6px 6px 6px;
--webkit-border-radius: 6px 6px 6px 6px;
--moz-border-radius: 6px 6px 6px 6px;
-width: 100%;
-background-color: #ddd;
-color: #52463b;
-border-color:#52463b;
-text-align: center;
-vertical-align: middle;
-}
-
-.settings_form_sub_title {
-color: white;
-line-height: 25px;
-font-weight: bold;
-font-size: 13px;
-font-family: arial;
-border-radius: 6px 6px 6px 6px;
--webkit-border-radius: 6px 6px 6px 6px;
--moz-border-radius: 6px 6px 6px 6px;
-width: 100%;
-background-color: black;
-text-align: center;
-vertical-align: middle;
-}
-
-.settings_form_head_title {
-color: yellow;
-text-transform:uppercase;
-line-height: 25px;
-font-weight: bold;
-font-size: 18px;
-font-family: arial;
-border-radius: 6px 6px 6px 6px;
--webkit-border-radius: 6px 6px 6px 6px;
--moz-border-radius: 6px 6px 6px 6px;
-width: 100%;
-background-color: #52463b;
-text-align: center;
-vertical-align: middle;
-}
-
-.settings_form_head_sub_title {
-color: white;
-text-transform:uppercase;
-line-height: 25px;
-font-weight: bold;
-font-size: 18px;
-font-family: arial;
-border-radius: 6px 6px 6px 6px;
--webkit-border-radius: 6px 6px 6px 6px;
--moz-border-radius: 6px 6px 6px 6px;
-width: 100%;
-background-color: green;
-text-align: center;
-vertical-align: middle;
-}
-
-.styled-select select {
-   background: transparent;
-   width: 268px;
-   padding: 5px;
-   font-size: 16px;
-   line-height: 1;
-   border: 0;
-   border-radius: 0;
-   height: 34px;
-   -webkit-appearance: none;
-   }
-.styled-select {
-   width: 240px;
-   height: 34px;
-   overflow: hidden;
-   background: url(arrow.png) no-repeat right #ddd;
-   border: 1px solid #ccc;
-   }
-   
-
-   
    a.topbutton {
     background-color: #E0EAF1;
     border-bottom: 1px solid #B3CEE1;
@@ -787,12 +657,6 @@ th.thflag  {
 }
 
 
-#expensesGrid tr:hover td
-{
-	color: #339;
-	background: #eff2ff;
-}
-
 th.thconcept  {
   width: 20%;
 }
@@ -871,8 +735,19 @@ font-size: 130%;
 background-color:white;
 border-bottom: 1px solid #cccccc;
 border-top: 1px solid #cccccc;
+width: 70%;
+padding-top: 10px;
+padding-bottom: 10px;
+background-color:white;
+font-size: 85%;
 }
 
+#content h5 {
+margin-left: 25px;
+}
+#content h6 {
+margin-left: 45px;
+}
 
 textarea {
 width: 379px;
@@ -992,20 +867,7 @@ border: 1px solid #ccc;
 border-radius: 0px 6px 6px 0px;
 }
 
-#content h5 {
-margin-left: 25px;
-width: 70%;
-padding-top: 10px;
-padding-bottom: 10px;
-background-color:white;
-}
-#content h6 {
-margin-left: 45px;
-width: 70%;
-padding-top: 10px;
-padding-bottom: 10px;
-background-color:white;
-}
+
 .editTask textarea {
     font: inherit;
     color: inherit;
