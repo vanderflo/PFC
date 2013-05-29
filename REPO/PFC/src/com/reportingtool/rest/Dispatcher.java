@@ -229,5 +229,19 @@ public String editTask(@FormParam("id") String field,@FormParam("value") String 
 	System.out.println("Field:"+field+" - Value:"+value);	return value;
 }
 
+@Path ("/report/addexpenses/{projectId}/{wpId}/{partnerId}/{reportDate}")
+@POST
+@Consumes("application/x-www-form-urlencoded")
+public String addExpenses(@FormParam("concept") String concept,@FormParam("description") String description, @FormParam("amount") String amount,@PathParam("projectId") String projectId,@PathParam("wpId") String wpId,@PathParam("partnerId") String partnerId,@PathParam("reportDate") String date) {
+	String rep_projectId=projectId+"_report";
+	Document doc = Report.getCurrentReportFile(formatFile(rep_projectId));
+	String path=getPath()+rep_projectId;
+	Report.addExpenses(doc, wpId, partnerId, date, concept,description, amount,path);
+	System.out.println("Field:"+concept+" "+description+"- Amount:"+amount);
+	
+	return "ok";
+}
+
+
 }
 

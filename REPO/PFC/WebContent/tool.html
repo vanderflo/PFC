@@ -20,6 +20,8 @@
     	var currentWP;
     	var currentReport;
     	var currentPartnerName;
+		var formExpenses='<div id="addExpensesContainer"><form id="addExpensesForm"><input type="text" placeholder="Concept" name="concept" class="thconcept"><input type="text" placeholder="Description" name="description" class="thdescription"><input type="text" placeholder="Amount" name="amount" class="thamount"><input type="submit" value="Submit"></form></div>';
+
         // When document ready, call initMenu() function     	
         $(document).ready(function() {  		
         	
@@ -86,8 +88,7 @@
         
         <article id="reportArticle">
 	        <section id="projectSection"></section> 
-			<section id="taskSection">
-			</section>
+			<section id="taskSection"></section>
         </article>
         
         

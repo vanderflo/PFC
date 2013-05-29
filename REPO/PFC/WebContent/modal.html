@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-  <link rel="stylesheet" href="/resources/demos/style.css" />
   <style>
     body { font-size: 62.5%; }
     label, input { display:block; }
@@ -36,12 +35,8 @@
       width: 350,
       modal: true,
       buttons: {
-        "Create an account": function() {
-            $( "#users tbody" ).append( "<tr>" +
-              "<td>" + concept.val() + "</td>" +
-              "<td>" + description.val() + "</td>" +
-              "<td>" + amount.val() + "</td>" +
-            "</tr>" );
+        "Add expenses": function() {
+            alert("EBA!");
             $( this ).dialog( "close" );
            
           
@@ -55,7 +50,7 @@
       }
     });
  
-    $( "#create-user" )
+    $( "#addExpenses" )
       .button()
       .click(function() {
         $( "#dialog-form" ).dialog( "open" );
@@ -99,7 +94,7 @@
   </table>
 </div>
 
-<button id="create-user">Create new user</button>
+<button id="addExpenses">Create new user</button>
  
  
 </body>

@@ -56,6 +56,7 @@
     		function showReport(partnerID,date,wpId,partnerName){
     			$('#projectSection').empty();
     			$('#taskSection').empty();
+    			$('#expensesForm').hide();
     			currentPartner=partnerID;
     			currentReport=date;
     			currentWP=wpId;
@@ -86,7 +87,7 @@
 
 
 						$('#projectSection').append('<h3><span class="icon-money"></span>&nbsp;Expenses</h3>');
-		    			$('#projectSection').append('<div class="subsection"><table id="expensesGrid" summary="List of Expenses"><thead><tr><th class="thconcept">Concept</th><th class="thdescription">Description</th><th class="thamount">Amount</th></thead><tbody id="expensesGridBody"></tbody></table></div>');
+		    			$('#projectSection').append('<div class="subsection expensesSection"><table id="expensesGrid" summary="List of Expenses"><thead><tr><th class="thconcept">Concept</th><th class="thdescription">Description</th><th class="thamount">Amount</th></thead><tbody id="expensesGridBody"></tbody></table></div>');
 
 						$(this).find('expenses').each(function(){
 							var eId = $(this).attr("id");
@@ -97,8 +98,7 @@
 			    			$('#expensesGridBody').append(st);
 
 						});
-						$('#expensesGridBody').append('<tr><td></td><td></td><td><button href="#" class="btn btn-small" href="#"><i class="icon-plus"></i> Add</button></td></tr>');
-						
+						$('#expensesGridBody').append('<tr><td></td><td></td><td><button href="#" id="addExpenses" class="btn btn-small" href="#"><i class="icon-plus"></i> Add</button></td></tr>');
 						
 						
 						$('#projectSection').append('<h3><span class="icon-flag"></span>&nbsp;Flag</h3>');
@@ -160,3 +160,56 @@
 					});
      		}
      		
+     	    $( "#addExpenses" ).live("click", function(e) {
+     	       $('.expensesSection').append(formExpenses);
+     	      });
+     		
+     	   $("#addExpensesForm").live(
+     			  "submit",
+     			 function( event ){
+       		// setup some local variables
+       		var $form = $(this),
+           	// let's select and cache all the fields
+       		$inputs = $form.find("concept, description, amount"),
+           	// serialize the data in the form
+           	serializedData = $form.serialize();
+       		var concept = $("[name='concept']").val();
+       		var description = $("[name='description']").val();
+       		var amount = $("[name='amount']").val();
+       		alert(concept+' '+description+' '+amount)
+   		    // let's disable the inputs for the duration of the ajax request
+   		    $inputs.attr("disabled", "disabled");
+
+      			 /*
+   		    $.ajax({
+   		        url: "http://localhost:8080/PFC/rest/API/create/project/",
+   		        type: "post",
+   		        data: serializedData,
+   		        // callback handler that will be called on success
+   		        success: function(response, textStatus, jqXHR){
+   		            // log a message to the console
+   		        console.log("Hooray, it worked!");	        
+   		        $('#project').empty();
+     				$('#wp').find("input[type=text], textarea").val("");
+     				$('#wp').show();
+   		        },
+   		        // callback handler that will be called on error
+   		        error: function(jqXHR, textStatus, errorThrown){
+   		            // log the error to the console
+   		            console.log(
+   		                "The following error occured: "+
+   		                textStatus, errorThrown
+   		            );
+   		        },
+   		        // callback handler that will be called on completion
+   		        // which means, either on success or error
+   		        complete: function(){
+   		            // enable the inputs
+   		            $inputs.removeAttr("disabled");
+   		        }
+   		    });*/
+   		
+   		    // prevent default posting of form
+   		    event.preventDefault();
+   		});//END send Info
+     	    

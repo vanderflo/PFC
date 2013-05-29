@@ -181,6 +181,16 @@ public class Report {
 		
 		task.addContent(eWork);
 		task.addContent(eResult);
+		Element personalEffort= new Element("personalEffort");
+		Element person= new Element("person");
+		Element effortPerson= new Element("effortPerson");
+
+
+		personalEffort.setAttribute("id","0");
+		personalEffort.addContent(person);
+		personalEffort.addContent(effortPerson);
+		eEffort.addContent(personalEffort);
+
 		task.addContent(eEffort);
 
 		
@@ -241,12 +251,33 @@ public class Report {
 	
 
 	public static Document updateSubReport(Document doc,String WP, String partnerID,String date,String field,String value,String path){
-System.out.println("Modifying subreport for WP:"+WP+"|partnerID:"+partnerID+"|date:"+date);
+		System.out.println("Modifying subreport for WP:"+WP+"|partnerID:"+partnerID+"|date:"+date);
 		for(Object object : doc.getRootElement().getChildren("subreport")) {
 			Element eObject=(Element)object;
 			if (eObject.getAttributeValue("WPID").equals(WP) && eObject.getAttributeValue("partner").equals(partnerID)&&eObject.getAttributeValue("date").equals(date)){
 				eObject.getChild(field).setText(value);
 				System.out.println("Report - Subreport modified, field "+field+" value "+value);
+				break;
+			}						
+		}
+		System.out.println("about to write "+path);
+		Commons.writeFile(path,doc);
+		return doc;
+	}
+	
+	public static Document addExpenses(Document doc,String WP, String partnerID,String date,String concept,String description,String amount,String path){
+		System.out.println("Modifying subreport for WP:"+WP+"|partnerID:"+partnerID+"|date:"+date);
+		for(Object object : doc.getRootElement().getChildren("subreport")) {
+			Element eObject=(Element)object;
+			if (eObject.getAttributeValue("WPID").equals(WP) && eObject.getAttributeValue("partner").equals(partnerID)&&eObject.getAttributeValue("date").equals(date)){
+				Element expense = new Element("expense");
+				Element eConcept=new Element("concept");
+				eConcept.setText(concept);
+				Element eDecsription=new Element("description");
+				eDecsription.setText(description);
+				Element eAmount=new Element("amount");
+				eAmount.setText(amount);
+				eObject.getChild("expenses").addContent(expense);
 				break;
 			}						
 		}

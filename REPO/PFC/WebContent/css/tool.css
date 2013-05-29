@@ -657,13 +657,13 @@ th.thflag  {
 }
 
 
-th.thconcept  {
+th.thconcept,input.thconcept {
   width: 20%;
 }
-th.thdescription  {
+th.thdescription,input.thdescription  {
   width: 60%;
 }
-th.thamount  {
+th.thamount,input.thamount {
   width: 20%;
 }
 
@@ -879,3 +879,10 @@ border-radius: 0px 6px 6px 0px;
  editTask: 1px solid #dddddd; background: #f6f6f6 50% 50% repeat-x; font-weight: bold; color: #38385c;
 }
 
+#addExpensesContainer{
+	background-color: blue;
+	border: 1px solid #ccc;
+	border-radius: 0px 6px 6px 0px;
+	width: 50%;
+	
+}
