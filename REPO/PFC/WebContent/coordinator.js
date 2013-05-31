@@ -98,8 +98,8 @@
 			    			$('#expensesGridBody').append(st);
 
 						});
-						$('#expensesGridBody').append('<tr><td></td><td></td><td><button href="#" id="addExpenses" class="btn btn-small" href="#"><i class="icon-plus"></i> Add</button></td></tr>');
-						
+						$('.expensesSection').append('<h5><a id="addExpenses"><span class="icon-plus-sign"></span>&nbsp;Click here to add more expenses</a></h5>');
+						$('.expensesSection').append('<form id="addExpensesForm"><div class="field"><label for="name">Concept:</label><input type="radio" name="concept" id="concept" value="travel">Travel<br><input type="radio" name="concept" id="concept" value="equipment">Equipment<br><p class="hint">Choose expenses type</p></div><div class="field"><label for="email">Amount:</label><input type="text" class="input" name="amount" id="amount" /><p class="hint">Specify amount</p></div><div class="field"><label for="message">Description:</label><input type="text" class="input" name="description" id="description"><p class="hint">Describe expenses</p></div><div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelExpenses">or CANCEL</a></div></form>');
 						
 						$('#projectSection').append('<h3><span class="icon-flag"></span>&nbsp;Flag</h3>');
 						$('#projectSection').append('<div id="flagContainer" class="subsection"><p>Raise a red flag in case any blocking issue came up duerint this reporting period</p></div>');
@@ -123,14 +123,12 @@
 							var result= $(this).children('result').text();	
 							var effort= $(this).children('effort').text();
 							$('#taskSection').append('<h3><span class="icon-chevron-right"></span>&nbsp;Task '+taskTitle+'</h3>');
-							$('#taskSection').append('<h4><span class="icon-edit">&nbsp;</span>Work</h4>');
-							$('#taskSection').append('<h6 class="editTask" id="work" taskid="'+taskId+'">'+work+'</h6>');
-							$('#taskSection').append('<h4><span class="icon-edit">&nbsp;</span>Result</h4>');
-							$('#taskSection').append('<h6 class="editTask" id="result" taskid="'+taskId+'">'+result+'</h6>');
-							$('#taskSection').append('<h4><span class="icon-user-md">&nbsp;</span>Effort</h4>');
-							$('#taskSection').append('<h6 class="editTask" id="effort" taskid="'+taskId+'">'+effort+'</h6>');
-
-
+							$('#taskSection').append('<div class="subsection"><h4><span class="icon-edit">&nbsp;</span>Work</h4><h6 class="editTask" id="work" taskid="'+taskId+'">'+work+'</h6></div>');
+							$('#taskSection').append('<div class="subsection"><h4><span class="icon-edit">&nbsp;</span>Result</h4><h6 class="editTask" id="result" taskid="'+taskId+'">'+result+'</h6></div>');
+							$('#taskSection').append('<div class="subsection effortSection"><h4><span class="icon-user-md">&nbsp;</span>Effort</h4><h6 class="editTask" id="effort" taskid="'+taskId+'">'+effort+'</h6></div>');
+							$('.effortSection').append('<h5><a id="addEffort"><span class="icon-plus-sign"></span>&nbsp;Click here to add a new effort entry</a></h5>');
+							$('.effortSection').append('<form id="addEffortForm"><div class="field"><label for="member">Team Member:</label><input type="text" class="input" name="member" id="member" /><p class="hint">Effort</p></div><div class="field"><label for="effortpp">Effort:</label><input type="text" class="input" name="description" id="effortpp"><p class="hint">Effort</p></div><div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelEffort">or CANCEL</a></div></form>');
+							
 						});	
 						
 						}
@@ -161,14 +159,22 @@
      		}
      		
      	    $( "#addExpenses" ).live("click", function(e) {
-     	       $('.expensesSection').append($( "#addExpensesForm" ));
-     	      $( "#addExpensesForm" ).show();
+     	      $( "#addExpensesForm" ).slideToggle();
      	      });
      	    
      	    $( "#cancelExpenses" ).live("click", function(e) {
-      	      $( "#addExpensesForm" ).hide();
+      	      $( "#addExpensesForm" ).slideToggle();
       	      });
      		
+     	    
+     	    $( "#addEffort" ).live("click", function(e) {
+       	      $( "#addEffortForm" ).slideToggle();
+       	      });
+       	    
+       	    $( "#cancelEffort" ).live("click", function(e) {
+        	      $( "#addEffortForm" ).slideToggle();
+        	      });
+     	    
      	   $("#addExpensesForm").live(
      			  "submit",
      			 function( event ){

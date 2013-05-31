@@ -473,7 +473,6 @@ px dotted #313030;
   display: inline-block;
   *display: inline;
   zoom: 1;
-  padding: 6px 20px;
   margin: 1;
   cursor: pointer;
   border: 1px solid #bbb;
@@ -719,7 +718,7 @@ padding-left: 25px;
 }
 
 #content h4 {
-padding-left: 35px;
+
 font-weight: bold;
 font-size: 110%;
 }
@@ -742,12 +741,6 @@ background-color:white;
 font-size: 85%;
 }
 
-#content h5 {
-margin-left: 25px;
-}
-#content h6 {
-margin-left: 45px;
-}
 
 textarea2 {
 width: 379px;
@@ -885,7 +878,7 @@ border-radius: 0px 6px 6px 0px;
 }
 
 
-#addExpensesForm {
+#addExpensesForm, #addEffortForm {
  
     width: 500px;
     padding: 20px;
@@ -902,10 +895,11 @@ border-radius: 0px 6px 6px 0px;
     -moz-box-shadow: 2px 2px 2px #cccccc;
     -webkit-box-shadow: 2px 2px 2px #cccccc;
     box-shadow: 2px 2px 2px #cccccc;
- 
+ 	display:none;
     }
 
-#addExpensesForm label {
+
+#addExpensesForm label, #addEffortForm label {
     font-family: Arial, Verdana;
     text-shadow: 2px 2px 2px #ccc;
     display: block;
@@ -918,7 +912,7 @@ border-radius: 0px 6px 6px 0px;
     font-size: 15px;
     }
     
- #addExpensesForm .input,textarea{
+ #addExpensesForm .input,textarea, #addEffortForm .input,textarea{
     font-family: Arial, Verdana;
     font-size: 15px;
     padding: 5px;
@@ -927,10 +921,10 @@ border-radius: 0px 6px 6px 0px;
     color: #797979;
     }
     
-#addExpensesForm .hint{
+#addExpensesForm .hint, #addEffortForm .hint{
     display:none;
     }
- #addExpensesForm .field:hover .hint {
+ #addExpensesForm .field:hover .hint, #addEffortForm .field:hover .hint {
     position: absolute;
     display: block;
     margin: -30px 0 0 455px;
