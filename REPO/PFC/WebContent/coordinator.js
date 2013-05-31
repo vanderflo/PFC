@@ -98,11 +98,11 @@
 			    			$('#expensesGridBody').append(st);
 
 						});
-						$('.expensesSection').append('<h5><a id="addExpenses"><span class="icon-plus-sign"></span>&nbsp;Click here to add more expenses</a></h5>');
+						$('.expensesSection').append('<h5><a id="addExpenses"><span class="icon-plus"></span>&nbsp;Click here to add more expenses</a></h5>');
 						$('.expensesSection').append('<form id="addExpensesForm"><div class="field"><label for="name">Concept:</label><input type="radio" name="concept" id="concept" value="travel">Travel<br><input type="radio" name="concept" id="concept" value="equipment">Equipment<br><p class="hint">Choose expenses type</p></div><div class="field"><label for="email">Amount:</label><input type="text" class="input" name="amount" id="amount" /><p class="hint">Specify amount</p></div><div class="field"><label for="message">Description:</label><input type="text" class="input" name="description" id="description"><p class="hint">Describe expenses</p></div><div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelExpenses">or CANCEL</a></div></form>');
 						
 						$('#projectSection').append('<h3><span class="icon-flag"></span>&nbsp;Flag</h3>');
-						$('#projectSection').append('<div id="flagContainer" class="subsection"><p>Raise a red flag in case any blocking issue came up duerint this reporting period</p></div>');
+						$('#projectSection').append('<div id="flagContainer" class="subsection"><p><span class="icon-hand-right"></span>&nbsp;Raise a red flag in case any blocking issue came up duerint this reporting period</p></div>');
 						if(flag=="red"){
 						$('#flagContainer').append('<div class="statusContainer"><button class="button" id="editflag" color="green">GREEN FLAG</button><button class="color red button">RED FLAG</button></div>');
 						}else{
@@ -111,7 +111,7 @@
 						$('#flagContainer').append('<h4><span class="icon-edit">&nbsp;</span> Explanation/Comments</h4><h5 class="editTextArea" id="explanation">'+explanation+'</h5>');
 
 						$('#projectSection').append('<h3><span class="icon-comments"></span>&nbsp;Status and Feedback</h3>');
-						$('#projectSection').append('<div id="statusContainer" class="subsection"><p>Explanation of the statuses</p></div>');
+						$('#projectSection').append('<div id="statusContainer" class="subsection"><p><span class="icon-hand-right"></span>&nbsp;Explanation of the statuses</p></div>');
 						$('#statusContainer').append('<div class="statusContainer"><button class="color blue button" id="editStatus" value="blocked">Block</button><button id="editStatus" class="color blue button" value="accepted">Accept</button><button id="editStatus" value="rejected" class="color blue button">Reject</button><button id="editStatus" class="color blue button" value="open">Open</button></div>');
 						$('#statusContainer').append('<h4><span class="icon-edit">&nbsp;</span>Leave Feedback</label></h4><h5 class="editTextArea" id="feedback">'+feedback+'</h5>')
 
@@ -125,8 +125,8 @@
 							$('#taskSection').append('<h3><span class="icon-chevron-right"></span>&nbsp;Task '+taskTitle+'</h3>');
 							$('#taskSection').append('<div class="subsection"><h4><span class="icon-edit">&nbsp;</span>Work</h4><h6 class="editTask" id="work" taskid="'+taskId+'">'+work+'</h6></div>');
 							$('#taskSection').append('<div class="subsection"><h4><span class="icon-edit">&nbsp;</span>Result</h4><h6 class="editTask" id="result" taskid="'+taskId+'">'+result+'</h6></div>');
-							$('#taskSection').append('<div class="subsection effortSection"><h4><span class="icon-user-md">&nbsp;</span>Effort</h4><h6 class="editTask" id="effort" taskid="'+taskId+'">'+effort+'</h6></div>');
-							$('.effortSection').append('<h5><a id="addEffort"><span class="icon-plus-sign"></span>&nbsp;Click here to add a new effort entry</a></h5>');
+							$('#taskSection').append('<div class="subsection effortSection"><h4><span class="icon-user">&nbsp;</span>Effort</h4><h6 class="editTask" id="effort" taskid="'+taskId+'">'+effort+'</h6></div>');
+							$('.effortSection').append('<h5><a id="addEffort"><span class="icon-plus"></span>&nbsp;Click here to add a new effort entry</a></h5>');
 							$('.effortSection').append('<form id="addEffortForm"><div class="field"><label for="member">Team Member:</label><input type="text" class="input" name="member" id="member" /><p class="hint">Effort</p></div><div class="field"><label for="effortpp">Effort:</label><input type="text" class="input" name="description" id="effortpp"><p class="hint">Effort</p></div><div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelEffort">or CANCEL</a></div></form>');
 							
 						});	
