@@ -56,7 +56,7 @@
     		function showReport(partnerID,date,wpId,partnerName){
     			$('#projectSection').empty();
     			$('#taskSection').empty();
-    			$('#expensesForm').hide();
+    			$('#addExpensesForm').hide();
     			currentPartner=partnerID;
     			currentReport=date;
     			currentWP=wpId;
@@ -161,8 +161,13 @@
      		}
      		
      	    $( "#addExpenses" ).live("click", function(e) {
-     	       $('.expensesSection').append(formExpenses);
+     	       $('.expensesSection').append($( "#addExpensesForm" ));
+     	      $( "#addExpensesForm" ).show();
      	      });
+     	    
+     	    $( "#cancelExpenses" ).live("click", function(e) {
+      	      $( "#addExpensesForm" ).hide();
+      	      });
      		
      	   $("#addExpensesForm").live(
      			  "submit",
