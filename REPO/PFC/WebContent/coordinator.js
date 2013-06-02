@@ -116,19 +116,28 @@
 						$('#statusContainer').append('<h4><span class="icon-edit">&nbsp;</span>Leave Feedback</label></h4><h5 class="editTextArea" id="feedback">'+feedback+'</h5>')
 
 						$('#taskSection').append('<h2><span class="icon-tasks"></span>&nbsp;Tasks</h2>');
+						var taskCount=1;
 						$(this).find('task').each(function(){
 							var taskTitle = $(this).attr("title");
 							var taskId = $(this).attr("id");
 							var work= $(this).children('work').text();	
 							var result= $(this).children('result').text();	
-							var effort= $(this).children('effort').text();
 							$('#taskSection').append('<h3><span class="icon-chevron-right"></span>&nbsp;Task '+taskTitle+'</h3>');
 							$('#taskSection').append('<div class="subsection"><h4><span class="icon-edit">&nbsp;</span>Work</h4><h6 class="editTask" id="work" taskid="'+taskId+'">'+work+'</h6></div>');
 							$('#taskSection').append('<div class="subsection"><h4><span class="icon-edit">&nbsp;</span>Result</h4><h6 class="editTask" id="result" taskid="'+taskId+'">'+result+'</h6></div>');
-							$('#taskSection').append('<div class="subsection effortSection"><h4><span class="icon-user">&nbsp;</span>Effort</h4><h6 class="editTask" id="effort" taskid="'+taskId+'">'+effort+'</h6></div>');
-							$('.effortSection').append('<h5><a id="addEffort"><span class="icon-plus"></span>&nbsp;Click here to add a new effort entry</a></h5>');
-							$('.effortSection').append('<form id="addEffortForm"><div class="field"><label for="member">Team Member:</label><input type="text" class="input" name="member" id="member" /><p class="hint">Effort</p></div><div class="field"><label for="effortpp">Effort:</label><input type="text" class="input" name="description" id="effortpp"><p class="hint">Effort</p></div><div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelEffort">or CANCEL</a></div></form>');
 							
+			    			$('#taskSection').append('<div class="subsection effortSection_'+taskCount+'"><h4><span class="icon-user">&nbsp;</span>Effort</h4><table id="effortGrid" summary="List of Effort"><thead><tr><th class="thperson">Team member</th><th class="theffort">Effort</th></thead><tbody id="effortGridBody_'+taskCount+'"></tbody></table></div>');
+
+							$(this).children('effort').each(function(){
+								var effort= $(this).children('effortperperson').text();							
+								var person= $(this).children('person').text();	
+								var st='<tr><td>'+person+'</td><td>'+effort+'</td></tr>';
+				    			$('#effortGridBody_'+taskCount).append(st);
+							});
+							
+							$('.effortSection_'+taskCount).append('<h5><a id="addEffort" taskid="'+taskId+'"><span class="icon-plus"></span>&nbsp;Click here to add a new effort entry</a></h5>');
+							$('.effortSection_'+taskCount).append('<form id="addEffortForm_'+taskId+'"><div class="field"><label for="member">Team Member:</label><input type="text" class="input" name="id" id="member" /><p class="hint">Effort</p></div><div class="field"><label for="effortpp">Effort:</label><input type="text" class="input" name="value" id="effortpp"><p class="hint">Effort</p></div><div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="hidden" name="taskid" value="'+taskId+'"><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelEffort" taskid="'+taskId+'">or CANCEL</a></div></form>');
+							taskCount++;
 						});	
 						
 						}
@@ -168,41 +177,35 @@
      		
      	    
      	    $( "#addEffort" ).live("click", function(e) {
-       	      $( "#addEffortForm" ).slideToggle();
+     	    	var tId=$(this).attr("taskid");
+       	      $( "#addEffortForm_"+tId ).slideToggle();
        	      });
        	    
        	    $( "#cancelEffort" ).live("click", function(e) {
-        	      $( "#addEffortForm" ).slideToggle();
+       	    		var tId=$(this).attr("taskid");
+        	      $( "#addEffortForm_"+tId ).slideToggle();
         	      });
      	    
      	   $("#addExpensesForm").live(
      			  "submit",
-     			 function( event ){
-       		// setup some local variables
-       		var $form = $(this),
-           	// let's select and cache all the fields
+     		function( event ){
+     		var $form = $(this),
        		$inputs = $form.find("concept, description, amount"),
-           	// serialize the data in the form
            	serializedData = $form.serialize();
        		var concept = $("[name='concept']").val();
        		var description = $("[name='description']").val();
        		var amount = $("[name='amount']").val();
-       		alert(concept+' '+description+' '+amount)
    		    // let's disable the inputs for the duration of the ajax request
    		    $inputs.attr("disabled", "disabled");
-
-      			 /*
    		    $.ajax({
-   		        url: "http://localhost:8080/PFC/rest/API/create/project/",
+   		        url: "http://localhost:8080/PFC/rest/API/report/addexpenses/"+currentProject+"/"+currentWP+"/"+currentPartner+"/"+currentReport,
    		        type: "post",
    		        data: serializedData,
    		        // callback handler that will be called on success
    		        success: function(response, textStatus, jqXHR){
    		            // log a message to the console
-   		        console.log("Hooray, it worked!");	        
-   		        $('#project').empty();
-     				$('#wp').find("input[type=text], textarea").val("");
-     				$('#wp').show();
+   		        console.log("Expenses added");	        
+   		      
    		        },
    		        // callback handler that will be called on error
    		        error: function(jqXHR, textStatus, errorThrown){
@@ -212,13 +215,55 @@
    		                textStatus, errorThrown
    		            );
    		        },
-   		        // callback handler that will be called on completion
-   		        // which means, either on success or error
    		        complete: function(){
-   		            // enable the inputs
-   		            $inputs.removeAttr("disabled");
+   		        	getReport();
+        			showListOfReportsByWP('HARDWARE','1355348593079');
+        			showReport(currentPartner,currentReport,currentWP,currentPartnerName);
    		        }
-   		    });*/
+   		    });
+   		
+   		    // prevent default posting of form
+   		    event.preventDefault();
+   		});//END send Info
+     	   
+     	 
+     	  $("[id^=addEffortForm]").live(
+     			  "submit",
+     		function( event ){
+     		var $form = $(this),
+       		$inputs = $form.find("id, value"),
+           	serializedData = $form.serialize();
+     		
+     		var taskId=$(this).find('[name=taskid]').val();
+     		
+ 
+
+       		
+   		    $inputs.attr("disabled", "disabled");
+   		    $.ajax({
+   		        url: "http://localhost:8080/PFC/rest/API/task/edit/"+currentProject+"/"+currentWP+"/"+currentPartner+"/"+currentReport+"/"+taskId,
+   		        type: "post",
+   		        data: serializedData,
+   		        // callback handler that will be called on success
+   		        success: function(response, textStatus, jqXHR){
+   		            // log a message to the console
+   		        console.log("Expenses added");	        
+   		      
+   		        },
+   		        // callback handler that will be called on error
+   		        error: function(jqXHR, textStatus, errorThrown){
+   		            // log the error to the console
+   		            console.log(
+   		                "The following error occured: "+
+   		                textStatus, errorThrown
+   		            );
+   		        },
+   		        complete: function(){
+   		        	getReport();
+        			showListOfReportsByWP('HARDWARE','1355348593079');
+        			showReport(currentPartner,currentReport,currentWP,currentPartnerName);
+   		        }
+   		    });
    		
    		    // prevent default posting of form
    		    event.preventDefault();

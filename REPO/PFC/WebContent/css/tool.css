@@ -627,7 +627,7 @@ th.thflag  {
 
 /*Table expenses grid*/
 
-#expensesGrid
+#expensesGrid, #effortGrid
 {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
 	font-size: 12px;
@@ -637,7 +637,7 @@ th.thflag  {
 	border-collapse: collapse;
 	margin-bottom: 25px;
 }
-#expensesGrid th
+#expensesGrid th,#effortGrid th
 {	
 	font-weight: normal;
 	font-size: 14px;
@@ -647,7 +647,7 @@ th.thflag  {
 	color: #039;
 	
 }
-#expensesGrid td
+#expensesGrid td, #effortGrid td
 {
 	padding: 5px 2px 0px 2px;
 	border-right: 30px solid #fff;
@@ -666,6 +666,14 @@ th.thamount,input.thamount {
   width: 15%;
 }
 
+
+th.thperson{
+width: 50%;
+}
+
+th.theffort{
+width: 50%;	
+}
 
 /*Report grid*/
 
@@ -878,7 +886,7 @@ border-radius: 0px 6px 6px 0px;
 }
 
 
-#addExpensesForm, #addEffortForm {
+#addExpensesForm, form[id*='addEffortForm']{
  
     width: 500px;
     padding: 20px;
@@ -899,7 +907,7 @@ border-radius: 0px 6px 6px 0px;
     }
 
 
-#addExpensesForm label, #addEffortForm label {
+#addExpensesForm label, form[id*='addEffortForm'] label {
     font-family: Arial, Verdana;
     text-shadow: 2px 2px 2px #ccc;
     display: block;
@@ -912,7 +920,7 @@ border-radius: 0px 6px 6px 0px;
     font-size: 15px;
     }
     
- #addExpensesForm .input,textarea, #addEffortForm .input,textarea{
+ #addExpensesForm .input,textarea, form[id*='addEffortForm'] .input,textarea{
     font-family: Arial, Verdana;
     font-size: 15px;
     padding: 5px;
@@ -921,10 +929,10 @@ border-radius: 0px 6px 6px 0px;
     color: #797979;
     }
     
-#addExpensesForm .hint, #addEffortForm .hint{
+#addExpensesForm .hint, form[id*='addEffortForm'] .hint{
     display:none;
     }
- #addExpensesForm .field:hover .hint, #addEffortForm .field:hover .hint {
+ #addExpensesForm .field:hover .hint, form[id*='addEffortForm'] .field:hover .hint {
     position: absolute;
     display: block;
     margin: -30px 0 0 455px;

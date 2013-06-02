@@ -62,7 +62,14 @@ public class Dispatcher {
 		Document partner=Partner.getCurrentPartnersFile();
 		HashMap<String, String> partners=Partner.getPartnersName(partner);
 		System.out.println(partners.get("001"));**/
-		long l=System.currentTimeMillis();
+
+		for (int i=0;i<10000;i++){
+			long l=System.currentTimeMillis();
+			String id=Long.toString(l);
+			System.out.println(id);
+
+		}
+		/*
 		HashMap<String,String> file=new HashMap<String,String>();
 		Vector<String> list=new Vector<String>();
 		for (int i=1000000000; i<1000065000;i++){
@@ -92,7 +99,7 @@ public class Dispatcher {
 		System.out.println("Time: "+finaltime);
 
 		
-
+*/
 		
 		
 		

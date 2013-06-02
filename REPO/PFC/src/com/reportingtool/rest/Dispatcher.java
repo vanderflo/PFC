@@ -226,8 +226,11 @@ public String editTask(@FormParam("id") String field,@FormParam("value") String 
 	Document doc = Report.getCurrentReportFile(formatFile(rep_projectId));
 	String path=getPath()+rep_projectId;
 	Report.updateTaskReport(doc, wpId, partnerId, date, taskId,field, value,path);
-	System.out.println("Field:"+field+" - Value:"+value);	return value;
+	System.out.println("Field:"+field+" - Value:"+value);	
+	return value;
 }
+
+
 
 @Path ("/report/addexpenses/{projectId}/{wpId}/{partnerId}/{reportDate}")
 @POST

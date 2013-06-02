@@ -18,12 +18,34 @@
     <task id="11" title="Tarea once">
       <work>A lot</work>
       <result>Bom</result>
-      <effort>Mucho</effort>
+      <effort>
+	      <effortperperson>2</effortperperson>
+	      <person>John</person>
+      </effort>
+       <effort>
+	      <effortperperson>3</effortperperson>
+	      <person>Mark</person>
+      </effort>
+        <effort>
+	      <effortperperson>6</effortperperson>
+	      <person>Paul</person>
+      </effort>
     </task>
     <task id="12" title="Tarea doce">
 	  <work>A lot</work>
       <result>Bom</result>
-      <effort>Mucho</effort>
+            <effort>
+	      <effortperperson>2</effortperperson>
+	      <person>Luis</person>
+      </effort>
+       <effort>
+	      <effortperperson>3</effortperperson>
+	      <person>Pepe</person>
+      </effort>
+        <effort>
+	      <effortperperson>6</effortperperson>
+	      <person>Juan</person>
+      </effort>
     </task>
   </subreport>
   <subreport partner="002" partnerName="UC3M" WP="HARDWARE" WPID="1355348593079" date="2012-09-20">
@@ -39,7 +61,14 @@
     <task id="12" title="Tarea doce">
 	  <work>A lot</work>
       <result>Bom</result>
-      <effort>Mucho</effort>
+      <effort>
+	      <effortperperson>2</effortperperson>
+	      <person>Pedro</person>
+      </effort>
+        <effort>
+	      <effortperperson>5</effortperperson>
+	      <person>Raul</person>
+      </effort>
     </task>
   </subreport>
   <subreport partner="003" partnerName="UNEX" WP="SOFTWARE" WPID="1355348593078" date="2013-09-20">
@@ -54,7 +83,18 @@
     <task id="21" title="Tarea veintiuno">
 	  <work>A lot</work>
       <result>Bom</result>
-      <effort>Mucho</effort>
+            <effort>
+	      <effortperperson>4</effortperperson>
+	      <person>Fernando</person>
+      </effort>
+       <effort>
+	      <effortperperson>2</effortperperson>
+	      <person>Pedro</person>
+      </effort>
+        <effort>
+	      <effortperperson>5</effortperperson>
+	      <person>Raul</person>
+      </effort>
     </task>
   </subreport>
   <subreport partner="004" partnerName="USC" WP="SOFTWARE" WPID="1355348593078" date="2013-09-20">
@@ -70,7 +110,18 @@
     <task id="22" title="Tarea veintidos">
 	  <work>A lot</work>
       <result>Bom</result>
-      <effort>Mucho</effort>
+       <effort>
+	      <effortperperson>2</effortperperson>
+	      <person>Manuel</person>
+      </effort>
+       <effort>
+	      <effortperperson>3</effortperperson>
+	      <person>Nicolas</person>
+      </effort>
+        <effort>
+	      <effortperperson>3</effortperperson>
+	      <person>David</person>
+      </effort>
     </task>
   </subreport>
   <subreport partner="001" partnerName="UPM" WP="SOFTWARE" WPID="1355348593078" date="2013-09-20">
@@ -85,7 +136,17 @@
     <task id="22" title="Tarea veintidos">
        <work>A lot</work>
       <result>Bom</result>
-      <effort>Mucho</effort>
-    </task>
+      <effort>
+	      <effortperperson>1</effortperperson>
+	      <person>Lewis</person>
+      </effort>
+       <effort>
+	      <effortperperson>5</effortperperson>
+	      <person>Kimi</person>
+      </effort>
+        <effort>
+	      <effortperperson>6</effortperperson>
+	      <person>John</person>
+      </effort>    </task>
   </subreport>
 </report>

@@ -270,14 +270,23 @@ public class Report {
 		for(Object object : doc.getRootElement().getChildren("subreport")) {
 			Element eObject=(Element)object;
 			if (eObject.getAttributeValue("WPID").equals(WP) && eObject.getAttributeValue("partner").equals(partnerID)&&eObject.getAttributeValue("date").equals(date)){
-				Element expense = new Element("expense");
+				System.out.println("Found subreport for WP:"+WP+"|partnerID:"+partnerID+"|date:"+date);
+				Element expense = new Element("expenses");
+				Long l=System.currentTimeMillis();
+				String id=Long.toString(l);
+				expense.setAttribute("id", id);
 				Element eConcept=new Element("concept");
 				eConcept.setText(concept);
 				Element eDecsription=new Element("description");
 				eDecsription.setText(description);
 				Element eAmount=new Element("amount");
 				eAmount.setText(amount);
-				eObject.getChild("expenses").addContent(expense);
+				expense.addContent(eConcept);
+				expense.addContent(eDecsription);
+				expense.addContent(eAmount);
+				
+				eObject.addContent(expense);
+				System.out.println("Added "+concept+" "+description+" "+amount);
 				break;
 			}						
 		}
@@ -287,7 +296,6 @@ public class Report {
 	}
 	
 	public static Document updateTaskReport(Document doc,String WP, String partnerID,String date,String task,String field,String value,String path){
-		
 		System.out.println("Modifying task for WP:"+WP+"|partnerID:"+partnerID+"|date:"+date+"|task:"+task);
 		
 		for(Object object : doc.getRootElement().getChildren("subreport")) {
@@ -296,8 +304,27 @@ public class Report {
 				for(Object tObject : eObject.getChildren("task")) {
 					Element taskObject=(Element)tObject;
 					if(taskObject.getAttributeValue("id").equals(task)){
+						if (field.equals("work")||field.equals("result")){
 						taskObject.getChild(field).setText(value);
 						System.out.println("Report - Task modified, field "+field+" value "+value);
+						break;
+						}else{
+							//New effort
+							Element effort = new Element("effort");
+							Long l=System.currentTimeMillis();
+							String id=Long.toString(l);
+							effort.setAttribute("id", id);
+							Element eEffort=new Element("person");
+							eEffort.setText(field);
+							Element ePerson=new Element("effortperperson");
+							ePerson.setText(value);
+							
+							effort.addContent(ePerson);
+							effort.addContent(eEffort);
+							taskObject.addContent(effort);
+							System.out.println("Report - Task modified, field "+field+" value "+value);
+
+						}
 						break;
 					}
 				}
@@ -309,6 +336,9 @@ public class Report {
 		Commons.writeFile(path,doc);
 		return doc;
 	}
+
+	
+
 	
 	
 	public static Document getSubReportForPartner(Document doc,String WP,String partnerID){
