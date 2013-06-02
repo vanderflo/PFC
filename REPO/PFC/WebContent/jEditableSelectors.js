@@ -9,9 +9,7 @@ $('#editflag').live('click', function(){
             value: color,
         },
         success: function(response, textStatus, jqXHR){
-        	getReport();
-			showListOfReportsByWP('HARDWARE','1355348593079');
-			showReport(currentPartner,currentReport,currentWP,currentPartnerName);   
+        	updateView();   
         },
         error: function(jqXHR, textStatus, errorThrown){
             console.log(
@@ -35,9 +33,7 @@ $('#editStatus').live('click', function(){
             value: value,
         },
         success: function(response, textStatus, jqXHR){
-        	getReport();
-			showListOfReportsByWP('HARDWARE','1355348593079');
-			showReport(currentPartner,currentReport,currentWP,currentPartnerName);   
+        	updateView();  
         },
         error: function(jqXHR, textStatus, errorThrown){
             console.log(
@@ -58,9 +54,7 @@ $('#editStatus').live('click', function(){
     	         indicator : '<img src="img/indicator.gif">',
     	         tooltip   : 'Click to edit...',
     	         callback  : function(value,settings){
-	                	getReport();
-	        			showListOfReportsByWP('HARDWARE','1355348593079');
-	        			showReport(currentPartner,currentReport,currentWP,currentPartnerName);	
+    	        	 updateView();
 	                }
             });
     		
@@ -75,9 +69,7 @@ $('#editStatus').live('click', function(){
    	         indicator : '<img src="img/indicator.gif">',
                 tooltip   : 'Click to edit...',
                 callback  : function(value,settings){
-                	getReport();
-        			showListOfReportsByWP('HARDWARE','1355348593079');
-        			showReport(currentPartner,currentReport,currentWP,currentPartnerName);	
+                	updateView();	
                 }
             });
         });

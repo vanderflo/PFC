@@ -607,18 +607,21 @@ margin-bottom:15px;
 }
 
 th.thstatus  {
-  width: 10%;
+  width: 8%;
 }
 th.thdate  {
-  width: 10%;
+  width: 9%;
 }
 th.thpartner  {
-  width: 30%;
+  width: 28%;
 }
 th.thwp  {
-  width: 30%;
+  width: 28%;
 }
 th.theffort  {
+  width: 7%;
+}
+th.thlastupdate  {
   width: 10%;
 }
 th.thflag  {
@@ -671,7 +674,7 @@ th.thperson{
 width: 50%;
 }
 
-th.theffort{
+th.theeffort{
 width: 50%;	
 }
 

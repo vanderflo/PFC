@@ -116,7 +116,7 @@ public class Report {
 		subreport.setAttribute("date", date);
 		subreport.setAttribute("partnerName", partnerName);
 
-	
+		Element eLastUpdate= new Element("lastupdate");
 		Element eExpenses= new Element("expenses");
 		Element concept = new Element("concept");
 		Element description = new Element("description");
@@ -125,7 +125,8 @@ public class Report {
 		eExpenses.addContent(concept);
 		eExpenses.addContent(description);
 		eExpenses.addContent(amount);
-
+		eLastUpdate.setText("NEVER UPDATED");
+		
 
 		Element eFeedback= new Element("feedback");
 		
@@ -141,6 +142,8 @@ public class Report {
 		subreport.addContent(eStatus);
 		subreport.addContent(eFlag);
 		subreport.addContent(eFeedback);
+		subreport.addContent(eLastUpdate);
+
 		
 		while (tasks.hasNext()){
 		Element task=tasks.next();
@@ -257,6 +260,7 @@ public class Report {
 			if (eObject.getAttributeValue("WPID").equals(WP) && eObject.getAttributeValue("partner").equals(partnerID)&&eObject.getAttributeValue("date").equals(date)){
 				eObject.getChild(field).setText(value);
 				System.out.println("Report - Subreport modified, field "+field+" value "+value);
+				eObject.getChild("lastupdate").setText(Commons.getDate());
 				break;
 			}						
 		}
@@ -287,9 +291,11 @@ public class Report {
 				
 				eObject.addContent(expense);
 				System.out.println("Added "+concept+" "+description+" "+amount);
+				eObject.getChild("lastupdate").setText(Commons.getDate());
 				break;
 			}						
 		}
+		
 		System.out.println("about to write "+path);
 		Commons.writeFile(path,doc);
 		return doc;
@@ -328,7 +334,7 @@ public class Report {
 						break;
 					}
 				}
-				
+				eObject.getChild("lastupdate").setText(Commons.getDate());
 				break;
 			}						
 		}

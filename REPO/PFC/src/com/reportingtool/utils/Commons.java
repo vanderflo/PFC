@@ -2,10 +2,12 @@ package com.reportingtool.utils;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.StringTokenizer;
+import java.util.TimeZone;
 import java.util.Vector;
 
 import org.jdom2.Document;
@@ -86,6 +88,11 @@ public class Commons {
 		   return result;
 		
 	}
-	
+	public static String getDate(){
+		Calendar now = Calendar.getInstance();
+	    TimeZone timeZone = now.getTimeZone();
+	    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+	    return dateFormat.format(now.getTime())+" "+timeZone.getDisplayName();
+	}
 	
 }

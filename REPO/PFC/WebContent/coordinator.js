@@ -7,35 +7,22 @@
      		});
      		
      		$("#triggerWP").live("click",function() {
-    			var wpTitle = $(this).attr('wptitle');
+    			currentview="w";
+     			var wpTitle = $(this).attr('wptitle');
     			var wpID = $(this).attr('wpid');
-    			showListOfReportsByWP(wpTitle,wpID);
+    			currentWP=wpID;
+    			showListOfReports(wpTitle,wpID,currentview);
     			});  
      	
     		
      		
     		$("#triggerPartner").live("click",function() {
-    			$('#topArticle').empty();
-    			$('#taskSection').empty();
-    			$('#reportContainer').hide();
-    			$('#topArticleContainer').show();
+    			currentview="p";
     			var partnerID = $(this).attr('partnerid');
     			var partnerName = $(this).attr('partnername');
     			currentPartner=partnerID;
-    			$('#topArticle').append('<h2><i class="icon-list-ul"></i>&nbsp;List of Reports for Partner: '+partnerName+'</h2>');
-    			$('#topArticle').append('<div class="tableHeader"><table id="reportGrid" summary="List of Reports"><thead><tr><th class="thstatus">Status</th><th class="thdate">Date</th><th class="thpartner">Partner</th><th class="thwp">Workpackage</th><th class="theffort">Effort</th><th class="thflag">Flag</th></tr></thead><tbody id="reportGridBody"></tbody></table></div>');
-    			$(xmlReport).find('subreport').each(function(){
-					var reportWP=$(this).attr("WP");
-					var reportWPID=$(this).attr("WPID");
-					var partnerWP=$(this).attr("partner");
-					var reportDate=$(this).attr("date");
-					var status= $(this).children('status').text();	
-					var flag= $(this).children('flag').text().toLowerCase();
-						if(partnerID == partnerWP){
-						$('#reportGridBody').append('<tr><td>'+status+'</td><td><a href="#" id="triggerReport" class="topbuttonNO" partnerID="'+partnerID+'" partnername="'+partnerName+'" wptitle="'+reportWP+'" wpid="'+reportWPID+'" reportdate="'+reportDate+'">'+reportDate+'</a></td><td>'+partnerName+'</td><td>'+reportWP+'</td><td>1 month</td><td><span class="icon-flag-'+flag+'"></span></td></tr>');
-						}
-					});//workpackage
-    		   });
+    			showListOfReports(partnerName,partnerID,currentview);
+    			});
     		
 
     		$("#triggerReport").live("click",function() {
@@ -47,9 +34,7 @@
     		});
     		
     		$("#testUpdate").live("click",function() {
-    			getReport();
-    			showListOfReportsByWP('HARDWARE','1355348593079');
-    			showReport(currentPartner,currentReport,currentWP,currentPartnerName);
+    			updateView();
     		});
     		
     		
@@ -69,11 +54,13 @@
 						if(partnerID == partnerWP && reportWPID == wpId && reportDate==date){
 
 						var status= $(this).children('status').text();	
+						var lastupdate= $(this).children('lastupdate').text();
 						var feedback= $(this).children('feedback').text();	
 						var flag= $(this).children('flag').text().toLowerCase();
 						var explanation= $(this).children('explanation').text();
 						//$('#secondArticle').append('<h2 class="settings_form_head_title">Report by Partner '+partnerName+' for WP '+reportWP+' on date '+date+'</h2>');
 						$('#projectSection').append('<h1><span class="icon-file-alt"></span>&nbsp;Report</h1>');
+						$('#projectSection').append('<div class="subsection"><p><span class="icon-time"></span>&nbsp;Last updated on '+lastupdate+'</p></div>');
 						$('#projectSection').append('<h3><span class="icon-info-sign"></span>&nbsp;Info</h3>');
 						//$('#projectSection').append('<div class="Table_Menu_Partner"/>');
 						
@@ -126,7 +113,7 @@
 							$('#taskSection').append('<div class="subsection"><h4><span class="icon-edit">&nbsp;</span>Work</h4><h6 class="editTask" id="work" taskid="'+taskId+'">'+work+'</h6></div>');
 							$('#taskSection').append('<div class="subsection"><h4><span class="icon-edit">&nbsp;</span>Result</h4><h6 class="editTask" id="result" taskid="'+taskId+'">'+result+'</h6></div>');
 							
-			    			$('#taskSection').append('<div class="subsection effortSection_'+taskCount+'"><h4><span class="icon-user">&nbsp;</span>Effort</h4><table id="effortGrid" summary="List of Effort"><thead><tr><th class="thperson">Team member</th><th class="theffort">Effort</th></thead><tbody id="effortGridBody_'+taskCount+'"></tbody></table></div>');
+			    			$('#taskSection').append('<div class="subsection effortSection_'+taskCount+'"><h4><span class="icon-user">&nbsp;</span>Effort</h4><table id="effortGrid" summary="List of Effort"><thead><tr><th class="thperson">Team member</th><th class="theeffort">Effort</th></thead><tbody id="effortGridBody_'+taskCount+'"></tbody></table></div>');
 
 							$(this).children('effort').each(function(){
 								var effort= $(this).children('effortperperson').text();							
@@ -145,13 +132,17 @@
     	        $('#reportArticle').show();    			
     		}
     		
-     		function showListOfReportsByWP(wpTitle,wpID){
+     		function showListOfReports(displayName,id,currentview){
      			$('#topArticle').empty();
     			$('#taskSection').empty();
     			$('#reportContainer').hide();
     			$('#topArticleContainer').show();
-    			$('#topArticle').append('<h2><span class="icon-list-ul"></span>&nbsp;List of Reports for Workpackage: '+wpTitle+'</h2>');
-    			$('#topArticle').append('<div class="tableHeader"><table id="reportGrid" summary="List of Reports"><thead><tr><th class="thstatus">Status</th><th class="thdate">Date</th><th class="thpartner">Partner</th><th class="thwp">Workpackage</th><th class="theffort">Effort</th><th class="thflag">Flag</th></tr></thead><tbody id="reportGridBody"></tbody></table></div>');
+    			if (currentview=="w"){
+    			$('#topArticle').append('<h2><span class="icon-list-ul"></span>&nbsp;List of Reports for Workpackage: '+displayName+'</h2>');
+    			}else if (currentview=="p"){
+        		$('#topArticle').append('<h2><i class="icon-list-ul"></i>&nbsp;List of Reports for Partner: '+displayName+'</h2>');
+    			}
+    			$('#topArticle').append('<div class="tableHeader"><table id="reportGrid" summary="List of Reports"><thead><tr><th class="thstatus">Status</th><th class="thdate">Date</th><th class="thpartner">Partner</th><th class="thwp">Workpackage</th><th class="theffort">Effort</th><th class="thlastupdate">Last Update</th><th class="thflag">Flag</th></tr></thead><tbody id="reportGridBody"></tbody></table></div>');
     			$(xmlReport).find('subreport').each(function(){
     				var wpIdFromSubreport =$(this).attr("WPID");
     				var reportWP=$(this).attr("WP");
@@ -159,11 +150,16 @@
 					var partnerName=$(this).attr("partnerName");
 					var reportDate=$(this).attr("date");
 					var status= $(this).children('status').text();	
-					var flag= $(this).children('flag').text().toLowerCase();					
-					if(wpID == wpIdFromSubreport){
-						$('#reportGridBody').append('<tr><td>'+status+'</td><td><a href="#" id="triggerReport" class="topbuttonNO" partnerID="'+partnerID+'" partnername="'+partnerName+'" wptitle="'+reportWP+'" wpid="'+wpIdFromSubreport+'" reportdate="'+reportDate+'">'+reportDate+'</a></td><td>'+partnerName+'</td><td>'+reportWP+'</td><td>1 month</td><td><span class="icon-flag-'+flag+'"></span></td></tr>');
-						
-						}					
+					var lastupdate= $(this).children('lastupdate').text();	
+					var flag= $(this).children('flag').text().toLowerCase();
+					var row='<tr><td>'+status+'</td><td><a href="#" id="triggerReport" class="topbuttonNO" partnerID="'+partnerID+'" partnername="'+partnerName+'" wptitle="'+reportWP+'" wpid="'+wpIdFromSubreport+'" reportdate="'+reportDate+'">'+reportDate+'</a></td><td>'+partnerName+'</td><td>'+reportWP+'</td><td>1 month</td><td>'+lastupdate.substring(0,10)+'</td><td><span class="icon-flag-'+flag+'"></span></td></tr>';
+						if(currentview=="w" && id == wpIdFromSubreport){
+						currentWPtitle=reportWP;
+						$('#reportGridBody').append(row);
+						}
+						else if(currentview=="p" && id == partnerID){
+						$('#reportGridBody').append(row);
+						}
 					});
      		}
      		
@@ -216,9 +212,7 @@
    		            );
    		        },
    		        complete: function(){
-   		        	getReport();
-        			showListOfReportsByWP('HARDWARE','1355348593079');
-        			showReport(currentPartner,currentReport,currentWP,currentPartnerName);
+   		        	updateView();
    		        }
    		    });
    		
@@ -259,13 +253,22 @@
    		            );
    		        },
    		        complete: function(){
-   		        	getReport();
-        			showListOfReportsByWP('HARDWARE','1355348593079');
-        			showReport(currentPartner,currentReport,currentWP,currentPartnerName);
+   		        	updateView();
    		        }
    		    });
    		
    		    // prevent default posting of form
    		    event.preventDefault();
    		});//END send Info
+     	  
+     	  
+     	  function updateView(){
+     		getReport();
+     		if(currentview="w"){
+     		showListOfReports(currentWPtitle,currentWP,currentview);
+     		}else if(currentview="p"){
+         	showListOfReports(currentPartnerName,currentPartner,currentview);	
+     		}
+ 			showReport(currentPartner,currentReport,currentWP,currentPartnerName);
+     	  }
      	    

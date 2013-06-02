@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report>
   <subreport partner="001" partnerName="UPM" WP="HARDWARE" WPID="1355348593079" date="2012-09-20">
+    <lastupdate>NO UPDATES</lastupdate>
     <expenses id="0">
     	<concept>Travel</concept>
     	<description>Flight John</description>
@@ -49,6 +50,7 @@
     </task>
   </subreport>
   <subreport partner="002" partnerName="UC3M" WP="HARDWARE" WPID="1355348593079" date="2012-09-20">
+        <lastupdate>NO UPDATES</lastupdate>
     <expenses id="0">
     	<concept>Travel</concept>
     	<description>Flight John</description>
@@ -72,6 +74,7 @@
     </task>
   </subreport>
   <subreport partner="003" partnerName="UNEX" WP="SOFTWARE" WPID="1355348593078" date="2013-09-20">
+    <lastupdate>NO UPDATES</lastupdate>
     <expenses id="0">
     	<concept>Travel</concept>
     	<description>Flight John</description>
@@ -98,6 +101,7 @@
     </task>
   </subreport>
   <subreport partner="004" partnerName="USC" WP="SOFTWARE" WPID="1355348593078" date="2013-09-20">
+       <lastupdate>NO UPDATES</lastupdate>
     <expenses id="0">
     	<concept>Travel</concept>
     	<description>Flight John</description>
@@ -125,6 +129,7 @@
     </task>
   </subreport>
   <subreport partner="001" partnerName="UPM" WP="SOFTWARE" WPID="1355348593078" date="2013-09-20">
+       <lastupdate>NO UPDATES</lastupdate>
     <expenses id="0">
     	 <concept>Travel</concept>
     	<description>Flight John</description>

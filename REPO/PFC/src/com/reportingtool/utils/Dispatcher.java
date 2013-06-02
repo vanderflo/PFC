@@ -8,10 +8,13 @@ import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.filter.Filters;
 
+import java.text.DateFormat;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.TimeZone;
 import java.util.Vector;
 
 import java.util.Iterator;
@@ -63,12 +66,17 @@ public class Dispatcher {
 		HashMap<String, String> partners=Partner.getPartnersName(partner);
 		System.out.println(partners.get("001"));**/
 
-		for (int i=0;i<10000;i++){
+		for (int i=0;i<100;i++){
 			long l=System.currentTimeMillis();
 			String id=Long.toString(l);
 			System.out.println(id);
 
 		}
+		
+		Calendar now = Calendar.getInstance();
+	    TimeZone timeZone = now.getTimeZone();
+	    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+	    System.out.println(dateFormat.format(now.getTime())+" "+timeZone.getDisplayName());
 		/*
 		HashMap<String,String> file=new HashMap<String,String>();
 		Vector<String> list=new Vector<String>();
