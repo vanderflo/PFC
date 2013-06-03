@@ -40,9 +40,10 @@ body{
 }
 
 header{
-    background-color: #4d4d4d;
+    background-color: #71A389;
     background-image: linear-gradient(top, #6f3736, #4c2626);  
     box-shadow: 0 1px 0 #fff, 0 -3px 3px #000 inset;
+    
 }
 
 header hgroup{
@@ -55,7 +56,8 @@ header h1{
     font: 25px/1 'Luckiest Guy', cursive; /* Google font API */
     float: left;
     text-shadow: 0 1px 0 rgba(0,0,0,.9);
-    color:#d4d4d4;            
+    color:yellow;
+    padding: 10px;       
 }
 
 h6{
