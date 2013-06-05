@@ -92,7 +92,8 @@ public class Commons {
 		Calendar now = Calendar.getInstance();
 	    TimeZone timeZone = now.getTimeZone();
 	    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-	    return dateFormat.format(now.getTime())+" "+timeZone.getDisplayName();
+	    //return dateFormat.format(now.getTime())+" "+timeZone.getDisplayName();
+	    return dateFormat.format(now.getTime());
 	}
 	
 }

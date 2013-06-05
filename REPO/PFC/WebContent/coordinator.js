@@ -62,7 +62,6 @@
 						$('#projectSection').append('<h1><span class="icon-file-alt"></span>&nbsp;Report</h1>');
 						$('#projectSection').append('<div class="subsection"><p><span class="icon-time"></span>&nbsp;Last updated on '+lastupdate+'</p></div>');
 						$('#projectSection').append('<h3><span class="icon-info-sign"></span>&nbsp;Info</h3>');
-						//$('#projectSection').append('<div class="Table_Menu_Partner"/>');
 						
 		    			$('#projectSection').append('<div class="subsection"><table id="reportInformation" summary="Report information"><tbody id="reportInformationBody"></tbody></table></div>');
 		    			

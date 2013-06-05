@@ -120,7 +120,7 @@ public class Project {
 		
 	}
 	
-	public static Document addWP(Document doc, String title, String partners,String effort,String dateInit, String datefinish,String path){
+	public static Document addWP(Document doc, String title, String partners,String dateInit, String datefinish,String path){
 		
 		Element WP = new Element("workpackage");
 		WP.setAttribute("title",title);
@@ -136,11 +136,10 @@ public class Project {
 			   Element partner=new Element("leader");
 			   partner.setAttribute("id",s);
 			   ePartners.addContent(partner);
-		   }			   
+		   }		   
 		
 		
-		Element eEffort = new Element("effort");
-		eEffort.setText(effort);
+
 		
 		Element eDateInit = new Element("dateInit");
 		eDateInit.addContent(dateInit);
@@ -149,7 +148,6 @@ public class Project {
 		eDateFinish.addContent(datefinish);
 		
 		WP.addContent(ePartners);
-		WP.addContent(eEffort);
 		WP.addContent(eDateInit);
 		WP.addContent(eDateFinish);		
 		doc.getRootElement().addContent(WP);
