@@ -112,11 +112,11 @@ return "<projects><project><projectId>001</projectId><titleTest1</title><status>
 @Path ("/create/project/")
 @POST
 @Produces ("text/xml")
-public String createProject(@FormParam("title") String title,@FormParam("dateStart") String dateStart,@FormParam("duration") String duration,@FormParam("desc") String desc,@FormParam("reportSchedule") String reportSchedule) {
+public String createProject(@FormParam("title") String title,@FormParam("dateStart") String dateStart,@FormParam("duration") String duration,@FormParam("description") String desc,@FormParam("coordinator") String coordinatorID) {
 	System.out.println("Creating Project. Title:"+title);	
 	String result=null;
 	try {
-		result = Project.createProject(getPath(),title, dateStart, duration, "001", reportSchedule, desc, "active");
+		result = Project.createProject(getPath(),title, dateStart, duration, coordinatorID, desc, "active");
 	} catch (IOException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();

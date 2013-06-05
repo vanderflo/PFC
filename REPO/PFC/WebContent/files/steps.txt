@@ -1,0 +1,23 @@
+Al acceder a la vista de proyectos, se mostrará una lista de los proyectos existentes (activos o
+abiertos), y una opción de crear proyecto.
+
+1) Al hacer click en "Create Proyect", se muestra un formulario para rellenar la información básica
+2) Al hacer submit, se genera el proyecto (y su correposdiente fichero), se actualiza el fichero
+projects, y en el callback, se muestra el artículo "Gestión del Proyecto" completo.
+
+2) "Gestión del Proyecto"
+
+2.1) WP: -Llamada para recuperar el fichero del proyecto. 
+-Bucle sobre él para obtener todos los WPs. 
+-En cada WP, además de mostrar la info, se muestra un botón de "Añadir Tarea", que muestra el
+formulario correspondiente incluyendo el id de proyecto y de WP. 
+-Después del último WP, botón para añadir otro WP. 
+-Botón para añadir partners y esfuerzo por WP (nueva llamada!!!)
+
+2.2) Task: 
+- Resultado del bucle del apartado anterior. 
+- Cada tarea tiene un botón para añadir partner. 
+- Al final de la última tarea de cada WP, botón para añadir una nueva tarea.
+
+2.3) Schedule: - Teniendo en cuenta la fecha de comienzo y la duración, se permite elegir fechas de
+report en ese período.

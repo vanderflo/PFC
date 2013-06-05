@@ -54,7 +54,7 @@ public class Project {
 	 * @return	Documento del proyecto generado.
 	 * @throws IOException
 	 */
-	public static String createProject(String path,String title, String dateStart, String duration,String idPartner,String description, String reportSchedule,String status) throws IOException{
+	public static String createProject(String path,String title, String dateStart, String duration,String idPartner,String description,String status) throws IOException{
 		
 		//<project>
 		Element root = new Element("project");
@@ -71,18 +71,7 @@ public class Project {
 			Element eCoordinator = new Element("coordinator");
 			Element eDesc = new Element("projectDescription");
 			
-			@SuppressWarnings("unchecked")
-			Vector<String> v=Commons.getSchedule(dateStart,reportSchedule);
-			
-			Element eReportSchedule = new Element("reportSchedule");
-			// Calcular report schedule
-			for( int i=0; i<v.size() ; i ++ ){ 
-				String s=v.elementAt(i);
-				Element reportDate=new Element("reportDate");
-				reportDate.setText(s);
-				 eReportSchedule.addContent(reportDate);
-			   }	
-			//
+
 			
 			Element eStatus = new Element("status");
 				Element ePartner = new Element("partner");
@@ -116,10 +105,10 @@ public class Project {
 		Commons.writeFile(path+id,doc);
 		
 		//Crear fichero de report
-		Report.createReportFile(path+id+"_report");
+		Report.createReportFile(path+id);
 		
 		
-		return result;	
+		return id;	
 		}
 	
 	public static void addProject(Element root,String path){

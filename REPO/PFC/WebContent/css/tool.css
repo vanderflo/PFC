@@ -891,7 +891,7 @@ border-radius: 0px 6px 6px 0px;
 }
 
 
-#addExpensesForm, form[id*='addEffortForm']{
+#addExpensesForm, form[id*='add']{
  
     width: 500px;
     padding: 20px;
@@ -912,7 +912,7 @@ border-radius: 0px 6px 6px 0px;
     }
 
 
-#addExpensesForm label, form[id*='addEffortForm'] label {
+#addExpensesForm label, form[id*='add'] label {
     font-family: Arial, Verdana;
     text-shadow: 2px 2px 2px #ccc;
     display: block;
@@ -925,7 +925,7 @@ border-radius: 0px 6px 6px 0px;
     font-size: 15px;
     }
     
- #addExpensesForm .input,textarea, form[id*='addEffortForm'] .input,textarea{
+ #addExpensesForm .input,textarea, form[id*='add'] .input,textarea{
     font-family: Arial, Verdana;
     font-size: 15px;
     padding: 5px;
@@ -934,10 +934,10 @@ border-radius: 0px 6px 6px 0px;
     color: #797979;
     }
     
-#addExpensesForm .hint, form[id*='addEffortForm'] .hint{
+#addExpensesForm .hint, form[id*='add'] .hint{
     display:none;
     }
- #addExpensesForm .field:hover .hint, form[id*='addEffortForm'] .field:hover .hint {
+ #addExpensesForm .field:hover .hint, form[id*='add'] .field:hover .hint {
     position: absolute;
     display: block;
     margin: -30px 0 0 455px;
