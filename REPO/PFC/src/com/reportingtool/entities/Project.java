@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
-import java.util.Vector;
 import java.io.File;
 import java.io.IOException;
 
@@ -70,6 +69,8 @@ public class Project {
 			Element eDuration = new Element("duration");
 			Element eCoordinator = new Element("coordinator");
 			Element eDesc = new Element("projectDescription");
+			Element eSchedule = new Element("reportSchedule");
+
 			
 
 			
@@ -98,6 +99,7 @@ public class Project {
 		addProject(projectBrief,path+CST.PROJECTS_FILE);
 		
 		root.addContent(metainfo);
+		root.addContent(eSchedule);
 		Document doc = new Document(root);
 		
 		//Format result as String
@@ -137,19 +139,15 @@ public class Project {
 			   partner.setAttribute("id",s);
 			   ePartners.addContent(partner);
 		   }		   
-		
-		
-
-		
 		Element eDateInit = new Element("dateInit");
 		eDateInit.addContent(dateInit);
 		
 		Element eDateFinish = new Element("datefinish");
 		eDateFinish.addContent(datefinish);
-		
+				
 		WP.addContent(ePartners);
 		WP.addContent(eDateInit);
-		WP.addContent(eDateFinish);		
+		WP.addContent(eDateFinish);	
 		doc.getRootElement().addContent(WP);
 		System.out.println("***WP added: "+title);
 		Commons.writeFile(path,doc);
@@ -157,8 +155,17 @@ public class Project {
 
 	}
 	
-	
-	public static Document addTask(Document doc, String WP, String title, String description, String partners, String dateInit, String datefinish,String effort,String path){
+	public static Document addSchedule(Document doc, String date, String path){
+		
+		Element eDate = new Element("date");
+		eDate.setText(date);
+		doc.getRootElement().getChild("reportSchedule").addContent(eDate);
+		Commons.writeFile(path,doc);
+		
+		return doc;
+	}
+
+	public static Document addTask(Document doc, String WP, String title, String description, String partners, String dateInit, String datefinish,String path){
 		
 		Element task = new Element("task");
 		task.setAttribute("title",title);
@@ -185,14 +192,14 @@ public class Project {
 		Element eDateFinish = new Element("datefinish");
 		eDateFinish.addContent(datefinish);
 		
-		Element eEffort = new Element("effort");
-		eEffort.addContent(effort);
+		//Element eEffort = new Element("effort");
+		//eEffort.addContent(effort);
 		
 		task.addContent(ePartners);
 		task.addContent(eDescription);
 		task.addContent(eDateInit);
 		task.addContent(eDateFinish);
-		task.addContent(eEffort);
+		//task.addContent(eEffort);
 		
 	
 		for(Object object : doc.getRootElement().getChildren("workpackage")) {
@@ -213,7 +220,7 @@ public class Project {
 public static Document addSchedule(Document doc, String dates){
 		
 		Element rSchedule = new Element("reportSchedule");
-		Element reports = new Element("reports");
+		Element reports = new Element("date");
 		 
 		StringTokenizer st=new StringTokenizer(dates,",");
 		   while (st.hasMoreTokens()){

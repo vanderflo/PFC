@@ -893,7 +893,7 @@ border-radius: 0px 6px 6px 0px;
 
 #addExpensesForm, form[id*='add']{
  
-    width: 500px;
+    width: 580px;
     padding: 20px;
     background: #f0f0f0;
     overflow:auto;
@@ -949,3 +949,25 @@ border-radius: 0px 6px 6px 0px;
     -webkit-border-radius: 7px;
     border-radius: 7px;
     }
+  
+ div[id*='wp']{
+    background: none repeat scroll 0 0 #F1F1F1;
+    border-radius: 5px 5px 5px 5px;
+    margin-bottom: 15px;
+    padding: 15px;
+ }
+ 
+#schedule{
+	background: none repeat scroll 0 0 #FFF7D6;
+    border-radius: 5px 5px 5px 5px;
+    margin-bottom: 15px;
+    padding: 15px;
+	
+}
+
+#metainfo{
+	background: none repeat scroll 0 0 #F5F5FE;
+    border-radius: 5px 5px 5px 5px;
+    margin-bottom: 15px;
+    padding: 15px;
+}

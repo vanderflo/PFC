@@ -137,14 +137,26 @@ public String createWP(@PathParam("projectId") String projectId,@FormParam("titl
 	return result;
 }
 
+@Path ("/add/schedule/{projectId}")
+@POST
+@Produces ("text/xml")
+public String addReportSchedule(@PathParam("projectId") String projectId,@FormParam("dateSchedule") String dateReportWP ){
+	System.out.println("Adding Report Schedule "+projectId+".  Date:"+dateReportWP);	
+	Document d = Project.getCurrentProjectDocument(formatFile(projectId));
+	String path=getPath()+projectId;
+	d = Project.addSchedule(d,dateReportWP,path);
+	String result=Commons.docToString(d);
+	return result;
+}
+
 @Path ("/add/task/{projectId}/{wpId}")
 @POST
 @Produces ("text/xml")
-public String createTask(@PathParam("projectId") String projectId,@PathParam("wpId") String wpId,@FormParam("taskTitle") String title,@FormParam("taskDateStart") String dateStart,@FormParam("taskDateFinish") String dateFinish,@FormParam("taskPartners") String partners,@FormParam("taskDescription") String description,@FormParam("taskEffort") String effort) {
+public String createTask(@PathParam("projectId") String projectId,@PathParam("wpId") String wpId,@FormParam("titleTask") String title,@FormParam("dateInitTask") String dateStart,@FormParam("dateFinishTask") String dateFinish,@FormParam("partnersTask") String partners,@FormParam("descriptionTask") String description) {
 	System.out.println("Creating Task for project "+projectId+". Title:"+title);	
 	Document d = Project.getCurrentProjectDocument(formatFile(projectId));
 	String path=getPath()+projectId;
-	d = Project.addTask(d,wpId,title,description,partners,dateStart,dateFinish,effort,path);
+	d = Project.addTask(d,wpId,title,description,partners,dateStart,dateFinish,path);
 	String result=Commons.docToString(d);
 	return result;
 }
