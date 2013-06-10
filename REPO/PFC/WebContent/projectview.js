@@ -1,4 +1,4 @@
-     /*$("#addProjectForm").live("submit",function( event ){
+    /* $("#addProjectForm").live("submit",function( event ){
     		var $form = $(this),
         	serializedData = $form.serialize();
 		    $.ajax({
@@ -16,7 +16,8 @@
 		    });
 		    event.preventDefault();
    		});//END #addProjectForm submit
-     */
+   		*/
+     
 
 	   $("#addScheduleForm").live("submit",function( event ){
     		var $form = $(this),
@@ -40,9 +41,31 @@
      
      
 	$("#addProjectForm").live("click",function() {
-		updateProjectView('1370700742588');
+		updateProjectView('1370872901759');
 	});
-     $("[id^=addWpForm]").live("submit",function( event ){
+	
+    $("#addPartnerToWP").live("submit",function( event ){
+ 		var $form = $(this),
+     	serializedData = $form.serialize();
+ 		var prId=$(this).find('[name=projectid]').val();
+ 		var wpId=$(this).find('[name=wpid]').val();
+ 		
+		    $.ajax({
+		    	url: "http://localhost:8080/PFC/rest/API/project/add/partner/wp/"+prId+"/"+wpId,
+		    	type: "post",
+		        data: serializedData,
+		        success: function(response, textStatus, jqXHR){
+		        	console.log("Hooray, it worked!");
+		        	updateProjectView(prId);
+		        },
+		        error: function(jqXHR, textStatus, errorThrown){
+		            console.log("The following error occured: "+textStatus, errorThrown);
+		        }
+		    });
+		    event.preventDefault();
+		});//END #addWPForm submit
+	
+     $("[id^=addWPForm]").live("submit",function( event ){
  		var $form = $(this),
      	serializedData = $form.serialize();
  		var prId=$(this).find('[name=projectid]').val();
@@ -173,18 +196,46 @@
 					
 					$('#wpSection').append('<div id="wp_'+wpId+'"><h3><span class="icon-info-sign"></span>&nbsp;Workpackage '+wpTitle+'</h3></div>');
 					$('#wp_'+wpId).append('<h4><span class="icon-edit">&nbsp;</span> From '+dateStart+' to '+dateFinish+'</h4>');
-					//Task section
+					
+				//Task section
 					$(this).find('task').each(function(){
 						var taskTitle=$(this).attr("title");
 						var taskId=$(this).attr("id");
 						$(this).children('dateInit').text();	
 						$(this).children('dateFinish').text();	
 						$('#wp_'+wpId).append('<div class="subsection"><a>'+taskTitle+' '+taskId+'</a></div>');
+						//show each partner, y añadir a un array
+						
+						//para cada elemento del array de partners del WP, comparar con el array de task y mostrarlo (checkbox?)
 					});
 					$('#wp_'+wpId).append('<a id="addTask" wpid="'+wpId+'"><span class="icon-plus"></span>&nbsp;Click here to add a new Task</a>');
 					$('#wp_'+wpId).append('<form id="addTaskForm_'+wpId+'"><div class="field"><label for="title">Title:</label><input type="text" class="input" name="titleTask" id="titleTask" /></div><div class="field"><label for="description">Description:</label><input type="text" class="input" name="descriptionTask" id="descriptionTask" /></div><div class="field"><label for="dateInitTask">Date Start:</label><input type="text" class="input" name="dateInitTask" id="formDateInitTask"></div><div class="field"><label for="dateFinishTask">Date Finish:</label><input type="text" class="input" name="dateFinishTask" id="formDateFinishTask"></div><div class="field"><input type="hidden" name="projectid" value="'+projectId+'"/><input type="hidden" name="wpid" value="'+wpId+'"/><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelWP">or CANCEL</a></div></form>');
 					$('#addTaskForm'+wpId).append('<div class="field"><label for="partner">&nsbp;</label><input type="checkbox" class="inpu" name="partnerTask" id="partnerTask" value="001"/>001</div>');
 					$('#addTaskForm'+wpId).append('<div class="field"><label for="partner">&nsbp;</label><input type="checkbox" class="inpu" name="partnerTask" id="partnerTask" value="002"/>002</div>');
+				//End task section
+					
+				//Partners section
+					$('#wp_'+wpId).append('<form id="addPartnerToWP"><div class="field"><label for="partnerWP">Partner:</label><select name="partnerWP" id="selectPartnerWP" /></div><div class="field"><label for="effort">Effort:</label><input type="text" class="input" name="effortWP" id="effortWP" /></div><input type="hidden" name="projectid" value="'+projectId+'"/><input type="hidden" name="wpid" value="'+wpId+'"/><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelWP">or CANCEL</a></div></form>');
+					//Recuperar todos los partners de este WP y guardarlos en un array.
+					var partnersArray = new Array();
+					getPartners();
+						$(this).find('partner').each(function(){
+							var partnerId=$(this).attr("id");
+							var effort=$(this).attr("effort");
+							$('#wp_'+wpId).append("Partner: "+partnerId+". Effort:"+effort);
+							partnersArray.push(partnerId);
+						});
+					//Recuperar todos los partners del fichero; si no están en el array anterior, anadir al combo box.
+						var stringOption="";
+						$(xmlPartners).find('partner').each(function(){							
+							var partnerID=$(this).attr("id");
+							if( jQuery.inArray(partnerID, partnersArray) == -1 ){
+								var partnerName= $(this).attr("name");
+								stringOption=stringOption+'<option value="'+partnerID+'">'+partnerID+' ('+partnerName+')';
+							}
+						});//partner
+						$('#selectPartnerWP').append(stringOption);
+				//End Partners section
      			});							
      			
      			$('#wpSection').append('<h5><a id="addWP" projectid="'+projectId+'"><span class="icon-plus"></span>&nbsp;Click here to add a new WP</a></h5>');
@@ -212,6 +263,21 @@
          		    	xmlProject = data;
          		         }
          		    });
+     		}
+     		
+     		
+     		
+     		function getPartners(){
+     			$.ajax({
+         		    type: "GET",
+         		    url: "http://localhost:8080/PFC/rest/API/partners/",
+     				dataType: "xml",
+     				async: false,
+         		     success : function(data) {
+         		    	xmlPartners = data;
+         		         }
+         		    });
+
      		}
      		
      		$("[id^=formDate]").live("focus", function(){

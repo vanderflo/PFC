@@ -53,6 +53,22 @@ public class Partner {
 		return document;
 	}
 	
+	public static Document getBasicPartnersInfo(Document doc) {
+		Document document=new Document();
+		Element root = new Element("partners");
+		document.setRootElement(root);
+		for(Object object : doc.getRootElement().getChildren("partner")) {
+			Element eObject=(Element)object;
+			Element partner=new Element("partner");
+			partner.setAttribute("id",eObject.getAttributeValue("id"));
+			partner.setAttribute("name",eObject.getAttributeValue("name"));
+			root.addContent(partner);			
+		}
+		return document;
+		
+		
+	}
+	
 	public static List<Element> getPartnerInfo(Document doc,String partnerID){
 		
 		List<Element> oList=new ArrayList<Element>();
@@ -100,8 +116,11 @@ public class Partner {
 		
 		Element partner = new Element("partner");
 		partner.setAttribute("id", id);
+		partner.setAttribute("name", name);
 		Element namePartner= new Element("name");
 		namePartner.addContent(name);
+		Element passwordPartner= new Element("password");
+		passwordPartner.addContent("");
 		Element emailPartner= new Element("email");
 		emailPartner.addContent(email);
 		
@@ -116,6 +135,7 @@ public class Partner {
 		
 		partner.addContent(namePartner);
 		partner.addContent(emailPartner);
+		partner.addContent(passwordPartner);
 		
 		doc.getRootElement().addContent(partner);	
 		return doc;			

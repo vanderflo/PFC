@@ -305,35 +305,56 @@ public static Document addSchedule(Document doc, String dates){
 
 	
 	public static Document createReportStructure(Document doc){
-		
-		
-		//Get report dates	
 
-		
 		List<Element> oList=new ArrayList<Element>();
 		for(Object object : doc.getRootElement().getChildren("workpackage")) {
 			Element eObject=(Element)object;
-			
-			
-			
-			
 			//Get dates
 			//Get partners
-			//Compare with reportDates; if true, generate a new node for each partner
-			
+			//Compare with reportDates; if true, generate a new node for each partner			
 			if (eObject.getAttributeValue("id").equals("")){
 					for(Object o : eObject.getChildren()) {
 					Element eTmp=(Element)o;
 					System.out.println("Adding "+eTmp.getName());
 					oList.add(eTmp);
 				}
-								
 			}						
 		}
-		
-		
-		
 		return null;
+	}
+	
+	public static Document assignPartnersToTask(Document doc,String taskID,String partners,String path){
+		StringTokenizer st=new StringTokenizer(partners,",");
+		for(Object object : doc.getRootElement().getChildren("task")) {
+			Element eObject=(Element)object;
+			if (eObject.getAttributeValue("id").equals(taskID)){
+					while (st.hasMoreTokens()){
+					   String s=st.nextToken();
+					   Element ePartner=new Element("partner");
+					   ePartner.addContent(s);
+					   eObject.addContent(ePartner);
+					}
+			break;
+		   }
+		}
+		Commons.writeFile(path,doc);
+		return doc;		
+	}
+	
+	public static Document assignPartnerToWP(Document doc,String wpID,String partnerID,String effort,String path){
+		System.out.println("assignPartnerToWP: wpId"+wpID+" partnerID:"+partnerID+" effort:"+effort);
+		for(Object object : doc.getRootElement().getChildren("workpackage")) {
+			Element eObject=(Element)object;
+			if (eObject.getAttributeValue("id").equals(wpID)){				
+				Element ePartner=new Element("partner");
+				ePartner.setAttribute("id", partnerID);
+				ePartner.setAttribute("effort", effort);
+				eObject.addContent(ePartner);
+			break;
+		   }
+		}
+		Commons.writeFile(path,doc);
+		return doc;		
 	}
 	
 	

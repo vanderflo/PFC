@@ -26,8 +26,7 @@ import javax.ws.rs.core.UriInfo;
 import org.jdom2.Document;
 
 
-import com.reportingtool.entities.Project;
-import com.reportingtool.entities.Report;
+import com.reportingtool.entities.*;
 import com.reportingtool.utils.CST;
 import com.reportingtool.utils.Commons;
 import com.sun.jersey.core.util.MultivaluedMapImpl;
@@ -101,6 +100,27 @@ public String getProjects() {
 }
 
 
+
+@Path ("/partners/")
+@GET
+@Produces ("text/xml")
+public String getPartners() {
+	System.out.println("Getting Partners info");	
+	Document d = null;
+	try {
+		d = Partner.getCurrentPartnersFile(formatFile(CST.PARTNERS_FILE));
+		d=	Partner.getBasicPartnersInfo(d);
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}		
+	String result=Commons.docToString(d);
+	
+
+	return result;
+}
+
+
 /**
 @GET
 @Produces ("text/xml")
@@ -161,6 +181,33 @@ public String createTask(@PathParam("projectId") String projectId,@PathParam("wp
 	return result;
 }
 
+@Path ("/project/add/partner/task/{projectId}/{wpId}/{taskid}")
+@POST
+@Produces ("text/xml")
+public String addPartnersToTask(@PathParam("projectId") String projectId,@PathParam("wpId") String wpId,@PathParam("taskId") String taskId,@FormParam("partnersTask") String partners) {
+	System.out.println("Creating Task for project "+projectId+". TaskId:"+taskId);	
+	Document d = Project.getCurrentProjectDocument(formatFile(projectId));
+	String path=getPath()+projectId;
+	d = Project.assignPartnersToTask(d,taskId,partners,path);
+	String result=Commons.docToString(d);
+	return result;
+}
+
+
+@Path ("/project/add/partner/wp/{projectId}/{wpId}")
+@POST
+@Produces ("text/xml")
+public String addPartnerToWp(@PathParam("projectId") String projectId,@PathParam("wpId") String wpId,@FormParam("partnerWP") String partnerId,@FormParam("effortWP") String effort) {
+	System.out.println("Creating Task for project "+projectId);	
+	Document d = Project.getCurrentProjectDocument(formatFile(projectId));
+	String path=getPath()+projectId;
+	d = Project.assignPartnerToWP(d,wpId,partnerId,effort,path);
+	String result=Commons.docToString(d);
+	return result;
+}
+
+
+
 @Path ("/report/get/{projectId}/{wpId}/{partnerId}")
 @POST
 @Produces ("text/xml")
@@ -186,36 +233,6 @@ public String getReportFile(@PathParam("projectId") String projectId) {
 	return result;
 }
 
-@Path ("/testlm")
-@GET
-@Produces ("application/x-www-form-urlencoded")
-public MultivaluedMap<String, String> testLastmile(@QueryParam("serviceId") String serviceId,@QueryParam("userId.msisdn") String msisdn,@QueryParam("userId.alias") String alias) {
-	MultivaluedMap<String, String> result=new MultivaluedMapImpl();
-	System.out.println("Service ID:"+serviceId+". MDN:"+msisdn+".Alias:"+alias);
-	result.putSingle("subscription_data", "abc#1231231312321;subscriptionType1;billed;2012-06-19 12:01:00 0200;;2012-06-26 12:01:00 0200");
-	return result;
-}
-
-@Path ("/subscriptions")
-@POST
-@Consumes("application/x-www-form-urlencoded")
-public void post(MultivaluedMap<String, String> formParams,@Context UriInfo uriInfo) {
-	
-		HashMap<String,String> hmOptions=new HashMap<String,String>();
-		for(String k : formParams.keySet()){       
-        System.out.println("Key "+k);  
-        System.out.println("Value "+formParams.getFirst(k));
-        hmOptions.put(k, formParams.getFirst(k));
-      }
-		
-		MultivaluedMap<String, String> queryParams = uriInfo.getQueryParameters();		
-		for(String k : queryParams.keySet()){       
-	        System.out.println("Key Query "+k);  
-	        System.out.println("Value Query"+queryParams.getFirst(k));
-	        hmOptions.put(k, queryParams.getFirst(k));
-	      }
-		System.out.println(hmOptions.size());
-   }
 
 @Path ("/report/edit/{projectId}/{wpId}/{partnerId}/{reportDate}")
 @POST

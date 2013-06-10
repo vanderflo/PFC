@@ -911,7 +911,9 @@ border-radius: 0px 6px 6px 0px;
  	display:none;
     }
 
-
+#addPartnerToWP{
+	display:block;
+}
 #addExpensesForm label, form[id*='add'] label {
     font-family: Arial, Verdana;
     text-shadow: 2px 2px 2px #ccc;
@@ -925,7 +927,7 @@ border-radius: 0px 6px 6px 0px;
     font-size: 15px;
     }
     
- #addExpensesForm .input,textarea, form[id*='add'] .input,textarea{
+ #addExpensesForm .input,textarea, form[id*='add'] .input,textarea,select{
     font-family: Arial, Verdana;
     font-size: 15px;
     padding: 5px;
