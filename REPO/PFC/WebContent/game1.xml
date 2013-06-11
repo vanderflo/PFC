@@ -42,7 +42,7 @@
 <pic></pic>
 </option>
 <option id="2">
-<text>Eirc Peltier</text>
+<text>Eric Peltier</text>
 <pic></pic>
 </option>
 <option id="3">
@@ -57,7 +57,7 @@
 <answerok>3</answerok>
 <messageok>Congrats!!!</messageok>
 <messageko>Boooooooo!!!</messageko>
-<points>10</points>
+<points>15</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
 </answer2>
