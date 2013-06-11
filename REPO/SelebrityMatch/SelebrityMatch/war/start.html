@@ -22,24 +22,7 @@
     <link rel="stylesheet" href="css/ratchet.css">
 
     <!-- Include the compiled Ratchet JS -->
-    <script src="js/ratchet.jsss"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-    <script>
-      $(function() {
-      
-        $("#slideshow > div:gt(0)").hide();
-    
-        setInterval(function() { 
-          $('#slideshow > div:first')
-            .fadeOut(1000)
-            .next()
-            .fadeIn(1000)
-            .end()
-            .appendTo('#slideshow');
-        },  4800);
-        
-      });
-    </script>
+    <script src="js/ratchet.js"></script>
 
   </head>
   <body>
@@ -53,27 +36,21 @@
 
   <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
   <div class="content">
+    <div class="page-title">
+      <h2>Pick Game Type<h2>
+    </div>
 
-    <div class="intro">
-      <div id="slideshow">
-       <div>
-         <img src="images/1.jpg">
-       </div>
-       <div>
-         <img src="images/2.jpg">
-       </div>
-       <div>
-         <img src="images/3.jpg">
-       </div>
+
+    <div class="game-type">
+      <div id="game-1">
+        <a class="button-block">Guess The Picture</a>
       </div>
-    </div>
-
-    <div class="about">
-      <h3>Test your pop-culture knowledge & guess who these people are!</h3>
-    </div>
-
-    <div class="start">
-      <a class="button-block" href="start.html">Play Now!</a>
+      <div id="game-2">
+        <a class="button-block">Guess Who It Is</a>
+      </div>
+      <div id="game-=3">
+        <a class="button-block">Guess The Rack</a>
+      </div>
     </div>
 
   </div>
