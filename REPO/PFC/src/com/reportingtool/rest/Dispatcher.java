@@ -181,14 +181,14 @@ public String createTask(@PathParam("projectId") String projectId,@PathParam("wp
 	return result;
 }
 
-@Path ("/project/add/partner/task/{projectId}/{wpId}/{taskid}")
+@Path ("/project/add/partner/task/{projectId}/{wpId}/{taskId}")
 @POST
 @Produces ("text/xml")
 public String addPartnersToTask(@PathParam("projectId") String projectId,@PathParam("wpId") String wpId,@PathParam("taskId") String taskId,@FormParam("partnersTask") String partners) {
 	System.out.println("Creating Task for project "+projectId+". TaskId:"+taskId);	
 	Document d = Project.getCurrentProjectDocument(formatFile(projectId));
 	String path=getPath()+projectId;
-	d = Project.assignPartnersToTask(d,taskId,partners,path);
+	d = Project.assignPartnersToTask(d,wpId,partners,taskId,path);
 	String result=Commons.docToString(d);
 	return result;
 }

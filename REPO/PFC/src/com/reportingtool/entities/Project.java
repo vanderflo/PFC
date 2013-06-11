@@ -323,17 +323,27 @@ public static Document addSchedule(Document doc, String dates){
 		return null;
 	}
 	
-	public static Document assignPartnersToTask(Document doc,String taskID,String partners,String path){
+	
+	
+	public static Document assignPartnersToTask(Document doc,String wpID,String partners,String taskId,String path){
+		System.out.println("assignPartnerToWP: wpId"+wpID+" partners:"+partners+" taskid:"+taskId);
 		StringTokenizer st=new StringTokenizer(partners,",");
-		for(Object object : doc.getRootElement().getChildren("task")) {
+		for(Object object : doc.getRootElement().getChildren("workpackage")) {
 			Element eObject=(Element)object;
-			if (eObject.getAttributeValue("id").equals(taskID)){
-					while (st.hasMoreTokens()){
-					   String s=st.nextToken();
-					   Element ePartner=new Element("partner");
-					   ePartner.addContent(s);
-					   eObject.addContent(ePartner);
-					}
+			if (eObject.getAttributeValue("id").equals(wpID)){				
+				for(Object o : eObject.getChildren("task")) {
+					Element eObject2=(Element)o;
+					if (eObject2.getAttributeValue("id").equals(taskId)){
+						eObject2.removeChildren("partnerTask");
+						while (st.hasMoreTokens()){
+						String s=st.nextToken();
+						Element ePartner=new Element("partnerTask");
+						ePartner.setAttribute("id", s);						
+						eObject2.addContent(ePartner);
+						}
+						break;
+					}				
+				}
 			break;
 		   }
 		}
@@ -341,12 +351,13 @@ public static Document addSchedule(Document doc, String dates){
 		return doc;		
 	}
 	
+	
 	public static Document assignPartnerToWP(Document doc,String wpID,String partnerID,String effort,String path){
 		System.out.println("assignPartnerToWP: wpId"+wpID+" partnerID:"+partnerID+" effort:"+effort);
 		for(Object object : doc.getRootElement().getChildren("workpackage")) {
 			Element eObject=(Element)object;
 			if (eObject.getAttributeValue("id").equals(wpID)){				
-				Element ePartner=new Element("partner");
+				Element ePartner=new Element("partnerWP");
 				ePartner.setAttribute("id", partnerID);
 				ePartner.setAttribute("effort", effort);
 				eObject.addContent(ePartner);

@@ -911,7 +911,7 @@ border-radius: 0px 6px 6px 0px;
  	display:none;
     }
 
-#addPartnerToWP{
+form[id*='addPartnerTo']{
 	display:block;
 }
 #addExpensesForm label, form[id*='add'] label {

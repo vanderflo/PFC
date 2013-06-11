@@ -44,7 +44,7 @@
 		updateProjectView('1370872901759');
 	});
 	
-    $("#addPartnerToWP").live("submit",function( event ){
+    $("[id^=addPartnerToWPForm]").live("submit",function( event ){
  		var $form = $(this),
      	serializedData = $form.serialize();
  		var prId=$(this).find('[name=projectid]').val();
@@ -63,7 +63,43 @@
 		        }
 		    });
 		    event.preventDefault();
+		});//END #addPartnerForm submit
+    
+    $("[id^=addPartnerToTaskForm]").live("submit",function( event ){
+ 		var $form = $(this),
+     	serializedData = $form.serialize();
+ 		var prId=$(this).find('[name=projectid]').val();
+ 		var wpId=$(this).find('[name=wpid]').val();
+ 		var taskId=$(this).find('[name=taskid]').val();
+ 		
+ 		var array_values = [];
+  		$(this).find('[name=partnerTask]').each( function() {
+  		    if( $(this).is(':checked') ) {
+  		        array_values.push( $(this).val() );
+  		    }
+  		});
+  		// Now you can store your values in a comma separated list
+  		var arrayValues = array_values.join(',');
+  		arrayValues='&partnersTask='+arrayValues;
+  		serializedData=serializedData+arrayValues;
+ 		
+		    $.ajax({
+		    	url: "http://localhost:8080/PFC/rest/API/project/add/partner/task/"+prId+"/"+wpId+"/"+taskId,
+		    	type: "post",
+		        data: serializedData,
+		        success: function(response, textStatus, jqXHR){
+		        	console.log("Hooray, it worked!");
+		        	updateProjectView(prId);
+		        },
+		        error: function(jqXHR, textStatus, errorThrown){
+		            console.log("The following error occured: "+textStatus, errorThrown);
+		        }
+		    });
+		    event.preventDefault();
 		});//END #addWPForm submit
+    
+    
+    
 	
      $("[id^=addWPForm]").live("submit",function( event ){
  		var $form = $(this),
@@ -196,30 +232,13 @@
 					
 					$('#wpSection').append('<div id="wp_'+wpId+'"><h3><span class="icon-info-sign"></span>&nbsp;Workpackage '+wpTitle+'</h3></div>');
 					$('#wp_'+wpId).append('<h4><span class="icon-edit">&nbsp;</span> From '+dateStart+' to '+dateFinish+'</h4>');
-					
-				//Task section
-					$(this).find('task').each(function(){
-						var taskTitle=$(this).attr("title");
-						var taskId=$(this).attr("id");
-						$(this).children('dateInit').text();	
-						$(this).children('dateFinish').text();	
-						$('#wp_'+wpId).append('<div class="subsection"><a>'+taskTitle+' '+taskId+'</a></div>');
-						//show each partner, y añadir a un array
-						
-						//para cada elemento del array de partners del WP, comparar con el array de task y mostrarlo (checkbox?)
-					});
-					$('#wp_'+wpId).append('<a id="addTask" wpid="'+wpId+'"><span class="icon-plus"></span>&nbsp;Click here to add a new Task</a>');
-					$('#wp_'+wpId).append('<form id="addTaskForm_'+wpId+'"><div class="field"><label for="title">Title:</label><input type="text" class="input" name="titleTask" id="titleTask" /></div><div class="field"><label for="description">Description:</label><input type="text" class="input" name="descriptionTask" id="descriptionTask" /></div><div class="field"><label for="dateInitTask">Date Start:</label><input type="text" class="input" name="dateInitTask" id="formDateInitTask"></div><div class="field"><label for="dateFinishTask">Date Finish:</label><input type="text" class="input" name="dateFinishTask" id="formDateFinishTask"></div><div class="field"><input type="hidden" name="projectid" value="'+projectId+'"/><input type="hidden" name="wpid" value="'+wpId+'"/><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelWP">or CANCEL</a></div></form>');
-					$('#addTaskForm'+wpId).append('<div class="field"><label for="partner">&nsbp;</label><input type="checkbox" class="inpu" name="partnerTask" id="partnerTask" value="001"/>001</div>');
-					$('#addTaskForm'+wpId).append('<div class="field"><label for="partner">&nsbp;</label><input type="checkbox" class="inpu" name="partnerTask" id="partnerTask" value="002"/>002</div>');
-				//End task section
-					
+				
 				//Partners section
-					$('#wp_'+wpId).append('<form id="addPartnerToWP"><div class="field"><label for="partnerWP">Partner:</label><select name="partnerWP" id="selectPartnerWP" /></div><div class="field"><label for="effort">Effort:</label><input type="text" class="input" name="effortWP" id="effortWP" /></div><input type="hidden" name="projectid" value="'+projectId+'"/><input type="hidden" name="wpid" value="'+wpId+'"/><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelWP">or CANCEL</a></div></form>');
+					$('#wp_'+wpId).append('<form id="addPartnerToWP_'+wpId+'"><div class="field"><label for="partnerWP">Partner:</label><select name="partnerWP" id="selectPartnerWP" /></div><div class="field"><label for="effort">Effort:</label><input type="text" class="input" name="effortWP" id="effortWP" /></div><input type="hidden" name="projectid" value="'+projectId+'"/><input type="hidden" name="wpid" value="'+wpId+'"/><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelWP">or CANCEL</a></div></form>');
 					//Recuperar todos los partners de este WP y guardarlos en un array.
 					var partnersArray = new Array();
 					getPartners();
-						$(this).find('partner').each(function(){
+						$(this).find('partnerWP').each(function(){
 							var partnerId=$(this).attr("id");
 							var effort=$(this).attr("effort");
 							$('#wp_'+wpId).append("Partner: "+partnerId+". Effort:"+effort);
@@ -236,6 +255,42 @@
 						});//partner
 						$('#selectPartnerWP').append(stringOption);
 				//End Partners section
+						
+					
+					
+				//Task section
+					$(this).find('task').each(function(){
+						var taskTitle=$(this).attr("title");
+						var taskId=$(this).attr("id");
+						$(this).children('dateInit').text();	
+						$(this).children('dateFinish').text();	
+						$('#wp_'+wpId).append('<div class="subsection"><a>'+taskTitle+' '+taskId+'</a></div>');
+						//show each partner, y añadir a un array
+						var taskPartners=new Array();
+						$(this).find('partnerTask').each(function(){
+							var partnerId=$(this).attr("id");							
+							taskPartners.push(partnerId);
+						});
+						//para cada elemento del array de partners del WP, comparar con el array de task y mostrarlo (checkbox?)
+						$('#wp_'+wpId).append('<form id="addPartnerToTaskForm_'+taskId+'"></form>');
+						for (var i=0;i<partnersArray.length;i++){
+							if( jQuery.inArray(partnersArray[i], taskPartners) == -1 ){							
+							$('#addPartnerToTaskForm_'+taskId).append('<input type="checkbox" name="partnerTask" value="'+partnersArray[i]+'">'+partnersArray[i]+'<br>');
+							}else{
+							$('#addPartnerToTaskForm_'+taskId).append('<input type="checkbox" checked="checked" name="partnerTask" value="'+partnersArray[i]+'">'+partnersArray[i]+'<br>');
+							}
+						}
+						$('#addPartnerToTaskForm_'+taskId).append('<input type="hidden" name="projectid" value="'+projectId+'"/><input type="hidden" name="wpid" value="'+wpId+'"/><input type="hidden" name="taskid" value="'+taskId+'"/><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelWP">or CANCEL</a>');
+
+						
+					});
+					$('#wp_'+wpId).append('<a id="addTask" wpid="'+wpId+'"><span class="icon-plus"></span>&nbsp;Click here to add a new Task</a>');
+					$('#wp_'+wpId).append('<form id="addTaskForm_'+wpId+'"><div class="field"><label for="title">Title:</label><input type="text" class="input" name="titleTask" id="titleTask" /></div><div class="field"><label for="description">Description:</label><input type="text" class="input" name="descriptionTask" id="descriptionTask" /></div><div class="field"><label for="dateInitTask">Date Start:</label><input type="text" class="input" name="dateInitTask" id="formDateInitTask"></div><div class="field"><label for="dateFinishTask">Date Finish:</label><input type="text" class="input" name="dateFinishTask" id="formDateFinishTask"></div><div class="field"><input type="hidden" name="projectid" value="'+projectId+'"/><input type="hidden" name="wpid" value="'+wpId+'"/><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelWP">or CANCEL</a></div></form>');
+					$('#addTaskForm'+wpId).append('<div class="field"><label for="partner">&nsbp;</label><input type="checkbox" class="inpu" name="partnerTask" id="partnerTask" value="001"/>001</div>');
+					$('#addTaskForm'+wpId).append('<div class="field"><label for="partner">&nsbp;</label><input type="checkbox" class="inpu" name="partnerTask" id="partnerTask" value="002"/>002</div>');
+				//End task section
+					
+				
      			});							
      			
      			$('#wpSection').append('<h5><a id="addWP" projectid="'+projectId+'"><span class="icon-plus"></span>&nbsp;Click here to add a new WP</a></h5>');
