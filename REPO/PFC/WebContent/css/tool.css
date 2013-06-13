@@ -973,3 +973,88 @@ form[id*='addPartnerTo']{
     margin-bottom: 15px;
     padding: 15px;
 }
+
+
+/*TEST*/
+#headCard {
+    border-radius: 6px 6px 6px 6px;
+    border: solid 1px #cccccc;
+    color: black;
+    line-height: 20px;
+    margin: -1px -1px 0;
+    overflow: hidden;
+    width: 48%;
+    height: 200px;
+    margin-bottom:15px;
+    display:inline-block;
+    -moz-box-shadow: 8px 8px 5px #888;
+	-webkit-box-shadow: 8px 8px 5px #888;
+	box-shadow: 8px 8px 5px #888;
+}
+
+.cardHeader {
+    
+    border-radius: 3px 3px 0 0;
+    color: black;
+    float: left;
+    font-size: 12px;;
+    height: 26px;
+    line-height: 16px;
+    overflow: hidden;
+    width:100%;
+    text-align:right;
+    }
+
+.cardHeader2 {    
+    border-radius: 3px 3px 0 0;
+    color: white;
+    float: left;
+    font-size: 12px;;
+    height: 26px;
+    line-height: 16px;
+    overflow: hidden;
+    width:100%;
+    text-align:right;
+    margin-right:30px;
+    border-bottom: solid 1px #cccccc;    
+
+}
+
+
+.task_tab {
+    background-color: white;
+    border-radius: 3px 3px 0 0;
+    color: #333333;
+    float: left;
+    font-size: 9px;
+    height: 26px;
+    line-height: 16px;
+    margin: 5px 0 0 8px;
+    min-width: 90px;
+    overflow: hidden;
+    padding: 0 6px 0 3px;
+    text-align:center;
+}
+.textCard {    
+    border-radius: 3px 3px 0 0;
+    color: black;    
+    font-size: 12px;        
+    overflow: scroll;
+    width:100%;
+    text-align:left;
+    }
+    
+    .cardTitle {    
+    border-radius: 3px 3px 0 0;
+    color: #6F3736;    
+    font-size: 12px;        
+    overflow: scroll;    
+    text-align:right;
+    float:right;
+    overflow: hidden;
+    padding-right:15px;
+    padding-top:7px;
+    font-family:Arial;
+    font-weight:bold;
+    }
+

@@ -1,44 +1,122 @@
+<!DOCTYPE html>
 <html>
-<head>
-<script src="jquery-1.8.2.js"></script>
-<script>
- $(document).ready(function() {
-      $("#searchInput").keyup(function(){
- //hide all the rows
-          $("#fbody").find("tr").hide();
- //split the current value of searchInput
-          var data = this.value.split(" ");
- //create a jquery object of the rows
-          var jo = $("#fbody").find("tr");
- //Recursively filter the jquery object to get results. 
-          $.each(data, function(i, v){
-              jo = jo.filter("*:contains('"+v+"')");
-          });
- //show the rows that match.
-          jo.show();
- //Removes the placeholder text 
-      }).focus(function(){
-          this.value="";
-          $(this).css({"color":"black"});
-          $(this).unbind('focus');
-      }).css({"color":"#C0C0C0"});
-  });
-</script>
+<head>	
+<link rel="stylesheet" type="text/css" href="css/tool.css" />
+<link href=" http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/themes/base/jquery-ui.css" rel="Stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:300' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="jquery-1.8.2.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://www.appelsiini.net/download/jquery.jeditable.js"></script>
+<script type="text/javascript" src="initCoordinatorMenu.js"></script>
+<link rel="stylesheet" href="css/font-awesome.min.css">
+
+
 </head>
 <body>
- <input id="searchInput" value="Type To Filter"><br/>
- <table>
-  <thead>
-    <tr><th>Column1</th><th>Column2</th></tr>
-  </thead>
-  <tbody id="fbody">
-    <tr><td>cat</td><td>one</td></tr>
-    <tr><td>dog</td><td>two</td></tr>
-    <tr><td>cat</td><td>three</td></tr>
-    <tr><td>moose</td><td>four</td></tr>
-    <tr><td>mouse</td><td>five</td></tr>
-    <tr><td>dog</td><td>six</td></tr>
-  </tbody>
- </table>
+<header>
+    <hgroup class="clearfix"> 
+       <h1><span class="icon-list-ul"></span>&nbsp;r3portool</h1>
+    </hgroup>
+</header>
+
+<div id="main" class="clearfix">
+    <aside>
+        <nav>
+         <ul id="topmenu">
+                       <li>
+                   <a href="#">Select Project</a>
+                    <ul id="coordinatorProjects">                
+                   
+                    </ul>        
+                </li>
+         </ul>
+            <ul id="menu">
+
+               <li>
+                   <a href="#">Work packages</a>
+                    <ul id="coordinatorWP">                
+                   
+                    </ul>        
+                </li>
+                <li>
+                    <a href="#">Partners</a>
+                    <ul id="coordinatorPartners">
+                    </ul>
+                </li>
+                                 
+            </ul>
+        </nav>
+    </aside>
+    
+    <div id="content">
+
+        <article id="cardsContainer">
+        <h1>Work Report</h1>
+         <section id="headCard">
+         <div class="cardHeader" style="background-color: #dde">Hardware implementation
+         <div class="task_tab">WORKPACKAGE</div>         
+       	 </div>
+       	 <div class="textCard"><table id="reportInformation" summary="Report information"><tbody id="reportInformationBody"><tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Partner:</td><td class="tdvalue">UC3M</td></tr><tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Report Date:</td><td class="tdvalue">2012-09-20</td></tr><tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Workpackage</td><td class="tdvalue">HARDWARE</td></tr><tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Total Effort</td><td class="tdvalue">1 month</td></tr><tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Status</td><td class="tdvalue"> Sent</td></tr></tbody></table></div>
+		 </section>
+		 
+		  <section id="headCard" style="float:right" >
+         <div class="cardHeader" style="background-color: #dde"><div class="cardTitle">Software implementation</div>
+         <div class="task_tab">WORKPACKAGE</div>         
+       	 </div>
+		 <p>aaa<br>aaa<br>aaa</p>
+		 </section>
+		 
+		 		 <section id="headCard" style="width:100%" >
+         <div class="cardHeader2" >Software implementation
+       	 </div>
+       	 <div class="textCard"><p>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br></p></div>
+       	  </section>
+		 
+		 <h1>Tasks</h1>
+		 <section id="headCard" >
+         <div class="cardHeader" style="background-color: #f1f1f1;color:black">Software implementation
+       	 </div>
+       	 <p>aaa<br>aaa<br>aaa</p>
+       	  </section>
+		 
+		 <section id="headCard" style="float:right">
+         <div class="cardHeader2" >Software implementation
+       	 </div>
+       	 <p>aaa<br>aaa<br>aaa</p>
+       	  </section>
+
+		
+        </article>
+        
+        <article id="reportArticle">
+	        <section id="projectSection"></section> 
+			<section id="taskSection"></section>
+			
+        </article>
+        
+        
+        
+        
+        <article id="lastArticleContainer">      
+            <section id="lastArticle">
+                <h1><a>Instructions Page</a></h1>
+                <h2 class="edit">Please select partner bla bla bla bla bla</h2>
+                <figure>
+                    <img src="http://www.red-team-design.com/wp-content/uploads/2011/04/css3-tooltips.png" width="600" height="200" alt="CSS3 tooltips">
+                    <figcaption>CSS3 gradients, box shadows, pseudo-elements.</figcaption>                    
+                </figure>
+                                <div class="Table_Menu_Partner" >
+
+	</div>
+            </section>
+            <footer>Posted on <span>April 28th, 2011</span></footer>             
+        </article>
+   
+    </div>
+</div>
 </body>
+<footer>
+    Design and code by Fernando Flores</a>
+</footer>
+
 </html>
