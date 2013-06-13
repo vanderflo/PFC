@@ -62,4 +62,103 @@
 <extrabonus>5</extrabonus>
 </answer2>
 </game>
+
+<game id="3">
+<type>guessPic</type>
+<question>
+<qtext>Who's this baby?</qtext>
+<qpic>http://images6.fanpop.com/image/photos/33400000/Leonardo-DiCaprio-young-leonardo-dicaprio-33468329-500-685.jpg</qpic>
+</question>
+<option id="1">
+<text>James Dean</text>
+<pic></pic>
+</option>
+<option id="2">
+<text>Luke Perry</text>
+<pic></pic>
+</option>
+<option id="3">
+<text>Leonardo Di Caprio</text>
+<pic></pic>
+</option>
+<option id="4">
+<text>Jon Bon Jovi</text>
+<pic></pic>
+</option>
+<answer3>
+<answerok>3</answerok>
+<messageok>Congrats!!!</messageok>
+<messageko>Boooooooo!!!</messageko>
+<points>15</points>
+<timebonus>2</timebonus>
+<extrabonus>5</extrabonus>
+</answer3>
+</game>
+
+
+<game id="4">
+<type>guessPic</type>
+<question>
+<qtext>Does this face ring a bell?</qtext>
+<qpic>http://www.neontommy.com/sites/default/files/1120961779_db7555408e_o_0.jpg?1338436306</qpic>
+</question>
+<option id="1">
+<text>Anthony Hopkins</text>
+<pic></pic>
+</option>
+<option id="2">
+<text>Robert de Niro</text>
+<pic></pic>
+</option>
+<option id="3">
+<text>John Malkovich</text>
+<pic></pic>
+</option>
+<option id="4">
+<text>Javier Bardem</text>
+<pic></pic>
+</option>
+<answer4>
+<answerok>1</answerok>
+<messageok>Congrats!!!</messageok>
+<messageko>Boooooooo!!!</messageko>
+<points>15</points>
+<timebonus>2</timebonus>
+<extrabonus>5</extrabonus>
+</answer4>
+</game>
+
+<game id="5">
+<type>guessPic</type>
+<question>
+<qtext>Look at this guy</qtext>
+<qpic>http://1.bp.blogspot.com/-xQL_vbjO-pU/UJEDFjNYfiI/AAAAAAAAB_E/qN-upK4wG40/s1600/JimCarrey_halloween-costume.jpg</qpic>
+</question>
+<option id="1">
+<text>Tom Brady</text>
+<pic></pic>
+</option>
+<option id="2">
+<text>Robert Redford</text>
+<pic></pic>
+</option>
+<option id="3">
+<text>Jim Carrey</text>
+<pic></pic>
+</option>
+<option id="4">
+<text>Dirk Nowitzki</text>
+<pic></pic>
+</option>
+<answer5>
+<answerok>3</answerok>
+<messageok>Congrats!!!</messageok>
+<messageko>Boooooooo!!!</messageko>
+<points>15</points>
+<timebonus>2</timebonus>
+<extrabonus>5</extrabonus>
+</answer5>
+</game>
+
+
 </xml>

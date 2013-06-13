@@ -32,7 +32,7 @@
         $(document).ready(function() {
         	
         	var counterID=1;
-        	var totalQuestions=2;
+        	var totalQuestions=5;
         	var userPoints=0;
         	initGame();
         	game(counterID);       	
@@ -83,6 +83,7 @@
     					if (counterID<totalQuestions){    					
     					$('#message').append('<a class="flip" href="#" id="nextGame"><img src="images/right.png"/></a>');
     					}else{
+    						$('#pageTitle').empty();
         					$('#message').append('<h1><a class="topbutton">FINISH!!!</a></h1>');
         					$('#message').append('<h1><a>YOU GOT '+userPoints+' POINTS</a></h1>');
 						}

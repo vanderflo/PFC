@@ -30,10 +30,11 @@ a{
   *zoom: 1;
 }
 
-/* Layout styles */
+/* Layout styles      background: #eee url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAMAAAC6sdbXAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF3d3d////riJKgAAAAAJ0Uk5T/wDltzBKAAAAFUlEQVR42mJgBAEGGMmAxAYCgAADAAGGABmnk/7aAAAAAElFTkSuQmCC);
+*/
 
 body{
-    background: #eee url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAMAAAC6sdbXAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF3d3d////riJKgAAAAAJ0Uk5T/wDltzBKAAAAFUlEQVR42mJgBAEGGMmAxAYCgAADAAGGABmnk/7aAAAAAElFTkSuQmCC);
+	background-color: #ebecec;
     margin: 0;
     font-family: 'Lucida sans', Arial, Helvetica;
     font-size: small;
@@ -686,7 +687,7 @@ width: 50%;
 {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
 	font-size: 12px;
-	width: 80%;
+	width: 100%;
 	text-align: left;
 	border-collapse: collapse;
 }
@@ -706,10 +707,10 @@ width: 50%;
 
 
 td.tdfield  {
-  width: 15%;
+  width: 25%;
 }
 td.tdvalue  {
-  width: 85%;
+  width: 75%;
 }
 
 
@@ -721,12 +722,10 @@ font-weight: bold;
 font-size: 110%;
 margin-bottom: .5em;
 margin-top: .1em;
-border-bottom: 1px solid #cccccc;
-border-top: 1px solid #cccccc;
+border-bottom: 1px solid #000000;
 color:black;
 line-height: 25px;
 font-family: 'Lucida sans', Arial, Helvetica;
-background: #f1f1f1;
 padding-left: 25px;
 }
 
@@ -987,9 +986,9 @@ form[id*='addPartnerTo']{
     height: 200px;
     margin-bottom:15px;
     display:inline-block;
-    -moz-box-shadow: 8px 8px 5px #888;
-	-webkit-box-shadow: 8px 8px 5px #888;
-	box-shadow: 8px 8px 5px #888;
+    -moz-box-shadow: 4px 4px 5px #888;
+	-webkit-box-shadow: 4px 4px 5px #888;
+	box-shadow: 4px 4px 5px #888;
 }
 
 .cardHeader {
