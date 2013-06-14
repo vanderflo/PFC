@@ -461,12 +461,8 @@ ol ol{
    
  .line-separator{
 
-height:1px;
-
-background:#717171;
-
-border-bottom:
-px dotted #313030;
+border-bottom: 1px dotted #717171;
+margin-bottom:15px;
 
 }
 
@@ -636,7 +632,7 @@ th.thflag  {
 #expensesGrid, #effortGrid
 {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-	font-size: 12px;
+	font-size: 11px;
 	width: 100%;
 	text-align: left;
 	border-collapse: collapse;
@@ -644,7 +640,7 @@ th.thflag  {
 #expensesGrid th,#effortGrid th
 {	
 	font-weight: normal;
-	font-size: 14px;
+	font-size: 12px;
 	border-bottom: 2px solid #6678b1;
 	border-right: 30px solid #fff;
 	/*border-left: 30px solid #fff;*/
@@ -684,15 +680,13 @@ width: 50%;
 #reportInformation
 {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-	font-size: 12px;
+	font-size: 11px;
 	width: 100%;
 	text-align: left;
 	border-collapse: collapse;
 }
 
-#reportInformation td
-{
-	padding: 5px 2px 0px 2px;
+#reportInformation td{	
 	border-right: 30px solid #fff;
 	/*border-left: 30px solid #fff;*/
 	color: #669;	
@@ -964,12 +958,7 @@ form[id*='addPartnerTo']{
 	
 }
 
-#metainfo{
-	background: none repeat scroll 0 0 #F5F5FE;
-    border-radius: 5px 5px 5px 5px;
-    margin-bottom: 15px;
-    padding: 15px;
-}
+
 
 
 /*TEST*/
@@ -984,10 +973,19 @@ form[id*='addPartnerTo']{
     height: 200px;
     margin-bottom:15px;
     display:inline-block;
+    display:none;
     /*
     -moz-box-shadow: 4px 4px 5px #be4856;
 	-webkit-box-shadow: 4px 4px 5px #be4856;
 	box-shadow: 4px 4px 5px #be4856;*/
+}
+
+.standardDiv {
+    overflow: auto;
+    width: 48%;
+    display:inline-block;
+    border-radius:5px;
+
 }
 
 .cardHeader {
@@ -1088,5 +1086,49 @@ border-color: #e0e1a8;
 	width:100%;
 }
 
+.tableCaption
+{	
+font-weight: normal;
+font-size: 14px;
+border-bottom: 1px solid #6678b1;
+color: #039;
+text-align: left;
+margin-bottom: 10px;
+	
+}
+
+#expenses{
+margin: 0px;
+padding: 5px;
+border: 1px solid #d4d4d4;
+background-image: -webkit-linear-gradient( #ffffff , #e5eecc 100px);
+background-image: linear-gradient( #ffffff , #e5eecc 100px);
+}
+
+#comments{
+margin: 0px;
+padding: 5px;
+border: 1px solid #d4d4d4;
+background-image: -webkit-linear-gradient( #ffffff , #e5eecc 100px);
+background-image: linear-gradient( #ffffff , #e5eecc 100px);
+float:right;
+}
+
+#metainfo{
+margin: 0px;
+padding: 5px;
+border: 1px solid #d4d4d4;
+background-image: -webkit-linear-gradient( #ffffff , #78D5E3 200px);
+background-image: linear-gradient( #ffffff , #78D5E3 200px);
+}
+.contentDiv{
+	background-color:white;
+}
+#expenses h2{
+	
+color: #617f10;
+background-color: transparent;
+margin-top: 0px;
+}
 
 
