@@ -637,11 +637,9 @@ th.thflag  {
 {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
 	font-size: 12px;
-	margin-top: 15px;
-	width: 50%;
+	width: 100%;
 	text-align: left;
 	border-collapse: collapse;
-	margin-bottom: 25px;
 }
 #expensesGrid th,#effortGrid th
 {	
@@ -975,9 +973,9 @@ form[id*='addPartnerTo']{
 
 
 /*TEST*/
-#headCard {
+.headCard {
     border-radius: 6px 6px 6px 6px;
-    border: solid 1px #cccccc;
+    border: solid 2px #cccccc;
     color: black;
     line-height: 20px;
     margin: -1px -1px 0;
@@ -986,9 +984,10 @@ form[id*='addPartnerTo']{
     height: 200px;
     margin-bottom:15px;
     display:inline-block;
-    -moz-box-shadow: 4px 4px 5px #888;
-	-webkit-box-shadow: 4px 4px 5px #888;
-	box-shadow: 4px 4px 5px #888;
+    /*
+    -moz-box-shadow: 4px 4px 5px #be4856;
+	-webkit-box-shadow: 4px 4px 5px #be4856;
+	box-shadow: 4px 4px 5px #be4856;*/
 }
 
 .cardHeader {
@@ -1003,22 +1002,6 @@ form[id*='addPartnerTo']{
     width:100%;
     text-align:right;
     }
-
-.cardHeader2 {    
-    border-radius: 3px 3px 0 0;
-    color: white;
-    float: left;
-    font-size: 12px;;
-    height: 26px;
-    line-height: 16px;
-    overflow: hidden;
-    width:100%;
-    text-align:right;
-    margin-right:30px;
-    border-bottom: solid 1px #cccccc;    
-
-}
-
 
 .task_tab {
     background-color: white;
@@ -1041,19 +1024,69 @@ form[id*='addPartnerTo']{
     overflow: scroll;
     width:100%;
     text-align:left;
+    padding-left:15px;
+    padding-top:10px;
+    padding-bottom:10px;
     }
     
-    .cardTitle {    
+.cardTitle {    
     border-radius: 3px 3px 0 0;
-    color: #6F3736;    
+    color: white;    
     font-size: 12px;        
     overflow: scroll;    
-    text-align:right;
-    float:right;
+    text-align:left;
+    float:left;
     overflow: hidden;
-    padding-right:15px;
-    padding-top:7px;
+    padding-left:15px;
+    padding-top:5px;
     font-family:Arial;
     font-weight:bold;
     }
+
+#editionCard, #flagCard{
+	float:right;
+}
+
+#metainfoCardHeader{
+background-color: #be4856;	
+}
+#metainfoCard{
+border-color: #be4856;	
+}
+#expensesCardHeader{
+background-color: #364f86;	
+}
+#expensesCard{
+border-color: #364f86;	
+}
+#flagCardHeader{
+background-color: #ebfebe;	
+}
+#flagCard{
+border-color: #ebfebe;	
+}
+
+#editionCardHeader{
+background-color: #ffffff;	
+}
+#editionCardHeaderContent{
+color: black;	
+}
+#editionCard{
+background-color: #e3e3e3;	
+}
+
+#commentsCardHeader{
+background-color: #e0e1a8;	
+}
+#commentsCard{
+border-color: #e0e1a8;	
+}
+
+
+.headCard.wide{
+	width:100%;
+}
+
+
 

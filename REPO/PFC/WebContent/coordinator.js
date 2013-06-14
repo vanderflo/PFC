@@ -58,22 +58,14 @@
 						var feedback= $(this).children('feedback').text();	
 						var flag= $(this).children('flag').text().toLowerCase();
 						var explanation= $(this).children('explanation').text();
-						//$('#secondArticle').append('<h2 class="settings_form_head_title">Report by Partner '+partnerName+' for WP '+reportWP+' on date '+date+'</h2>');
-						$('#projectSection').append('<h1><span class="icon-file-alt"></span>&nbsp;Report</h1>');
-						$('#projectSection').append('<div class="subsection"><p><span class="icon-time"></span>&nbsp;Last updated on '+lastupdate+'</p></div>');
-						$('#projectSection').append('<h3><span class="icon-info-sign"></span>&nbsp;Info</h3>');
 						
-		    			$('#projectSection').append('<div class="subsection"><table id="reportInformation" summary="Report information"><tbody id="reportInformationBody"></tbody></table></div>');
-		    			
 		    			$('#reportInformationBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Partner:</td><td class="tdvalue">'+partnerName+'</td></tr>');
 		    			$('#reportInformationBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Report Date:</td><td class="tdvalue">'+date+'</td></tr>');
 		    			$('#reportInformationBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Workpackage</td><td class="tdvalue">'+reportWP+'</td></tr>');
 		    			$('#reportInformationBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Total Effort</td><td class="tdvalue">1 month</td></tr>');
 		    			$('#reportInformationBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Status</td><td class="tdvalue"> '+status+'</td></tr>');
+		    			$('#reportInformationBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Last Update</td><td class="tdvalue"> '+lastupdate+'</td></tr>');
 
-
-						$('#projectSection').append('<h3><span class="icon-money"></span>&nbsp;Expenses</h3>');
-		    			$('#projectSection').append('<div class="subsection expensesSection"><table id="expensesGrid" summary="List of Expenses"><thead><tr><th class="thconcept">Concept</th><th class="thdescription">Description</th><th class="thamount">Amount</th></thead><tbody id="expensesGridBody"></tbody></table></div>');
 
 						$(this).find('expenses').each(function(){
 							var eId = $(this).attr("id");
