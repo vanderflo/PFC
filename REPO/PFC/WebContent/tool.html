@@ -96,14 +96,19 @@
           <div class="contentDiv"><table id="reportInformation" summary="Report information"><tbody id="reportInformationBody"></tbody></table></div>
          </section>
          
-          <section class="standardDiv" id="editionReport">
-          	<ul class="menuEditionReport">
-          	  <li><a href="#" id="showStatusReport"><span>Status</span></a></li>
-			  <li><a href="#" class="active" id="showExpensesForm"><span>Add expenses</span></a></li>
-			  <li><a href="#" id="showFeedbackForm"><span>Add comment</span></a></li>
-			  <li><a href="#" id="showFlagForm"><span>Raise Flag</span></a></li>
-			</ul>
+          <section class="standardDiv right" id="editionReport">
+          <h2>Edition Box</h2>
+          	<table class="menuEditionReport">
+          	<thead><tr>
+          	  <th class="active" id="showStatusReport">Status</th>
+			  <th id="showExpensesForm">Add expenses</th>
+			  <th id="showFeedbackForm">Add comment</th>
+			  <th id="showFlagForm">Raise Flag</th>
+			  <th id="showEffortForm">Add effort</th>
+			</tr></thead>
+			</table>
           <div  id="editionReportForms">
+          
           <form id="addExpensesForm">
           	<div class="field"><label for="name">Concept:</label>
           		<select name="concept"><option value="travel" selected="selected">Travel</option><option value="equipment">Equipment</option><option value="outsourcing">Outsourcing</option></select><p class="hint">Choose expenses type</p></div>
@@ -112,28 +117,50 @@
           	<div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelExpenses">or CANCEL</a></div>
           </form>
           
+           <form id="addCommentsForm">
+          	<div class="field"><label for="name">Type:</label>
+          		<select name="concept"><option value="feedback" selected="selected">Feedback</option><option value="warning">Warning</option><option value="issue">Issue</option></select><p class="hint">Choose expenses type</p></div>
+          	<div class="field"><label for="comment">Comment:</label><input type="text" class="input" name="comment" id="comment" /><p class="hint">Add comment</p></div>          	
+          	<div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /></div>
+          </form>
+          
+           <form id="addEffortForm">
+          	<div class="field"><label for="name">Type:</label>
+          		<select name="concept" id="effortTaskList"></select><p class="hint">Choose Task to assig effort to</p></div>
+          	<div class="field"><label for="person">Team member:</label><input type="text" class="input" name="person" id="person" /><p class="hint">Specify team member</p></div>          	
+          	<div class="field"><label for="effort">Effort:</label><input type="text" class="input" name="effort" id="effort" /><p class="hint">Effort (days)</p></div>          	
+          	<div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /></div>
+          </form>
+          
           <div class="statusContainer" id="statusReport"><button class="color blue button" id="editStatus" value="blocked">Block</button><button id="editStatus" class="color blue button" value="accepted">Accept</button><button id="editStatus" value="rejected" class="color blue button">Reject</button><button id="editStatus" class="color blue button" value="open">Open</button></div>
           
-          <div class="statusContainer" id="addFlagForm"><p><span class="icon-hand-right"></span>&nbsp;Raise a red flag in case any blocking issue came up duerint this reporting period</p></div>
-          
-          
-          </div>
+          <div class="statusContainer" id="addFlagForm"><p><span class="icon-hand-right"></span>&nbsp;Raise a red flag in case any blocking issue came up during this reporting period</p></div>
+           </div>
           </section>
                   
          <section class="standardDiv" id="expenses">
          <h2>Expenses</h2>
          <div class="contentDiv"><table id="expensesGrid" summary="List of Expenses"><thead><tr><th class="thconcept">Concept</th><th class="thdescription">Description</th><th class="thamount">Amount</th></thead><tbody id="expensesGridBody"></tbody></table>
-         
-         
-         
-         
          </div>
          </section>
          
-         <section class="standardDiv" id="comments">
+         <section class="standardDiv right" id="comments">
          <h2>Report Log</h2>
          <div class="contentDiv"><table id="expensesGrid" summary="List of Comments"><thead><tr><th class="thconcept">Concept</th><th class="thdescription">Description</th><th class="thamount">Amount</th></thead><tbody id="expensesGridBody"></tbody></table></div>
          </section>
+         
+         <section class="standardDiv" id="effort">
+         <h2>Effort</h2>
+         <div class="contentDiv"><table id="expensesGrid" summary="Effort"><thead><tr><th class="thconcept">Concept</th><th class="thdescription">Description</th><th class="thamount">Amount</th></thead><tbody id="expensesGridBody"></tbody></table></div>
+         </section>
+         
+         <section class="standardDiv right" id="tasks">
+         <h2>Tasks</h2>
+                 
+         
+         </section>
+         
+         
          
          <section class="headCard" id="expensesCard">	
 			<div class="cardHeader" id="expensesCardHeader"><div class="cardTitle">Expenses</div></div>

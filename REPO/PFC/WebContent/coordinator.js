@@ -85,36 +85,31 @@
 						$('#addFlagForm').append('<h4><span class="icon-edit">&nbsp;</span> Explanation/Comments</h4><h5 class="editTextArea" id="explanation">'+explanation+'</h5>');
 
 						
-						
-						$('#projectSection').append('<h3><span class="icon-comments"></span>&nbsp;Status and Feedback</h3>');
-						$('#projectSection').append('<div id="statusContainer" class="subsection"><p><span class="icon-hand-right"></span>&nbsp;Explanation of the statuses</p></div>');
-						$('#statusContainer').append('<div class="statusContainer"><button class="color blue button" id="editStatus" value="blocked">Block</button><button id="editStatus" class="color blue button" value="accepted">Accept</button><button id="editStatus" value="rejected" class="color blue button">Reject</button><button id="editStatus" class="color blue button" value="open">Open</button></div>');
-						$('#statusContainer').append('<h4><span class="icon-edit">&nbsp;</span>Leave Feedback</label></h4><h5 class="editTextArea" id="feedback">'+feedback+'</h5>')
 
-						$('#taskSection').append('<h2><span class="icon-tasks"></span>&nbsp;Tasks</h2>');
-						var taskCount=1;
+						var listOfTasks="";
+						var tasksDivs="";
 						$(this).find('task').each(function(){
 							var taskTitle = $(this).attr("title");
 							var taskId = $(this).attr("id");
 							var work= $(this).children('work').text();	
-							var result= $(this).children('result').text();	
-							$('#taskSection').append('<h3><span class="icon-chevron-right"></span>&nbsp;Task '+taskTitle+'</h3>');
-							$('#taskSection').append('<div class="subsection"><h4><span class="icon-edit">&nbsp;</span>Work</h4><h6 class="editTask" id="work" taskid="'+taskId+'">'+work+'</h6></div>');
-							$('#taskSection').append('<div class="subsection"><h4><span class="icon-edit">&nbsp;</span>Result</h4><h6 class="editTask" id="result" taskid="'+taskId+'">'+result+'</h6></div>');
+							var result= $(this).children('result').text();
 							
-			    			$('#taskSection').append('<div class="subsection effortSection_'+taskCount+'"><h4><span class="icon-user">&nbsp;</span>Effort</h4><table id="effortGrid" summary="List of Effort"><thead><tr><th class="thperson">Team member</th><th class="theeffort">Effort</th></thead><tbody id="effortGridBody_'+taskCount+'"></tbody></table></div>');
-
+							tasksDivs=tasksDivs+('<div class="contentDiv" id="tId_'+taskId+'"><h6 class="editTask" id="work" taskid="'+taskId+'">'+work+'</h6><h6 class="editTask" id="result" taskid="'+taskId+'">'+result+'</h6><table id="effortGrid" summary="List of Effort"><thead><tr><th class="thperson">Team member</th><th class="theeffort">Effort</th></tr></thead><tbody id="effortGridBody_'+taskId+'">');
+							listOfTasks=listOfTasks+('<option value="'+taskId+'">'+taskTitle+'</option>');							
+						
 							$(this).children('effort').each(function(){
 								var effort= $(this).children('effortperperson').text();							
 								var person= $(this).children('person').text();	
 								var st='<tr><td>'+person+'</td><td>'+effort+'</td></tr>';
-				    			$('#effortGridBody_'+taskCount).append(st);
+								tasksDivs=tasksDivs+(st);
+								$('#effortGridBody_'+taskId).append(st);
 							});
+							tasksDivs=tasksDivs+('</tbody></table></div>');
+							console.log(tasksDivs);
 							
-							$('.effortSection_'+taskCount).append('<h5><a id="addEffort" taskid="'+taskId+'"><span class="icon-plus"></span>&nbsp;Click here to add a new effort entry</a></h5>');
-							$('.effortSection_'+taskCount).append('<form id="addEffortForm_'+taskId+'"><div class="field"><label for="member">Team Member:</label><input type="text" class="input" name="id" id="member" /><p class="hint">Effort</p></div><div class="field"><label for="effortpp">Effort:</label><input type="text" class="input" name="value" id="effortpp"><p class="hint">Effort</p></div><div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="hidden" name="taskid" value="'+taskId+'"><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelEffort" taskid="'+taskId+'">or CANCEL</a></div></form>');
-							taskCount++;
+							$('.effortSection_').append('<form id="addEffortForm_'+taskId+'"><div class="field"><label for="member">Team Member:</label><input type="text" class="input" name="id" id="member" /><p class="hint">Effort</p></div><div class="field"><label for="effortpp">Effort:</label><input type="text" class="input" name="value" id="effortpp"><p class="hint">Effort</p></div><div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="hidden" name="taskid" value="'+taskId+'"><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelEffort" taskid="'+taskId+'">or CANCEL</a></div></form>');
 						});	
+						$('#tasks').append(tasksDivs);
 						
 						}
 					});
@@ -152,17 +147,63 @@
 					});
      		}
      		
+     		function toggleActive(){
+         	  $( "#showStatusReport" ).toggleClass('active');
+      	      $( "#showFeedbackForm" ).toggleClass('active');
+      	      $( "#showFlagForm" ).toggleClass('active');
+      	      $( "#showEffortForm" ).toggleClass('active');
+      	      $( "#showExpensesForm" ).toggleClass('active');
+       	    }
+     		
+     		
      	    $( "#showExpensesForm" ).live("click", function(e) {
-     	      $( "#statusReport" ).slideToggle();
+     	      $( "#statusReport" ).hide();
+     	      $( "#addCommentsForm" ).hide();
+     	      $( "#addFlagForm" ).hide();
+     	      $( "#addEffortForm" ).hide();
+     	      toggleActive();
      	      $( "#addExpensesForm" ).slideToggle();
      	    });
      	    
+     	    
+     	    
      	    $( "#showFlagForm" ).live("click", function(e) {
        	      $( "#statusReport" ).hide();
-       	      $( "#addExpensesForm" ).hide();
-       	      $( "#addFlagForm" ).show(1000);
-       	      
+     	      $( "#addCommentsForm" ).hide();
+     	      $( "#addExpensesForm" ).hide();
+     	      $( "#addEffortForm" ).hide();
+     	      toggleActive();
+     	      $( "#addFlagForm" ).slideToggle();     	      
        	    });
+     	    
+     	    $( "#showStatusReport" ).live("click", function(e) {         	  
+       	      $( "#addCommentsForm" ).hide();
+       	      $( "#addFlagForm" ).hide();
+       	      $( "#addExpensesForm" ).hide();
+       	      $( "#addEffortForm" ).hide();
+       	      toggleActive();
+       	      $( "#statusReport" ).slideToggle();
+         	    });
+     	    
+     	    $( "#showFeedbackForm" ).live("click", function(e) {
+         	  $( "#statusReport" ).hide();
+       	      $( "#addFlagForm" ).hide();
+       	      $( "#addExpensesForm" ).hide();
+       	      $( "#addEffortForm" ).hide();
+       	      toggleActive();
+       	      $( "#addCommentsForm" ).slideToggle();
+         	    });
+     	    
+     	    $( "#showEffortForm" ).live("click", function(e) {
+           	  $( "#statusReport" ).hide();
+     	      $( "#addFlagForm" ).hide();
+     	      $( "#addExpensesForm" ).hide();
+     	      $( "#addCommentsForm" ).hide();
+     	      toggleActive();
+     	      $( "#addEffortForm" ).slideToggle();
+       	    });
+     	    
+     	    
      	    
      	    $( "#cancelExpenses" ).live("click", function(e) {
       	      $( "#addExpensesForm" ).slideToggle();
