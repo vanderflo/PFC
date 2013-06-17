@@ -572,7 +572,7 @@ border-width:1px;
 -webkit-border-radius: 6px 6px 6px 6px;
 -moz-border-radius: 6px 6px 6px 6px;
 width: 100%;
-text-align: left;
+text-align: center;
 vertical-align: middle;
 margin-bottom:15px;
 }
@@ -630,7 +630,7 @@ th.thflag  {
 
 /*Table expenses grid*/
 
-#expensesGrid, #effortGrid
+#expensesGrid, #effortGrid,#commentsGrid
 {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
 	font-size: 11px;
@@ -638,7 +638,7 @@ th.thflag  {
 	text-align: left;
 	border-collapse: collapse;
 }
-#expensesGrid th,#effortGrid th
+#expensesGrid th,#effortGrid th,#commentsGrid th
 {	
 	font-weight: normal;
 	font-size: 12px;
@@ -646,7 +646,7 @@ th.thflag  {
 	color: #666;
 	
 }
-#expensesGrid td, #effortGrid td
+#expensesGrid td, #effortGrid td,#commentsGrid td
 {
 	padding: 5px 2px 0px 2px;
 	color: #666;
@@ -730,10 +730,10 @@ font-size: 160%;
 background-color:white;
 border-bottom: 1px solid #cccccc;
 border-top: 1px solid #cccccc;
-width: 70%;
+width: 100%;
 padding-top: 10px;
 padding-bottom: 10px;
-background-color:white;
+
 font-size: 85%;
 }
 
@@ -940,131 +940,16 @@ form[id*='addPartnerTo']{
 
 
 
-
-/*TEST*/
-.headCard {
-    border-radius: 6px 6px 6px 6px;
-    border: solid 2px #cccccc;
-    color: black;
-    line-height: 20px;
-    margin: -1px -1px 0;
-    overflow: hidden;
-    width: 48%;
-    height: 200px;
-    margin-bottom:15px;
-    display:inline-block;
-    display:none;
-    /*
-    -moz-box-shadow: 4px 4px 5px #be4856;
-	-webkit-box-shadow: 4px 4px 5px #be4856;
-	box-shadow: 4px 4px 5px #be4856;*/
-}
-
 .standardDiv {
     overflow: auto;
     width: 48%;
     display:inline-block;
     border-radius:5px;
     margin-bottom:15px;
-
-}
-
-.cardHeader {
-    
-    border-radius: 3px 3px 0 0;
-    color: black;
-    float: left;
-    font-size: 12px;;
-    height: 26px;
-    line-height: 16px;
-    overflow: hidden;
-    width:100%;
-    text-align:right;
-    }
-
-.task_tab {
-    background-color: white;
-    border-radius: 3px 3px 0 0;
-    color: #333333;
-    float: left;
-    font-size: 9px;
-    height: 26px;
-    line-height: 16px;
-    margin: 5px 0 0 8px;
-    min-width: 90px;
-    overflow: hidden;
-    padding: 0 6px 0 3px;
-    text-align:center;
-}
-.textCard {    
-    border-radius: 3px 3px 0 0;
-    color: black;    
-    font-size: 12px;        
-    overflow: scroll;
-    width:100%;
-    text-align:left;
-    padding-left:15px;
-    padding-top:10px;
-    padding-bottom:10px;
-    }
-    
-.cardTitle {    
-    border-radius: 3px 3px 0 0;
-    color: white;    
-    font-size: 12px;        
-    overflow: scroll;    
-    text-align:left;
-    float:left;
-    overflow: hidden;
-    padding-left:15px;
-    padding-top:5px;
-    font-family:Arial;
-    font-weight:bold;
-    }
-
-#editionCard, #flagCard{
-	float:right;
-}
-
-#metainfoCardHeader{
-background-color: #be4856;	
-}
-#metainfoCard{
-border-color: #be4856;	
-}
-#expensesCardHeader{
-background-color: #364f86;	
-}
-#expensesCard{
-border-color: #364f86;	
-}
-#flagCardHeader{
-background-color: #ebfebe;	
-}
-#flagCard{
-border-color: #ebfebe;	
-}
-
-#editionCardHeader{
-background-color: #ffffff;	
-}
-#editionCardHeaderContent{
-color: black;	
-}
-#editionCard{
-background-color: #e3e3e3;	
-}
-
-#commentsCardHeader{
-background-color: #e0e1a8;	
-}
-#commentsCard{
-border-color: #e0e1a8;	
-}
-
-
-.headCard.wide{
-	width:100%;
+    padding: 5px;
+	border: 1px solid #d4d4d4;
+	background-image: -webkit-linear-gradient( #ecfcd2 , #ffffff 50px);
+	background-image: linear-gradient( #ecfcd2 , #ffffff 50px);
 }
 
 .tableCaption
@@ -1081,25 +966,22 @@ margin-bottom: 10px;
 .standardDiv.right{
 float:right;
 }
-#expenses,#metainfo,#effort{
-padding: 5px;
-border: 1px solid #d4d4d4;
-background-image: -webkit-linear-gradient( #ecfcd2 , #a0bf61 250px);
-background-image: linear-gradient( #ecfcd2 , #a0bf61 250px);
+
+
+#effort,#tasks,#expenses,#comments{
+height:250px;
 }
 
-#comments,#editionReport,#tasks{
-margin: 0px;
-padding: 5px;
-border: 1px solid #d4d4d4;
-background-image: -webkit-linear-gradient( #ecfcd2 , #a0bf61 250px);
-background-image: linear-gradient( #ecfcd2 , #a0bf61 250px);
+#metainfo,#editionReport{
+height:200px;
 }
+
 
 
 .contentDiv{
 	border-radius:5px;
 	padding-left:5px;
+	padding-top: 15px;
 }
 .standardDiv h2{
 	
@@ -1114,12 +996,9 @@ border-bottom: solid 1px;
 
 
 #reportArticle h1{
-    border-radius: 5px 5px 5px 5px;
     margin-style: 15px;	
-	border: 1px solid #d4d4d4;
-	background-image: -webkit-linear-gradient( #ecfcd2 , #a0bf61 50px);
-	background-image: linear-gradient( #ecfcd2 , #a0bf61 50px);
-	color: #617f10;
+	border-bottom: 1px solid #d4d4d4;
+	color: #555555;
 }
 
 #topArticleContainer h1{
@@ -1129,6 +1008,10 @@ border-bottom: solid 1px;
 	background-image: -webkit-linear-gradient( #ebf4fa , #ffffff 50px);
 	background-image: linear-gradient( #ebf4fa , #ffffff 50px);
 	color: #669;
+}
+
+#taskSelector{
+border-radius: 5px 5px 5px 5px;	
 }
 /* Generated via www.cssmenubuilder.com */
 

@@ -74,9 +74,19 @@
 							var amount= $(this).children('amount').text();
 							var st='<tr><td>'+concept+'</td><td>'+description+'</td><td>'+amount+'</td></tr>';
 			    			$('#expensesGridBody').append(st);
-
 						});
 						
+						$('#commentsGridBody').empty();
+						$(this).find('comment').each(function(){
+							var type = $(this).attr("type");
+							var time = $(this).attr("time");
+							var text= $(this).text();								
+							var st='<tr><td>'+type+'</td><td>'+text+'</td><td>'+time+'</td></tr>';
+			    			$('#commentsGridBody').append(st);
+						});
+						
+						
+						$('#addFlagForm').empty();
 						if(flag=="red"){
 						$('#addFlagForm').append('<div class="statusContainer"><button class="button" id="editflag" color="green">GREEN FLAG</button><button class="color red button">RED FLAG</button></div>');
 						}else{
@@ -88,6 +98,8 @@
 
 						var listOfTasks="";
 						var tasksDivs="";
+						$('#taskSelector').empty();
+						$('#tasks .contentDiv').empty();
 						$(this).find('task').each(function(){
 							var taskTitle = $(this).attr("title");
 							var taskId = $(this).attr("id");
@@ -109,6 +121,7 @@
 							
 							$('.effortSection_').append('<form id="addEffortForm_'+taskId+'"><div class="field"><label for="member">Team Member:</label><input type="text" class="input" name="id" id="member" /><p class="hint">Effort</p></div><div class="field"><label for="effortpp">Effort:</label><input type="text" class="input" name="value" id="effortpp"><p class="hint">Effort</p></div><div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="hidden" name="taskid" value="'+taskId+'"><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelEffort" taskid="'+taskId+'">or CANCEL</a></div></form>');
 						});	
+						$('#taskSelector').append(listOfTasks);
 						$('#tasks').append(tasksDivs);
 						
 						}

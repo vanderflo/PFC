@@ -258,7 +258,29 @@ public class Report {
 		for(Object object : doc.getRootElement().getChildren("subreport")) {
 			Element eObject=(Element)object;
 			if (eObject.getAttributeValue("WPID").equals(WP) && eObject.getAttributeValue("partner").equals(partnerID)&&eObject.getAttributeValue("date").equals(date)){
+				if (field.equals("comment")){
+					Element eNewComment=new Element("comment");
+					eNewComment.setAttribute("type", "comment");
+					eNewComment.setAttribute("time", Commons.getDate());
+					eNewComment.setText(value);
+					eObject.addContent(eNewComment);
+				}else if(field.equals("explanation")){
+					Element eNewComment=new Element("comment");
+					eNewComment.setAttribute("type", "explanation");
+					eNewComment.setAttribute("time", Commons.getDate());
+					eNewComment.setText(value);
+					eObject.addContent(eNewComment);
+					eObject.getChild(field).setText(value);
+				}else if(field.equals("feedback")){
+					Element eNewComment=new Element("comment");
+					eNewComment.setAttribute("type", "feedback");
+					eNewComment.setAttribute("time", Commons.getDate());
+					eNewComment.setText(value);
+					eObject.addContent(eNewComment);
+				}			
+				else{
 				eObject.getChild(field).setText(value);
+				}
 				System.out.println("Report - Subreport modified, field "+field+" value "+value);
 				eObject.getChild("lastupdate").setText(Commons.getDate());
 				break;

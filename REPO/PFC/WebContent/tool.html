@@ -118,10 +118,7 @@
           </form>
           
            <form id="addCommentsForm">
-          	<div class="field"><label for="name">Type:</label>
-          		<select name="concept"><option value="feedback" selected="selected">Feedback</option><option value="warning">Warning</option><option value="issue">Issue</option></select><p class="hint">Choose expenses type</p></div>
-          	<div class="field"><label for="comment">Comment:</label><input type="text" class="input" name="comment" id="comment" /><p class="hint">Add comment</p></div>          	
-          	<div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /></div>
+           <h5 class="editTextArea" id="feedback">Add feedback</h5>
           </form>
           
            <form id="addEffortForm">
@@ -132,7 +129,11 @@
           	<div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /></div>
           </form>
           
-          <div class="statusContainer" id="statusReport"><button class="color blue button" id="editStatus" value="blocked">Block</button><button id="editStatus" class="color blue button" value="accepted">Accept</button><button id="editStatus" value="rejected" class="color blue button">Reject</button><button id="editStatus" class="color blue button" value="open">Open</button></div>
+          <div class="statusContainer" id="statusReport"><a>Accept or reject the report. A comment can be added to the action taken.</a><br>
+          <button class="color blue button" id="editStatus" value="blocked">Block</button><button id="editStatus" class="color blue button" value="accepted">Accept</button><button id="editStatus" value="rejected" class="color blue button">Reject</button><button id="editStatus" class="color blue button" value="open">Open</button>
+          <h5 class="editTextArea" id="comment">Add comment</h5>
+          
+          </div>
           
           <div class="statusContainer" id="addFlagForm"><p><span class="icon-hand-right"></span>&nbsp;Raise a red flag in case any blocking issue came up during this reporting period</p></div>
            </div>
@@ -146,7 +147,7 @@
          
          <section class="standardDiv right" id="comments">
          <h2>Report Log</h2>
-         <div class="contentDiv"><table id="expensesGrid" summary="List of Comments"><thead><tr><th class="thconcept">Concept</th><th class="thdescription">Description</th><th class="thamount">Amount</th></thead><tbody id="expensesGridBody"></tbody></table></div>
+         <div class="contentDiv"><table id="commentsGrid" summary="List of Comments"><thead><tr><th class="thconcept">Type</th><th class="thdescription">Text</th><th class="thamount">Date</th></thead><tbody id="commentsGridBody"></tbody></table></div>
          </section>
          
          <section class="standardDiv" id="effort">
@@ -156,38 +157,13 @@
          
          <section class="standardDiv right" id="tasks">
          <h2>Tasks</h2>
-                 
+         <select id="taskSelector"></select>          
          
          </section>
          
          
          
-         <section class="headCard" id="expensesCard">	
-			<div class="cardHeader" id="expensesCardHeader"><div class="cardTitle">Expenses</div></div>
-       		<div class="textCard" id="expensesCardContent"></div>
-		</section>
-         
-         <section class="headCard" id="metainfoCard">
-         	<div class="cardHeader" id="metainfoCardHeader"><div class="cardTitle">Metainfo</div> </div>
-       		<div class="textCard" id="metainfoCardContent"><table id="reportInformation" summary="Report information"><tbody id="reportInformationBody"></tbody></table></div>
-		</section>
-			
-		<section class="headCard" id="editionCard">	
-			<div class="cardHeader" id="editionCardHeader"><div class="cardTitle">Add content to current report</div> </div>
-       		<div class="textCard" id="editionCardContent"></div>
-		</section>	
-		
-
-		
-		<section class="headCard" id="flagCard">	
-			<div class="cardHeader" id="flagCardHeader"><div class="cardTitle">Flags</div></div>
-       		<div class="textCard" id="flagCardContent"></div>
-		</section>	
-		
-		<section class="headCard wide" id="commentsCard">	
-			<div class="cardHeader" id="commentsCardHeader"><div class="cardTitle">Comment</div></div>
-       		<div class="textCard" id="commentsCardContent"></div>
-		</section>	
+      
 		
 		 </article>
         
