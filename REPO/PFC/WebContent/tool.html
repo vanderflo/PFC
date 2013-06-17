@@ -95,13 +95,39 @@
           <h2>The basics</h2>
           <div class="contentDiv"><table id="reportInformation" summary="Report information"><tbody id="reportInformationBody"></tbody></table></div>
          </section>
-          <section class="standardDiv" id="metainfo"></section>
          
-         <div class="line-separator"></div>
-         
+          <section class="standardDiv" id="editionReport">
+          	<ul class="menuEditionReport">
+          	  <li><a href="#" id="showStatusReport"><span>Status</span></a></li>
+			  <li><a href="#" class="active" id="showExpensesForm"><span>Add expenses</span></a></li>
+			  <li><a href="#" id="showFeedbackForm"><span>Add comment</span></a></li>
+			  <li><a href="#" id="showFlagForm"><span>Raise Flag</span></a></li>
+			</ul>
+          <div  id="editionReportForms">
+          <form id="addExpensesForm">
+          	<div class="field"><label for="name">Concept:</label>
+          		<select name="concept"><option value="travel" selected="selected">Travel</option><option value="equipment">Equipment</option><option value="outsourcing">Outsourcing</option></select><p class="hint">Choose expenses type</p></div>
+          	<div class="field"><label for="email">Amount:</label><input type="text" class="input" name="amount" id="amount" /><p class="hint">Specify amount</p></div>
+          	<div class="field"><label for="message">Description:</label><input type="text" class="input" name="description" id="description"><p class="hint">Describe expenses</p></div>
+          	<div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelExpenses">or CANCEL</a></div>
+          </form>
+          
+          <div class="statusContainer" id="statusReport"><button class="color blue button" id="editStatus" value="blocked">Block</button><button id="editStatus" class="color blue button" value="accepted">Accept</button><button id="editStatus" value="rejected" class="color blue button">Reject</button><button id="editStatus" class="color blue button" value="open">Open</button></div>
+          
+          <div class="statusContainer" id="addFlagForm"><p><span class="icon-hand-right"></span>&nbsp;Raise a red flag in case any blocking issue came up duerint this reporting period</p></div>
+          
+          
+          </div>
+          </section>
+                  
          <section class="standardDiv" id="expenses">
          <h2>Expenses</h2>
-         <div class="contentDiv"><table id="expensesGrid" summary="List of Expenses"><thead><tr><th class="thconcept">Concept</th><th class="thdescription">Description</th><th class="thamount">Amount</th></thead><tbody id="expensesGridBody"></tbody></table></div>
+         <div class="contentDiv"><table id="expensesGrid" summary="List of Expenses"><thead><tr><th class="thconcept">Concept</th><th class="thdescription">Description</th><th class="thamount">Amount</th></thead><tbody id="expensesGridBody"></tbody></table>
+         
+         
+         
+         
+         </div>
          </section>
          
          <section class="standardDiv" id="comments">

@@ -39,8 +39,8 @@
     		
     		
     		function showReport(partnerID,date,wpId,partnerName){
-    			$('#projectSection').empty();
-    			$('#taskSection').empty();
+    			$('#reportInformationBody').empty();
+    			$('#expensesGridBody').empty();
     			$('#addExpensesForm').hide();
     			currentPartner=partnerID;
     			currentReport=date;
@@ -59,12 +59,12 @@
 						var flag= $(this).children('flag').text().toLowerCase();
 						var explanation= $(this).children('explanation').text();
 						
-		    			$('#reportInformationBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Partner:</td><td class="tdvalue">'+partnerName+'</td></tr>');
-		    			$('#reportInformationBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Report Date:</td><td class="tdvalue">'+date+'</td></tr>');
-		    			$('#reportInformationBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Workpackage</td><td class="tdvalue">'+reportWP+'</td></tr>');
-		    			$('#reportInformationBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Total Effort</td><td class="tdvalue">1 month</td></tr>');
-		    			$('#reportInformationBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Status</td><td class="tdvalue"> '+status+'</td></tr>');
-		    			$('#reportInformationBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Last Update</td><td class="tdvalue"> '+lastupdate+'</td></tr>');
+		    			$('#reportInformationBody').append('<tr><td class="tdfield">Partner:</td><td class="tdvalue">'+partnerName+'</td></tr>');
+		    			$('#reportInformationBody').append('<tr><td class="tdfield">Report Date:</td><td class="tdvalue">'+date+'</td></tr>');
+		    			$('#reportInformationBody').append('<tr><td class="tdfield">Workpackage</td><td class="tdvalue">'+reportWP+'</td></tr>');
+		    			$('#reportInformationBody').append('<tr><td class="tdfield">Total Effort</td><td class="tdvalue">1 month</td></tr>');
+		    			$('#reportInformationBody').append('<tr><td class="tdfield">Status</td><td class="tdvalue"> '+status+'</td></tr>');
+		    			$('#reportInformationBody').append('<tr><td class="tdfield">Last Update</td><td class="tdvalue"> '+lastupdate+'</td></tr>');
 
 
 						$(this).find('expenses').each(function(){
@@ -76,18 +76,16 @@
 			    			$('#expensesGridBody').append(st);
 
 						});
-						$('.expensesSection').append('<h5><a id="addExpenses"><span class="icon-plus"></span>&nbsp;Click here to add more expenses</a></h5>');
-						$('.expensesSection').append('<form id="addExpensesForm"><div class="field"><label for="name">Concept:</label><input type="radio" name="concept" id="concept" value="travel">Travel<br><input type="radio" name="concept" id="concept" value="equipment">Equipment<br><p class="hint">Choose expenses type</p></div><div class="field"><label for="email">Amount:</label><input type="text" class="input" name="amount" id="amount" /><p class="hint">Specify amount</p></div><div class="field"><label for="message">Description:</label><input type="text" class="input" name="description" id="description"><p class="hint">Describe expenses</p></div><div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelExpenses">or CANCEL</a></div></form>');
 						
-						$('#projectSection').append('<h3><span class="icon-flag"></span>&nbsp;Flag</h3>');
-						$('#projectSection').append('<div id="flagContainer" class="subsection"><p><span class="icon-hand-right"></span>&nbsp;Raise a red flag in case any blocking issue came up duerint this reporting period</p></div>');
 						if(flag=="red"){
-						$('#flagContainer').append('<div class="statusContainer"><button class="button" id="editflag" color="green">GREEN FLAG</button><button class="color red button">RED FLAG</button></div>');
+						$('#addFlagForm').append('<div class="statusContainer"><button class="button" id="editflag" color="green">GREEN FLAG</button><button class="color red button">RED FLAG</button></div>');
 						}else{
-							$('#flagContainer').append('<div class="statusContainer"><button class="color green button">GREEN FLAG</button><button class="button" id="editflag" color="red">RED FLAG</button></div>');
+							$('#addFlagForm').append('<div class="statusContainer"><button class="color green button">GREEN FLAG</button><button class="button" id="editflag" color="red">RED FLAG</button></div>');
 						}
-						$('#flagContainer').append('<h4><span class="icon-edit">&nbsp;</span> Explanation/Comments</h4><h5 class="editTextArea" id="explanation">'+explanation+'</h5>');
+						$('#addFlagForm').append('<h4><span class="icon-edit">&nbsp;</span> Explanation/Comments</h4><h5 class="editTextArea" id="explanation">'+explanation+'</h5>');
 
+						
+						
 						$('#projectSection').append('<h3><span class="icon-comments"></span>&nbsp;Status and Feedback</h3>');
 						$('#projectSection').append('<div id="statusContainer" class="subsection"><p><span class="icon-hand-right"></span>&nbsp;Explanation of the statuses</p></div>');
 						$('#statusContainer').append('<div class="statusContainer"><button class="color blue button" id="editStatus" value="blocked">Block</button><button id="editStatus" class="color blue button" value="accepted">Accept</button><button id="editStatus" value="rejected" class="color blue button">Reject</button><button id="editStatus" class="color blue button" value="open">Open</button></div>');
@@ -129,9 +127,9 @@
     			$('#reportContainer').hide();
     			$('#topArticleContainer').show();
     			if (currentview=="w"){
-    			$('#topArticle').append('<h2><span class="icon-list-ul"></span>&nbsp;List of Reports for Workpackage: '+displayName+'</h2>');
+    			$('#topArticle').append('<h1><span class="icon-list-ul"></span>&nbsp;List of Reports for Workpackage: '+displayName+'</h1>');
     			}else if (currentview=="p"){
-        		$('#topArticle').append('<h2><i class="icon-list-ul"></i>&nbsp;List of Reports for Partner: '+displayName+'</h2>');
+        		$('#topArticle').append('<h1><i class="icon-list-ul"></i>&nbsp;List of Reports for Partner: '+displayName+'</h1>');
     			}
     			$('#topArticle').append('<div class="tableHeader"><table id="reportGrid" summary="List of Reports"><thead><tr><th class="thstatus">Status</th><th class="thdate">Date</th><th class="thpartner">Partner</th><th class="thwp">Workpackage</th><th class="theffort">Effort</th><th class="thlastupdate">Last Update</th><th class="thflag">Flag</th></tr></thead><tbody id="reportGridBody"></tbody></table></div>');
     			$(xmlReport).find('subreport').each(function(){
@@ -154,9 +152,17 @@
 					});
      		}
      		
-     	    $( "#addExpenses" ).live("click", function(e) {
+     	    $( "#showExpensesForm" ).live("click", function(e) {
+     	      $( "#statusReport" ).slideToggle();
      	      $( "#addExpensesForm" ).slideToggle();
-     	      });
+     	    });
+     	    
+     	    $( "#showFlagForm" ).live("click", function(e) {
+       	      $( "#statusReport" ).hide();
+       	      $( "#addExpensesForm" ).hide();
+       	      $( "#addFlagForm" ).show(1000);
+       	      
+       	    });
      	    
      	    $( "#cancelExpenses" ).live("click", function(e) {
       	      $( "#addExpensesForm" ).slideToggle();
