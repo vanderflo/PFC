@@ -20,9 +20,10 @@
     	var currentReport;
     	var currentPartnerName;
     	var currentview;
+    	var plot1;
         // When document ready, call initMenu() function     	
         $(document).ready(function() { 
-        	var plot1=$.jqplot('chart2', [[[67,1]],[[32,1]],[[10,1]]], {
+        	plot1=$.jqplot('chart2', [[[67,1]],[[32,1]],[[10,1]]], {
                 seriesDefaults: {
                     renderer:$.jqplot.BarRenderer, pointLabels: { show: true, location: 'e', edgeTolerance: -15 },
                     shadowAngle: 135,rendererOptions: {	barDirection: 'horizontal'}

@@ -129,12 +129,15 @@
 						$('#effortTaskList').append(listOfTasks);
 						$('#tasks').append(tasksDivs);
 						
-						plot1=$.jqplot('chart2', [[[68,1]],[[22,1]],[[11,1]]]);
-						plot1.replot();
+						plot1.series[0].data=[[wpEffort,1]];
+						plot1.series[1].data=[[currentEffort,1]];
+						plot1.series[2].data=[[12,1]];
+					
 						
 						}
 					});
-    	        $('#reportArticle').show();    			
+    	        $('#reportArticle').show();
+    	        plot1.replot();
     		}
     		
     		
