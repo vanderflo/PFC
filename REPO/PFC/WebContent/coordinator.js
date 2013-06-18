@@ -96,18 +96,18 @@
 
 						
 
-						var listOfTasks="";
+						var listOfTasks="<option>Select Task</option>";
 						var tasksDivs="";
 						$('#taskSelector').empty();
-						$('#tasks .contentDiv').empty();
+						$('#tasks .contentDiv').remove();
 						$(this).find('task').each(function(){
 							var taskTitle = $(this).attr("title");
 							var taskId = $(this).attr("id");
 							var work= $(this).children('work').text();	
 							var result= $(this).children('result').text();
 							
-							tasksDivs=tasksDivs+('<div class="contentDiv" id="tId_'+taskId+'"><h6 class="editTask" id="work" taskid="'+taskId+'">'+work+'</h6><h6 class="editTask" id="result" taskid="'+taskId+'">'+result+'</h6><table id="effortGrid" summary="List of Effort"><thead><tr><th class="thperson">Team member</th><th class="theeffort">Effort</th></tr></thead><tbody id="effortGridBody_'+taskId+'">');
-							listOfTasks=listOfTasks+('<option value="'+taskId+'">'+taskTitle+'</option>');							
+							tasksDivs=tasksDivs+('<div class="contentDiv taskReport" id="tId_'+taskId+'"><h6 class="editTask" id="work" taskid="'+taskId+'">'+work+'</h6><h6 class="editTask" id="result" taskid="'+taskId+'">'+result+'</h6><table id="effortGrid" summary="List of Effort"><thead><tr><th class="thperson">Team member</th><th class="theeffort">Effort</th></tr></thead><tbody id="effortGridBody_'+taskId+'">');
+							listOfTasks=listOfTasks+('<option  value="'+taskId+'">'+taskTitle+'</option>');							
 						
 							$(this).children('effort').each(function(){
 								var effort= $(this).children('effortperperson').text();							
@@ -123,6 +123,7 @@
 						});	
 						$('#taskSelector').append(listOfTasks);
 						$('#tasks').append(tasksDivs);
+						console.log(tasksDivs);
 						
 						}
 					});
@@ -216,7 +217,11 @@
      	      $( "#addEffortForm" ).slideToggle();
        	    });
      	    
-     	    
+     	   $( "#taskSelector" ).live("change", function(e) {
+     		  var tId=$(this).attr("value");
+     		  $("[id^=tId]").hide();
+     		  $("#tId_"+tId).show();
+     		  });
      	    
      	    $( "#cancelExpenses" ).live("click", function(e) {
       	      $( "#addExpensesForm" ).slideToggle();

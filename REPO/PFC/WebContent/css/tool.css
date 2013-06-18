@@ -950,6 +950,7 @@ form[id*='addPartnerTo']{
 	border: 1px solid #d4d4d4;
 	background-image: -webkit-linear-gradient( #ecfcd2 , #ffffff 50px);
 	background-image: linear-gradient( #ecfcd2 , #ffffff 50px);
+	
 }
 
 .tableCaption
@@ -975,7 +976,10 @@ height:250px;
 #metainfo,#editionReport{
 height:200px;
 }
-
+#editionReport{
+background-image: linear-gradient( #ecfcd2 , #a0bf61 250px);
+	
+}
 
 
 .contentDiv{
@@ -1013,9 +1017,13 @@ border-bottom: solid 1px;
 #taskSelector{
 border-radius: 5px 5px 5px 5px;	
 }
+
+.contentDiv.taskReport{
+	display:none;
+}
 /* Generated via www.cssmenubuilder.com */
 
-.menuEditionReport{margin:0 auto; padding:0; height:30px; width:100%; display:block;border-spacing: 0;border-collapse: collapse;}
+.menuEditionReport{margin:0 auto; padding:0; height:30px; width:100%;border-spacing: 0;border-collapse: collapse;}
 .menuEditionReport th{text-align:center;margin:0; list-style:none;width:20%;padding-left:10px; padding-right:10px;border-right: solid 1px; border-left: solid 1px; cursor:pointer;color:#617f10; text-decoration:none; font:12px Verdana, Arial, Helvetica, sans-serif;}
 .menuEditionReport th:hover{background-position:0px -60px; color:rgb(255,255,255);}
 .menuEditionReport th.active, .menuEditionReport th a.active:hover{line-height:30px; font:12px Verdana, Arial, Helvetica, sans-serif; color:rgb(255,255,255);}

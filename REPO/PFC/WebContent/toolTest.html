@@ -4,6 +4,7 @@
 <link rel="stylesheet" type="text/css" href="css/tool.css" />
 <link href=" http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/themes/base/jquery-ui.css" rel="Stylesheet">
 <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="css/jquery.jqplot.min.css" />
 <script type="text/javascript" src="jquery-1.8.2.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/jquery-ui.min.js"></script>
 <script type="text/javascript" src="http://www.appelsiini.net/download/jquery.jeditable.js"></script>
@@ -13,6 +14,51 @@
 
 </head>
 <body>
+<script class="include" type="text/javascript" src="js/jquery.jqplot.min.js"></script>
+<script type="text/javascript" src="js/syntaxhighlighter/scripts/shCore.min.js"></script>
+<script type="text/javascript" src="js/syntaxhighlighter/scripts/shBrushJScript.min.js"></script>
+<script type="text/javascript" src="js/syntaxhighlighter/scripts/shBrushXml.min.js"></script><script type="text/javascript" src="js/jqplot.barRenderer.min.js"></script>
+<script type="text/javascript" src="js/jqplot.categoryAxisRenderer.min.js"></script>
+<script type="text/javascript" src="js/jqplot.pointLabels.js"></script>
+<script>
+$(document).ready(function(){
+    // For horizontal bar charts, x an y values must will be "flipped"
+    // from their vertical bar counterpart.
+    var plot2 = $.jqplot('chart2', [
+        [[67,1]], 
+        [[32,1]], 
+        [[12,1]]], {
+        seriesDefaults: {
+            renderer:$.jqplot.BarRenderer,
+            // Show point labels to the right ('e'ast) of each bar.
+            // edgeTolerance of -15 allows labels flow outside the grid
+            // up to 15 pixels.  If they flow out more than that, they 
+            // will be hidden.
+            pointLabels: { show: true, location: 'e', edgeTolerance: -15 },
+            // Rotate the bar shadow as if bar is lit from top right.
+            shadowAngle: 135,
+            // Here's where we tell the chart it is oriented horizontally.
+            rendererOptions: {
+                barDirection: 'horizontal'
+            }
+        },
+        series:[
+                {label:'Hotel'},
+                {label:'Event Regristration'},
+                {label:'Airfare'}
+            ],
+        legend: {
+            show: true,
+            placement: 'outside'
+        },
+        axes: {
+            yaxis: {
+                renderer: $.jqplot.CategoryAxisRenderer
+            }
+        }
+    });
+});
+</script>
 <header>
     <hgroup class="clearfix"> 
        <h1><span class="icon-list-ul"></span>&nbsp;r3portool</h1>
@@ -50,47 +96,16 @@
     
     <div id="content">
 
-        <article id="cardsContainer">
-        <h1>Work Report</h1>
-         <section class="headCard" id="metainfoCard">
-         <div class="cardHeader" style="background-color: #dde">Hardware implementation</div>
-       	 <div class="textCard" id="metainfoCardContent"><table id="reportInformation" summary="Report information"><tbody id="reportInformationBody"><tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Partner:</td><td class="tdvalue">UC3M</td></tr><tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Report Date:</td><td class="tdvalue">2012-09-20</td></tr><tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Workpackage</td><td class="tdvalue">HARDWARE</td></tr><tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Total Effort</td><td class="tdvalue">1 month</td></tr><tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Status</td><td class="tdvalue"> Sent</td></tr></tbody></table></div>
-		</section>
-		 
-		  <section class="headCard" style="float:right" >
-         <div class="cardHeader" style="background-color: #dde"><div class="cardTitle">Software implementation</div>
-         <div class="task_tab">WORKPACKAGE</div>         
-       	 </div>
-		 <p>aaa<br>aaa<br>aaa</p>
-		 </section>
-		 
-		 		 <section class="headCard" style="width:100%" >
-         <div class="cardHeader2" >Software implementation
-       	 </div>
-       	 <div class="textCard"><p>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br>aaa<br></p></div>
-       	  </section>
-		 
-		 <h1>Tasks</h1>
-		 <section class="headCard" >
-         <div class="cardHeader" style="background-color: #f1f1f1;color:black">Software implementation
-       	 </div>
-       	 <p>aaa<br>aaa<br>aaa</p>
-       	  </section>
-		 
-		 <section class="headCard" style="float:right">
-         <div class="cardHeader2" >Software implementation
-       	 </div>
-       	 <p>aaa<br>aaa<br>aaa</p>
-       	  </section>
-
+		<article>
+		         <section class="standardDiv" id="effort">
+         <h2>Effort</h2>
+    	<div id="chart2" style="width:400px; height:200px;"></div>
+		<pre class="code brush: js"></pre>
+	    </section>
 		
         </article>
         
-        <article id="reportArticle">
-	        <section id="projectSection"></section> 
-			<section id="taskSection"></section>
-			
-        </article>
+
         
         
         
