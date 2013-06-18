@@ -7,6 +7,8 @@ import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
+import java.util.ListIterator;
 import java.util.Vector;
 
 import java.util.Iterator;
@@ -16,6 +18,8 @@ import com.reportingtool.utils.*;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
+import org.jdom2.Namespace;
+import org.jdom2.filter.ElementFilter;
 import org.jdom2.filter.Filters;
 import org.jdom2.input.SAXBuilder;
 
@@ -351,12 +355,24 @@ public class Report {
 							effort.addContent(eEffort);
 							taskObject.addContent(effort);
 							System.out.println("Report - Task modified, field "+field+" value "+value);
-
+							//Get all efforperperson and sum them 
 						}
 						break;
 					}
 				}
+				Namespace ns = doc.getRootElement().getNamespace();
+			    ElementFilter ef = new ElementFilter("effortperperson", ns);
+				int effortcount=0;
+				Iterator<Element> items = eObject.getDescendants(ef);					
+					while(items.hasNext()){
+						Element el = (Element) items.next ();
+						int i=Integer.parseInt(el.getText());
+					    effortcount=effortcount+i;
+					    System.out.println("Effort: "+effortcount);
+					}				
+				eObject.getChild("currentEffort").setText(String.valueOf(effortcount));
 				eObject.getChild("lastupdate").setText(Commons.getDate());
+				//update currenteffort
 				break;
 			}						
 		}

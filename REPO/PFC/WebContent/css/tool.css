@@ -41,8 +41,7 @@ body{
 }
 
 header{
-    background-color: #71A389;
-    background-image: linear-gradient(top, #6f3736, #4c2626);  
+    background-color: #000000;
     box-shadow: 0 1px 0 #fff, 0 -3px 3px #000 inset;
     
 }
@@ -55,10 +54,9 @@ header hgroup{
 header h1{
     margin: 0;
     font: 25px/1 'Luckiest Guy', cursive; /* Google font API */
-    float: left;
-    text-shadow: 0 1px 0 rgba(0,0,0,.9);
-    color:yellow;
-    padding: 10px;       
+    float: left;    
+    color:white;
+    padding: 8px;       
 }
 
 h6{
@@ -574,7 +572,6 @@ border-width:1px;
 width: 100%;
 text-align: center;
 vertical-align: middle;
-margin-bottom:15px;
 }
 
 /*Table report grid*/
@@ -802,7 +799,6 @@ margin-top: 0;
 
 
 .icon-flag-green:before{
-width:18px;
 display:inline-block;
 content:"\F024";
 color:green;
@@ -902,6 +898,9 @@ form[id*='addPartnerTo']{
     border: 1px solid #b9bdc1;
     width: 300px;
     color: #797979;
+    border-radius: 5px;
+	background-color: #ecfcd2;
+	height: 25px;
     }
     
 #addExpensesForm .hint, form[id*='add'] .hint{
@@ -969,12 +968,12 @@ float:right;
 }
 
 
-#effort,#tasks,#expenses,#comments{
+#effortSection,#tasks,#expenses,#comments{
 height:250px;
 }
 
 #metainfo,#editionReport{
-height:200px;
+height:220px;
 }
 #editionReport{
 background-image: linear-gradient( #ecfcd2 , #a0bf61 250px);
@@ -1021,10 +1020,35 @@ border-radius: 5px 5px 5px 5px;
 .contentDiv.taskReport{
 	display:none;
 }
+
+#addFeedbackExplanation{
+	display:block;
+	text-align:center;
+}
+
+#addFeedbackCommentForm{
+	text-align:center;
+}
+
+.formHeader{
+color: #666;
+font-size: 12px;
+line-height: 12px;
+margin-bottom: 10px;
+margin-top: 15px;
+text-align: center;
+font-weight: bold;
+font-family: arial;
+}
+
+#flagTitle{
+float:right;
+font-size:70%;
+}
 /* Generated via www.cssmenubuilder.com */
 
 .menuEditionReport{margin:0 auto; padding:0; height:30px; width:100%;border-spacing: 0;border-collapse: collapse;}
-.menuEditionReport th{text-align:center;margin:0; list-style:none;width:20%;padding-left:10px; padding-right:10px;border-right: solid 1px; border-left: solid 1px; cursor:pointer;color:#617f10; text-decoration:none; font:12px Verdana, Arial, Helvetica, sans-serif;}
+.menuEditionReport th{text-align:center;margin:0; list-style:none;width:19%;padding-left:10px; padding-right:10px;border-right: solid 1px; border-left: solid 1px; cursor:pointer;color:#617f10; text-decoration:none; font:12px Verdana, Arial, Helvetica, sans-serif;}
 .menuEditionReport th:hover{background-position:0px -60px; color:rgb(255,255,255);}
 .menuEditionReport th.active, .menuEditionReport th a.active:hover{line-height:30px; font:12px Verdana, Arial, Helvetica, sans-serif; color:rgb(255,255,255);}
 .menuEditionReport th.active span, .menuEditionReport th a.active:hover span{background-color:green;}

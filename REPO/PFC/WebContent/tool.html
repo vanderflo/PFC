@@ -9,12 +9,10 @@
 <script type="text/javascript" src="http://www.appelsiini.net/download/jquery.jeditable.js"></script>
 <script type="text/javascript" src="initCoordinatorMenu.js"></script>
 <link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/jquery.jqplot.min.css" />
+
 
 <script>
-
-		
-
-        //var xmlReport;
         var currentProject="Test1";
     	var currentPartner;
     	var currentWP;
@@ -22,10 +20,17 @@
     	var currentReport;
     	var currentPartnerName;
     	var currentview;
-		//var formExpenses='<div id="addExpensesContainer"><h4><span class="icon-edit">&nbsp;</span> Add expenses</h4><form id="addExpensesForm"><input type="text" placeholder="Concept" name="concept" class="thconcept"><input type="text" placeholder="Description" name="description" class="thdescription"><input type="text" placeholder="Amount" name="amount" class="thamount"><input type="submit" value="Submit"></form></div>';
-
         // When document ready, call initMenu() function     	
-        $(document).ready(function() {  		
+        $(document).ready(function() { 
+        	var plot1=$.jqplot('chart2', [[[67,1]],[[32,1]],[[10,1]]], {
+                seriesDefaults: {
+                    renderer:$.jqplot.BarRenderer, pointLabels: { show: true, location: 'e', edgeTolerance: -15 },
+                    shadowAngle: 135,rendererOptions: {	barDirection: 'horizontal'}
+                },
+                series:[{label:'Hotel'},{label:'Event Regristration'},{label:'Airfare'}],
+                legend: {show: true,placement: 'outside'},
+                axes: {yaxis: {renderer: $.jqplot.CategoryAxisRenderer}}
+    		});
         initSearchBox();	
     	$.getScript("jEditableSelectors.js");
 		$('#topArticleContainer').hide();
@@ -36,11 +41,17 @@
 		$('#menu').hide();
         $.getScript("coordinator.js");
         $.getScript("projectview.js");
-
+        
         });    
     </script>
 </head>
 <body>
+<script class="include" type="text/javascript" src="js/jquery.jqplot.min.js"></script>
+<script type="text/javascript" src="js/syntaxhighlighter/scripts/shCore.min.js"></script>
+<script type="text/javascript" src="js/syntaxhighlighter/scripts/shBrushJScript.min.js"></script>
+<script type="text/javascript" src="js/syntaxhighlighter/scripts/shBrushXml.min.js"></script><script type="text/javascript" src="js/jqplot.barRenderer.min.js"></script>
+<script type="text/javascript" src="js/jqplot.categoryAxisRenderer.min.js"></script>
+<script type="text/javascript" src="js/jqplot.pointLabels.js"></script>
 <header>
     <hgroup class="clearfix"> 
        <h1><span class="icon-list-ul"></span>&nbsp;r3portool</h1>
@@ -90,7 +101,7 @@
         
         <article id="reportArticle">
         
-	     <h1>Work Report</h1>
+	     <h1 id="reportTitle">Work Report<span id="flagTitle">&nbsp;&nbsp;&nbsp;&nbsp;</span></h1>
          <section class="standardDiv" id="metainfo">
           <h2>The basics</h2>
           <div class="contentDiv"><table id="reportInformation" summary="Report information"><tbody id="reportInformationBody"></tbody></table></div>
@@ -102,14 +113,16 @@
           	<thead><tr>
           	  <th class="active" id="showStatusReport">Status</th>
 			  <th id="showExpensesForm">Add expenses</th>
-			  <th id="showFeedbackForm">Add comment</th>
+			  <th id="showFeedbackForm">Comment</th>
 			  <th id="showFlagForm">Raise Flag</th>
 			  <th id="showEffortForm">Add effort</th>
 			</tr></thead>
 			</table>
+			
           <div  id="editionReportForms">
           
           <form id="addExpensesForm">
+          <div class="formHeader">Record new expenses, specifying Type, Amount and a brief explanation</div>
           	<div class="field"><label for="name">Concept:</label>
           		<select name="concept"><option value="travel" selected="selected">Travel</option><option value="equipment">Equipment</option><option value="outsourcing">Outsourcing</option></select><p class="hint">Choose expenses type</p></div>
           	<div class="field"><label for="email">Amount:</label><input type="text" class="input" name="amount" id="amount" /><p class="hint">Specify amount</p></div>
@@ -117,26 +130,30 @@
           	<div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelExpenses">or CANCEL</a></div>
           </form>
           
-           <form id="addCommentsForm">
-           <h5 class="editTextArea" id="feedback">Add feedback</h5>
-          </form>
+           <form id="addFeedbackCommentForm">
+           		<div class="formHeader">Use this form to add any relevant comment related to this report period's work</div>
+           		<div class="field"><input type="text" class="input" name="value" id="value" /><input type="hidden" name="id" value="comment"></div>    	
+		   		<div class="field"><input type="submit" name="Submit" class="button" value="Submit" /></div>
+		   	</form>
+         
           
            <form id="addEffortForm">
+          	<div class="formHeader">Select task and assign add a new effort entry</div>
           	<div class="field"><label for="name">Type:</label>
-          		<select name="concept" id="effortTaskList"></select><p class="hint">Choose Task to assig effort to</p></div>
-          	<div class="field"><label for="person">Team member:</label><input type="text" class="input" name="person" id="person" /><p class="hint">Specify team member</p></div>          	
-          	<div class="field"><label for="effort">Effort:</label><input type="text" class="input" name="effort" id="effort" /><p class="hint">Effort (days)</p></div>          	
+          		<select name="taskid" id="effortTaskList"></select><p class="hint">Choose Task to assign effort to</p></div>
+          	<div class="field"><label for="person">Team member:</label><input type="text" class="input" name="id" id="person" /><p class="hint">Specify team member</p></div>          	
+          	<div class="field"><label for="effort">Effort:</label><input type="text" class="input" name="value" id="effort" /><p class="hint">Effort (days)</p></div>          	
           	<div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /></div>
           </form>
           
-          <div class="statusContainer" id="statusReport"><a>Accept or reject the report. A comment can be added to the action taken.</a><br>
-          <button class="color blue button" id="editStatus" value="blocked">Block</button><button id="editStatus" class="color blue button" value="accepted">Accept</button><button id="editStatus" value="rejected" class="color blue button">Reject</button><button id="editStatus" class="color blue button" value="open">Open</button>
-          <h5 class="editTextArea" id="comment">Add comment</h5>
-          
+           <div class="statusContainer" id="statusReport">
+	          <div class="formHeader">In case report is rejected, please add a comment and explain the reason(s)</div>
+	          <button class="color blue button" id="editStatus" value="blocked">Block</button><button id="editStatus" class="color blue button" value="accepted">Accept</button><button id="editStatus" value="rejected" class="color blue button">Reject</button><button id="editStatus" class="color blue button" value="open">Open</button>
           </div>
           
-          <div class="statusContainer" id="addFlagForm"><p><span class="icon-hand-right"></span>&nbsp;Raise a red flag in case any blocking issue came up during this reporting period</p></div>
-           </div>
+          <div class="statusContainer" id="addFlagForm"></div>
+          
+          </div>
           </section>
                   
          <section class="standardDiv" id="expenses">
@@ -150,9 +167,11 @@
          <div class="contentDiv"><table id="commentsGrid" summary="List of Comments"><thead><tr><th class="thconcept">Type</th><th class="thdescription">Text</th><th class="thamount">Date</th></thead><tbody id="commentsGridBody"></tbody></table></div>
          </section>
          
-         <section class="standardDiv" id="effort">
+         <section class="standardDiv" id="effortSection">
          <h2>Effort</h2>
-         <div class="contentDiv"><table id="expensesGrid" summary="Effort"><thead><tr><th class="thconcept">Concept</th><th class="thdescription">Description</th><th class="thamount">Amount</th></thead><tbody id="expensesGridBody"></tbody></table></div>
+         <div class="contentDiv"><div id="chart2" style="width:400px; height:200px;"></div>
+		 <pre class="code brush: js"></pre>
+		</div>
          </section>
          
          <section class="standardDiv right" id="tasks">

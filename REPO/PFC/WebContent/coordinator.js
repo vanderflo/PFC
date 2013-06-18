@@ -50,14 +50,19 @@
 					var reportWP=$(this).attr("WP");
 					var reportWPID=$(this).attr("WPID");
 					var partnerWP=$(this).attr("partner");
-					var reportDate=$(this).attr("date");
+					var reportDate=$(this).attr("date");					
+					
 						if(partnerID == partnerWP && reportWPID == wpId && reportDate==date){
 
 						var status= $(this).children('status').text();	
 						var lastupdate= $(this).children('lastupdate').text();
-						var feedback= $(this).children('feedback').text();	
 						var flag= $(this).children('flag').text().toLowerCase();
 						var explanation= $(this).children('explanation').text();
+						var currentEffort=$(this).children('currentEffort').text();
+						var wpEffort=$(this).children('wpEffort').text();
+						
+						$('#flagTitle').removeClass();
+						$('#flagTitle').addClass('icon-flag-'+flag);
 						
 		    			$('#reportInformationBody').append('<tr><td class="tdfield">Partner:</td><td class="tdvalue">'+partnerName+'</td></tr>');
 		    			$('#reportInformationBody').append('<tr><td class="tdfield">Report Date:</td><td class="tdvalue">'+date+'</td></tr>');
@@ -87,12 +92,14 @@
 						
 						
 						$('#addFlagForm').empty();
+						$('#addFlagForm').append('<div class="formHeader">Raise a Red flag in case you find a blocking issue on this report period</div>');
 						if(flag=="red"){
 						$('#addFlagForm').append('<div class="statusContainer"><button class="button" id="editflag" color="green">GREEN FLAG</button><button class="color red button">RED FLAG</button></div>');
+						$('#addFlagForm').append('<div class="formHeader">Explain the reason(s) for this Red Flag</div>');
+						$('#addFlagForm').append('<form id="addFeedbackExplanation"><div class="field"><input type="text" class="input" name="value" id="value" /><p class="hint">Explain the reasons for raising a red flag</p></div><input type="hidden" name="id" value="explanation"><div class="field"><input type="submit" name="Submit" class="button" value="Submit" /></div></form>');
 						}else{
 							$('#addFlagForm').append('<div class="statusContainer"><button class="color green button">GREEN FLAG</button><button class="button" id="editflag" color="red">RED FLAG</button></div>');
 						}
-						$('#addFlagForm').append('<h4><span class="icon-edit">&nbsp;</span> Explanation/Comments</h4><h5 class="editTextArea" id="explanation">'+explanation+'</h5>');
 
 						
 
@@ -116,19 +123,20 @@
 								tasksDivs=tasksDivs+(st);
 								$('#effortGridBody_'+taskId).append(st);
 							});
-							tasksDivs=tasksDivs+('</tbody></table></div>');
-							console.log(tasksDivs);
-							
-							$('.effortSection_').append('<form id="addEffortForm_'+taskId+'"><div class="field"><label for="member">Team Member:</label><input type="text" class="input" name="id" id="member" /><p class="hint">Effort</p></div><div class="field"><label for="effortpp">Effort:</label><input type="text" class="input" name="value" id="effortpp"><p class="hint">Effort</p></div><div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="hidden" name="taskid" value="'+taskId+'"><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelEffort" taskid="'+taskId+'">or CANCEL</a></div></form>');
+							tasksDivs=tasksDivs+('</tbody></table></div>');							
 						});	
 						$('#taskSelector').append(listOfTasks);
+						$('#effortTaskList').append(listOfTasks);
 						$('#tasks').append(tasksDivs);
-						console.log(tasksDivs);
+						
+						plot1=$.jqplot('chart2', [[[68,1]],[[22,1]],[[11,1]]]);
+						plot1.replot();
 						
 						}
 					});
     	        $('#reportArticle').show();    			
     		}
+    		
     		
      		function showListOfReports(displayName,id,currentview){
      			$('#topArticle').empty();
@@ -172,31 +180,31 @@
      		
      	    $( "#showExpensesForm" ).live("click", function(e) {
      	      $( "#statusReport" ).hide();
-     	      $( "#addCommentsForm" ).hide();
+     	      $( "#addFeedbackCommentForm" ).hide();
      	      $( "#addFlagForm" ).hide();
      	      $( "#addEffortForm" ).hide();
      	      toggleActive();
-     	      $( "#addExpensesForm" ).slideToggle();
+     	      $( "#addExpensesForm" ).show();
      	    });
      	    
      	    
      	    
      	    $( "#showFlagForm" ).live("click", function(e) {
        	      $( "#statusReport" ).hide();
-     	      $( "#addCommentsForm" ).hide();
+     	      $( "#addFeedbackCommentForm" ).hide();
      	      $( "#addExpensesForm" ).hide();
      	      $( "#addEffortForm" ).hide();
      	      toggleActive();
-     	      $( "#addFlagForm" ).slideToggle();     	      
+     	      $( "#addFlagForm" ).show();     	      
        	    });
      	    
      	    $( "#showStatusReport" ).live("click", function(e) {         	  
-       	      $( "#addCommentsForm" ).hide();
+       	      $( "#addFeedbackCommentForm" ).hide();
        	      $( "#addFlagForm" ).hide();
        	      $( "#addExpensesForm" ).hide();
        	      $( "#addEffortForm" ).hide();
        	      toggleActive();
-       	      $( "#statusReport" ).slideToggle();
+       	      $( "#statusReport" ).show();
          	    });
      	    
      	    $( "#showFeedbackForm" ).live("click", function(e) {
@@ -205,16 +213,16 @@
        	      $( "#addExpensesForm" ).hide();
        	      $( "#addEffortForm" ).hide();
        	      toggleActive();
-       	      $( "#addCommentsForm" ).slideToggle();
+       	      $( "#addFeedbackCommentForm" ).show();
          	    });
      	    
      	    $( "#showEffortForm" ).live("click", function(e) {
            	  $( "#statusReport" ).hide();
      	      $( "#addFlagForm" ).hide();
      	      $( "#addExpensesForm" ).hide();
-     	      $( "#addCommentsForm" ).hide();
+     	      $( "#addFeedbackCommentForm" ).hide();
      	      toggleActive();
-     	      $( "#addEffortForm" ).slideToggle();
+     	      $( "#addEffortForm" ).show();
        	    });
      	    
      	   $( "#taskSelector" ).live("change", function(e) {
@@ -270,11 +278,43 @@
    		        complete: function(){
    		        	updateView();
    		        }
-   		    });
-   		
+   		    });   		
    		    // prevent default posting of form
    		    event.preventDefault();
    		});//END send Info
+     	   
+     	  $("[id^=addFeedback]").live(
+      			  "submit",
+      		function( event ){
+      		var $form = $(this),
+        		$inputs = $form.find("id,value"),
+            	serializedData = $form.serialize();
+    		    // let's disable the inputs for the duration of the ajax request
+    		    $inputs.attr("disabled", "disabled");
+    		    $.ajax({
+    		        url: "http://localhost:8080/PFC/rest/API/report/edit/"+currentProject+"/"+currentWP+"/"+currentPartner+"/"+currentReport,
+    		        type: "post",
+    		        data: serializedData,
+    		        // callback handler that will be called on success
+    		        success: function(response, textStatus, jqXHR){
+    		            // log a message to the console
+    		        console.log("Expenses added");	        
+    		      
+    		        },
+    		        // callback handler that will be called on error
+    		        error: function(jqXHR, textStatus, errorThrown){
+    		            // log the error to the console
+    		            console.log(
+    		                "The following error occured: "+
+    		                textStatus, errorThrown
+    		            );
+    		        },
+    		        complete: function(){
+    		        	updateView();
+    		        }
+    		    });   		
+    		    event.preventDefault();
+    		});//END send Info   
      	   
      	 
      	  $("[id^=addEffortForm]").live(
@@ -283,13 +323,8 @@
      		var $form = $(this),
        		$inputs = $form.find("id, value"),
            	serializedData = $form.serialize();
-     		
      		var taskId=$(this).find('[name=taskid]').val();
-     		
- 
-
-       		
-   		    $inputs.attr("disabled", "disabled");
+     		 $inputs.attr("disabled", "disabled");
    		    $.ajax({
    		        url: "http://localhost:8080/PFC/rest/API/task/edit/"+currentProject+"/"+currentWP+"/"+currentPartner+"/"+currentReport+"/"+taskId,
    		        type: "post",
@@ -297,7 +332,10 @@
    		        // callback handler that will be called on success
    		        success: function(response, textStatus, jqXHR){
    		            // log a message to the console
-   		        console.log("Expenses added");	        
+   		        console.log("Expenses added");
+   		     $('form').each(function() {
+   	            this.reset();
+   	        });
    		      
    		        },
    		        // callback handler that will be called on error
@@ -310,10 +348,9 @@
    		        },
    		        complete: function(){
    		        	updateView();
+   		        	alert("Effort recorded successfully");
    		        }
-   		    });
-   		
-   		    // prevent default posting of form
+   		    });   		
    		    event.preventDefault();
    		});//END send Info
      	  
