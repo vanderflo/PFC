@@ -635,11 +635,15 @@ th.thflag  {
 	text-align: left;
 	border-collapse: collapse;
 }
+#effortGrid{
+	
+width:70%;	
+}
 #expensesGrid th,#effortGrid th,#commentsGrid th
 {	
-	font-weight: normal;
+	font-weight: bold;
 	font-size: 12px;
-	border-bottom: 2px solid #666;
+	border-bottom: 1px solid #d4d4d4;
 	color: #666;
 	
 }
@@ -654,10 +658,10 @@ th.thconcept,input.thconcept {
   width: 15%;
 }
 th.thdescription,input.thdescription  {
-  width: 60%;
+  width: 55%;
 }
 th.thamount,input.thamount {
-  width: 15%;
+  width: 20%;
 }
 
 
@@ -687,6 +691,8 @@ width: 50%;
 .tdfield
 {
 	font-weight: bold;
+	text-align: right;
+padding-right: 3px;
 }
 
 
@@ -706,7 +712,6 @@ font-weight: bold;
 font-size: 110%;
 margin-bottom: .5em;
 margin-top: .1em;
-border-bottom: 1px solid #000000;
 color:black;
 line-height: 25px;
 font-family: 'Lucida sans', Arial, Helvetica;
@@ -880,7 +885,7 @@ border-radius: 0px 6px 6px 0px;
 form[id*='addPartnerTo']{
 	display:block;
 }
-#addExpensesForm label, form[id*='add'] label {
+form[id*='add'] label {
     font-family: Arial, Verdana;
     display: block;
     float: left;
@@ -899,7 +904,7 @@ form[id*='addPartnerTo']{
     width: 300px;
     color: #797979;
     border-radius: 5px;
-	background-color: #ecfcd2;
+	background-color: #ebf4fa;
 	height: 25px;
     }
     
@@ -947,8 +952,8 @@ form[id*='addPartnerTo']{
     margin-bottom:15px;
     padding: 5px;
 	border: 1px solid #d4d4d4;
-	background-image: -webkit-linear-gradient( #ecfcd2 , #ffffff 50px);
-	background-image: linear-gradient( #ecfcd2 , #ffffff 50px);
+	/*background-image: -webkit-linear-gradient( #ecfcd2 , #ffffff 50px);
+	background-image: linear-gradient( #ecfcd2 , #ffffff 50px);*/
 	
 }
 
@@ -969,15 +974,19 @@ float:right;
 
 
 #effortSection,#tasks,#expenses,#comments{
-height:250px;
+/*height:250px;*/
 }
 
 #metainfo,#editionReport{
 height:220px;
 }
+
+#metainfo{
+width:48%;
+}
 #editionReport{
-background-image: linear-gradient( #ecfcd2 , #a0bf61 250px);
-	
+/*background-image: linear-gradient( #ecfcd2 , #a0bf61 250px);*/
+width: 48%;
 }
 
 
@@ -988,7 +997,7 @@ background-image: linear-gradient( #ecfcd2 , #a0bf61 250px);
 }
 .standardDiv h2{
 	
-color: #617f10;
+color: #669;
 background-color: transparent;
 margin-top: 0px;
 margin-bottom: 7px;
@@ -998,20 +1007,12 @@ border-bottom: solid 1px;
 
 
 
-#reportArticle h1{
+#reportArticle h1,#topArticleContainer h1{
     margin-style: 15px;	
-	border-bottom: 1px solid #d4d4d4;
-	color: #555555;
-}
-
-#topArticleContainer h1{
-    border-radius: 5px 5px 5px 5px;
-    margin-style: 15px;	
-	border: 1px solid #d4d4d4;
-	background-image: -webkit-linear-gradient( #ebf4fa , #ffffff 50px);
-	background-image: linear-gradient( #ebf4fa , #ffffff 50px);
 	color: #669;
 }
+
+
 
 #taskSelector{
 border-radius: 5px 5px 5px 5px;	
@@ -1045,10 +1046,20 @@ font-family: arial;
 float:right;
 font-size:70%;
 }
+
+.standardDiv.wide{
+	width:100%;
+	padding:0px;
+}
+#reportHeader{
+/*background-image: linear-gradient( #ecfcd2 , #a0bf61 250px);*/
+	
+}
+
 /* Generated via www.cssmenubuilder.com */
 
 .menuEditionReport{margin:0 auto; padding:0; height:30px; width:100%;border-spacing: 0;border-collapse: collapse;}
-.menuEditionReport th{text-align:center;margin:0; list-style:none;width:19%;padding-left:10px; padding-right:10px;border-right: solid 1px; border-left: solid 1px; cursor:pointer;color:#617f10; text-decoration:none; font:12px Verdana, Arial, Helvetica, sans-serif;}
-.menuEditionReport th:hover{background-position:0px -60px; color:rgb(255,255,255);}
-.menuEditionReport th.active, .menuEditionReport th a.active:hover{line-height:30px; font:12px Verdana, Arial, Helvetica, sans-serif; color:rgb(255,255,255);}
+.menuEditionReport th{text-align:center;margin:0; list-style:none;width:16%;padding-left:10px; padding-right:10px;border-right: solid 1px; border-left: solid 1px; cursor:pointer;color:#669; text-decoration:none; font:12px Verdana, Arial, Helvetica, sans-serif;}
+.menuEditionReport th:hover{background-position:0px -60px; color:#669;text-decoration:underline;}
+/*.menuEditionReport th.active, .menuEditionReport th a.active:hover{line-height:30px; font:12px Verdana, Arial, Helvetica, sans-serif; color:rgb(255,255,255);}*/
 .menuEditionReport th.active span, .menuEditionReport th a.active:hover span{background-color:green;}

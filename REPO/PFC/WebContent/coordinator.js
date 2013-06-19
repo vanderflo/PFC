@@ -113,7 +113,7 @@
 							var work= $(this).children('work').text();	
 							var result= $(this).children('result').text();
 							
-							tasksDivs=tasksDivs+('<div class="contentDiv taskReport" id="tId_'+taskId+'"><h6 class="editTask" id="work" taskid="'+taskId+'">'+work+'</h6><h6 class="editTask" id="result" taskid="'+taskId+'">'+result+'</h6><table id="effortGrid" summary="List of Effort"><thead><tr><th class="thperson">Team member</th><th class="theeffort">Effort</th></tr></thead><tbody id="effortGridBody_'+taskId+'">');
+							tasksDivs=tasksDivs+('<div class="contentDiv taskReport" id="tId_'+taskId+'"><label for="taskWork">Work: </label><a id="taskWork">'+work+'</a><br><label for="taskResult">Result: </label><a id="taskResult">'+result+'</a><br><label for="taskResult">Effort breakdown: </label><br><table id="effortGrid" summary="List of Effort"><thead><tr><th class="thperson">Team member</th><th class="theeffort">Effort</th></tr></thead><tbody id="effortGridBody_'+taskId+'">');
 							listOfTasks=listOfTasks+('<option  value="'+taskId+'">'+taskTitle+'</option>');							
 						
 							$(this).children('effort').each(function(){
@@ -127,6 +127,7 @@
 						});	
 						$('#taskSelector').append(listOfTasks);
 						$('#effortTaskList').append(listOfTasks);
+						$('#infoTaskList').append(listOfTasks);
 						$('#tasks').append(tasksDivs);
 						
 						plot1.series[0].data=[[wpEffort,1]];
@@ -147,9 +148,9 @@
     			$('#reportContainer').hide();
     			$('#topArticleContainer').show();
     			if (currentview=="w"){
-    			$('#topArticle').append('<h1><span class="icon-list-ul"></span>&nbsp;List of Reports for Workpackage: '+displayName+'</h1>');
+    			$('#topArticle').append('<h1>Reports for Workpackage: '+displayName+'</h1>');
     			}else if (currentview=="p"){
-        		$('#topArticle').append('<h1><i class="icon-list-ul"></i>&nbsp;List of Reports for Partner: '+displayName+'</h1>');
+        		$('#topArticle').append('<h1>Reports for Partner: '+displayName+'</h1>');
     			}
     			$('#topArticle').append('<div class="tableHeader"><table id="reportGrid" summary="List of Reports"><thead><tr><th class="thstatus">Status</th><th class="thdate">Date</th><th class="thpartner">Partner</th><th class="thwp">Workpackage</th><th class="theffort">Effort</th><th class="thlastupdate">Last Update</th><th class="thflag">Flag</th></tr></thead><tbody id="reportGridBody"></tbody></table></div>');
     			$(xmlReport).find('subreport').each(function(){
@@ -172,21 +173,15 @@
 					});
      		}
      		
-     		function toggleActive(){
-         	  $( "#showStatusReport" ).toggleClass('active');
-      	      $( "#showFeedbackForm" ).toggleClass('active');
-      	      $( "#showFlagForm" ).toggleClass('active');
-      	      $( "#showEffortForm" ).toggleClass('active');
-      	      $( "#showExpensesForm" ).toggleClass('active');
-       	    }
+     		
      		
      		
      	    $( "#showExpensesForm" ).live("click", function(e) {
      	      $( "#statusReport" ).hide();
      	      $( "#addFeedbackCommentForm" ).hide();
      	      $( "#addFlagForm" ).hide();
-     	      $( "#addEffortForm" ).hide();
-     	      toggleActive();
+     	      $( "#addTaskReportEffortForm" ).hide();
+     	      $( "#addTaskReportInfoForm" ).hide();
      	      $( "#addExpensesForm" ).show();
      	    });
      	    
@@ -196,8 +191,8 @@
        	      $( "#statusReport" ).hide();
      	      $( "#addFeedbackCommentForm" ).hide();
      	      $( "#addExpensesForm" ).hide();
-     	      $( "#addEffortForm" ).hide();
-     	      toggleActive();
+     	      $( "#addTaskReportEffortForm" ).hide();
+     	      $( "#addTaskReportInfoForm" ).hide();
      	      $( "#addFlagForm" ).show();     	      
        	    });
      	    
@@ -205,8 +200,9 @@
        	      $( "#addFeedbackCommentForm" ).hide();
        	      $( "#addFlagForm" ).hide();
        	      $( "#addExpensesForm" ).hide();
-       	      $( "#addEffortForm" ).hide();
-       	      toggleActive();
+       	      $( "#addTaskReportEffortForm" ).hide();
+       	      $( "#addTaskReportInfoForm" ).hide();
+       	      $( "#addTaskReportInfoForm" ).hide();
        	      $( "#statusReport" ).show();
          	    });
      	    
@@ -214,8 +210,8 @@
          	  $( "#statusReport" ).hide();
        	      $( "#addFlagForm" ).hide();
        	      $( "#addExpensesForm" ).hide();
-       	      $( "#addEffortForm" ).hide();
-       	      toggleActive();
+       	      $( "#addTaskReportEffortForm" ).hide();
+       	      $( "#addTaskReportInfoForm" ).hide();
        	      $( "#addFeedbackCommentForm" ).show();
          	    });
      	    
@@ -224,9 +220,18 @@
      	      $( "#addFlagForm" ).hide();
      	      $( "#addExpensesForm" ).hide();
      	      $( "#addFeedbackCommentForm" ).hide();
-     	      toggleActive();
-     	      $( "#addEffortForm" ).show();
+     	      $( "#addTaskReportInfoForm" ).hide();
+     	      $( "#addTaskReportEffortForm" ).show();
        	    });
+     	    
+     	   $( "#showTaskInfoForm" ).live("click", function(e) {
+     		  $( "#statusReport" ).hide();
+      	      $( "#addFlagForm" ).hide();
+      	      $( "#addExpensesForm" ).hide();
+      	      $( "#addFeedbackCommentForm" ).hide();
+      	      $( "#addTaskReportEffortForm" ).hide();
+      	      $( "#addTaskReportInfoForm" ).show();
+        	    });
      	    
      	   $( "#taskSelector" ).live("change", function(e) {
      		  var tId=$(this).attr("value");
@@ -241,12 +246,12 @@
      	    
      	    $( "#addEffort" ).live("click", function(e) {
      	    	var tId=$(this).attr("taskid");
-       	      $( "#addEffortForm_"+tId ).slideToggle();
+       	      $( "#addTaskReportEffortForm_"+tId ).slideToggle();
        	      });
        	    
        	    $( "#cancelEffort" ).live("click", function(e) {
        	    		var tId=$(this).attr("taskid");
-        	      $( "#addEffortForm_"+tId ).slideToggle();
+        	      $( "#addTaskReportEffortForm_"+tId ).slideToggle();
         	      });
      	    
      	   $("#addExpensesForm").live(
@@ -320,7 +325,7 @@
     		});//END send Info   
      	   
      	 
-     	  $("[id^=addEffortForm]").live(
+     	  $("[id^=addTaskReport]").live(
      			  "submit",
      		function( event ){
      		var $form = $(this),
@@ -351,7 +356,7 @@
    		        },
    		        complete: function(){
    		        	updateView();
-   		        	alert("Effort recorded successfully");
+   		        	alert("Task report updated successfully");
    		        }
    		    });   		
    		    event.preventDefault();

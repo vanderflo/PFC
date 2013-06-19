@@ -103,6 +103,7 @@
         <article id="reportArticle">
         
 	     <h1 id="reportTitle">Work Report<span id="flagTitle">&nbsp;&nbsp;&nbsp;&nbsp;</span></h1>
+         
          <section class="standardDiv" id="metainfo">
           <h2>The basics</h2>
           <div class="contentDiv"><table id="reportInformation" summary="Report information"><tbody id="reportInformationBody"></tbody></table></div>
@@ -113,10 +114,11 @@
           	<table class="menuEditionReport">
           	<thead><tr>
           	  <th class="active" id="showStatusReport">Status</th>
-			  <th id="showExpensesForm">Add expenses</th>
-			  <th id="showFeedbackForm">Comment</th>
-			  <th id="showFlagForm">Raise Flag</th>
-			  <th id="showEffortForm">Add effort</th>
+			  <th id="showExpensesForm">Expenses</th>
+			  <th id="showFeedbackForm">Comments</th>
+			  <th id="showFlagForm">Flags</th>
+			  <th id="showEffortForm">Effort</th>
+			  <th id="showTaskInfoForm">Edit task</th>
 			</tr></thead>
 			</table>
 			
@@ -138,12 +140,21 @@
 		   	</form>
          
           
-           <form id="addEffortForm">
+           <form id="addTaskReportEffortForm">
           	<div class="formHeader">Select task and assign add a new effort entry</div>
           	<div class="field"><label for="name">Type:</label>
           		<select name="taskid" id="effortTaskList"></select><p class="hint">Choose Task to assign effort to</p></div>
           	<div class="field"><label for="person">Team member:</label><input type="text" class="input" name="id" id="person" /><p class="hint">Specify team member</p></div>          	
           	<div class="field"><label for="effort">Effort:</label><input type="text" class="input" name="value" id="effort" /><p class="hint">Effort (days)</p></div>          	
+          	<div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /></div>
+          </form>
+          
+           <form id="addTaskReportInfoForm">
+          	<div class="formHeader">Select task and feedback type and add the info</div>
+          	<div class="field"><label for="person">Feedback type:</label><input type="radio" name="id" value="work">Work<br><input type="radio" name="id" value="result">Result</div>          	
+          	<div class="field"><label for="name">Task:</label>
+          		<select name="taskid" id="infoTaskList"></select><p class="hint">Choose Task to assign effort to</p></div>     
+          	<div class="field"><label for="effort">Input:</label><input type="text" class="input" name="value" id="bigtext" /></div>          	
           	<div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /></div>
           </form>
           
