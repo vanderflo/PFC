@@ -55,8 +55,8 @@ header h1{
     margin: 0;
     font: 25px/1 'Luckiest Guy', cursive; /* Google font API */
     float: left;    
-    color:white;
-    padding: 8px;       
+    color:#666;
+    padding: 5px;       
 }
 
 h6{
@@ -637,7 +637,8 @@ th.thflag  {
 }
 #effortGrid{
 	
-width:70%;	
+width:70%;
+margin-left:5px;
 }
 #expensesGrid th,#effortGrid th,#commentsGrid th
 {	
@@ -678,7 +679,7 @@ width: 50%;
 #reportInformation
 {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-	font-size: 12px;
+	font-size: 13px;
 	width: 100%;
 	text-align: left;
 	border-collapse: collapse;
@@ -692,7 +693,7 @@ width: 50%;
 {
 	font-weight: bold;
 	text-align: right;
-padding-right: 3px;
+padding-right: 15px;
 }
 
 
@@ -729,14 +730,14 @@ font-size: 160%;
 }
 
 #content h5,h6 {
-background-color:white;
-border-bottom: 1px solid #cccccc;
-border-top: 1px solid #cccccc;
+background-color: white;
+border-bottom: 1px solid #d4d4d4;
 width: 100%;
-padding-top: 10px;
-padding-bottom: 10px;
-
+padding-bottom: 5px;
 font-size: 85%;
+margin-top: 10px;
+margin-bottom: 1px;
+color:#666;
 }
 
 
@@ -905,7 +906,6 @@ form[id*='add'] label {
     color: #797979;
     border-radius: 5px;
 	background-color: #ebf4fa;
-	height: 25px;
     }
     
 #addExpensesForm .hint, form[id*='add'] .hint{
@@ -1015,7 +1015,10 @@ border-bottom: solid 1px;
 
 
 #taskSelector{
-border-radius: 5px 5px 5px 5px;	
+border-radius: 5px 5px 5px 5px;
+float:right;
+font-size:12px;
+height:16px;
 }
 
 .contentDiv.taskReport{
@@ -1047,6 +1050,11 @@ float:right;
 font-size:70%;
 }
 
+.standardDiv a{
+color: #666;
+font-size: 80%;
+padding-left: 10px;	
+}
 .standardDiv.wide{
 	width:100%;
 	padding:0px;

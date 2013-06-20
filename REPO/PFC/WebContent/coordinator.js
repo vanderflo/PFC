@@ -113,7 +113,7 @@
 							var work= $(this).children('work').text();	
 							var result= $(this).children('result').text();
 							
-							tasksDivs=tasksDivs+('<div class="contentDiv taskReport" id="tId_'+taskId+'"><label for="taskWork">Work: </label><a id="taskWork">'+work+'</a><br><label for="taskResult">Result: </label><a id="taskResult">'+result+'</a><br><label for="taskResult">Effort breakdown: </label><br><table id="effortGrid" summary="List of Effort"><thead><tr><th class="thperson">Team member</th><th class="theeffort">Effort</th></tr></thead><tbody id="effortGridBody_'+taskId+'">');
+							tasksDivs=tasksDivs+('<div class="contentDiv taskReport" id="tId_'+taskId+'"><h5>Work</h5><a id="taskWork">'+work+'</a><br><h5>Result</h5><a id="taskResult">'+result+'</a><br><h5>Effort breakdown</h5><table id="effortGrid" summary="List of Effort"><thead><tr><th class="thperson">Team member</th><th class="theeffort">Effort</th></tr></thead><tbody id="effortGridBody_'+taskId+'">');
 							listOfTasks=listOfTasks+('<option  value="'+taskId+'">'+taskTitle+'</option>');							
 						
 							$(this).children('effort').each(function(){
