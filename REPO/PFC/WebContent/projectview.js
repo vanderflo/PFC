@@ -44,6 +44,7 @@
 		updateProjectView('1370872901759');
 	});
 	
+	//Aceptar múltiples valores separados por coma 
     $("[id^=addPartnerToWPForm]").live("submit",function( event ){
  		var $form = $(this),
      	serializedData = $form.serialize();

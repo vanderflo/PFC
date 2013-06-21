@@ -954,7 +954,7 @@ form[id*='add'] label {
 	border: 1px solid #d4d4d4;
 	/*background-image: -webkit-linear-gradient( #ecfcd2 , #ffffff 50px);
 	background-image: linear-gradient( #ecfcd2 , #ffffff 50px);*/
-	
+	box-shadow: 1px 1px 1px 1px #d4d4d4;
 }
 
 .tableCaption
