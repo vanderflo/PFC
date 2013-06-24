@@ -41,7 +41,7 @@
      
      
 	$("#addProjectForm").live("click",function() {
-		updateProjectView('1370872901759');
+		updateProjectView('1370700742588');
 	});
 	
 	//Aceptar múltiples valores separados por coma 
@@ -209,19 +209,19 @@
      			$("#newProjectSection").hide();
      			//Get Project: call to retrieve project and parse it
      			getProject(projectId);
-     			$('#metadataSection').append('<h1><span class="icon-flag"></span>&nbsp;New Project</h1>');
+     		
      			$(xmlProject).find('metainfo').each(function(){
      				var title = $(this).children('title').text();	
      				var description = $(this).children('projectDescription').text();
      				var dateStart = $(this).children('dateStart').text();
      				var dateFinish = $(this).children('dateFinish').text();
-     				$('#metadataSection').append('<div id="metainfo"><h3><span class="icon-info-sign"></span>&nbsp;Basic information</h3></div>');
-     				$('#metainfo').append('<table id="reportInformation" summary="Report information"><tbody id="metadataBody"></tbody></table>');
+     				$('#metainfoProjectSection').append('<div id="metainfoProject"><h3><span class="icon-info-sign"></span>&nbsp;Basic information</h3></div>');
+     				$('#metainfoProject').append('<table id="reportInformation" summary="Report information"><tbody id="metadataProjectBody"></tbody></table>');
 	    			
-	    			$('#metadataBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Title:</td><td class="tdvalue">'+title+'</td></tr>');
-	    			$('#metadataBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Description:</td><td class="tdvalue">'+description+'</td></tr>');
-	    			$('#metadataBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Date Start</td><td class="tdvalue">'+dateStart+'</td></tr>');
-	    			$('#metadataBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Date Finish</td><td class="tdvalue"> '+dateFinish+'</td></tr>');
+	    			$('#metadataProjectBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Title:</td><td class="tdvalue">'+title+'</td></tr>');
+	    			$('#metadataProjectBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Description:</td><td class="tdvalue">'+description+'</td></tr>');
+	    			$('#metadataProjectBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Date Start</td><td class="tdvalue">'+dateStart+'</td></tr>');
+	    			$('#metadataProjectBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Date Finish</td><td class="tdvalue"> '+dateFinish+'</td></tr>');
 
      			});     			
      			//WP section
@@ -231,11 +231,12 @@
 					var dateStart = $(this).children('dateInit').text();
      				var dateFinish = $(this).children('dateFinish').text();
 					
-					$('#wpSection').append('<div id="wp_'+wpId+'"><h3><span class="icon-info-sign"></span>&nbsp;Workpackage '+wpTitle+'</h3></div>');
-					$('#wp_'+wpId).append('<h4><span class="icon-edit">&nbsp;</span> From '+dateStart+' to '+dateFinish+'</h4>');
+     				$('#projectTree').append('<li id=ptWP_'+wpId+'><a href="#" id=aptWP_'+wpId+'>'+wpTitle+'</a><ul id="tasksWP_'+wpId+'"/></li>');
+     				
 				
 				//Partners section
 					$('#wp_'+wpId).append('<form id="addPartnerToWP_'+wpId+'"><div class="field"><label for="partnerWP">Partner:</label><select name="partnerWP" id="selectPartnerWP" /></div><div class="field"><label for="effort">Effort:</label><input type="text" class="input" name="effortWP" id="effortWP" /></div><input type="hidden" name="projectid" value="'+projectId+'"/><input type="hidden" name="wpid" value="'+wpId+'"/><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelWP">or CANCEL</a></div></form>');
+					
 					//Recuperar todos los partners de este WP y guardarlos en un array.
 					var partnersArray = new Array();
 					getPartners();
@@ -255,9 +256,10 @@
 							}
 						});//partner
 						$('#selectPartnerWP').append(stringOption);
+						//Call to displayItem; crea un div con el contenido de esta tarea y pono hidden, ya se mostrar‡ desde el selector.
+
 				//End Partners section
 						
-					
 					
 				//Task section
 					$(this).find('task').each(function(){
@@ -265,14 +267,17 @@
 						var taskId=$(this).attr("id");
 						$(this).children('dateInit').text();	
 						$(this).children('dateFinish').text();	
-						$('#wp_'+wpId).append('<div class="subsection"><a>'+taskTitle+' '+taskId+'</a></div>');
+						$('#tasksWP_'+wpId).append('<li><a href="#" id="aptTask'+taskId+'">'+taskTitle+'</li>');
+						//Call to displayItem; crea un div con el contenido de esta tarea y pono hidden, ya se mostrar‡ desde el selector.
+						
 						//show each partner, y añadir a un array
 						var taskPartners=new Array();
 						$(this).find('partnerTask').each(function(){
 							var partnerId=$(this).attr("id");							
 							taskPartners.push(partnerId);
 						});
-						//para cada elemento del array de partners del WP, comparar con el array de task y mostrarlo (checkbox?)
+						//para cada elemento del array de partners del WP, comparar con el array de task y mostrarlo (checkbox?). 
+						//Me vale!!! Pero hayq ue a–adirselo al div de la cajita de edici—n
 						$('#wp_'+wpId).append('<form id="addPartnerToTaskForm_'+taskId+'"></form>');
 						for (var i=0;i<partnersArray.length;i++){
 							if( jQuery.inArray(partnersArray[i], taskPartners) == -1 ){							
@@ -305,7 +310,7 @@
 				});
 				$('#schedule').append('<h5><a id="addSchedule" projectid="'+projectId+'"><span class="icon-plus"></span>&nbsp;Click here to add a new date for report</a></h5>');
 				$('#schedule').append('<form id="addScheduleForm"><div class="field"><label for="date">Date:</label><input type="text" class="input" name="dateSchedule" readonly="true" id="formDateSchedule" /></div><input type="hidden" name="projectid" value="'+projectId+'"/><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelWP">or CANCEL</a></div></form>');
-
+				initTree();
      		}
      		
 

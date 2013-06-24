@@ -1,14 +1,14 @@
 /* 
 
-	Sitemap Styler v0.1
+	projectTree Styler v0.1
 	written by Alen Grakalic, provided by Css Globe (cssglobe.com)
-	visit http://cssglobe.com/lab/sitemap_styler/
+	visit http://cssglobe.com/lab/projectTree_styler/
 	
 */
 
-this.sitemapstyler = function(){
-	var sitemap = document.getElementById("sitemap")
-	if(sitemap){
+ function initTree(){
+	var projectTree = document.getElementById("projectTree");
+	if(projectTree){
 		
 		this.listItem = function(li){
 			if(li.getElementsByTagName("ul").length > 0){
@@ -24,7 +24,7 @@ this.sitemapstyler = function(){
 			};
 		};
 		
-		var items = sitemap.getElementsByTagName("li");
+		var items = projectTree.getElementsByTagName("li");
 		for(var i=0;i<items.length;i++){
 			listItem(items[i]);
 		};
@@ -32,4 +32,3 @@ this.sitemapstyler = function(){
 	};	
 };
 
-window.onload = sitemapstyler;
