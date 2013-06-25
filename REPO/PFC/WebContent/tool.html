@@ -193,7 +193,8 @@
           </article>
         
          <article id="projectArticle">
-          <section class="standardDiv" id="createProjectSection">
+          <section class="standardDiv wide" id="createProjectSection">
+          <h2>Create new project</h2>
           	<form id="addProjectForm">
 				<div class="field"><label for="title">Title:</label><input type="text" class="input" name="title" id="title" /></div>
 				<div class="field"><label for="description">Description:</label><input type="text" class="input" name="description" id="description" /></div>
@@ -205,10 +206,13 @@
           </section>
           
          <section class="standardDiv" id="metainfoProjectSection">
+         	<div id="metainfoProject"><h2><span class="icon-info-sign"></span>&nbsp;Basic information</h2></div>
+         </section>
           
-          </section>
+          
           
           <section class="standardDiv right" id="editionProjectSection">
+          <div id="metainfoProject"><h2><span class="icon-info-sign"></span>&nbsp;Edition box</h2></div>
           Form: Create WP
           Form: Assign partner/effort to WP
           Form: Create Task
@@ -217,39 +221,27 @@
           
           </section>
           
-          <section class="standardDiv" id="treeProjectSection">
-          
-          </section>
-          
-          <section class="standardDiv right" id="viewProjectSection">
-          
-          </section>
-         
-         
-         
-         	<section id="newProjectSection">
-         	<h3><span class="icon-flag"></span>&nbsp;New Project Wizard</h3>
-         	<h5><a id="addProject"><span class="icon-plus"></span>&nbsp;Click here to add a new project</a></h5>
 
-         	</section>
-	        <section id="metadataSection"></section>
-	        <section id="wpSection">	                	
-	        </section> 
-			
-			<section id="taskSection"></section>
-			<section id="scheduleSection"></section>
-			<section class="standardDiv">
-			<h2>Project Diagram</h2>
-			<div id="content">
-		
-		<noscript><p><strong>Sorry, this page needs JavaScript to make any sense at all</strong></p></noscript>
-				
-		<ul id="projectTree"></ul>
-	
-		
-		
-	</div>
+           <section class="standardDiv">
+				<h2>Project Diagram</h2>
+				<div id="content">				
+					<ul id="projectTree"></ul>
+				</div>
 			</section>
+			
+          <section class="standardDiv right" id="viewProjectSection">
+          <h2>WP description</h2>
+          </section>
+         
+         
+         
+         <section class="standardDiv wide" id="newProjectSection">
+         		<h3><span class="icon-flag"></span>&nbsp;New Project Wizard</h3>
+         		<h5><a id="addProject"><span class="icon-plus"></span>&nbsp;Click here to add a new project</a></h5>
+		</section>			
+
+
+			
 		 </article>
         
         

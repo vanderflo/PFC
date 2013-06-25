@@ -210,12 +210,12 @@
      			//Get Project: call to retrieve project and parse it
      			getProject(projectId);
      		
-     			$(xmlProject).find('metainfo').each(function(){
+     			$(xmlProject).find('metainfo').child(function(){
      				var title = $(this).children('title').text();	
      				var description = $(this).children('projectDescription').text();
      				var dateStart = $(this).children('dateStart').text();
      				var dateFinish = $(this).children('dateFinish').text();
-     				$('#metainfoProjectSection').append('<div id="metainfoProject"><h3><span class="icon-info-sign"></span>&nbsp;Basic information</h3></div>');
+     				
      				$('#metainfoProject').append('<table id="reportInformation" summary="Report information"><tbody id="metadataProjectBody"></tbody></table>');
 	    			
 	    			$('#metadataProjectBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Title:</td><td class="tdvalue">'+title+'</td></tr>');
