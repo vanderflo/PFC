@@ -1071,3 +1071,11 @@ padding-left: 10px;
 .menuEditionReport th:hover{background-position:0px -60px; color:#669;text-decoration:underline;}
 /*.menuEditionReport th.active, .menuEditionReport th a.active:hover{line-height:30px; font:12px Verdana, Arial, Helvetica, sans-serif; color:rgb(255,255,255);}*/
 .menuEditionReport th.active span, .menuEditionReport th a.active:hover span{background-color:green;}
+
+
+
+
+
+ div[id*='show']{
+ display:none;
+ }

@@ -228,10 +228,17 @@
      			$(xmlProject).find('workpackage').each(function(){					
 					var wpTitle=$(this).attr("title");
 					var wpId=$(this).attr("id");
-					var dateStart = $(this).children('dateInit').text();
-     				var dateFinish = $(this).children('dateFinish').text();
+					var wpDateStart = $(this).children('dateInit').text();
+     				var wpDateFinish = $(this).children('dateFinish').text();
+     				var wpDescription = $(this).children('description').text();
 					
-     				$('#projectTree').append('<li id=ptWP_'+wpId+'><a href="#" id=aptWP_'+wpId+'>'+wpTitle+'</a><ul id="tasksWP_'+wpId+'"/></li>');
+     				$('#projectTree').append('<li id=ptWP_'+wpId+'><a href="#" id=aptWP_'+wpId+' wpid='+wpId+'>'+wpTitle+'</a><ul id="tasksWP_'+wpId+'"/></li>');
+					//DisplayItem; crea un div con el contenido de esta tarea y pono hidden, ya se mostrar‡ desde el selector.
+     				$('#viewProjectSection').append('<div class="statusContainer" id=showWP_'+wpId+'/>');
+     				$('#showWP_'+wpId).append('<a><span class="spanTitle">WP Title:</span><span class="spanValue">'+wpTitle+'</span></a><br>');
+     				$('#showWP_'+wpId).append('<a><span class="spanTitle">Description:</span><span class="spanValue">'+wpDescription+'</span></a><br>');
+     				$('#showWP_'+wpId).append('<a><span class="spanTitle">Date start:</span><span class="spanValue">'+wpDateStart+'</span></a><br>');
+     				$('#showWP_'+wpId).append('<a><span class="spanTitle">Date finish</span><span class="spanValue">'+wpDateFinish+'</span></a><br>');
      				
 				
 				//Partners section
@@ -243,7 +250,7 @@
 						$(this).find('partnerWP').each(function(){
 							var partnerId=$(this).attr("id");
 							var effort=$(this).attr("effort");
-							$('#wp_'+wpId).append("Partner: "+partnerId+". Effort:"+effort);
+							$('#showWP_'+wpId).append('<a><span class="spanTitle">Partner '+partnerId+':</span><span class="spanValue">Effort assigned: '+effort+'</span></a><br>');
 							partnersArray.push(partnerId);
 						});
 					//Recuperar todos los partners del fichero; si no están en el array anterior, anadir al combo box.
@@ -256,8 +263,8 @@
 							}
 						});//partner
 						$('#selectPartnerWP').append(stringOption);
-						//Call to displayItem; crea un div con el contenido de esta tarea y pono hidden, ya se mostrar‡ desde el selector.
-
+						
+						
 				//End Partners section
 						
 					
@@ -265,16 +272,23 @@
 					$(this).find('task').each(function(){
 						var taskTitle=$(this).attr("title");
 						var taskId=$(this).attr("id");
-						$(this).children('dateInit').text();	
-						$(this).children('dateFinish').text();	
-						$('#tasksWP_'+wpId).append('<li><a href="#" id="aptTask'+taskId+'">'+taskTitle+'</li>');
+						var taskDateInit=$(this).children('dateInit').text();	
+						var taskDateFinish=$(this).children('dateFinish').text();
+						var taskDescription=$(this).children('description').text();
+						$('#tasksWP_'+wpId).append('<li><a href="#" id="aptTask'+taskId+'" taskid='+taskId+'>'+taskTitle+'</li>');
 						//Call to displayItem; crea un div con el contenido de esta tarea y pono hidden, ya se mostrar‡ desde el selector.
-						
+						$('#viewProjectSection').append('<div class="statusContainer" id=showTask_'+taskId+'/>');
+	     				$('#showTask_'+taskId).append('<a><span class="spanTitle">Task:</span><span class="spanValue">'+taskTitle+'</span></a><br>');
+	     				$('#showTask_'+taskId).append('<a><span class="spanTitle">Description:</span><span class="spanValue">'+taskDescription+'</span></a><br>');
+	     				$('#showTask_'+taskId).append('<a><span class="spanTitle">Date start:</span><span class="spanValue">'+taskDateInit+'</span></a><br>');
+	     				$('#showTask_'+taskId).append('<a><span class="spanTitle">Date finish:</span><span class="spanValue">'+taskDateFinish+'</span></a><br>');
+	     				
 						//show each partner, y añadir a un array
 						var taskPartners=new Array();
 						$(this).find('partnerTask').each(function(){
 							var partnerId=$(this).attr("id");							
 							taskPartners.push(partnerId);
+							$('#showTask_'+taskId).append('<a><span class="spanTitle">Partner:</span><span class="spanValue">'+partnerId+'</span></a><br>');
 						});
 						//para cada elemento del array de partners del WP, comparar con el array de task y mostrarlo (checkbox?). 
 						//Me vale!!! Pero hayq ue a–adirselo al div de la cajita de edici—n
@@ -351,5 +365,19 @@
      		        inline: true 
      		    });
      		});
+     		
+      	   $( "[id^=aptWP]" ).live("click", function(e) {
+      		  var wpId=$(this).attr("wpid");
+      		  $("[id^=showWP]").hide();
+       		  $("[id^=showTask]").hide();
+      		  $("#showWP_"+wpId).show();
+      		  });
+      	   
+      	   $( "[id^=aptTask]" ).live("click", function(e) {
+       		  var taskId=$(this).attr("taskid");
+       		  $("[id^=showWP]").hide();
+       		  $("[id^=showTask]").hide();
+       		  $("#showTask_"+taskId).show();
+       		  });
      		
      		
