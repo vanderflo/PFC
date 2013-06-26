@@ -210,7 +210,7 @@
      			//Get Project: call to retrieve project and parse it
      			getProject(projectId);
      		
-     			$(xmlProject).find('metainfo').child(function(){
+     			$(xmlProject).find('metainfo').each(function(){
      				var title = $(this).children('title').text();	
      				var description = $(this).children('projectDescription').text();
      				var dateStart = $(this).children('dateStart').text();

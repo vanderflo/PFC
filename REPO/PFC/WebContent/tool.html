@@ -212,9 +212,23 @@
           
           
           <section class="standardDiv right" id="editionProjectSection">
-          <div id="metainfoProject"><h2><span class="icon-info-sign"></span>&nbsp;Edition box</h2></div>
-          Form: Create WP
-          Form: Assign partner/effort to WP
+          <h2><span class="icon-info-sign"></span>&nbsp;Edition box</h2>
+			  <form id="addWPForm">
+				  <div class="field"><label for="title">Title:</label><input type="text" class="input" name="titleWP" id="titleWP" /></div>
+				  <div class="field"><label for="description">Description:</label><input type="text" class="input" name="descriptionWP" id="descriptionWP" /></div>
+				  <div class="field"><label for="dateInit">Date Start:</label><input type="text" class="input" name="dateInitWP" id="formDateInitWP"></div>
+				  <div class="field"><label for="dateFinish">Date Finish:</label><input type="text" class="input" name="dateFinishWP" id="formDateFinishWP"></div>
+				  <div class="field"><label for="coordinator">Coordinator:</label><input type="text" class="input" name="coordinatorWP" id="coordinatorWP"></div>
+				  <div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelWP">or CANCEL</a></div>
+			  </form>
+          
+          	<form id="addPartnerToWP">
+		          <div class="field"><label for="wpid">Select WP:</label><select name="wpid" id="selectWpId"></select></div>
+		          <div class="field"><label for="partnerWP">Partner:</label><select name="partnerWP" id="selectPartnerWP"></select></div>
+		          <div class="field"><label for="effort">Effort:</label><input type="text" class="input" name="effortWP" id="effortWP" /></div>
+		          <div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelWP">or CANCEL</a></div>
+         	</form>
+          
           Form: Create Task
           Form: Assign Partner to Task
           Form: Assign report date          
