@@ -4,22 +4,22 @@
 <questions>2</questions>
 <question>
 <qtext>Who's the celebrity in the picture?</qtext>
-<qpic>http://thebestten.files.wordpress.com/2010/01/jordan-1984-olympic.jpg</qpic>
+<qpic>http://www.nndb.com/people/553/000025478/ray-romano.jpg</qpic>
 </question>
 <option id="1">
-<text>Michael Jordan</text>
+<text>Ray Romano</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Carl Lewis</text>
+<text>John Leguizamo</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Dominique Wilkins</text>
+<text>Denis Leary</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Chris Paul</text>
+<text>Brad Garrett</text>
 <pic></pic>
 </option>
 <answer1>
@@ -35,26 +35,26 @@
 <type>guessPic</type>
 <question>
 <qtext>What about this one?</qtext>
-<qpic>https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSOSVdqPmlBQXTYF2dx7Rse76oH40bD8R1rc1_6UANzILhGzS5Q</qpic>
+<qpic>http://www.nndb.com/people/700/000023631/boyle-sized.jpg</qpic>
 </question>
 <option id="1">
-<text>Victoria Azarenka</text>
+<text>Robert Redford</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Bar Refaeli</text>
+<text>Kevin James</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Maria Sharapova</text>
+<text>Scott Bakula</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Anna Kournikova</text>
+<text>Peter Boyle</text>
 <pic></pic>
 </option>
 <answer2>
-<answerok>2</answerok>
+<answerok>4</answerok>
 <messageok>Congrats!!!</messageok>
 <messageko>Boooooooo!!!</messageko>
 <points>50</points>
@@ -66,27 +66,27 @@
 <game id="3">
 <type>guessPic</type>
 <question>
-<qtext>Who's this guy?</qtext>
-<qpic>https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQN4LLfjScwZz-SO_NU204F5_eHuFshrHSvhPl-i5ldRLlHj6UG</qpic>
+<qtext>Who's this baby?</qtext>
+<qpic>http://pdxretro.com/wp-content/uploads/2011/11/leonardo_di_caprio-bw-young_thumb.jpg</qpic>
 </question>
 <option id="1">
-<text>Tiesto</text>
+<text>James Dean</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Hardwell</text>
+<text>Luke Perry</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>David Guetta</text>
+<text>Leonardo Di Caprio</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Ferry Corsten</text>
+<text>Jon Bon Jovi</text>
 <pic></pic>
 </option>
 <answer3>
-<answerok>1</answerok>
+<answerok>3</answerok>
 <messageok>Congrats!!!</messageok>
 <messageko>Boooooooo!!!</messageko>
 <points>50</points>
@@ -100,26 +100,26 @@
 <type>guessPic</type>
 <question>
 <qtext>Does this face ring a bell?</qtext>
-<qpic>http://www.millionlooks.com/photos/galleries/guess-accessories-fall-2011-ad-campaign/guess-accessories-fall-2011-ad-campaign-kate-upton.jpg</qpic>
+<qpic>http://www.neontommy.com/sites/default/files/1120961779_db7555408e_o_0.jpg?1338436306</qpic>
 </question>
 <option id="1">
-<text>Meg Ryan</text>
+<text>Anthony Hopkins</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Scarlett Johansson</text>
+<text>Robert de Niro</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Kate Upton</text>
+<text>John Malkovich</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Lady Gaga</text>
+<text>Javier Bardem</text>
 <pic></pic>
 </option>
 <answer4>
-<answerok>3</answerok>
+<answerok>1</answerok>
 <messageok>Congrats!!!</messageok>
 <messageko>Boooooooo!!!</messageko>
 <points>50</points>
@@ -131,27 +131,27 @@
 <game id="5">
 <type>guessPic</type>
 <question>
-<qtext>Look at this man</qtext>
-<qpic>http://www.lahiguera.net/cinemania/actores/javier_bardem/fotos/3935/javier_bardem.jpg</qpic>
+<qtext>Look at this guy</qtext>
+<qpic>http://1.bp.blogspot.com/-xQL_vbjO-pU/UJEDFjNYfiI/AAAAAAAAB_E/qN-upK4wG40/s1600/JimCarrey_halloween-costume.jpg</qpic>
 </question>
 <option id="1">
-<text>Anthony Hopkins</text>
+<text>Tom Brady</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Gerard Depardieu</text>
+<text>Robert Redford</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Hugh Jackman</text>
+<text>Jim Carrey</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Javier Bardem</text>
+<text>Dirk Nowitzki</text>
 <pic></pic>
 </option>
 <answer5>
-<answerok>4</answerok>
+<answerok>3</answerok>
 <messageok>Congrats!!!</messageok>
 <messageko>Boooooooo!!!</messageko>
 <points>50</points>
@@ -165,22 +165,22 @@
 <type>guessPic</type>
 <question>
 <qtext>Look at this guy</qtext>
-<qpic>http://pmchollywoodlife.files.wordpress.com/2012/09/jay-z-bio.jpeg?w=300</qpic>
+<qpic>http://www.collegecrunch.org/wp-content/uploads/2008/10/david_letterman.jpg</qpic>
 </question>
 <option id="1">
-<text>Kanye West</text>
+<text>Sean Penn</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Jay Z</text>
+<text>David Letterman</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Lil Wayne</text>
+<text>David Stern</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Daddy Yankee</text>
+<text>Carlos Santana</text>
 <pic></pic>
 </option>
 <answer6>
@@ -197,26 +197,26 @@
 <type>guessPic</type>
 <question>
 <qtext>Do you know her?</qtext>
-<qpic>http://www.gotceleb.com/wp-content/uploads/celebrities/khloe-kardashian/at-the-x-factor-season-finale-night-1/Khloe%20Kardashian%20-%20X%20Factor%20Finale%20-03-560x852.jpg</qpic>
+<qpic>http://theworldsbestever.s3.amazonaws.com/blog/wp-content/uploads/2012/08/adriana-lima.jpg</qpic>
 </question>
 <option id="1">
-<text>Kim Kardashian</text>
+<text>Penelope Cruz</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Khloe Kardashian</text>
+<text>Kim Kardashian</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Kourtney Kardashian</text>
+<text>Adriana Lima</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Kendall Jenner</text>
+<text>Sofia Vergara</text>
 <pic></pic>
 </option>
 <answer7>
-<answerok>2</answerok>
+<answerok>3</answerok>
 <messageok>Congrats!!!</messageok>
 <messageko>Boooooooo!!!</messageko>
 <points>50</points>
@@ -230,26 +230,26 @@
 <type>guessPic</type>
 <question>
 <qtext>Do you know him?</qtext>
-<qpic>http://www.bostoncondoblog.com/wp-content/uploads/2009/10/TomBrady-1.jpg</qpic>
+<qpic>http://4.bp.blogspot.com/-anaQ77wAur4/UBWoKoqkD9I/AAAAAAAABBw/Kyo-WiJvZgw/s1600/joemontana.jpg</qpic>
 </question>
 <option id="1">
-<text>Wess Welker</text>
+<text>Joe Montana</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Eli Manning</text>
+<text>Ayrton Senna</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Tom Brady</text>
+<text>Jimmy Connors</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>David Beckham</text>
+<text>Mark Webber</text>
 <pic></pic>
 </option>
 <answer8>
-<answerok>3</answerok>
+<answerok>1</answerok>
 <messageok>Congrats!!!</messageok>
 <messageko>Boooooooo!!!</messageko>
 <points>50</points>
@@ -261,27 +261,27 @@
 <game id="9">
 <type>guessPic</type>
 <question>
-<qtext>Do you know her?</qtext>
-<qpic>https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRhhRt69DuvJKbw7wCDnUIrz8ruyOe1SawhW4wc_fAvEV3OU7aQ</qpic>
+<qtext>Do you know him?</qtext>
+<qpic>http://www.biography.com/imported/images/Biography/Images/Profiles/W/Jaleel-White-20767371-2-402.jpg</qpic>
 </question>
 <option id="1">
-<text>Courteney Cox</text>
+<text>Donald Driver</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Jennifer Aniston</text>
+<text>Jaleel White</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Selena Gomez</text>
+<text>Reginald VelJohnson</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Megan Fox</text>
+<text>Roshon Fegan</text>
 <pic></pic>
 </option>
 <answer9>
-<answerok>3</answerok>
+<answerok>2</answerok>
 <messageok>Congrats!!!</messageok>
 <messageko>Boooooooo!!!</messageko>
 <points>50</points>
@@ -294,26 +294,26 @@
 <type>guessPic</type>
 <question>
 <qtext>Do you know him?</qtext>
-<qpic>http://cdn01.cdn.justjared.com/wp-content/uploads/headlines/2010/06/matt-leblanc-gray-hair-guy.jpg</qpic>
+<qpic>http://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Adriana_Sklenarikova_Karembeu_2006.jpg/200px-Adriana_Sklenarikova_Karembeu_2006.jpg</qpic>
 </question>
 <option id="1">
-<text>Matt LeBlanc</text>
+<text>Alessandra Ambrosio</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Matthew Perry</text>
+<text>Aida Yespica</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>George Clooney</text>
+<text>Natalia Vodianova</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Richard Gere</text>
+<text>Adriana Sklenarikova</text>
 <pic></pic>
 </option>
 <answer10>
-<answerok>1</answerok>
+<answerok>4</answerok>
 <messageok>Congrats!!!</messageok>
 <messageko>Boooooooo!!!</messageko>
 <points>50</points>

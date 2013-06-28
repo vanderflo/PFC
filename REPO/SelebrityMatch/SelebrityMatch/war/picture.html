@@ -29,19 +29,56 @@
   <body>
   <script>
         // When document ready, call initMenu() function 
+       $(function() {
+        	      
+                $("#slideshow > div:gt(0)").hide();
+            
+                setInterval(function() { 
+                  $('#slideshow > div:first')
+                    .fadeOut(1000)
+                    .next()
+                    .fadeIn(1000)
+                    .end()
+                    .appendTo('#slideshow');
+                },  4800);
+                
+              });
+        
         $(document).ready(function() {
+        	window.scrollTo(0, 1);
+        	$('#contentSectionHome').show();
         	
-        	var counterID=1;
-        	var totalQuestions=5;
-        	var userPoints=0;
-        	initGame();
-        	game(counterID);       	
-
-        	
+	        var totalQuestions=10;
+	        var userPoints=0; 	
+	        array_values = [];
+	        
         	function game(id){
+        	        	
+        	
+        	
         	$(xmlGame).find('game').each(function(){
         		var gameID=$(this).attr("id");
+        		
+        		if(counterID>totalQuestions){
+        			$('#pageTitle').empty();
+					$('#contentSectionPicture').hide();
+					var elapsed = (new Date().getTime() - start)/1000;
+					$("#totalPoints").text(userPoints+' Points');
+					$("#totalTime").text(elapsed+" Seconds");
+						var bonusTime=0;
+							if(elapsed<250){
+							bonusTime=500-elapsed;	
+							}
+					var totalScore=userPoints+bonusTime;
+					totalScore=totalScore.toFixed(2);
+					$("#totalScore").text(totalScore+" IS YOUR TOTAL SCORE");
+					$('#contentSectionFinish').show();
+        			
+        			
+        		}
+        		
         		if(gameID==counterID){
+        					$("#questionScreen").text(counterID+'/'+totalQuestions);
         					$(this).find('question').each(function(){	
 	        				var question= $(this).children('qtext').text();
 	                		var pic=$(this).children('qpic').text();
@@ -61,15 +98,16 @@
 								counter=counter+1;
 	        				});//option        			
             		}//if
+            		//$("#scoreScreen").text(userPoints);
         	});//game
         	}
         	
         	$("#answer").live("click",function() {
     			var idAnswer=$(this).attr("answerid");
-    			$('#footer').empty();	           
-    			
-    			$(xmlGame).find('answer'+counterID).each(function(event){
+    			$('#footer').empty();     
+    			$(xmlGame).find('answer'+counterID).each(function(e){
     				console.log("cid:"+counterID);
+    				
     				var answerok= $(this).children('answerok').text();
     				var messageok= $(this).children('messageok').text();
     				var messageko= $(this).children('messageko').text();
@@ -77,51 +115,107 @@
     				$('#message').empty();
     				var status=$("#bottom").css("display");
     				$("#bottom").css("display", "none");
-    				if(idAnswer == answerok){    					
-
-    					userPoints=userPoints+parseInt(points);    					
-    					if (counterID<totalQuestions){    					
-    					$('#message').append('<a class="flip" href="#" id="nextGame"><img src="images/right.png"/></a>');
+    				   					
+    					
+    					
+    					if (counterID<=totalQuestions){    					
+    						if(idAnswer == answerok){ 
+		    					userPoints=userPoints+parseInt(points);	
+		    					$('#message').append('<a class="flip" href="#" id="nextGame"><img id="backpic" src="images/right.png"/></a>');
+		    					$("#scoreScreen").text(userPoints);
+    						}else{
+    	    					console.log("ko");
+    	    					$('#message').append('<a class="flip" href="#" id="nextGame"><img id="backpic" src="images/wrong.png"/></a>');
+    	    				}
+    					
     					}else{
     						$('#pageTitle').empty();
-        					$('#message').append('<h1><a class="topbutton">FINISH!!!</a></h1>');
-        					$('#message').append('<h1><a>YOU GOT '+userPoints+' POINTS</a></h1>');
+    						$('#contentSectionPicture').hide();
+    						var elapsed = (new Date().getTime() - start)/1000;
+    						$("#totalPoints").text(userPoints+' Points');
+    						$("#totalTime").text(elapsed+" Seconds");
+    							var bonusTime=0;
+    								if(elapsed<250){
+    								bonusTime=500-elapsed;	
+    								}
+    						var totalScore=userPoints+bonusTime;
+    						totalScore=totalScore.toFixed(2);
+    						$("#totalScore").text("SCORE:"+totalScore);
+    						$('#contentSectionFinish').show();
+        					
 						}
     						
-    				}else{
-    					$('#message').append('<a class="flip" href="#" id="tryAgain"><img src="images/wrong.png"/></a>');
-    				}
+    				
     				
     				$('.upper').toggleClass('rotate-3d');  
-    	            event.preventDefault();  
-    				
+    				console.log("finish");
+    				return false; 
     			});
 
     		   });  //answer
     		   
     		   $("#nextGame").live("click",function(event) {
     			   counterID=counterID+1;   
-    			   $('.upper').toggleClass('rotate-3d');  
-   	            	event.preventDefault(); 
+    			   $('.upper').toggleClass('rotate-3d');
+    			   event.preventDefault();
    	            	$("#bottom").css("display", "block");
     			   game(counterID);		  
     			});
     	
     		   $("#tryAgain").live("click",function(event) {
     			    $('.upper').toggleClass('rotate-3d');  
-   	            	event.preventDefault(); 
+    			    event.preventDefault();
    	            	$("#bottom").css("display", "block");	  
     			});
     		   
-    		 //  $('a.flip').live("click",function(event){  
-    	       //     $('.upper').toggleClass('rotate-3d');  
-    	         //   event.preventDefault();  
-    	        	//});  
+    		   $("[class^=button-block].transition").live("click",function(event) {
+    			   var id=$(this).attr("next");
+    			   $("[id^=contentSection]").hide();
+    			   
+    			   if(id=='contentSectionPicture'){    				
+    		        initGame();
+    		        start = new Date().getTime();
+    	        	console.log("Time:"+start);
+    		        game(counterID); 
+    			   }
+    			   
+    			   $('#'+id+'').show();
+   			});
+    		   
+    		   
+    		   
+    		   function getRandomArbitary (min, max) {    			    
+    			    return min + Math.floor(Math.random() * (max - min + 1));
+    			}	   
+    		
     	    	 
 		function initGame(){
- 			$.ajax({
+			counterID=1;
+			userPoints=0;
+			$("#questionScreen").text(counterID+'/'+totalQuestions);
+			$("#scoreScreen").text(0);
+			var already=true; 			
+ 			if(array_values.length==12){
+ 				console.log("Resetting array");
+ 				array_values=[];
+ 			}
+ 			
+ 			while(already==true){
+				var idGame=getRandomArbitary(1,12);
+				console.log("Id game: "+idGame);
+				if (jQuery.inArray(idGame,array_values)>-1){
+					console.log("si: "+idGame);
+				}else{
+					array_values.push(idGame);
+					already=false;
+				}
+				
+				}
+ 				
+ 			
+			$.ajax({
      		    type: "GET",
-     		    url: "game1.xml",
+     		    url: "game"+idGame+".xml",
  				dataType: "xml",
  				async: false,
      		     success : function(data) {
@@ -130,31 +224,46 @@
      		    });
  			}
         });
+        
+        
+        
+        
+        
+        
     </script>
   <!-- Make sure all your bars are the first things in your <body> -->
   <header class="bar-title">
-    <div class="logo">
-      <img src="images/logo.png">
-    </div>
+      <a class="button" href="#"><span class="entypo-left-bold"></span></a>
+      <h1 class="title"></h1>
+      <a class="button" href="#"><span class="entypo-share"></span></a>
   </header>
 
   <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
-  <div class="content">
-    <div class="page-title" id="pageTitle">
-      
+   <div class="content" id="contentSectionHome">
+  	<div class="intro"><div id="slideshow"><div><img src="images/a.jpg"></div><div><img src="images/b.jpg"></div><div><img src="images/c.jpg"></div></div></div>
+    <div class="about"><h3>Test your pop-culture knowledge & guess who these people are!</h3>
     </div>
+    <div class="start"><a class="button-block transition"  next="contentSectionStart">Play Now!</a></div>
+  </div>
+  
+  <div class="content" id="contentSectionPicture">
+    <div class="page-title" id="pageTitle"></div>
 
     <div class ="upper">
-      <div id="picture" class="card front">
-        
-      </div> 
-      
-       <div class="card back" id="message">
-       
-      </div>  
-      
-      
+      <div id="picture" class="card front"></div>       
+       <div class="card back" id="message"></div>        
     </div>
+    
+     <div class ="score-question">
+      <div id="question-numb">
+        <h5>Question</h5>
+        <h4 id="questionScreen">1<span>/</span>10</h4>
+      </div>
+      <div id="score-numb">
+        <h5>Points</h5>
+        <h4 id="scoreScreen">0</h4>
+      </div> 
+   </div>  
 
     <div class="bottom" id="bottom">
       
@@ -166,5 +275,79 @@
 
   </div>
 
+
+  
+  <div class="content" id="contentSectionStart">
+  	<div class="page-title"><h2>Pick Game Type</h2></div>
+    <div class="game-type">
+      <div id="game-1"><a class="button-block-big transition" next="contentSectionPicture" >Guess The Picture</a></div>
+      <div id="game-2"><a class="button-block-big">Guess Who It Is</a></div>
+      <div id="game-=3"> <a class="button-block-big">Guess The Rack</a></div>
+      <div id="game-=3"><a class="button-block-big">Guess The Abs</a></div>
+    </div>
+  </div>
+  
+  <div class="content" id="contentSectionFinish">
+  <div class="page-title">
+      <h2>Finished!<h2>
+    </div>
+
+    <div class="score-time"><div id="score"><h3>Points</h3><h4 id="totalPoints"></h4></div>
+	<div id="time"><h3>Time</h3><h4 id="totalTime"></h4></div></div>
+	<div id="total-score"><h1 id="totalScore"></h1></div>  
+
+	 <div id="social-static"><div class="social"><ul>
+          <li class="entypo-twitter"></li>
+          <li class="entypo-facebook"><a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'facebook-share-dialog','width=626,height=436');return false;"></a>
+          </li>
+          <li class="entypo-mail"></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="clear-all"></div>
+
+    <div class="leader-board">
+      <h4>Today's Leaders</h4>
+      <table>
+        <thead>
+            <tr>
+                <th class="place">Rank</th>
+                <th class="points">Points</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <div id="leader-1">
+            <tr>    
+                <td class="place">1st</td>
+                <td class="points">994.91</td>
+                <td>Rob</td>
+            </tr>
+            </div>
+            <div id="leader-2">
+            <tr>
+                <td class="place">2nd</td>
+                <td class="points">994.26</td>
+                <td>AJ</td>
+            </tr>
+            </div>
+            <div id="leader-3">
+            <tr>
+                <td class="place">3rd</td>
+                <td class="points">993.85</td>
+                <td>Kanye West</td>
+            </tr>
+          </div>
+        </tbody>
+        </tfoot>
+      </table>
+    </div>  
+    <div class="start">
+      <a class="button-block transition" next="contentSectionPicture">Play Again!</a>
+    </div>
+  </div>
+  
+  
   </body>
 </html>

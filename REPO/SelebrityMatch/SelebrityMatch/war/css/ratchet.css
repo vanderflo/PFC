@@ -78,7 +78,6 @@ figcaption,
 footer,
 header,
 hgroup,
-menu,
 nav,
 output,
 section,
@@ -151,13 +150,13 @@ a {
 /* Pad top/bottom of content so it doesn't hide behind .bar-title and .bar-tab.
    Note: For these to work, content must come after both bars in the markup */
 .bar-title ~ .content {
-  top: 55px;
+  top: 45px;
 }
 .bar-tab ~ .content {
   bottom: 51px;
 }
 .bar-header-secondary ~ .content {
-  top: 88px;
+  top: 90px;
 }/* General bar styles
 -------------------------------------------------- */
 
@@ -166,7 +165,7 @@ a {
   right: 0;
   left: 0;
   z-index: 10;
-  height: 50px;
+  height: 40px;
   padding: 5px;
   box-sizing: border-box;
 }
@@ -228,8 +227,11 @@ a {
   text-align: center;
   text-shadow: 0 -1px rgba(0, 0, 0, .5);
   white-space: nowrap;
+  background: url(../images/logo.png) no-repeat center;
+  width: 100%;
+  height: 40px;
 }
-
+.bar-title div:last-child{float:right;}
 .bar-title > a:not([class*="button"]) {
   display: block;
   width: 100%;
@@ -241,62 +243,6 @@ a {
   color: inherit;
 }
 
-/* Tab bar
--------------------------------------------------- */
-
-/* Bar docked to bottom used for primary app navigation */
-.bar-tab {
-  bottom: 0;
-  height: 50px;
-  padding: 0;
-  background-color: #393939;
-  background-image: -webkit-linear-gradient(top, #393939 0, #2b2b2b 100%);
-  background-image: linear-gradient(to bottom, #393939 0, #2b2b2b 100%);
-  border-top: 1px solid #000;
-  border-bottom-width: 0;
-  box-shadow: inset 0 1px 1px -1px rgba(255, 255, 255, .6);
-}
-
-/* Wrapper for individual tab */
-.tab-inner {
-  display: -webkit-box;
-  display: box;
-  height: 100%;
-  list-style: none;
-  -webkit-box-orient: horizontal;
-          box-orient: horizontal;
-}
-
-/* Navigational tab */
-.tab-item {
-  height: 100%;
-  padding-top: 9px;
-  text-align: center;
-  box-sizing: border-box;
-  -webkit-box-flex: 1;
-          box-flex: 1;
-}
-
-/* Active state for tab */
-.tab-item.active {
-  box-shadow: inset 0 0 20px rgba(0, 0, 0, .5);
-}
-
-/* Icon for tab  */
-.tab-icon {
-  display: block;
-  height: 18px;
-  margin: 0 auto;
-}
-
-/* Label for tab */
-.tab-label {
-  margin-top: 1px;
-  font-size: 10px;
-  font-weight: bold;
-  color: #fff;
-  text-shadow: 0 1px rgba(0, 0, 0, .3);
-}
 
 /* Buttons in title bars
 -------------------------------------------------- */
@@ -306,18 +252,19 @@ a {
   position: relative;
   z-index: 10; /* Places buttons over full width title */
   font-size: 12px;
-  line-height: 23px;
-  color: #fff;
+  line-height: 12px;
+  padding: 10px, 8px, -4px; 
+  color: #48e1e1;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, .3);
-  background-color: #1eb0e9;
-  background-image: -webkit-linear-gradient(top, #1eb0e9 0, #0984c6 100%);
-  background-image: linear-gradient(to bottom, #1eb0e9 0, #0984c6 100%);
-  border: 1px solid #0e5895;
-  box-shadow: 0 1px rgba(255, 255, 255, .25);
-  -webkit-box-flex: 0;
-          box-flex: 0;
+  background-color: none;
 }
 
+.entypo-left-bold {
+  font-size: 23px;
+}
+.entypo-share {
+    font-size: 21px;
+}
 
 /* Hacky way to right align buttons outside of flex-box system
    Note: is only absolutely positioned button, would be better if flex-box had an "align right" option */
@@ -325,88 +272,18 @@ a {
 .bar-title .button + [class*="button"]:last-child,
 .bar-title [class*="button"].pull-right {
   position: absolute;
-  top: 5px;
+  top: 4px;
   right: 5px;
 }
 
 /* Override standard button active states */
 .bar-title .button:active {
-  color: #fff;
-  background-color: #0876b1;
+  color: #5100dd;
+  background-color: rgba (0,0,0 0.5);
+  border-radius: 3px;
+  border: 1px solid #48e1e1;
 }
 
-/* Directional buttons in title bars (thanks to @GregorAdams for solution - http://cssnerd.com/2011/11/30/the-best-pure-css3-ios-style-arrow-back-button/)
--------------------------------------------------- */
-
-/* Add relative positioning so :before content is positioned properly */
-.bar-title .button-prev,
-.bar-title .button-next {
-  position: relative;
-}
-
-/* Prev/next button base styles */
-.bar-title .button-prev {
-  margin-left: 7px; /* Push over to make room for :before content */
-  border-left: 0;
-  border-bottom-left-radius: 10px 15px;
-  border-top-left-radius: 10px 15px;
-}
-.bar-title .button-next {
-  margin-right: 7px; /* Push over to make room for :before content */
-  border-right: 0;
-  border-top-right-radius: 10px 15px;
-  border-bottom-right-radius: 10px 15px;
-}
-
-/* Pointed part of directional button */
-.bar-title .button-prev:before,
-.bar-title .button-next:before {
-  position: absolute;
-  top: 2px;
-  width: 27px;
-  height: 27px;
-  border-radius: 30px 100px 2px 40px / 2px 40px 30px 100px;
-  content: '';
-  box-shadow: inset 1px 0 #0e5895, inset 0 1px #0e5895;
-  -webkit-mask-image: -webkit-gradient(linear, left top, right bottom, from(#000), color-stop(.33, #000), color-stop(.5, transparent), to(transparent));
-                  mask-image: gradient(linear, left top, right bottom, from(#000), color-stop(.33, #000), color-stop(.5, transparent), to(transparent));
-}
-.bar-title .button-prev:before {
-  left: -5px;
-  background-image: -webkit-gradient(linear, left bottom, right top, from(#0984c6), to(#1eb0e9));
-  background-image: gradient(linear, left bottom, right top, from(#0984c6), to(#1eb0e9));
-  border-left: 1.5px solid rgba(255, 255, 255, .25);
-  -webkit-transform: rotate(-45deg) skew(-10deg, -10deg);
-          transform: rotate(-45deg) skew(-10deg, -10deg);
-}
-.bar-title .button-next:before {
-  right: -5px;
-  background-image: -webkit-gradient(linear, left bottom, right top, from(#1eb0e9), to(#0984c6));
-  background-image: gradient(linear, left bottom, right top, from(#1eb0e9), to(#0984c6));
-  border-top: 1.5px solid rgba(255, 255, 255, .25);
-  -webkit-transform: rotate(135deg) skew(-10deg, -10deg);
-          transform: rotate(135deg) skew(-10deg, -10deg);
-}
-
-/* Active states for the directional buttons */
-.bar-title .button-prev:active,
-.bar-title .button-next:active,
-.bar-title .button-prev:active:before,
-.bar-title .button-next:active:before {
-  color: #fff;
-  background-color: #0876b1;
-  background-image: none;
-}
-.bar-title .button-prev:active:before,
-.bar-title .button-next:active:before {
-  content: '';
-}
-.bar-title .button-prev:active:before {
-  box-shadow: inset 0 3px 3px rgba(0, 0, 0, .2);
-}
-.bar-title .button-next:active:before {
-  box-shadow: inset 0 -3px 3px rgba(0, 0, 0, .2);
-}
 
 /* Block buttons in any bar
 -------------------------------------------------- */
@@ -722,37 +599,30 @@ select {
   padding-left: 0;
   margin-bottom: 0;
   border-bottom: 0;
-}/* General button styles
+}
+
+/* General button styles
 -------------------------------------------------- */
 
 [class*="button"] {
   position: relative;
   display: inline-block;
-  padding: 4px 12px;
+  padding: 9px 8px 4px;
   margin: 0;
   font-weight: bold;
   line-height: 18px;
-  color: #333;
+  color: #5100dd;
   text-align: center;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-  vertical-align: top;
+  vertical-align: center;
   cursor: pointer;
-  background-color: #f8f8f8;
-  background-image: -webkit-linear-gradient(top, #f8f8f8 0, #d4d4d4 100%);
-  background-image: linear-gradient(to bottom, #f8f8f8 0, #d4d4d4 100%);
-  border: 1px solid rgba(0, 0, 0, .3);
-  border-radius: 3px;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, .4), 0 1px 2px rgba(0, 0, 0, .05);
 }
 
 /* Active */
 [class*="button"]:active {
-  padding-top: 5px;
-  padding-bottom: 3px;
+  padding-top: 7px;
+  padding-bottom: 7px;
   color: #333;
-  background-color: #ccc;
-  background-image: none;
-  box-shadow: inset 0 3px 3px rgba(0, 0, 0, .2);
+  box-shadow: inset 0 2px 3px rgba(0, 0, 0, .4);
 }
 
 /* Button modifiers
@@ -772,159 +642,65 @@ select {
   background-image: -webkit-linear-gradient(top, #1eafe7 0, #1a97c8 100%);
   background-image: linear-gradient(to bottom, #1eafe7 0, #1a97c8 100%);
   border: 1px solid #117aaa;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, .2), 0 1px 2px rgba(0, 0, 0, .07);
 }
 
-/* Main button */
-.button-block-main {
-  background-color: #1eafe7;
-  background-image: -webkit-linear-gradient(top, #1eafe7 0, #1a97c8 100%);
-  background-image: linear-gradient(to bottom, #1eafe7 0, #1a97c8 100%);
-  border: 1px solid #117aaa;
-}
-
-/* Positive button  */
-.button-positive {
-  background-color: #34ba15;
-  background-image: -webkit-linear-gradient(top, #34ba15 0, #2da012 100%);
-  background-image: linear-gradient(to bottom, #34ba15 0, #2da012 100%);
-  border: 1px solid #278f0f;
-}
-
-/* Negative button  */
-.button-negative {
-  background-color: #e71e1e;
-  background-image: -webkit-linear-gradient(top, #e71e1e 0,#c71a1a 100%);
-  background-image: linear-gradient(to bottom, #e71e1e 0, #c71a1a 100%);
-  border: 1px solid #b51a1a;
-}
 
 /* Active state for buttons with modifiers */
-.button-main:active,
-.button-positive:active,
-.button-negative:active {
-  color: #fff;
-}
-.button-main:active {
-  background-color: #0876b1;
-}
-.button-positive:active {
-  background-color: #298f11;
-}
-.button-negative:active {
-  background-color: #b21a1a;
+
+.button-block-big:active {
+  background-color: #a6ffff;
 }
 
 /* Block level buttons (full width buttons) */
 .button-block {
   display: block;
-  padding: 11px 0 13px;
+  padding: 7px 0 7px;
   margin-bottom: 10px;
   font-size: 16px;
+  background-image: -webkit-linear-gradient(top, #a6ffff 0, #48e1e1 100%);
+  background-image: linear-gradient(to bottom, #a6ffff 0, #48e1e1 100%);
+  border-radius: 3px;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, .2), 0 1px 2px rgba(0, 0, 0, .07);
 }
 
 /* Active state for block level buttons */
 .button-block:active {
-  padding: 12px 0;
+  padding: 7px 0;
+  background-color: #a6ffff;
+
 }
 
-/* Counts in buttons
--------------------------------------------------- */
 
-/* Generic styles for all counts within buttons */
-[class*="button"] [class*="count"] {
-  padding-top: 2px;
-  padding-bottom: 2px;
-  margin-right: -4px;
-  margin-left: 4px;
-  text-shadow: none;
-  background-color: rgba(0, 0, 0, .2);
-  box-shadow: inset 0 1px 1px -1px #000000, 0 1px 1px -1px #fff;
-}
-
-/* Position counts within block level buttons
-   Note: These are absolutely positioned so that text of button isn't "pushed" by count and always
-   stays at true center of button */
-.button-block [class*="count"] {
-  position: absolute;
-  right: 0;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  margin-right: 10px;
-}/* Chevrons
--------------------------------------------------- */
-
-.chevron {
+/* Main button */
+.button-block-big {
+  color: #5100dd;
+  height: 70px;
   display: block;
-  height: 20px;
+  padding: 7px 0 7px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  background-color: #a6ffff;
+  background-image: -webkit-linear-gradient(top, #a6ffff 0, #48e1e1 100%);
+  background-image: linear-gradient(to bottom, #a6ffff 0, #48e1e1 100%);
+  border: 1px solid #117aaa;  
+  border-radius: 3px;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, .2), 0 1px 2px rgba(0, 0, 0, .07);
+  text-shadow: 0 1px 0 #bbb,
+               0 2px 0 #b9b9b9,
+               0 3px 0 #a9a9a9,
+               0 4px 2px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 2px rgba(0,0,0,.25),
+               0 2px 4px rgba(0,0,0,.2),
+               0 4px 6px rgba(0,0,0,.15);
 }
 
-/* Base styles for both 1/2's of the chevron */
-.chevron:before,
-.chevron:after {
-  position: relative;
-  display: block;
-  width: 12px;
-  height: 4px;
-  background-color: #999;
-  content: '';
-}
 
-/* Position and rotate respective 1/2's of the chevron */
-.chevron:before {
-  top: 5px;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-}
-.chevron:after {
-  top: 7px;
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-}/* General count styles
--------------------------------------------------- */
 
-[class*="count"] {
-  display: inline-block;
-  padding: 4px 9px;
-  font-size: 12px;
-  font-weight: bold;
-  line-height: 13px;
-  color: #fff;
-  background-color: rgba(0, 0, 0, .3);
-  border-radius: 100px;
-}
 
-/* Count modifiers
--------------------------------------------------- */
 
-/* Overriding styles for counts with modifiers  */
-.count-main,
-.count-positive,
-.count-negative {
-  color: #fff;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, .3);
-}
-
-/* Main count  */
-.count-main {
-  background-color: #1eafe7;
-  background-image: -webkit-linear-gradient(top, #1eafe7 0, #1a97c8 100%);
-  background-image: linear-gradient(to bottom, #1eafe7 0, #1a97c8 100%);
-}
-
-/* Positive count  */
-.count-positive {
-  background-color: #34ba15;
-  background-image: -webkit-linear-gradient(top, #34ba15 0, #2da012 100%);
-  background-image: linear-gradient(to bottom, #34ba15 0, #2da012 100%);
-}
-
-/* Negative count  */
-.count-negative {
-  background-color: #e71e1e;
-  background-image: -webkit-linear-gradient(top, #e71e1e 0,#c71a1a 100%);
-  background-image: linear-gradient(to bottom, #e71e1e 0, #c71a1a 100%);
-}/* Segmented controllers
--------------------------------------------------- */
 
 .segmented-controller {
   display: -webkit-box;
