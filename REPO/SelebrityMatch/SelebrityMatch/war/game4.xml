@@ -4,26 +4,26 @@
 <questions>2</questions>
 <question>
 <qtext>Who's the celebrity in the picture?</qtext>
-<qpic>http://thebestten.files.wordpress.com/2010/01/jordan-1984-olympic.jpg</qpic>
+<qpic>http://1.bp.blogspot.com/-QVfRrpVaTgI/UTN7ZJUzQkI/AAAAAAAAAh0/NVLnN73JxPw/s220/showbiz_pippa_middleton_3_2.jpg</qpic>
 </question>
 <option id="1">
-<text>Michael Jordan</text>
+<text>Kate Middleton</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Carl Lewis</text>
+<text>Pippa Middleton</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Dominique Wilkins</text>
+<text>Queen Maxima</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Chris Paul</text>
+<text>Victoria of Sweden</text>
 <pic></pic>
 </option>
 <answer1>
-<answerok>1</answerok>
+<answerok>2</answerok>
 <messageok>Congrats!!!</messageok>
 <messageko>Boooooooo!!!</messageko>
 <points>50</points>
@@ -35,26 +35,26 @@
 <type>guessPic</type>
 <question>
 <qtext>What about this one?</qtext>
-<qpic>https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSOSVdqPmlBQXTYF2dx7Rse76oH40bD8R1rc1_6UANzILhGzS5Q</qpic>
+<qpic>http://topnews.in/files/Cristiano-Ronaldo_3.jpg</qpic>
 </question>
 <option id="1">
-<text>Victoria Azarenka</text>
+<text>Cristiano Ronaldo</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Bar Refaeli</text>
+<text>Lionel Messi</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Maria Sharapova</text>
+<text>Luis Figo</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Anna Kournikova</text>
+<text>Michael Ballack</text>
 <pic></pic>
 </option>
 <answer2>
-<answerok>2</answerok>
+<answerok>1</answerok>
 <messageok>Congrats!!!</messageok>
 <messageko>Boooooooo!!!</messageko>
 <points>50</points>
@@ -67,26 +67,26 @@
 <type>guessPic</type>
 <question>
 <qtext>Who's this guy?</qtext>
-<qpic>https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQN4LLfjScwZz-SO_NU204F5_eHuFshrHSvhPl-i5ldRLlHj6UG</qpic>
+<qpic>https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRh-3WBubkqB0zN7rHTsfgP-GcCwF45-hFtY-32iYvJLyhwQRvN</qpic>
 </question>
 <option id="1">
-<text>Tiesto</text>
+<text>Pep Guardiola</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Hardwell</text>
+<text>Tom Cruise</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>David Guetta</text>
+<text>Robert Redford</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Ferry Corsten</text>
+<text>John Hamm</text>
 <pic></pic>
 </option>
 <answer3>
-<answerok>1</answerok>
+<answerok>2</answerok>
 <messageok>Congrats!!!</messageok>
 <messageko>Boooooooo!!!</messageko>
 <points>50</points>
@@ -100,10 +100,10 @@
 <type>guessPic</type>
 <question>
 <qtext>Does this face ring a bell?</qtext>
-<qpic>http://www.millionlooks.com/photos/galleries/guess-accessories-fall-2011-ad-campaign/guess-accessories-fall-2011-ad-campaign-kate-upton.jpg</qpic>
+<qpic>http://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Erin_Andrews_2012_Shankbone.JPG/220px-Erin_Andrews_2012_Shankbone.JPG</qpic>
 </question>
 <option id="1">
-<text>Meg Ryan</text>
+<text>Cheryl Burke</text>
 <pic></pic>
 </option>
 <option id="2">
@@ -115,11 +115,11 @@
 <pic></pic>
 </option>
 <option id="4">
-<text>Lady Gaga</text>
+<text>Erin Andrews</text>
 <pic></pic>
 </option>
 <answer4>
-<answerok>3</answerok>
+<answerok>4</answerok>
 <messageok>Congrats!!!</messageok>
 <messageko>Boooooooo!!!</messageko>
 <points>50</points>
@@ -131,27 +131,27 @@
 <game id="5">
 <type>guessPic</type>
 <question>
-<qtext>Look at this man</qtext>
-<qpic>http://www.lahiguera.net/cinemania/actores/javier_bardem/fotos/3935/javier_bardem.jpg</qpic>
+<qtext>Look at this woman</qtext>
+<qpic>http://imstars.aufeminin.com/stars/fan/susan-sarandon/susan-sarandon-20080109-360723.jpg</qpic>
 </question>
 <option id="1">
-<text>Anthony Hopkins</text>
+<text>Geena Davis</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Gerard Depardieu</text>
+<text>Diane Keaton</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Hugh Jackman</text>
+<text>Susan Sarandon</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Javier Bardem</text>
+<text>Barbra Streisand</text>
 <pic></pic>
 </option>
 <answer5>
-<answerok>4</answerok>
+<answerok>3</answerok>
 <messageok>Congrats!!!</messageok>
 <messageko>Boooooooo!!!</messageko>
 <points>50</points>
@@ -165,22 +165,22 @@
 <type>guessPic</type>
 <question>
 <qtext>Look at this guy</qtext>
-<qpic>http://pmchollywoodlife.files.wordpress.com/2012/09/jay-z-bio.jpeg?w=300</qpic>
+<qpic>http://epmgaa.media.lionheartdms.com/img/photos/2013/06/26/Nelson-Mandela_t580.jpg?6b5a8256ea9d40d51e7e604659cffd9fde3a3970</qpic>
 </question>
 <option id="1">
-<text>Kanye West</text>
+<text>Koffi Annan</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Jay Z</text>
+<text>Nelson Mandela</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Lil Wayne</text>
+<text>Mahatma Gandhi</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Daddy Yankee</text>
+<text>Martin Luther king</text>
 <pic></pic>
 </option>
 <answer6>
@@ -197,26 +197,26 @@
 <type>guessPic</type>
 <question>
 <qtext>Do you know her?</qtext>
-<qpic>http://www.gotceleb.com/wp-content/uploads/celebrities/khloe-kardashian/at-the-x-factor-season-finale-night-1/Khloe%20Kardashian%20-%20X%20Factor%20Finale%20-03-560x852.jpg</qpic>
+<qpic>http://img2.timeinc.net/people/i/2011/database/111010/jennifer-garner-300.jpg</qpic>
 </question>
 <option id="1">
-<text>Kim Kardashian</text>
+<text>Jennifer Garner</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Khloe Kardashian</text>
+<text>Jennifer Lopez</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Kourtney Kardashian</text>
+<text>Jessica Alba</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Kendall Jenner</text>
+<text>Jennifer Lawrence</text>
 <pic></pic>
 </option>
 <answer7>
-<answerok>2</answerok>
+<answerok>1</answerok>
 <messageok>Congrats!!!</messageok>
 <messageko>Boooooooo!!!</messageko>
 <points>50</points>
@@ -233,23 +233,23 @@
 <qpic>http://www.bostoncondoblog.com/wp-content/uploads/2009/10/TomBrady-1.jpg</qpic>
 </question>
 <option id="1">
-<text>Wess Welker</text>
+<text>Oscar Robertson</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Eli Manning</text>
+<text>Kareem Abdul-Jabbar</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Tom Brady</text>
+<text>Wilt Chamberlain</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>David Beckham</text>
+<text>Bill Russell</text>
 <pic></pic>
 </option>
 <answer8>
-<answerok>3</answerok>
+<answerok>4</answerok>
 <messageok>Congrats!!!</messageok>
 <messageko>Boooooooo!!!</messageko>
 <points>50</points>
@@ -262,7 +262,7 @@
 <type>guessPic</type>
 <question>
 <qtext>Do you know her?</qtext>
-<qpic>https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRhhRt69DuvJKbw7wCDnUIrz8ruyOe1SawhW4wc_fAvEV3OU7aQ</qpic>
+<qpic>http://comicbook.com/wp-content/uploads/2013/01/megan-fox.jpg</qpic>
 </question>
 <option id="1">
 <text>Courteney Cox</text>
@@ -281,7 +281,7 @@
 <pic></pic>
 </option>
 <answer9>
-<answerok>3</answerok>
+<answerok>4</answerok>
 <messageok>Congrats!!!</messageok>
 <messageko>Boooooooo!!!</messageko>
 <points>50</points>
@@ -294,7 +294,7 @@
 <type>guessPic</type>
 <question>
 <qtext>Do you know him?</qtext>
-<qpic>http://cdn01.cdn.justjared.com/wp-content/uploads/headlines/2010/06/matt-leblanc-gray-hair-guy.jpg</qpic>
+<qpic>http://clooneyfan.files.wordpress.com/2010/07/gc4.jpg</qpic>
 </question>
 <option id="1">
 <text>Matt LeBlanc</text>
@@ -313,7 +313,7 @@
 <pic></pic>
 </option>
 <answer10>
-<answerok>1</answerok>
+<answerok>3</answerok>
 <messageok>Congrats!!!</messageok>
 <messageko>Boooooooo!!!</messageko>
 <points>50</points>

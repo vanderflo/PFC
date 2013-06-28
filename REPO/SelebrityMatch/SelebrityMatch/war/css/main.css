@@ -1,3 +1,6 @@
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+
+
 /* Global */
 
 .page-title {
@@ -5,11 +8,39 @@
 	text-align: center;
 }
 
+h1 {
+	font-size: 3em;
+	text-align: center;
+  text-transform: uppercase;
+  color: #48e1e1;
+}
+
+h1 span {
+	font-weight: normal;
+}
+
 h2 {
 	text-transform: uppercase;
 	color: #f52650;
-    text-shadow: 0px 2px 2px #000,
+  text-shadow: 0px 1px 2px #000;
+  padding-bottom: 3px;
 
+}
+
+h3{
+	color: #fff;
+	font-weight: normal;	
+}
+
+h4{
+  color: #f52650;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+h5{
+  color: #fff;
+  font-weight: normal;  
 }
 
 .logo {
@@ -21,7 +52,17 @@ h2 {
   text-align: center;
 }
 
+.entypo-menu {
+	font-size:19px;
+}
 
+.clear {
+	clear: all;
+}
+
+.clear-all{
+  clear: all;
+}
 /* Home */
 
 .about {
@@ -33,24 +74,24 @@ h2 {
 }
 
 .intro {
-	height: 320px;
+	height: 300px;
 	width: auto;
 	position: relative;
-	padding-top: 10px;
-	padding-bottom: 55px;
+	padding-top: 12px;
+	padding-bottom: 0px;
 	margin-left: -5%;
 }
 
 #slideshow { 
     margin: 0px auto; 
     position: relative; 
-    width: 300px; 
-    height: 320px;
+    width: 250px; 
+    height: 280px;
 }
 
 #slideshow > div {
     position: absolute; 
-    border:10px solid #48e1e1;
+    border:6px solid #f52650;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 	border-radius: 10px;
@@ -66,36 +107,286 @@ h2 {
 /* Start Page */
 
 .game-type {
-	padding-top: 25px;
+	padding-top: 6px;
 	width: auto;
 	margin-left: 10%;
 	margin-right: 10%;
 }
 
-.button-block {
-	background-color: #1eb0e9;
-}
-
-#game-1 {
-
+.button-start{
+	display: block;
+	padding: 7px 0 7px;
+	margin-bottom: 10px;
+	font-size: 16px;
 }
 
 .bottom {
-	padding-top: 15px;
+	padding-top: 8px;
 	width: auto;
-	margin-left: 10%;
-	margin-right: 10%;
+	margin-left: 3%;
+	margin-right: 0%;
+}
+
+.upper {
+	padding-top: 3px;
+	width: 100%;
+	text-align: center;
+}
+
+.answers {
+	margin-left: 9%;
+	margin-right: 11%;
+}
+
+
+#picture {
+
+}
+
+/* Question # & Score Game Page */
+
+
+
+.score-question {
+  margin: 0px 4%;
+  font-size: 14px;
+}
+
+#question-numb {
+	position: absolute;
+	left: 0px;
+  width:50px;
+  background: ;
+}
+
+#score-numb{
+	position: absolute;
+	right: 0px;
+  width: 50px;
+  background:;
+}
+
+#question-numb, #score-numb{
+  top: 205px;
+  text-align: center;
+  padding: 8px 8px 2px;
+  background-color: rgba(0, 0, 0, .4);
+  border-radius: 16px;
+}
+
+
+#fact {
+  height: 120px;
+  margin: 0px 4%
+}
+
+#fact h3 {
+
+  padding: 1px;
+
+}
+
+
+/* Points & Time on Finish Page */
+
+#score{
+  float: left;
+}
+
+#time{
+  float: right;
+}
+
+.score-time{
+  width: 60%; 
+  margin: 5px auto; 
+  height: 30px;
+  padding: 6px 20px 10px;
+  background-color: rgba(0, 0, 0, .4);
+  border-radius: 18px;
+}
+
+#score h3, #score h4, #time h3, #time h4{
+  text-align: center; 
+  position: relative; 
+  height: 15px;
 }
 
 
 
-#pictoshow{
-	height: 340px;
-	width: 300px;
+
+/* Social Boxes */
+
+#social-static {
+  text-align:center;
+  position:relative;
+  margin: 0 auto;
+  padding:10px 0 15px 0;
+  width:360px;
+  height:50px;
+}
+
+/* entypo */
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+}
+
+.social {
+  text-align: center;
+
+}
+
+ul {
+  position:relative;
+  margin:auto;
+  color:#fff;
+  text-align: center;
+  padding:0;
+  list-style:none;
+}
+
+ul li {
+  font-size:24px;
+  
+  cursor:pointer;
+  width:60px;
+  margin:0 5px;
+  padding:4px 0;
+  text-align:center;
+  display:inline-block;
+  height:28px;}
+
+li[class*="facebook"] {background:#5100dd;padding:12px 0;}
+li[class*="twitter"] {background:#48e1e1;padding:12px 0;}
+li[class*="mail"] {background:#f52650;padding:12px 0;}
+
+
+
+
+
+
+/* table */
+
+.leader-board {
+  text-align: center;
+  width: 100%;
+  height: auto;
+  padding-bottom: 5px;
+}
+
+
+table {
+    width:300px;
+    display:table;
+    margin-left:auto;
+    margin-right:auto;
+    border-collapse: collapse;
+    margin: 10px auto !important;
+    box-shadow: 0 1px 16px rgba(81, 0, 221, .8);
+}
+
+
+thead {
+    font-weight:lighter;
+    text-align:left;
+    background-color: #5202dd;
+    background-image: -webkit-linear-gradient(top, #9563ea 0, #5202dd 100%);
+    background-image: linear-gradient(to bottom, #9563ea 0, #5202dd 100%);
+    color:#fff;
+}
+
+.place {
+  width: 38px;
+  padding-right: 34px;
+}
+
+.points {
+  width: 40px;
+}
+
+th {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+td, th {
+    border:1px solid #5100dd;
+    padding:8px;
+}
+
+tbody tr:nth-child(even) td {
+    color: #48e1e1;
+    background-color: #464646;
+    background-image: -webkit-linear-gradient(top, #464646 0, #252525 100%);
+    background-image: linear-gradient(to bottom, #464646 0, #252525 100%);
+}
+
+tbody tr:nth-child(odd) td {
+    color: #48e1e1;
+    background-color: #464646;
+    background-image: -webkit-linear-gradient(top, #464646 0, #252525 100%);
+    background-image: linear-gradient(to bottom, #464646 0, #252525 100%);
+}
+
+.place, .points, td, tr{
+    text-align:center;
+    padding: 4px;
 }
 
 
 
+/* dropdown */
+
+
+
+
+
+
+
+
+/* Finish Page H1 */
+#total-score h1 {
+
+}
+
+#total-score h1 {
+  display: block;
+  margin: 0 auto;
+  text-shadow: 0 0 12px rgba(255,255,255,.3);
+
+/* Clip Background Image */
+
+
+background-size: 50px 50px;
+background-color: #3ec7c7;
+background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+                  transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+                  transparent 75%, transparent);
+background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+                  transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+                  transparent 75%, transparent);
+background-image: linear-gradient(135deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+                  transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+                  transparent 75%, transparent);
+  -webkit-background-clip: text;
+
+/* Animate Background Image */
+
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: aitf 10s linear infinite;
+
+/* Activate hardware acceleration for smoother animations */
+
+  -webkit-transform: translate3d(0,0,0);
+  -webkit-backface-visibility: hidden;
+}
+
+/* Animate Background Image */
+
+@-webkit-keyframes aitf {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
 /*FLIP*/
 .upper {
 	padding-top: 5px;
@@ -103,8 +394,8 @@ h2 {
   	text-align: center;
 	
 	position: relative;
-	height: 340px;
-	width: 300px;
+	height: 220px;
+	width: 196px;
 
 
 	-webkit-transform-style: preserve-3d;
@@ -203,4 +494,18 @@ h2 {
     -moz-transform: rotateY(180deg);  
     transform: rotateY(180deg);  
 } 
+
+#pictoshow{
+	height: 220px;
+	width: 196px;
+}
+
+#backpic{
+	height: 220px;
+	width: 196px;
+}
+
+.content{
+	display:none;
+}
 

@@ -3,29 +3,29 @@
 <type>guessPic</type>
 <questions>2</questions>
 <question>
-<qtext>Who's the celebrity in the picture?</qtext>
-<qpic>http://thebestten.files.wordpress.com/2010/01/jordan-1984-olympic.jpg</qpic>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://4.bp.blogspot.com/-BkHp8vS0Hx8/URacQWbKKbI/AAAAAAAADS8/GV3_MhIq0e0/s1600/vv.jpg</qpic>
 </question>
 <option id="1">
-<text>Michael Jordan</text>
+<text>Valeria Mazza</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Carl Lewis</text>
+<text>Nicole Neumann</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Dominique Wilkins</text>
+<text>Daniela Pestova</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Chris Paul</text>
+<text>Claudia Schiffer</text>
 <pic></pic>
 </option>
 <answer1>
 <answerok>1</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -34,29 +34,29 @@
 <game id="2">
 <type>guessPic</type>
 <question>
-<qtext>What about this one?</qtext>
-<qpic>https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSOSVdqPmlBQXTYF2dx7Rse76oH40bD8R1rc1_6UANzILhGzS5Q</qpic>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://apurosport.com/wp-content/uploads//2011/04/El-video-que-muestra-al-tenista-espa%C3%B1ol-Rafael-Nadal-de-ni%C3%B1o-con-mentalidad-ganadora.jpg</qpic>
 </question>
 <option id="1">
-<text>Victoria Azarenka</text>
+<text>Rafael Nadal</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Bar Refaeli</text>
+<text>Bjon Borg</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Maria Sharapova</text>
+<text>Patrick Rafter</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Anna Kournikova</text>
+<text>John McEnroe</text>
 <pic></pic>
 </option>
 <answer2>
-<answerok>2</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<answerok>1</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -66,29 +66,29 @@
 <game id="3">
 <type>guessPic</type>
 <question>
-<qtext>Who's this guy?</qtext>
-<qpic>https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQN4LLfjScwZz-SO_NU204F5_eHuFshrHSvhPl-i5ldRLlHj6UG</qpic>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://www.collegecrunch.org/wp-content/uploads/2008/10/joe-biden.jpg</qpic>
 </question>
 <option id="1">
-<text>Tiesto</text>
+<text>James Dean</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Hardwell</text>
+<text>Joe Biden</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>David Guetta</text>
+<text>Mitt Romney</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Ferry Corsten</text>
+<text>Micheal Bloomberg</text>
 <pic></pic>
 </option>
 <answer3>
-<answerok>1</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<answerok>2</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -99,29 +99,29 @@
 <game id="4">
 <type>guessPic</type>
 <question>
-<qtext>Does this face ring a bell?</qtext>
-<qpic>http://www.millionlooks.com/photos/galleries/guess-accessories-fall-2011-ad-campaign/guess-accessories-fall-2011-ad-campaign-kate-upton.jpg</qpic>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://s-ak.buzzfed.com/static/enhanced/terminal01/2010/9/8/13/enhanced-buzz-27649-1283967920-15.jpg</qpic>
 </question>
 <option id="1">
-<text>Meg Ryan</text>
+<text>Anthony Hopkins</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Scarlett Johansson</text>
+<text>Robert de Niro</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Kate Upton</text>
+<text>John Malkovich</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Lady Gaga</text>
+<text>Jay Leno</text>
 <pic></pic>
 </option>
 <answer4>
-<answerok>3</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<answerok>4</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -131,29 +131,29 @@
 <game id="5">
 <type>guessPic</type>
 <question>
-<qtext>Look at this man</qtext>
-<qpic>http://www.lahiguera.net/cinemania/actores/javier_bardem/fotos/3935/javier_bardem.jpg</qpic>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://www.annasponer.com/images/Young%20Oprah%20Winfrey%20Portrait.jpg</qpic>
 </question>
 <option id="1">
-<text>Anthony Hopkins</text>
+<text>Oprah Winfrey</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Gerard Depardieu</text>
+<text>Serena Williams</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Hugh Jackman</text>
+<text>Venus Williams</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Javier Bardem</text>
+<text>Karyn Parsons</text>
 <pic></pic>
 </option>
 <answer5>
-<answerok>4</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<answerok>1</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -164,29 +164,29 @@
 <game id="6">
 <type>guessPic</type>
 <question>
-<qtext>Look at this guy</qtext>
-<qpic>http://pmchollywoodlife.files.wordpress.com/2012/09/jay-z-bio.jpeg?w=300</qpic>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://static.guim.co.uk/sys-images/Sport/Pix/pictures/2010/8/6/1281109644530/Colin-Montgomerie-006.jpg</qpic>
 </question>
 <option id="1">
-<text>Kanye West</text>
+<text>Colin Montgomerie</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Jay Z</text>
+<text>Nick Faldo</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Lil Wayne</text>
+<text>Seve Ballesteros</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Daddy Yankee</text>
+<text>Tony Blair</text>
 <pic></pic>
 </option>
 <answer6>
 <answerok>2</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -196,29 +196,29 @@
 <game id="7">
 <type>guessPic</type>
 <question>
-<qtext>Do you know her?</qtext>
-<qpic>http://www.gotceleb.com/wp-content/uploads/celebrities/khloe-kardashian/at-the-x-factor-season-finale-night-1/Khloe%20Kardashian%20-%20X%20Factor%20Finale%20-03-560x852.jpg</qpic>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://forum.hollywoodnose.com/users/1/question_images/Cher%20Hairstyles.jpg</qpic>
 </question>
 <option id="1">
-<text>Kim Kardashian</text>
+<text>Cher</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Khloe Kardashian</text>
+<text>Kim Kardashian</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Kourtney Kardashian</text>
+<text>Donna Summer</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Kendall Jenner</text>
+<text>Pink</text>
 <pic></pic>
 </option>
 <answer7>
-<answerok>2</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<answerok>1</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -229,19 +229,19 @@
 <game id="8">
 <type>guessPic</type>
 <question>
-<qtext>Do you know him?</qtext>
-<qpic>http://www.bostoncondoblog.com/wp-content/uploads/2009/10/TomBrady-1.jpg</qpic>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://i.telegraph.co.uk/multimedia/archive/01502/19980504-blond_1502626i.jpg</qpic>
 </question>
 <option id="1">
-<text>Wess Welker</text>
+<text>Leo DiCaprio</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Eli Manning</text>
+<text>Brad Pitt</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Tom Brady</text>
+<text>Dennis Bergkamp</text>
 <pic></pic>
 </option>
 <option id="4">
@@ -249,9 +249,9 @@
 <pic></pic>
 </option>
 <answer8>
-<answerok>3</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<answerok>4</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -261,8 +261,8 @@
 <game id="9">
 <type>guessPic</type>
 <question>
-<qtext>Do you know her?</qtext>
-<qpic>https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRhhRt69DuvJKbw7wCDnUIrz8ruyOe1SawhW4wc_fAvEV3OU7aQ</qpic>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://images.forum-auto.com/mesimages/162998/young-jennifer-aniston-hair-styles-04.jpg</qpic>
 </question>
 <option id="1">
 <text>Courteney Cox</text>
@@ -281,9 +281,9 @@
 <pic></pic>
 </option>
 <answer9>
-<answerok>3</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<answerok>2</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -293,29 +293,29 @@
 <game id="10">
 <type>guessPic</type>
 <question>
-<qtext>Do you know him?</qtext>
-<qpic>http://cdn01.cdn.justjared.com/wp-content/uploads/headlines/2010/06/matt-leblanc-gray-hair-guy.jpg</qpic>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://www.rankingfamosos.com/imagenes/famosos/20101222/roman-polanski-4.jpg</qpic>
 </question>
 <option id="1">
-<text>Matt LeBlanc</text>
+<text>Roman Polanski</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Matthew Perry</text>
+<text>Steven Spielberg</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>George Clooney</text>
+<text>Bill Gates</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Richard Gere</text>
+<text>Steve Jobs</text>
 <pic></pic>
 </option>
 <answer10>
 <answerok>1</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>

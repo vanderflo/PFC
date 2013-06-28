@@ -1,0 +1,331 @@
+<xml>
+<game id="1">
+<type>guessPic</type>
+<questions>2</questions>
+<question>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://cache.daylife.com/imageserve/08etaQ2fc89Bt/x160.jpg</qpic>
+</question>
+<option id="1">
+<text>Matthew Mcconaughey</text>
+<pic></pic>
+</option>
+<option id="2">
+<text>Christopher Nolan</text>
+<pic></pic>
+</option>
+<option id="3">
+<text>Bradley Cooper</text>
+<pic></pic>
+</option>
+<option id="4">
+<text>Charlie Sheen</text>
+<pic></pic>
+</option>
+<answer1>
+<answerok>3</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
+<points>50</points>
+<timebonus>2</timebonus>
+<extrabonus>5</extrabonus>
+</answer1>
+</game>
+<game id="2">
+<type>guessPic</type>
+<question>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://image.pollstar.com/WeblogFiles/pollstar/1210120851390829653_805265_v3.jpg</qpic>
+</question>
+<option id="1">
+<text>Busta Rhymes</text>
+<pic></pic>
+</option>
+<option id="2">
+<text>2 Chainz</text>
+<pic></pic>
+</option>
+<option id="3">
+<text>Lil Wayne</text>
+<pic></pic>
+</option>
+<option id="4">
+<text>Wyclef Jean</text>
+<pic></pic>
+</option>
+<answer2>
+<answerok>2</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
+<points>50</points>
+<timebonus>2</timebonus>
+<extrabonus>5</extrabonus>
+</answer2>
+</game>
+
+<game id="3">
+<type>guessPic</type>
+<question>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://farm4.static.flickr.com/3213/2717626531_99720b23b6_m.jpg</qpic>
+</question>
+<option id="1">
+<text>Adam Sandler</text>
+<pic></pic>
+</option>
+<option id="2">
+<text>Hugh Jackman</text>
+<pic></pic>
+</option>
+<option id="3">
+<text>Ben Afflect</text>
+<pic></pic>
+</option>
+<option id="4">
+<text>Ben Stiller</text>
+<pic></pic>
+</option>
+<answer3>
+<answerok>2</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
+<points>50</points>
+<timebonus>2</timebonus>
+<extrabonus>5</extrabonus>
+</answer3>
+</game>
+
+
+<game id="4">
+<type>guessPic</type>
+<question>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://farm7.staticflickr.com/6173/6181928295_7811b53d74_m.jpg</qpic>
+</question>
+<option id="1">
+<text>Flo Rida</text>
+<pic></pic>
+</option>
+<option id="2">
+<text>Lebron James</text>
+<pic></pic>
+</option>
+<option id="3">
+<text>Cam Newton</text>
+<pic></pic>
+</option>
+<option id="4">
+<text>Dwayne Johnson</text>
+<pic></pic>
+</option>
+<answer4>
+<answerok>2</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
+<points>50</points>
+<timebonus>2</timebonus>
+<extrabonus>5</extrabonus>
+</answer4>
+</game>
+
+<game id="5">
+<type>guessPic</type>
+<question>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://joonbug.com/media/mlov2bbcb6f/madonna2.jpg</qpic>
+</question>
+<option id="1">
+<text>Cameron Diaz</text>
+<pic></pic>
+</option>
+<option id="2">
+<text>Scarlett Johansson</text>
+<pic></pic>
+</option>
+<option id="3">
+<text>Marilyn Monroe</text>
+<pic></pic>
+</option>
+<option id="4">
+<text>Madonna</text>
+<pic></pic>
+</option>
+<answer5>
+<answerok>4</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
+<points>50</points>
+<timebonus>2</timebonus>
+<extrabonus>5</extrabonus>
+</answer5>
+</game>
+
+
+<game id="6">
+<type>guessPic</type>
+<question>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://cache.daylife.com/imageserve/06FF3es15vaut/x160.jpg</qpic>
+</question>
+<option id="1">
+<text>Steve Jobs</text>
+<pic></pic>
+</option>
+<option id="2">
+<text>Ashton Kutcher</text>
+<pic></pic>
+</option>
+<option id="3">
+<text>Roger Federer</text>
+<pic></pic>
+</option>
+<option id="4">
+<text>Robert Downey Jr</text>
+<pic></pic>
+</option>
+<answer6>
+<answerok>3</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
+<points>50</points>
+<timebonus>2</timebonus>
+<extrabonus>5</extrabonus>
+</answer6>
+</game>
+
+<game id="7">
+<type>guessPic</type>
+<question>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://farm8.static.flickr.com/7182/6908662917_87513194e2_m.jpg</qpic>
+</question>
+<option id="1">
+<text>Matt Damon</text>
+<pic></pic>
+</option>
+<option id="2">
+<text>Ben Affleck</text>
+<pic></pic>
+</option>
+<option id="3">
+<text>Calvin Harris</text>
+<pic></pic>
+</option>
+<option id="4">
+<text>Mark Wahlberg></text>
+<pic></pic>
+</option>
+<answer7>
+<answerok>4</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
+<points>50</points>
+<timebonus>2</timebonus>
+<extrabonus>5</extrabonus>
+</answer7>
+</game>
+
+
+<game id="8">
+<type>guessPic</type>
+<question>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://farm6.staticflickr.com/5205/5255820422_998e0c95aa_m.jpg</qpic>
+</question>
+<option id="1">
+<text>Katy Perry</text>
+<pic></pic>
+</option>
+<option id="2">
+<text>Carly Rae Jepsen</text>
+<pic></pic>
+</option>
+<option id="3">
+<text>Kim Kardashian</text>
+<pic></pic>
+</option>
+<option id="4">
+<text>Zooey Deschanel</text>
+<pic></pic>
+</option>
+<answer8>
+<answerok>1</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
+<points>50</points>
+<timebonus>2</timebonus>
+<extrabonus>5</extrabonus>
+</answer8>
+</game>
+
+<game id="9">
+<type>guessPic</type>
+<question>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://dimemag.com/wp-content/uploads/2009/06/kobe-39-3.jpg</qpic>
+</question>
+<option id="1">
+<text>Magic Johnson</text>
+<pic></pic>
+</option>
+<option id="2">
+<text>Doc Rivers</text>
+<pic></pic>
+</option>
+<option id="3">
+<text>Tim Duncan</text>
+<pic></pic>
+</option>
+<option id="4">
+<text>Kobe Bryant</text>
+<pic></pic>
+</option>
+<answer9>
+<answerok>4</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
+<points>50</points>
+<timebonus>2</timebonus>
+<extrabonus>5</extrabonus>
+</answer9>
+</game>
+
+<game id="10">
+<type>guessPic</type>
+<question>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://farm8.staticflickr.com/7178/6775679968_1deb516105_m.jpg</qpic>
+</question>
+<option id="1">
+<text>Ivanka Trump</text>
+<pic></pic>
+</option>
+<option id="2">
+<text>Carrie Underwood</text>
+<pic></pic>
+</option>
+<option id="3">
+<text>Jennifer Aniston</text>
+<pic></pic>
+</option>
+<option id="4">
+<text>Heidi Klum</text>
+<pic></pic>
+</option>
+<answer10>
+<answerok>3</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
+<points>50</points>
+<timebonus>2</timebonus>
+<extrabonus>5</extrabonus>
+</answer10>
+</game>
+
+
+
+
+
+
+
+</xml>
