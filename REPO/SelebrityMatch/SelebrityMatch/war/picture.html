@@ -45,8 +45,9 @@
               });
         
         $(document).ready(function() {
-        	window.scrollTo(0, 1);
+        	window.scrollTo(0, 1);        	
         	$('#contentSectionHome').show();
+        	$('#backButton').hide();
         	
 	        var totalQuestions=10;
 	        var userPoints=0; 	
@@ -114,19 +115,21 @@
     				var points= $(this).children('points').text();
     				$('#message').empty();
     				var status=$("#bottom").css("display");
-    				$("#bottom").css("display", "none");
+    				$("#bottom").empty();
     				   					
     					
     					
     					if (counterID<=totalQuestions){    					
     						if(idAnswer == answerok){ 
 		    					userPoints=userPoints+parseInt(points);	
-		    					$('#message').append('<a class="flip" href="#" id="nextGame"><img id="backpic" src="images/right.png"/></a>');
+		    					$('#message').append('<a class="flip" href="#" id="nextGame"><img id="backpic" src="images/correct.jpg"/></a>');
+		    					$('#bottom').append('<div><a id="nextGame" class="button-block">CONTINUE</a></div>');
 		    					$("#scoreScreen").text(userPoints);
     						}else{
     	    					console.log("ko");
-    	    					$('#message').append('<a class="flip" href="#" id="nextGame"><img id="backpic" src="images/wrong.png"/></a>');
-    	    				}
+    	    					$('#message').append('<a class="flip" href="#" id="nextGame"><img id="backpic" src="images/incorrect.jpg"/></a>');
+    	    					$('#bottom').append('<div><a id="nextGame" class="button-block">CONTINUE</a></div>');
+    						}
     					
     					}else{
     						$('#pageTitle').empty();
@@ -168,7 +171,7 @@
    	            	$("#bottom").css("display", "block");	  
     			});
     		   
-    		   $("[class^=button-block].transition").live("click",function(event) {
+    		   $("[class^=button].transition").live("click",function(event) {
     			   var id=$(this).attr("next");
     			   $("[id^=contentSection]").hide();
     			   
@@ -176,8 +179,19 @@
     		        initGame();
     		        start = new Date().getTime();
     	        	console.log("Time:"+start);
-    		        game(counterID); 
-    			   }
+    		        game(counterID);
+    		        $("#backButton").attr("next",'contentSectionStart');
+    			   }    			   
+    			  
+    			   if(id=='contentSectionStart'){   
+    				$("#backButton").show();
+        			$("#backButton").attr("next",'contentSectionHome');
+					}
+    			   
+    			   if(id=='contentSectionHome'){   
+       				$("#backButton").hide();
+   					}
+    			   
     			   
     			   $('#'+id+'').show();
    			});
@@ -233,14 +247,22 @@
     </script>
   <!-- Make sure all your bars are the first things in your <body> -->
   <header class="bar-title">
-      <a class="button" href="#"><span class="entypo-left-bold"></span></a>
+      <a class="button transition" href="#" id="backButton"><span class="entypo-left-bold"></span></a>
       <h1 class="title"></h1>
       <a class="button" href="#"><span class="entypo-share"></span></a>
   </header>
 
   <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
    <div class="content" id="contentSectionHome">
-  	<div class="intro"><div id="slideshow"><div><img src="images/a.jpg"></div><div><img src="images/b.jpg"></div><div><img src="images/c.jpg"></div></div></div>
+  	    <div class="intro">
+      <div id="slideshow">
+       <div><img src="images/a.jpg"></div>
+       <div><img src="images/b.jpg"></div>
+       <div><img src="images/c.jpg"></div>
+       <div><img src="images/d.jpg"></div>
+       <div><img src="images/e.jpg"></div>
+      </div>
+    </div>
     <div class="about"><h3>Test your pop-culture knowledge & guess who these people are!</h3>
     </div>
     <div class="start"><a class="button-block transition"  next="contentSectionStart">Play Now!</a></div>

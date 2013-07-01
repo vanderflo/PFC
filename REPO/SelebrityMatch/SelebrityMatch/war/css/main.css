@@ -74,10 +74,10 @@ h5{
 }
 
 .intro {
-	height: 300px;
+	height: 200px;
 	width: auto;
 	position: relative;
-	padding-top: 12px;
+	padding-top: 20px;
 	padding-bottom: 0px;
 	margin-left: -5%;
 }
@@ -85,8 +85,8 @@ h5{
 #slideshow { 
     margin: 0px auto; 
     position: relative; 
-    width: 250px; 
-    height: 280px;
+    width: 230px; 
+    height: 160px;
 }
 
 #slideshow > div {
@@ -98,6 +98,7 @@ h5{
 }
 
 .start {
+	padding-top: 10px;
 	width: auto;
 	margin-left: 10%;
 	margin-right: 10%;
@@ -122,8 +123,7 @@ h5{
 
 .bottom {
 	padding-top: 8px;
-	width: auto;
-	margin-left: 3%;
+	width: auto;	
 	margin-right: 0%;
 }
 
@@ -167,7 +167,7 @@ h5{
 }
 
 #question-numb, #score-numb{
-  top: 205px;
+  top: 145px;
   text-align: center;
   padding: 8px 8px 2px;
   background-color: rgba(0, 0, 0, .4);
@@ -199,9 +199,9 @@ h5{
 
 .score-time{
   width: 60%; 
-  margin: 5px auto; 
-  height: 30px;
-  padding: 6px 20px 10px;
+  margin: 3px auto; 
+  height: 25px;
+  padding: 1px 20px 11px;
   background-color: rgba(0, 0, 0, .4);
   border-radius: 18px;
 }
@@ -223,7 +223,7 @@ h5{
   margin: 0 auto;
   padding:10px 0 15px 0;
   width:360px;
-  height:50px;
+  height:70px;
 }
 
 /* entypo */
@@ -346,7 +346,7 @@ tbody tr:nth-child(odd) td {
 
 /* Finish Page H1 */
 #total-score h1 {
-
+height: 40px;
 }
 
 #total-score h1 {
@@ -394,8 +394,8 @@ background-image: linear-gradient(135deg, rgba(255, 255, 255, .2) 25%, transpare
   	text-align: center;
 	
 	position: relative;
-	height: 220px;
-	width: 196px;
+	height: 160px;
+	width: 240px;
 
 
 	-webkit-transform-style: preserve-3d;
@@ -496,16 +496,20 @@ background-image: linear-gradient(135deg, rgba(255, 255, 255, .2) 25%, transpare
 } 
 
 #pictoshow{
-	height: 220px;
-	width: 196px;
+	height: 160px;
+	width: 240px;
 }
 
 #backpic{
-	height: 220px;
-	width: 196px;
+	height: 160px;
+	width: 240px;
 }
 
 .content{
 	display:none;
 }
 
+
+#social-static h3{
+  padding-bottom: 4px;
+}
