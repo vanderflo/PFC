@@ -4,26 +4,26 @@
 <questions>2</questions>
 <question>
 <qtext>Which Celebrity Is This?</qtext>
-<qpic>images/rack5.jpg</qpic>
+<qpic>images/abs1.jpg</qpic>
 </question>
 <option id="1">
-<text>Kate Upton</text>
+<text>Cristiano Ronaldo</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Scarlett Johannson</text>
+<text>David Beckham</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Miley Cirus</text>
+<text>Tom Brady</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Bar Refaeli</text>
+<text>Alex Rodriguez</text>
 <pic></pic>
 </option>
 <answer1>
-<answerok>1</answerok>
+<answerok>2</answerok>
 <messageok>Correct!!!</messageok>
 <messageko>Woof, incorrect!!!</messageko>
 <points>100</points>
@@ -35,26 +35,26 @@
 <type>guessPic</type>
 <question>
 <qtext>Which Celebrity Is This?</qtext>
-<qpic>images/rack4.jpg</qpic>
+<qpic>images/abs2.jpg</qpic>
 </question>
 <option id="1">
-<text>Courtney Cox</text>
+<text>Cristiano Ronaldo</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Penelope Cruz</text>
+<text>Robin Van Persie</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Selena Gomez</text>
+<text>Landon Donovan</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Kelly Brook</text>
+<text>Rafael Marquez</text>
 <pic></pic>
 </option>
 <answer2>
-<answerok>4</answerok>
+<answerok>1</answerok>
 <messageok>Correct!!!</messageok>
 <messageko>Woof, incorrect!!!</messageko>
 <points>100</points>
@@ -67,26 +67,26 @@
 <type>guessPic</type>
 <question>
 <qtext>Which Celebrity Is This?</qtext>
-<qpic>images/rack3.jpg</qpic>
+<qpic>images/abs3.jpg</qpic>
 </question>
 <option id="1">
-<text>Zoey Deschannel</text>
+<text>Bradley Cooper</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Sofia Vergara</text>
+<text>Brad Pitt</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Katy Perry</text>
+<text>Tom Cruise</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Krysten Ritter</text>
+<text>Enrique Iglesias</text>
 <pic></pic>
 </option>
 <answer3>
-<answerok>3</answerok>
+<answerok>2</answerok>
 <messageok>Correct!!!</messageok>
 <messageko>Woof, incorrect!!!</messageko>
 <points>100</points>
@@ -100,22 +100,22 @@
 <type>guessPic</type>
 <question>
 <qtext>Which Celebrity Is This?</qtext>
-<qpic>images/rack2.jpg</qpic>
+<qpic>images/abs4.jpg</qpic>
 </question>
 <option id="1">
-<text>Holly Willoughby</text>
+<text>Hugh Jackman</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Kelly Clarkson</text>
+<text>Vin Diesel</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Mollie King</text>
+<text>Bruce Willis</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Una Healy</text>
+<text>Ryan Reynolds</text>
 <pic></pic>
 </option>
 <answer4>
@@ -132,26 +132,26 @@
 <type>guessPic</type>
 <question>
 <qtext>Which Celebrity Is This?</qtext>
-<qpic>images/rack1.jpg</qpic>
+<qpic>images/abs5.jpg</qpic>
 </question>
 <option id="1">
-<text>Penelope Cruz</text>
+<text>Barack Obama</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Salma Hayek</text>
+<text>Denzel Washington</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Sofia Vergara</text>
+<text>Dwight Howard</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Vanessa Williams</text>
+<text>Will Smith</text>
 <pic></pic>
 </option>
 <answer5>
-<answerok>3</answerok>
+<answerok>4</answerok>
 <messageok>Correct!!!</messageok>
 <messageko>Woof, incorrect!!!</messageko>
 <points>100</points>

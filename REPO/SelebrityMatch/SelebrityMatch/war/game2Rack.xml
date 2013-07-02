@@ -4,22 +4,22 @@
 <questions>2</questions>
 <question>
 <qtext>Which Celebrity Is This?</qtext>
-<qpic>images/rack5.jpg</qpic>
+<qpic>images/rack7.jpg</qpic>
 </question>
 <option id="1">
-<text>Kate Upton</text>
+<text>Megan Fox</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Scarlett Johannson</text>
+<text>Angelina Jolie</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Miley Cirus</text>
+<text>Jessica Alba</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Bar Refaeli</text>
+<text>Olivia Wilde</text>
 <pic></pic>
 </option>
 <answer1>
@@ -35,22 +35,22 @@
 <type>guessPic</type>
 <question>
 <qtext>Which Celebrity Is This?</qtext>
-<qpic>images/rack4.jpg</qpic>
+<qpic>images/rack6.jpg</qpic>
 </question>
 <option id="1">
-<text>Courtney Cox</text>
+<text>Jane Fonda</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Penelope Cruz</text>
+<text>Courteney Cox</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Selena Gomez</text>
+<text>Victoria Adams</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Kelly Brook</text>
+<text>Emma Watson</text>
 <pic></pic>
 </option>
 <answer2>
@@ -67,22 +67,22 @@
 <type>guessPic</type>
 <question>
 <qtext>Which Celebrity Is This?</qtext>
-<qpic>images/rack3.jpg</qpic>
+<qpic>images/rack8.jpg</qpic>
 </question>
 <option id="1">
-<text>Zoey Deschannel</text>
+<text>Diane Keaton</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Sofia Vergara</text>
+<text>Sofia Loren</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Katy Perry</text>
+<text>Susan Sarandon</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Krysten Ritter</text>
+<text>Geena Davis</text>
 <pic></pic>
 </option>
 <answer3>
@@ -100,22 +100,22 @@
 <type>guessPic</type>
 <question>
 <qtext>Which Celebrity Is This?</qtext>
-<qpic>images/rack2.jpg</qpic>
+<qpic>images/rack9.jpg</qpic>
 </question>
 <option id="1">
-<text>Holly Willoughby</text>
+<text>Salma Hayek</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Kelly Clarkson</text>
+<text>Eva Mendes</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Mollie King</text>
+<text>Jennifer Lopez</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Una Healy</text>
+<text>Sarah Jessica Parker</text>
 <pic></pic>
 </option>
 <answer4>
@@ -132,22 +132,22 @@
 <type>guessPic</type>
 <question>
 <qtext>Which Celebrity Is This?</qtext>
-<qpic>images/rack1.jpg</qpic>
+<qpic>images/rack10.jpg</qpic>
 </question>
 <option id="1">
-<text>Penelope Cruz</text>
+<text>Jennifer Gardner</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Salma Hayek</text>
+<text>Anna Hathaway</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Sofia Vergara</text>
+<text>Jennifer Lawrence</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Vanessa Williams</text>
+<text>Emma Watson</text>
 <pic></pic>
 </option>
 <answer5>

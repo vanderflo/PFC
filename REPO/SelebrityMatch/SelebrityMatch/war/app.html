@@ -3,32 +3,29 @@
   <head>
     <meta charset="utf-8">
     <meta name="appsfuel_code" content="b7461ef47c584b3"/>
-    <title>Home</title>
-
+    <title>Selebrity Guess</title>
+    <meta name="description" content="Celebrity Photos - Guess The Celebrity" />
+    <meta name="keywords" content="Celebrity, Photos, Guess, Rack, Chest, Abs" />
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8"> 
     <!-- Sets initial viewport load and disables zooming  -->
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-
     <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
     <!-- Set Apple icons for when prototype is saved to home screen -->
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="touch-icons/apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="touch-icons/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="touch-icons/apple-touch-icon-57x57.png">
-    <script type="text/javascript" src="jquery-1.8.2.js"></script>
-    
-    <!-- Include the compiled Ratchet CSS -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="touch-icons/icon-114x114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="touch-icons/icon-72x72.png">
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="touch-icons/icon-57x57.png">
     <link rel="stylesheet" href="css/main.css">
-
-    <!-- Include the compiled Ratchet CSS -->
     <link rel="stylesheet" href="css/ratchet.css">
-
+	<script type="text/javascript" src="jquery-1.8.2.js"></script>
+	<script type="text/javascript" src="helper.js"></script>
 
 
   </head>
   <body>
   <script>
+  	
         // When document ready, call initMenu() function 
        $(function() {
         	      
@@ -46,13 +43,23 @@
               });
         
         $(document).ready(function() {
-        	window.scrollTo(0, 1);        	
+        	
+        	MBP.hideUrlBar();
+        	window.addEventListener("load",function() {
+        		// Set a timeout...
+        		setTimeout(function(){
+        			// Hide the address bar!
+        			window.scrollTo(0, 30);
+        		}, 1500);
+        	});        	
         	$('#contentSectionHome').show();
         	$('#backButton').hide();
         	
 	        totalQuestions=10;
 	        var userPoints=0; 	
-	        array_values = [];
+	        array_values_pic = [];
+	        array_values_rack = [];
+	        array_values_abs = [];
 	        
         	function game(id){
         	        	
@@ -66,7 +73,7 @@
 					$('#contentSectionPicture').hide();
 					var elapsed = ((new Date().getTime() - start)/1000).toFixed(1);
 					$("#totalPoints").text(userPoints+' Points');
-					$("#totalTime").text(elapsed+" Seconds");
+					$("#totalTime").text(elapsed+" Secs");
 						var bonusTime=0;
 							if(elapsed<250){
 							bonusTime=500-elapsed;	
@@ -212,9 +219,9 @@
 			$("#questionScreen").text(counterID+'/'+totalQuestions);
 			$("#scoreScreen").text(0);
 			var already=true; 			
- 			if(array_values.length==12){
+ 			if(array_values_pic.length==12){
  				console.log("Resetting array");
- 				array_values=[];
+ 				array_values_pic=[];
  			}
  			
  			var suffix="";
@@ -223,14 +230,27 @@
  			if(gameType=="picture"){
  				totalQuestions=10;
  				numGames=12;
+ 				if(array_values_pic.length==numGames){
+ 	 				console.log("Resetting array");
+ 	 				array_values_pic=[];
+ 	 			}
+ 				
  			}else if(gameType=="rack"){
  				totalQuestions=5;
- 				numGames=1;
+ 				numGames=2;
  				suffix="Rack";
+ 				if(array_values_rack.length==numGames){
+ 	 				console.log("Resetting array");
+ 	 				array_values_rack=[];
+ 	 			}
  			}else if (gameType=="abs"){
  				totalQuestions=5;
- 				numGames=1;
+ 				numGames=2;
  				suffix="Abs";
+ 				if(array_values_abs.length==numGames){
+ 	 				console.log("Resetting array");
+ 	 				array_values_abs=[];
+ 	 			}
  			}
  			
  			
@@ -238,12 +258,34 @@
  			while(already==true){
 				var idGame=getRandomArbitary(1,numGames);
 				console.log("Id game: "+idGame);
-				if (jQuery.inArray(idGame,array_values)>-1){
-					console.log("si: "+idGame);
-				}else{
-					array_values.push(idGame);
-					already=false;
+				
+				if(gameType=="picture"){
+					if (jQuery.inArray(idGame,array_values_pic)>-1){
+						console.log("si: "+idGame);
+					}else{
+						array_values_pic.push(idGame);
+						already=false;
+					}
 				}
+				if(gameType=="rack"){
+					if (jQuery.inArray(idGame,array_values_rack)>-1){
+						console.log("si: "+idGame);
+					}else{
+						array_values_rack.push(idGame);
+						already=false;
+					}
+				}
+				if(gameType=="abs"){
+					if (jQuery.inArray(idGame,array_values_abs)>-1){
+						console.log("si: "+idGame);
+					}else{
+						array_values_abs.push(idGame);
+						already=false;
+					}
+				}
+				
+				
+				
 				
 				}
  				
@@ -258,6 +300,12 @@
      		         }
      		    });
  			}
+		
+		
+		MBP.hideUrlBar();
+		
+		
+		
         });
         
         
@@ -355,22 +403,22 @@
             <div id="leader-1">
             <tr>    
                 <td class="place">1st</td>
-                <td class="points">994.9</td>
-                <td>Rob</td>
+                <td class="points">997.8</td>
+                <td>Jon82</td>
             </tr>
             </div>
             <div id="leader-2">
             <tr>
                 <td class="place">2nd</td>
-                <td class="points">994.1</td>
-                <td>AJ</td>
+                <td class="points">996.9</td>
+                <td>Laurie</td>
             </tr>
             </div>
             <div id="leader-3">
             <tr>
                 <td class="place">3rd</td>
-                <td class="points">993.8</td>
-                <td>Kanye West</td>
+                <td class="points">996.7</td>
+                <td>Marcus</td>
             </tr>
           </div>
         </tbody>

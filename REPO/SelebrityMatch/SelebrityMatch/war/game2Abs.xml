@@ -4,29 +4,29 @@
 <questions>2</questions>
 <question>
 <qtext>Which Celebrity Is This?</qtext>
-<qpic>images/abs1.jpg</qpic>
+<qpic>images/abs6.jpg</qpic>
 </question>
 <option id="1">
-<text>Cristiano Ronaldo</text>
+<text>Dwayne Wade</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>David Beckham</text>
+<text>Lebron James</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Tom Brady</text>
+<text>Tim Duncan</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Alex Rodriguez</text>
+<text>Dwight Howard</text>
 <pic></pic>
 </option>
 <answer1>
-<answerok>2</answerok>
+<answerok>4</answerok>
 <messageok>Correct!!!</messageok>
 <messageko>Woof, incorrect!!!</messageko>
-<points>50</points>
+<points>100</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
 </answer1>
@@ -35,29 +35,29 @@
 <type>guessPic</type>
 <question>
 <qtext>Which Celebrity Is This?</qtext>
-<qpic>images/abs2.jpg</qpic>
+<qpic>images/abs7.jpg</qpic>
 </question>
 <option id="1">
-<text>Cristiano Ronaldo</text>
+<text>Manny Ramirez</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Robin Van Persie</text>
+<text>Robinson Cano</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Landon Donovan</text>
+<text>Derek Jeter</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Rafael Marquez</text>
+<text>Alex Rodriguez</text>
 <pic></pic>
 </option>
 <answer2>
-<answerok>1</answerok>
+<answerok>4</answerok>
 <messageok>Correct!!!</messageok>
 <messageko>Woof, incorrect!!!</messageko>
-<points>50</points>
+<points>100</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
 </answer2>
@@ -67,29 +67,29 @@
 <type>guessPic</type>
 <question>
 <qtext>Which Celebrity Is This?</qtext>
-<qpic>images/abs3.jpg</qpic>
+<qpic>images/abs8.jpg</qpic>
 </question>
 <option id="1">
-<text>Bradley Cooper</text>
+<text>Asafa Powell</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Brad Pitt</text>
+<text>Usain Bolt</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Tom Cruise</text>
+<text>Tyson Gay</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Enrique Iglesias</text>
+<text>Yohan Blake</text>
 <pic></pic>
 </option>
 <answer3>
 <answerok>2</answerok>
 <messageok>Correct!!!</messageok>
 <messageko>Woof, incorrect!!!</messageko>
-<points>50</points>
+<points>100</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
 </answer3>
@@ -100,29 +100,29 @@
 <type>guessPic</type>
 <question>
 <qtext>Which Celebrity Is This?</qtext>
-<qpic>images/abs4.jpg</qpic>
+<qpic>images/abs9.jpg</qpic>
 </question>
 <option id="1">
-<text>Hugh Jackman</text>
+<text>Bradley Cooper</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Vin Diesel</text>
+<text>Leo DiCaprio</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Bruce Willis</text>
+<text>Henry Cavill</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Ryan Reynolds</text>
+<text>Ryan Gosling</text>
 <pic></pic>
 </option>
 <answer4>
-<answerok>1</answerok>
+<answerok>4</answerok>
 <messageok>Correct!!!</messageok>
 <messageko>Woof, incorrect!!!</messageko>
-<points>50</points>
+<points>100</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
 </answer4>
@@ -132,29 +132,29 @@
 <type>guessPic</type>
 <question>
 <qtext>Which Celebrity Is This?</qtext>
-<qpic>images/abs5.jpg</qpic>
+<qpic>images/abs10.jpg</qpic>
 </question>
 <option id="1">
-<text>Barack Obama</text>
+<text>Channing Tatum</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Denzel Washington</text>
+<text>James Franco</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Dwight Howard</text>
+<text>Bradley Cooper</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Will Smith</text>
+<text>Chris Pine</text>
 <pic></pic>
 </option>
 <answer5>
-<answerok>4</answerok>
+<answerok>3</answerok>
 <messageok>Correct!!!</messageok>
 <messageko>Woof, incorrect!!!</messageko>
-<points>50</points>
+<points>100</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
 </answer5>

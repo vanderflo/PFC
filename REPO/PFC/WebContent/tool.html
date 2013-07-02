@@ -29,7 +29,7 @@
                     renderer:$.jqplot.BarRenderer, pointLabels: { show: true, location: 'e', edgeTolerance: -15 },
                     shadowAngle: 135,rendererOptions: {	barDirection: 'horizontal'}
                 },
-                series:[{label:'Hotel'},{label:'Event Regristration'},{label:'Airfare'}],
+                series:[{label:'Effort assigned on this WP'},{label:'Current report effort'},{label:'Effort reported on other reports'}],
                 legend: {show: true,placement: 'outside'},
                 axes: {yaxis: {renderer: $.jqplot.CategoryAxisRenderer}}
     		});
@@ -213,7 +213,19 @@
           
           <section class="standardDiv right" id="editionProjectSection">
           <h2><span class="icon-info-sign"></span>&nbsp;Edition box</h2>
-			  <form id="addWPForm">
+          <table class="menuEditionReport">
+          	<thead><tr>
+          	  <th show="addWPForm" class="projectEditionBoxTable">New WP</th>
+			  <th show="addPartnerToWPForm" class="projectEditionBoxTable">Assign partner to WP</th>
+			  <th show="addTaskToWPForm" class="projectEditionBoxTable">New task</th>
+			  <th show="addPartnerToTaskForm" class="projectEditionBoxTable">Assig partner to Task</th>
+			  <th show="addReportDate" class="projectEditionBoxTable">Add Report Date</th>
+			</tr></thead>
+			</table>
+          
+          
+          
+			  <form id="addWPForm" class="projectEditionBox">
 				  <div class="field"><label for="title">Title:</label><input type="text" class="input" name="titleWP" id="titleWP" /></div>
 				  <div class="field"><label for="description">Description:</label><input type="text" class="input" name="descriptionWP" id="descriptionWP" /></div>
 				  <div class="field"><label for="dateInit">Date Start:</label><input type="text" class="input" name="dateInitWP" id="formDateInitWP"></div>
@@ -222,22 +234,46 @@
 				  <div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelWP">or CANCEL</a></div>
 			  </form>
           
-          	<form id="addPartnerToWP">
-		          <div class="field"><label for="wpid">Select WP:</label><select name="wpid" id="selectWpId"></select></div>
+          	<form id="addPartnerToWPForm" class="projectEditionBox">
+		          <div class="field"><label for="wpid">Select WP:</label><select name="wpid" id="selectWpAddPartner"></select></div>
 		          <div class="field"><label for="partnerWP">Partner:</label><select name="partnerWP" id="selectPartnerWP"></select></div>
 		          <div class="field"><label for="effort">Effort:</label><input type="text" class="input" name="effortWP" id="effortWP" /></div>
 		          <div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelWP">or CANCEL</a></div>
          	</form>
+         	
+         	<form id="addPartnerToTaskForm" class="projectEditionBox">
+		          <div id="divaddPartnerToTaskForm">
+		          <div class="field"><label for="wpid">Select WP:</label><select name="wpid" id="selectWpAddTaskPartner"></select></div>
+		          <div class="field"><label for="taskid">Select Task:</label><select name="taskid" id="selectTaskAddTaskPartner"></select></div>
+		          </div>
+		          <div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelWP">or CANCEL</a></div>
+         	</form>
+         	
           
-          Form: Create Task
-          Form: Assign Partner to Task
-          Form: Assign report date          
+          	<form id="addTaskToWPForm" class="projectEditionBox">
+          		<div class="field"><label for="wpid">Select WP:</label><select name="wpid" id="selectWpAddTask"></select></div>
+          		<div class="field"><label for="title">Title:</label><input type="text" class="input" name="titleTask" id="titleTask" /></div>
+          		<div class="field"><label for="description">Description:</label><input type="text" class="input" name="descriptionTask" id="descriptionTask" /></div>
+          		<div class="field"><label for="dateInitTask">Date Start:</label><input type="text" class="input" name="dateInitTask" id="formDateInitTask"></div>
+          		<div class="field"><label for="dateFinishTask">Date Finish:</label><input type="text" class="input" name="dateFinishTask" id="formDateFinishTask"></div>
+          		<div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelWP">or CANCEL</a></div>
+          	</form>
+          
+          	<form id="addReportDate" class="projectEditionBox">
+	          	<div class="field"><label for="date">Date:</label><input type="text" class="input" name="dateSchedule" readonly="true" id="formDateSchedule" /></div>
+	          	<div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelWP">or CANCEL</a></div>
+          	</form>
+          
+       
           
           </section>
           
 
-           <section class="standardDiv">
+           <section class="standardDiv" id="diagramProjectSection">
 				<h2>Project Diagram</h2>
+				<ul class="contentComment"><li>-Click on any + sign to expand WP and see its children (tasks)</li>
+				<li>-Click on the tiel of any WP and task to see its information on the Item Description box</li>
+				</ul>
 				<div id="content">				
 					<ul id="projectTree"></ul>
 				</div>

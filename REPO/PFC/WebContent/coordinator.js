@@ -106,6 +106,8 @@
 						var listOfTasks="<option>Select Task</option>";
 						var tasksDivs="";
 						$('#taskSelector').empty();
+						$('#effortTaskList').empty();
+						$('#infoTaskList').empty();
 						$('#tasks .contentDiv').remove();
 						$(this).find('task').each(function(){
 							var taskTitle = $(this).attr("title");
