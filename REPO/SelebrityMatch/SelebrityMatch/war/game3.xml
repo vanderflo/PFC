@@ -34,7 +34,7 @@
 <game id="2">
 <type>guessPic</type>
 <question>
-<qtext>What about this one?</qtext>
+<qtext>Which Celebrity Is This?</qtext>
 <qpic>http://apurosport.com/wp-content/uploads//2011/04/El-video-que-muestra-al-tenista-espa%C3%B1ol-Rafael-Nadal-de-ni%C3%B1o-con-mentalidad-ganadora.jpg</qpic>
 </question>
 <option id="1">
@@ -66,7 +66,7 @@
 <game id="3">
 <type>guessPic</type>
 <question>
-<qtext>Who's this baby?</qtext>
+<qtext>Which Celebrity Is This?</qtext>
 <qpic>http://www.collegecrunch.org/wp-content/uploads/2008/10/joe-biden.jpg</qpic>
 </question>
 <option id="1">
@@ -99,7 +99,7 @@
 <game id="4">
 <type>guessPic</type>
 <question>
-<qtext>Does this face ring a bell?</qtext>
+<qtext>Which Celebrity Is This?</qtext>
 <qpic>http://s-ak.buzzfed.com/static/enhanced/terminal01/2010/9/8/13/enhanced-buzz-27649-1283967920-15.jpg</qpic>
 </question>
 <option id="1">
@@ -131,7 +131,7 @@
 <game id="5">
 <type>guessPic</type>
 <question>
-<qtext>Look at this lady</qtext>
+<qtext>Which Celebrity Is This?</qtext>
 <qpic>http://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Oprah_Winfrey_%282004%29.jpg/200px-Oprah_Winfrey_%282004%29.jpg</qpic>
 </question>
 <option id="1">
@@ -164,7 +164,7 @@
 <game id="6">
 <type>guessPic</type>
 <question>
-<qtext>Look at this guy</qtext>
+<qtext>Which Celebrity Is This?</qtext>
 <qpic>http://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/ColinMontgomerie.jpg/250px-ColinMontgomerie.jpg</qpic>
 </question>
 <option id="1">
@@ -196,7 +196,7 @@
 <game id="7">
 <type>guessPic</type>
 <question>
-<qtext>Do you know her?</qtext>
+<qtext>Which Celebrity Is This?</qtext>
 <qpic>http://forum.hollywoodnose.com/users/1/question_images/Cher%20Hairstyles.jpg</qpic>
 </question>
 <option id="1">
@@ -229,7 +229,7 @@
 <game id="8">
 <type>guessPic</type>
 <question>
-<qtext>Do you know him?</qtext>
+<qtext>Which Celebrity Is This?</qtext>
 <qpic>http://i.telegraph.co.uk/multimedia/archive/01502/19980504-blond_1502626i.jpg</qpic>
 </question>
 <option id="1">
@@ -250,9 +250,9 @@
 </option>
 <answer8>
 <answerok>4</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
-<points>50</points>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
+<points>10</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
 </answer8>
@@ -261,7 +261,7 @@
 <game id="9">
 <type>guessPic</type>
 <question>
-<qtext>Do you know her?</qtext>
+<qtext>Which Celebrity Is This?</qtext>
 <qpic>http://images.forum-auto.com/mesimages/162998/young-jennifer-aniston-hair-styles-04.jpg</qpic>
 </question>
 <option id="1">
@@ -282,9 +282,9 @@
 </option>
 <answer9>
 <answerok>2</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
-<points>50</points>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
+<points>10</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
 </answer9>
@@ -293,7 +293,7 @@
 <game id="10">
 <type>guessPic</type>
 <question>
-<qtext>Do you know him?</qtext>
+<qtext>Which Celebrity Is This?</qtext>
 <qpic>http://www.rankingfamosos.com/imagenes/famosos/20101222/roman-polanski-4.jpg</qpic>
 </question>
 <option id="1">
@@ -314,9 +314,9 @@
 </option>
 <answer10>
 <answerok>1</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
-<points>50</points>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>>
+<points>10</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
 </answer10>

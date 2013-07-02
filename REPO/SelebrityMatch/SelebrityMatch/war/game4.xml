@@ -3,29 +3,29 @@
 <type>guessPic</type>
 <questions>2</questions>
 <question>
-<qtext>Who's the celebrity in the picture?</qtext>
-<qpic>http://1.bp.blogspot.com/-QVfRrpVaTgI/UTN7ZJUzQkI/AAAAAAAAAh0/NVLnN73JxPw/s220/showbiz_pippa_middleton_3_2.jpg</qpic>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://svejo.net/attachments/stories-photos/0221/3434/medium_large/adriana-lima-poddarzha-forma-sas-seks.jpg</qpic>
 </question>
 <option id="1">
-<text>Kate Middleton</text>
+<text>Miranda Kir</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Pippa Middleton</text>
+<text>Bianca Balti</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Queen Maxima</text>
+<text>Adriana Lima</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Victoria of Sweden</text>
+<text>Coco Rocha</text>
 <pic></pic>
 </option>
 <answer1>
-<answerok>2</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<answerok>3</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -34,29 +34,29 @@
 <game id="2">
 <type>guessPic</type>
 <question>
-<qtext>What about this one?</qtext>
-<qpic>http://topnews.in/files/Cristiano-Ronaldo_3.jpg</qpic>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://farm4.staticflickr.com/3584/3349606812_c40bb97af4_m.jpg</qpic>
 </question>
 <option id="1">
-<text>Cristiano Ronaldo</text>
+<text>Anthony Gonzalez</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Lionel Messi</text>
+<text>Vin Diesel</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Luis Figo</text>
+<text>Aaron Hernandez</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Michael Ballack</text>
+<text>Dwayne Johnson</text>
 <pic></pic>
 </option>
 <answer2>
-<answerok>1</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<answerok>4</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -66,29 +66,29 @@
 <game id="3">
 <type>guessPic</type>
 <question>
-<qtext>Who's this guy?</qtext>
-<qpic>https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRh-3WBubkqB0zN7rHTsfgP-GcCwF45-hFtY-32iYvJLyhwQRvN</qpic>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://www.modeblock.com/wp-content/uploads/2012/03/id-magazine-kate-moss-for-supreme-0-240x160.jpg</qpic>
 </question>
 <option id="1">
-<text>Pep Guardiola</text>
+<text>Marissa Miller</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Tom Cruise</text>
+<text>Kate Moss</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Robert Redford</text>
+<text>Heidi Klum</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>John Hamm</text>
+<text>Karolina Kurkova</text>
 <pic></pic>
 </option>
 <answer3>
 <answerok>2</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -99,29 +99,29 @@
 <game id="4">
 <type>guessPic</type>
 <question>
-<qtext>Does this face ring a bell?</qtext>
-<qpic>http://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Erin_Andrews_2012_Shankbone.JPG/220px-Erin_Andrews_2012_Shankbone.JPG</qpic>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://timeopinions.files.wordpress.com/2013/06/171201785.jpg</qpic>
 </question>
 <option id="1">
-<text>Cheryl Burke</text>
+<text>Allyson Felix</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Scarlett Johansson</text>
+<text>Serena Williams</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Kate Upton</text>
+<text>Venus Williams</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Erin Andrews</text>
+<text>Marion Jones</text>
 <pic></pic>
 </option>
 <answer4>
-<answerok>4</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<answerok>2</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -131,29 +131,29 @@
 <game id="5">
 <type>guessPic</type>
 <question>
-<qtext>Look at this woman</qtext>
-<qpic>http://imstars.aufeminin.com/stars/fan/susan-sarandon/susan-sarandon-20080109-360723.jpg</qpic>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://image.pollstar.com/WeblogFiles/pollstar/1201190157582027680_794385_v3.jpg</qpic>
 </question>
 <option id="1">
-<text>Geena Davis</text>
+<text>David Guetta</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Diane Keaton</text>
+<text>Afrojack</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Susan Sarandon</text>
+<text>Tiesto</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Barbra Streisand</text>
+<text>Dash Berlin</text>
 <pic></pic>
 </option>
 <answer5>
 <answerok>3</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -164,29 +164,29 @@
 <game id="6">
 <type>guessPic</type>
 <question>
-<qtext>Look at this guy</qtext>
-<qpic>http://epmgaa.media.lionheartdms.com/img/photos/2013/06/26/Nelson-Mandela_t580.jpg?6b5a8256ea9d40d51e7e604659cffd9fde3a3970</qpic>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://img.emol.com/2012/03/21/sofia-vergara_12642-240x160.jpg</qpic>
 </question>
 <option id="1">
-<text>Koffi Annan</text>
+<text>Salma Hayek</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Nelson Mandela</text>
+<text>Penelope Cruz</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Mahatma Gandhi</text>
+<text>Jennifer Lopez</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Martin Luther king</text>
+<text>Sofia Vergara</text>
 <pic></pic>
 </option>
 <answer6>
-<answerok>2</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<answerok>4</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -196,29 +196,29 @@
 <game id="7">
 <type>guessPic</type>
 <question>
-<qtext>Do you know her?</qtext>
-<qpic>http://img2.timeinc.net/people/i/2011/database/111010/jennifer-garner-300.jpg</qpic>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://1.standaardcdn.be/Assets/Images_Upload/2005/09/23/fk230905c.jpg</qpic>
 </question>
 <option id="1">
-<text>Jennifer Garner</text>
+<text>Charlize Theron</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Jennifer Lopez</text>
+<text>Naomi Watts</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Jessica Alba</text>
+<text>Cameron Diaz</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Jennifer Lawrence</text>
+<text>Sienna Miller</text>
 <pic></pic>
 </option>
 <answer7>
 <answerok>1</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -229,29 +229,29 @@
 <game id="8">
 <type>guessPic</type>
 <question>
-<qtext>Do you know him?</qtext>
-<qpic>http://www.bostoncondoblog.com/wp-content/uploads/2009/10/TomBrady-1.jpg</qpic>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://image.pollstar.com/WeblogFiles/pollstar/1108290350317255330_v3.jpg</qpic>
 </question>
 <option id="1">
-<text>Oscar Robertson</text>
+<text>Waka Flocka</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Kareem Abdul-Jabbar</text>
+<text>Ja Rule</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Wilt Chamberlain</text>
+<text>Lil Wayne</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Bill Russell</text>
+<text>The Game</text>
 <pic></pic>
 </option>
 <answer8>
-<answerok>4</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<answerok>3</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -261,29 +261,29 @@
 <game id="9">
 <type>guessPic</type>
 <question>
-<qtext>Do you know her?</qtext>
-<qpic>http://comicbook.com/wp-content/uploads/2013/01/megan-fox.jpg</qpic>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://cache.daylife.com/imageserve/02jsaKS6xCfvt/x160.jpg</qpic>
 </question>
 <option id="1">
-<text>Courteney Cox</text>
+<text>Marilyn Manson</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Jennifer Aniston</text>
+<text>Skrillex</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Selena Gomez</text>
+<text>Sammy Hagar</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Megan Fox</text>
+<text>Deadmau5</text>
 <pic></pic>
 </option>
 <answer9>
-<answerok>4</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<answerok>2</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -293,29 +293,29 @@
 <game id="10">
 <type>guessPic</type>
 <question>
-<qtext>Do you know him?</qtext>
-<qpic>http://clooneyfan.files.wordpress.com/2010/07/gc4.jpg</qpic>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://farm2.static.flickr.com/1381/919785687_e8a0904d7f_m.jpg</qpic>
 </question>
 <option id="1">
-<text>Matt LeBlanc</text>
+<text>Kristin Kreuk</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Matthew Perry</text>
+<text>Kristen Stewart</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>George Clooney</text>
+<text>Mila Kunis</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Richard Gere</text>
+<text>Zooey Deschanel</text>
 <pic></pic>
 </option>
 <answer10>
-<answerok>3</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<answerok>4</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>

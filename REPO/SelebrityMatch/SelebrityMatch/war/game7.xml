@@ -26,7 +26,7 @@
 <answerok>3</answerok>
 <messageok>Correct!!!</messageok>
 <messageko>Woof, incorrect!!!</messageko>
-<points>50</points>
+<points>10</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
 </answer1>
@@ -54,7 +54,7 @@
 <pic></pic>
 </option>
 <answer2>
-<answerok>2</answerok>
+<answerok>4</answerok>
 <messageok>Correct!!!</messageok>
 <messageko>Woof, incorrect!!!</messageko>
 <points>50</points>

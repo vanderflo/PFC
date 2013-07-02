@@ -3,7 +3,7 @@
 <type>guessPic</type>
 <questions>2</questions>
 <question>
-<qtext>Who's the celebrity in the picture?</qtext>
+<qtext>Which Celebrity Is This?</qtext>
 <qpic>http://www.nndb.com/people/553/000025478/ray-romano.jpg</qpic>
 </question>
 <option id="1">
@@ -24,8 +24,8 @@
 </option>
 <answer1>
 <answerok>1</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -34,7 +34,7 @@
 <game id="2">
 <type>guessPic</type>
 <question>
-<qtext>What about this one?</qtext>
+<qtext>Which Celebrity Is This?</qtext>
 <qpic>http://www.nndb.com/people/700/000023631/boyle-sized.jpg</qpic>
 </question>
 <option id="1">
@@ -55,8 +55,8 @@
 </option>
 <answer2>
 <answerok>4</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -66,7 +66,7 @@
 <game id="3">
 <type>guessPic</type>
 <question>
-<qtext>Who's this baby?</qtext>
+<qtext>Which Celebrity Is This?</qtext>
 <qpic>http://pdxretro.com/wp-content/uploads/2011/11/leonardo_di_caprio-bw-young_thumb.jpg</qpic>
 </question>
 <option id="1">
@@ -87,8 +87,8 @@
 </option>
 <answer3>
 <answerok>3</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -99,7 +99,7 @@
 <game id="4">
 <type>guessPic</type>
 <question>
-<qtext>Does this face ring a bell?</qtext>
+<qtext>Which Celebrity Is This?</qtext>
 <qpic>http://www.neontommy.com/sites/default/files/1120961779_db7555408e_o_0.jpg?1338436306</qpic>
 </question>
 <option id="1">
@@ -120,8 +120,8 @@
 </option>
 <answer4>
 <answerok>1</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -131,7 +131,7 @@
 <game id="5">
 <type>guessPic</type>
 <question>
-<qtext>Look at this guy</qtext>
+<qtext>Which Celebrity Is This?</qtext>
 <qpic>http://1.bp.blogspot.com/-xQL_vbjO-pU/UJEDFjNYfiI/AAAAAAAAB_E/qN-upK4wG40/s1600/JimCarrey_halloween-costume.jpg</qpic>
 </question>
 <option id="1">
@@ -152,8 +152,8 @@
 </option>
 <answer5>
 <answerok>3</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -164,7 +164,7 @@
 <game id="6">
 <type>guessPic</type>
 <question>
-<qtext>Look at this guy</qtext>
+<qtext>Which Celebrity Is This?</qtext>
 <qpic>http://www.collegecrunch.org/wp-content/uploads/2008/10/david_letterman.jpg</qpic>
 </question>
 <option id="1">
@@ -185,8 +185,8 @@
 </option>
 <answer6>
 <answerok>2</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -196,7 +196,7 @@
 <game id="7">
 <type>guessPic</type>
 <question>
-<qtext>Do you know her?</qtext>
+<qtext>Which Celebrity Is This?</qtext>
 <qpic>http://theworldsbestever.s3.amazonaws.com/blog/wp-content/uploads/2012/08/adriana-lima.jpg</qpic>
 </question>
 <option id="1">
@@ -217,8 +217,8 @@
 </option>
 <answer7>
 <answerok>3</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -229,7 +229,7 @@
 <game id="8">
 <type>guessPic</type>
 <question>
-<qtext>Do you know him?</qtext>
+<qtext>Which Celebrity Is This?</qtext>
 <qpic>http://4.bp.blogspot.com/-anaQ77wAur4/UBWoKoqkD9I/AAAAAAAABBw/Kyo-WiJvZgw/s1600/joemontana.jpg</qpic>
 </question>
 <option id="1">
@@ -250,8 +250,8 @@
 </option>
 <answer8>
 <answerok>1</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -261,7 +261,7 @@
 <game id="9">
 <type>guessPic</type>
 <question>
-<qtext>Do you know him?</qtext>
+<qtext>Which Celebrity Is This?</qtext>
 <qpic>http://www.biography.com/imported/images/Biography/Images/Profiles/W/Jaleel-White-20767371-2-402.jpg</qpic>
 </question>
 <option id="1">
@@ -282,8 +282,8 @@
 </option>
 <answer9>
 <answerok>2</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -293,7 +293,7 @@
 <game id="10">
 <type>guessPic</type>
 <question>
-<qtext>Do you know him?</qtext>
+<qtext>Which Celebrity Is This?</qtext>
 <qpic>http://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Adriana_Sklenarikova_Karembeu_2006.jpg/200px-Adriana_Sklenarikova_Karembeu_2006.jpg</qpic>
 </question>
 <option id="1">
@@ -314,8 +314,8 @@
 </option>
 <answer10>
 <answerok>4</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>

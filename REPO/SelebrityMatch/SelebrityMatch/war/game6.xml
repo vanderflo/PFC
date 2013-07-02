@@ -3,7 +3,7 @@
 <type>guessPic</type>
 <questions>2</questions>
 <question>
-<qtext>Who's the celebrity in the picture?</qtext>
+<qtext>Which Celebrity Is This?</qtext>
 <qpic>http://www.womenlargejaw.com/sites/www.womenlargejaw.com/files/women/Princess_1225109841.jpg</qpic>
 </question>
 <option id="1">
@@ -24,9 +24,9 @@
 </option>
 <answer1>
 <answerok>4</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
-<points>50</points>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
+<points>10</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
 </answer1>
@@ -34,7 +34,7 @@
 <game id="2">
 <type>guessPic</type>
 <question>
-<qtext>What about this one?</qtext>
+<qtext>Which Celebrity Is This?</qtext>
 <qpic>http://espndeportes-assets.espn.go.com/2003/photos2012/1016/messi_576.jpg</qpic>
 </question>
 <option id="1">
@@ -55,9 +55,9 @@
 </option>
 <answer2>
 <answerok>2</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
-<points>15</points>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
+<points>10</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
 </answer2>
@@ -66,7 +66,7 @@
 <game id="3">
 <type>guessPic</type>
 <question>
-<qtext>Who's this guy?</qtext>
+<qtext>Which Celebrity Is This?</qtext>
 <qpic>http://www.bonlook.com/sites/default/files/John%20Hamm.JPG</qpic>
 </question>
 <option id="1">
@@ -87,9 +87,9 @@
 </option>
 <answer3>
 <answerok>4</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
-<points>15</points>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
+<points>10</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
 </answer3>
@@ -99,7 +99,7 @@
 <game id="4">
 <type>guessPic</type>
 <question>
-<qtext>Does this face ring a bell?</qtext>
+<qtext>Which Celebrity Is This?</qtext>
 <qpic>https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQcNirwSJ2kKIddWl1_gMQDyBNRE6XZl1_hqM0YXAuqSzMgOjeVCA</qpic>
 </question>
 <option id="1">
@@ -120,9 +120,9 @@
 </option>
 <answer4>
 <answerok>3</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
-<points>15</points>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
+<points>10</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
 </answer4>
@@ -131,7 +131,7 @@
 <game id="5">
 <type>guessPic</type>
 <question>
-<qtext>Look at this woman</qtext>
+<qtext>Which Celebrity Is This?</qtext>
 <qpic>http://img2.timeinc.net/people/i/2009/database/katyperry/katy_perry125.jpg</qpic>
 </question>
 <option id="1">
@@ -152,9 +152,9 @@
 </option>
 <answer5>
 <answerok>1</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
-<points>15</points>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
+<points>10</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
 </answer5>
@@ -164,7 +164,7 @@
 <game id="6">
 <type>guessPic</type>
 <question>
-<qtext>Look at this guy</qtext>
+<qtext>Which Celebrity Is This?</qtext>
 <qpic>http://www.nobelprize.org/nobel_prizes/peace/laureates/1964/king.jpg</qpic>
 </question>
 <option id="1">
@@ -185,9 +185,9 @@
 </option>
 <answer6>
 <answerok>4</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
-<points>15</points>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
+<points>10</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
 </answer6>
@@ -196,7 +196,7 @@
 <game id="7">
 <type>guessPic</type>
 <question>
-<qtext>Do you know her?</qtext>
+<qtext>Which Celebrity Is This?</qtext>
 <qpic>http://img2.timeinc.net/people/i/2007/database/heidiklum/heidiklum125.jpg</qpic>
 </question>
 <option id="1">
@@ -217,9 +217,9 @@
 </option>
 <answer7>
 <answerok>4</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
-<points>15</points>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
+<points>10</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
 </answer7>
@@ -229,7 +229,7 @@
 <game id="8">
 <type>guessPic</type>
 <question>
-<qtext>Do you know him?</qtext>
+<qtext>Which Celebrity Is This?</qtext>
 <qpic>http://lakers.topbuzz.com/gallery/d/4288-2/kareem-p1_kareem_abdul_jabbar_si.jpg</qpic>
 </question>
 <option id="1">
@@ -250,9 +250,9 @@
 </option>
 <answer8>
 <answerok>2</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
-<points>15</points>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
+<points>10</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
 </answer8>
@@ -261,7 +261,7 @@
 <game id="9">
 <type>guessPic</type>
 <question>
-<qtext>Do you know her?</qtext>
+<qtext>Which Celebrity Is This?</qtext>
 <qpic>http://img2.timeinc.net/people/i/2006/celebdatabase/angelinajolie/angelina_jolie1a_125x125.jpg</qpic>
 </question>
 <option id="1">
@@ -282,9 +282,9 @@
 </option>
 <answer9>
 <answerok>3</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
-<points>15</points>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
+<points>10</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
 </answer9>
@@ -293,7 +293,7 @@
 <game id="10">
 <type>guessPic</type>
 <question>
-<qtext>Do you know him?</qtext>
+<qtext>Which Celebrity Is This?</qtext>
 <qpic>http://img2.timeinc.net/people/i/2011/database/111010/ben-affleck-125.jpg</qpic>
 </question>
 <option id="1">
@@ -314,9 +314,9 @@
 </option>
 <answer10>
 <answerok>4</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
-<points>15</points>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
+<points>10</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
 </answer10>

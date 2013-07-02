@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="appsfuel_code" content="b7461ef47c584b3"/>
     <title>Home</title>
 
     <!-- Sets initial viewport load and disables zooming  -->
@@ -49,7 +50,7 @@
         	$('#contentSectionHome').show();
         	$('#backButton').hide();
         	
-	        var totalQuestions=10;
+	        totalQuestions=10;
 	        var userPoints=0; 	
 	        array_values = [];
 	        
@@ -63,7 +64,7 @@
         		if(counterID>totalQuestions){
         			$('#pageTitle').empty();
 					$('#contentSectionPicture').hide();
-					var elapsed = (new Date().getTime() - start)/1000;
+					var elapsed = ((new Date().getTime() - start)/1000).toFixed(1);
 					$("#totalPoints").text(userPoints+' Points');
 					$("#totalTime").text(elapsed+" Seconds");
 						var bonusTime=0;
@@ -71,7 +72,7 @@
 							bonusTime=500-elapsed;	
 							}
 					var totalScore=userPoints+bonusTime;
-					totalScore=totalScore.toFixed(2);
+					totalScore=totalScore.toFixed(1);
 					$("#totalScore").text(totalScore+" IS YOUR TOTAL SCORE");
 					$('#contentSectionFinish').show();
         			
@@ -175,8 +176,9 @@
     			   var id=$(this).attr("next");
     			   $("[id^=contentSection]").hide();
     			   
-    			   if(id=='contentSectionPicture'){    				
-    		        initGame();
+    			   if(id=='contentSectionPicture'){
+    				var type=$(this).attr("gameType");
+    		        initGame(type);
     		        start = new Date().getTime();
     	        	console.log("Time:"+start);
     		        game(counterID);
@@ -203,7 +205,8 @@
     			}	   
     		
     	    	 
-		function initGame(){
+		function initGame(gameType){
+			
 			counterID=1;
 			userPoints=0;
 			$("#questionScreen").text(counterID+'/'+totalQuestions);
@@ -214,8 +217,26 @@
  				array_values=[];
  			}
  			
+ 			var suffix="";
+ 			var numGames=1;
+ 			
+ 			if(gameType=="picture"){
+ 				totalQuestions=10;
+ 				numGames=12;
+ 			}else if(gameType=="rack"){
+ 				totalQuestions=5;
+ 				numGames=1;
+ 				suffix="Rack";
+ 			}else if (gameType=="abs"){
+ 				totalQuestions=5;
+ 				numGames=1;
+ 				suffix="Abs";
+ 			}
+ 			
+ 			
+ 			
  			while(already==true){
-				var idGame=getRandomArbitary(1,12);
+				var idGame=getRandomArbitary(1,numGames);
 				console.log("Id game: "+idGame);
 				if (jQuery.inArray(idGame,array_values)>-1){
 					console.log("si: "+idGame);
@@ -229,7 +250,7 @@
  			
 			$.ajax({
      		    type: "GET",
-     		    url: "game"+idGame+".xml",
+     		    url: "game"+idGame+suffix+".xml",
  				dataType: "xml",
  				async: false,
      		     success : function(data) {
@@ -248,7 +269,7 @@
   <!-- Make sure all your bars are the first things in your <body> -->
   <header class="bar-title">
       <a class="button transition" href="#" id="backButton"><span class="entypo-left-bold"></span></a>
-      <h1 class="title"></h1>
+      <h1 class="title"><a href="app.html">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a></h1>
       <a class="button" href="#"><span class="entypo-share"></span></a>
   </header>
 
@@ -302,10 +323,9 @@
   <div class="content" id="contentSectionStart">
   	<div class="page-title"><h2>Pick Game Type</h2></div>
     <div class="game-type">
-      <div id="game-1"><a class="button-block-big transition" next="contentSectionPicture" >Guess The Picture</a></div>
-      <div id="game-2"><a class="button-block-big">Guess Who It Is</a></div>
-      <div id="game-=3"> <a class="button-block-big">Guess The Rack</a></div>
-      <div id="game-=3"><a class="button-block-big">Guess The Abs</a></div>
+      <div id="game-1"><a class="button-block-big transition" next="contentSectionPicture" gameType="picture" >Guess The Picture</a></div>
+      <div id="game-=2"> <a class="button-block-big transition" next="contentSectionPicture" gameType="rack">Guess The Rack</a></div>
+      <div id="game-=3"><a class="button-block-big transition" next="contentSectionPicture" gameType="abs">Guess The Abs</a></div>
     </div>
   </div>
   
@@ -318,14 +338,6 @@
 	<div id="time"><h3>Time</h3><h4 id="totalTime"></h4></div></div>
 	<div id="total-score"><h1 id="totalScore"></h1></div>  
 
-	 <div id="social-static"><div class="social"><ul>
-          <li class="entypo-twitter"></li>
-          <li class="entypo-facebook"><a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'facebook-share-dialog','width=626,height=436');return false;"></a>
-          </li>
-          <li class="entypo-mail"></li>
-        </ul>
-      </div>
-    </div>
 
     <div class="clear-all"></div>
 
@@ -343,21 +355,21 @@
             <div id="leader-1">
             <tr>    
                 <td class="place">1st</td>
-                <td class="points">994.91</td>
+                <td class="points">994.9</td>
                 <td>Rob</td>
             </tr>
             </div>
             <div id="leader-2">
             <tr>
                 <td class="place">2nd</td>
-                <td class="points">994.26</td>
+                <td class="points">994.1</td>
                 <td>AJ</td>
             </tr>
             </div>
             <div id="leader-3">
             <tr>
                 <td class="place">3rd</td>
-                <td class="points">993.85</td>
+                <td class="points">993.8</td>
                 <td>Kanye West</td>
             </tr>
           </div>
@@ -366,7 +378,7 @@
       </table>
     </div>  
     <div class="start">
-      <a class="button-block transition" next="contentSectionPicture">Play Again!</a>
+      <a class="button-block transition" next="contentSectionStart">Play Again!</a>
     </div>
   </div>
   

@@ -3,29 +3,29 @@
 <type>guessPic</type>
 <questions>2</questions>
 <question>
-<qtext>Who's the celebrity in the picture?</qtext>
-<qpic>http://www.top10de.com/wp-content/uploads/2012/12/Kate-Middleton.jpeg</qpic>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://www.picshik.com/wp-content/uploads/2012/01/hot-julia-roberts-featuerd-240x160.jpg</qpic>
 </question>
 <option id="1">
-<text>Kate Middleton</text>
+<text>Julianne Moore</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Pippa Middleton</text>
+<text>Marcia Cross</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Queen Maxima</text>
+<text>Jessica Chastain</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Victoria of Sweden</text>
+<text>Julia Roberts</text>
 <pic></pic>
 </option>
 <answer1>
-<answerok>1</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<answerok>4</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -34,29 +34,29 @@
 <game id="2">
 <type>guessPic</type>
 <question>
-<qtext>What about this one?</qtext>
-<qpic>http://www.biografiasyvidas.com/biografia/f/fotos/figo.jpg</qpic>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://cache.daylife.com/imageserve/09rNfZ84cK8hy/x160.jpg</qpic>
 </question>
 <option id="1">
-<text>Cristiano Ronaldo</text>
+<text>Bette Midler</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Lionel Messi</text>
+<text>Sarah Jessica Parker</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Luis Figo</text>
+<text>Zooey Deschanel</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Michael Ballack</text>
+<text>Christina Hendricks</text>
 <pic></pic>
 </option>
 <answer2>
-<answerok>3</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<answerok>2</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -66,29 +66,29 @@
 <game id="3">
 <type>guessPic</type>
 <question>
-<qtext>Who's this guy?</qtext>
-<qpic>http://3.bp.blogspot.com/-FQxV8ctecnw/TzWkcQ2-g3I/AAAAAAAAAL4/KO_YBCLrX0k/s1600/EL%2BPEP%2BGUARDIOLA.jpg</qpic>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://farm3.static.flickr.com/2768/4154523072_bc9c0cd69a_m.jpg</qpic>
 </question>
 <option id="1">
-<text>Pep Guardiola</text>
+<text>Daniella Hantuchova</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Tom Cruise</text>
+<text>Anna Kournikova</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Robert Redford</text>
+<text>Maria Sharapova</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>John Hamm</text>
+<text>Maria Kirilenko</text>
 <pic></pic>
 </option>
 <answer3>
-<answerok>1</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<answerok>3</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -99,29 +99,29 @@
 <game id="4">
 <type>guessPic</type>
 <question>
-<qtext>Does this face ring a bell?</qtext>
-<qpic>http://www1.pictures.stylebistro.com/gi/Cheryl+Burke+Long+Hairstyles+Long+Straight+w6GXQVAyHIGl.jpg</qpic>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://img.emol.com/2012/09/16/eva-longoria_135952-240x160.jpg</qpic>
 </question>
 <option id="1">
-<text>Cheryl Burke</text>
+<text>Jessica Alba</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Scarlett Johansson</text>
+<text>Eva Longoria</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Kate Upton</text>
+<text>Jennifer Lopez</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Erin Andrews</text>
+<text>Selena Gomez</text>
 <pic></pic>
 </option>
 <answer4>
-<answerok>1</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<answerok>2</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -131,29 +131,29 @@
 <game id="5">
 <type>guessPic</type>
 <question>
-<qtext>Look at this woman</qtext>
-<qpic>http://pabblogger.files.wordpress.com/2011/10/barbra-streisand-60.jpg</qpic>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://www.darkhorizons.com/assets/0003/3159/romano_small.jpg?1228364565</qpic>
 </question>
 <option id="1">
-<text>Geena Davis</text>
+<text>Ray Romano</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Diane Keaton</text>
+<text>Jerry Seinfeld</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Susan Sarandon</text>
+<text>Jimmy Kimmel</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Barbra Streisand</text>
+<text>David Letterman</text>
 <pic></pic>
 </option>
 <answer5>
-<answerok>4</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<answerok>1</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -164,29 +164,29 @@
 <game id="6">
 <type>guessPic</type>
 <question>
-<qtext>Look at this guy</qtext>
-<qpic>http://realidadbcs.com/wp-content/uploads/2012/02/kofi-annan.jpg</qpic>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://www.darkhorizons.com/assets/0005/4337/streep_small.jpg?1228629869</qpic>
 </question>
 <option id="1">
-<text>Kofi Annan</text>
+<text>Christine Baranski</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Nelson Mandela</text>
+<text>Suzanne Somers</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Mahatma Gandhi</text>
+<text>Meryl Streep</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Martin Luther king</text>
+<text>Barbra Streisand</text>
 <pic></pic>
 </option>
 <answer6>
-<answerok>1</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<answerok>3</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -196,29 +196,29 @@
 <game id="7">
 <type>guessPic</type>
 <question>
-<qtext>Do you know her?</qtext>
-<qpic>https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTVVSSd_s5TZ3qBX9KxRfrusM6P3MP-u7fbDna-kAtqUkoSoLHXgg</qpic>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://www.darkhorizons.com/assets/0003/9439/hughl_small.jpg?1228629443</qpic>
 </question>
 <option id="1">
-<text>Jennifer Garner</text>
+<text>Michael Madsen</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Jennifer Lopez</text>
+<text>Adrien Brody</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Jessica Alba</text>
+<text>Colin Firth</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Jennifer Lawrence</text>
+<text>Hugh Laurie></text>
 <pic></pic>
 </option>
 <answer7>
-<answerok>3</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<answerok>4</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -229,29 +229,29 @@
 <game id="8">
 <type>guessPic</type>
 <question>
-<qtext>Do you know him?</qtext>
-<qpic>http://www.harlemglobetrotters.com/sites/default/files/article-image/wilt-chamberlain_0.jpg</qpic>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://media.al.com/scenesource/photo/alec-baldwinjpg-65ed01816875b99e.jpg</qpic>
 </question>
 <option id="1">
-<text>Oscar Robertson</text>
+<text>Robin Williams</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Kareem Abdul-Jabbar</text>
+<text>Alec Baldwin</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Wilt Chamberlain</text>
+<text>Kevin Bacon</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Bill Russell</text>
+<text>Michael Keaton</text>
 <pic></pic>
 </option>
 <answer8>
-<answerok>3</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<answerok>2</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -261,29 +261,29 @@
 <game id="9">
 <type>guessPic</type>
 <question>
-<qtext>Do you know her?</qtext>
-<qpic>http://img2.timeinc.net/instyle/images/2012/GALLERY/091812-Jennifer-Aniston-400.jpg</qpic>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://farm2.static.flickr.com/1224/4720901859_8e1635e672_m.jpg</qpic>
 </question>
 <option id="1">
-<text>Courteney Cox</text>
+<text>Wayne Rooney</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Jennifer Aniston</text>
+<text>Lionel Messi</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>Selena Gomez</text>
+<text>Cristiano Ronaldo</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Megan Fox</text>
+<text>Frank Lampard</text>
 <pic></pic>
 </option>
 <answer9>
-<answerok>2</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<answerok>3</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
@@ -293,29 +293,29 @@
 <game id="10">
 <type>guessPic</type>
 <question>
-<qtext>Do you know him?</qtext>
-<qpic>http://images2.fanpop.com/image/photos/11200000/Richard-Gere-richard-gere-11241785-435-580.jpg</qpic>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>http://timeentertainment.files.wordpress.com/2012/06/ent_macfarlane_0620.jpg?w=240</qpic>
 </question>
 <option id="1">
-<text>Matt LeBlanc</text>
+<text>Sam Shepard</text>
 <pic></pic>
 </option>
 <option id="2">
-<text>Matthew Perry</text>
+<text>Seth MacFarlane</text>
 <pic></pic>
 </option>
 <option id="3">
-<text>George Clooney</text>
+<text>Javier Bardem</text>
 <pic></pic>
 </option>
 <option id="4">
-<text>Richard Gere</text>
+<text>Carlos Mencia</text>
 <pic></pic>
 </option>
 <answer10>
-<answerok>4</answerok>
-<messageok>Congrats!!!</messageok>
-<messageko>Boooooooo!!!</messageko>
+<answerok>2</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
 <points>50</points>
 <timebonus>2</timebonus>
 <extrabonus>5</extrabonus>
