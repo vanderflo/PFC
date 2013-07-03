@@ -136,7 +136,7 @@
           
            <form id="addFeedbackCommentForm">
            		<div class="formHeader">Use this form to add any relevant comment related to this report period's work</div>
-           		<div class="field"><input type="text" class="input" name="value" id="value" /><input type="hidden" name="id" value="comment"></div>    	
+           		<div class="field"><input type="text" class="input" name="value" id="value" /><input type="hidden" name="id" value="comment" /></div>    	
 		   		<div class="field"><input type="submit" name="Submit" class="button" value="Submit" /></div>
 		   	</form>
          
@@ -219,7 +219,7 @@
 			  <th show="addPartnerToWPForm" class="projectEditionBoxTable">Assign partner to WP</th>
 			  <th show="addTaskToWPForm" class="projectEditionBoxTable">New task</th>
 			  <th show="addPartnerToTaskForm" class="projectEditionBoxTable">Assig partner to Task</th>
-			  <th show="addReportDate" class="projectEditionBoxTable">Add Report Date</th>
+			  <th show="addReportDateForm" class="projectEditionBoxTable">Add Report Date</th>
 			</tr></thead>
 			</table>
           
@@ -231,10 +231,12 @@
 				  <div class="field"><label for="dateInit">Date Start:</label><input type="text" class="input" name="dateInitWP" id="formDateInitWP"></div>
 				  <div class="field"><label for="dateFinish">Date Finish:</label><input type="text" class="input" name="dateFinishWP" id="formDateFinishWP"></div>
 				  <div class="field"><label for="coordinator">Coordinator:</label><input type="text" class="input" name="coordinatorWP" id="coordinatorWP"></div>
+				  <input type="hidden" id="projectFieldAddWPForm" name="projectid" value="" />
 				  <div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelWP">or CANCEL</a></div>
 			  </form>
           
           	<form id="addPartnerToWPForm" class="projectEditionBox">
+		          <input type="hidden" id="projectFieldAddPPartnertoWPForm" name="projectid" value="" />
 		          <div class="field"><label for="wpid">Select WP:</label><select name="wpid" id="selectWpAddPartner"></select></div>
 		          <div class="field"><label for="partnerWP">Partner:</label><select name="partnerWP" id="selectPartnerWP"></select></div>
 		          <div class="field"><label for="effort">Effort:</label><input type="text" class="input" name="effortWP" id="effortWP" /></div>
@@ -242,10 +244,10 @@
          	</form>
          	
          	<form id="addPartnerToTaskForm" class="projectEditionBox">
-		          <div id="divaddPartnerToTaskForm">
+		          
 		          <div class="field"><label for="wpid">Select WP:</label><select name="wpid" id="selectWpAddTaskPartner"></select></div>
 		          <div class="field"><label for="taskid">Select Task:</label><select name="taskid" id="selectTaskAddTaskPartner"></select></div>
-		          </div>
+		          <div id="divaddPartnerToTaskForm"></div>
 		          <div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelWP">or CANCEL</a></div>
          	</form>
          	
@@ -259,7 +261,7 @@
           		<div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelWP">or CANCEL</a></div>
           	</form>
           
-          	<form id="addReportDate" class="projectEditionBox">
+          	<form id="addReportDateForm" class="projectEditionBox">
 	          	<div class="field"><label for="date">Date:</label><input type="text" class="input" name="dateSchedule" readonly="true" id="formDateSchedule" /></div>
 	          	<div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelWP">or CANCEL</a></div>
           	</form>

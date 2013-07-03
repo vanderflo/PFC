@@ -21,18 +21,18 @@
 
 
 
-	   $("#addScheduleForm").live("submit",function( event ){
+	   $("#addReportDateForm").live("submit",function( event ){
     		var $form = $(this),
         	serializedData = $form.serialize();
      		var prId=$(this).find('[name=projectid]').val();
 		    $.ajax({
-		        url: "http://localhost:8080/PFC/rest/API/add/schedule/"+prId,
+		        url: "http://localhost:8080/PFC/rest/API/add/schedule/"+projectIdinUse,
 		        type: "post",
 		        aSync: false,
 		        data: serializedData,
 		        dataType: "text",
 		        success: function(response){
-		        	updateProjectView(prId);
+		        	updateProjectView(projectIdinUse);
 		        },
 		        error: function(jqXHR, textStatus, errorThrown){
 		            console.log("The following error occured: "+textStatus, errorThrown);
@@ -57,16 +57,16 @@
     $("[id^=addPartnerToWPForm]").live("submit",function( event ){
  		var $form = $(this),
      	serializedData = $form.serialize();
- 		var prId=$(this).find('[name=projectid]').val();
+ 		//var prId=$(this).find('[name=projectid]').val();
  		var wpId=$(this).find('[name=wpid]').val();
  		
 		    $.ajax({
-		    	url: "http://localhost:8080/PFC/rest/API/project/add/partner/wp/"+prId+"/"+wpId,
+		    	url: "http://localhost:8080/PFC/rest/API/project/add/partner/wp/"+projectIdinUse+"/"+wpId,
 		    	type: "post",
 		        data: serializedData,
 		        success: function(response, textStatus, jqXHR){
 		        	console.log("Hooray, it worked!");
-		        	updateProjectView(prId);
+		        	updateProjectView(projectIdinUse);
 		        },
 		        error: function(jqXHR, textStatus, errorThrown){
 		            console.log("The following error occured: "+textStatus, errorThrown);
@@ -78,7 +78,7 @@
     $("[id^=addPartnerToTaskForm]").live("submit",function( event ){
  		var $form = $(this),
      	serializedData = $form.serialize();
- 		var prId=$(this).find('[name=projectid]').val();
+ 		//var prId=$(this).find('[name=projectid]').val();
  		var wpId=$(this).find('[name=wpid]').val();
  		var taskId=$(this).find('[name=taskid]').val();
  		
@@ -94,12 +94,12 @@
   		serializedData=serializedData+arrayValues;
  		
 		    $.ajax({
-		    	url: "http://localhost:8080/PFC/rest/API/project/add/partner/task/"+prId+"/"+wpId+"/"+taskId,
+		    	url: "http://localhost:8080/PFC/rest/API/project/add/partner/task/"+projectIdinUse+"/"+wpId+"/"+taskId,
 		    	type: "post",
 		        data: serializedData,
 		        success: function(response, textStatus, jqXHR){
 		        	console.log("Hooray, it worked!");
-		        	updateProjectView(prId);
+		        	updateProjectView(projectIdinUse);
 		        },
 		        error: function(jqXHR, textStatus, errorThrown){
 		            console.log("The following error occured: "+textStatus, errorThrown);
@@ -115,14 +115,13 @@
  		var $form = $(this),
      	serializedData = $form.serialize();
  		var prId=$(this).find('[name=projectid]').val();
- 		alert($(this).find('[name=titleWP]').val());
 		    $.ajax({
-		    	url: "http://localhost:8080/PFC/rest/API/add/WP/"+prId,
+		    	url: "http://localhost:8080/PFC/rest/API/add/WP/"+projectIdinUse,
 		    	type: "post",
 		        data: serializedData,
 		        success: function(response, textStatus, jqXHR){
 		        	console.log("Hooray, it worked!");
-		        	updateProjectView(prId);
+		        	updateProjectView(projectIdinUse);
 		        },
 		        error: function(jqXHR, textStatus, errorThrown){
 		            console.log("The following error occured: "+textStatus, errorThrown);
@@ -131,9 +130,9 @@
 		    event.preventDefault();
 		});//END #addWPForm submit
      
-     $("[id^=addTaskForm]").live("submit",function( event ){
+     $("#addTaskToWPForm").live("submit",function( event ){
   		var $form = $(this),
-      	serializedData = $form.find('[class=input]').serialize();
+      	serializedData = $form.serialize();
   		var prId=$(this).find('[name=projectid]').val();
   		var wpId=$(this).find('[name=wpid]').val();
   		var array_values = [];
@@ -147,12 +146,12 @@
   		arrayValues='&partnersTask='+arrayValues;
   		serializedData=serializedData+arrayValues;
   			$.ajax({
- 		    	url: "http://localhost:8080/PFC/rest/API/add/task/"+prId+"/"+wpId,
+ 		    	url: "http://localhost:8080/PFC/rest/API/add/task/"+projectIdinUse+"/"+wpId,
  		    	type: "post",
  		        data: serializedData,
  		        success: function(response, textStatus, jqXHR){
  		        	console.log("Hooray, it worked!");
- 		        	updateProjectView(prId);
+ 		        	updateProjectView(projectIdinUse);
  		        },
  		        error: function(jqXHR, textStatus, errorThrown){
  		            console.log("The following error occured: "+textStatus, errorThrown);
@@ -220,7 +219,7 @@
 							var taskId=$(this).attr("id");
 							$('#selectTaskAddTaskPartner').append('<option value='+taskId+'>'+taskTitle+'</option>');
 						});
-						
+						$('#divaddPartnerToTaskForm').empty();
 						$(this).find('partnerWP').each(function(){
 							var partnerId=$(this).attr("id");
 							$('#divaddPartnerToTaskForm').append('<div class="field"><label for="partnerTask">Partner:</label><input type="checkbox" name="partnerTask" value="'+partnerId+'">'+partnerId+'</input></div>');
@@ -233,13 +232,15 @@
      	    
      	    
      		function updateProjectView(projectId){
+     			projectIdinUse=projectId;
      			$("#newProjectSection").empty();
      			$("#newProjectSection").hide();
      			$("#wpSection").empty();
      			$("#metadataProjectBody").empty();
      			$('#projectTree').empty();
+     			$('#projectFieldAddWPForm').attr('value',projectId);
      			
-     			stringTasks="";
+     			
      			$("#newProjectSection").hide();
      			//Get Project: call to retrieve project and parse it
      			getProject(projectId);
@@ -275,6 +276,9 @@
      				
      				$('#projectTree').append('<li id=ptWP_'+wpId+'><a href="#" id=aptWP_'+wpId+' wpid='+wpId+'>'+wpTitle+'</a><ul id="tasksWP_'+wpId+'"/></li>');
 					//DisplayItem; crea un div con el contenido de esta tarea y pono hidden, ya se mostrar‡ desde el selector.
+     				$('#showWP_'+wpId).empty();
+     				$('#addPartnerToWP_'+wpId).empty();
+     				
      				$('#viewProjectSection').append('<div class="statusContainer" id=showWP_'+wpId+'/>');
      				$('#showWP_'+wpId).append('<a><span class="spanTitle">WP Title:</span><span class="spanValue">'+wpTitle+'</span></a><br>');
      				$('#showWP_'+wpId).append('<a><span class="spanTitle">Description:</span><span class="spanValue">'+wpDescription+'</span></a><br>');
@@ -295,7 +299,7 @@
 							partnersArray.push(partnerId);
 						});
 					//Recuperar todos los partners del fichero; si no están en el array anterior, anadir al combo box.
-						var stringOption="";
+						var stringOption="<option>Select Partner</option>";
 						$(xmlPartners).find('partner').each(function(){							
 							var partnerID=$(this).attr("id");
 							if( jQuery.inArray(partnerID, partnersArray) == -1 ){
@@ -303,6 +307,7 @@
 								stringOption=stringOption+'<option value="'+partnerID+'">'+partnerID+' ('+partnerName+')';
 							}
 						});//partner
+						$('#selectPartnerWP').empty();
 						$('#selectPartnerWP').append(stringOption);
 						
 						
@@ -320,6 +325,7 @@
 						
 						$('#tasksWP_'+wpId).append('<li><a href="#" id="aptTask'+taskId+'" taskid='+taskId+'>'+taskTitle+'</li>');
 						//Call to displayItem; crea un div con el contenido de esta tarea y pono hidden, ya se mostrar‡ desde el selector.
+						$('#showTask_'+taskId).empty();
 						$('#viewProjectSection').append('<div class="statusContainer" id=showTask_'+taskId+'/>');
 	     				$('#showTask_'+taskId).append('<a><span class="spanTitle">Task:</span><span class="spanValue">'+taskTitle+'</span></a><br>');
 	     				$('#showTask_'+taskId).append('<a><span class="spanTitle">Description:</span><span class="spanValue">'+taskDescription+'</span></a><br>');
