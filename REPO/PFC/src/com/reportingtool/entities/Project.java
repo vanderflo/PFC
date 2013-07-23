@@ -53,7 +53,7 @@ public class Project {
 	 * @return	Documento del proyecto generado.
 	 * @throws IOException
 	 */
-	public static String createProject(String path,String title, String dateStart, String duration,String idPartner,String description,String status) throws IOException{
+	public static String createProject(String path,String title, String dateStart, String dateFinish,String idPartner,String description,String status) throws IOException{
 		
 		//<project>
 		Element root = new Element("project");
@@ -66,7 +66,7 @@ public class Project {
 		Element projectBrief=root.clone();
 			Element eTitle = new Element("title");
 			Element eDateStart = new Element("dateStart");
-			Element eDuration = new Element("duration");
+			Element eDateFinish = new Element("dateFinish");
 			Element eCoordinator = new Element("coordinator");
 			Element eDesc = new Element("projectDescription");
 			Element eSchedule = new Element("reportSchedule");
@@ -81,14 +81,14 @@ public class Project {
 				
 			eTitle.addContent(title);
 			eDateStart.addContent(dateStart);
-			eDuration.addContent(duration);
+			eDateFinish.addContent(dateFinish);
 			eDesc.addContent(description);
 			eStatus.addContent(status);
 				
 			metainfo.addContent(eTitle);
 			projectBrief.addContent(eTitle.clone());
 			metainfo.addContent(eDateStart);
-			metainfo.addContent(eDuration);
+			metainfo.addContent(eDateFinish);
 			metainfo.addContent(eCoordinator);
 			metainfo.addContent(eDesc);
 			metainfo.addContent(eStatus);
