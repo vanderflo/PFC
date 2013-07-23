@@ -41,22 +41,28 @@ body{
 }
 
 header{
-    background-color: #000000;
-    box-shadow: 0 1px 0 #fff, 0 -3px 3px #000 inset;
+    background-color: #0072C6;
+	top: 0px;
+	right: 0px;
+	bottom: auto;
+	left: 0px;
+	height: 35px;
+	width: auto;
     
 }
 
 header hgroup{
     margin: 0 auto;
-    width: 960px;            
 }
         
 header h1{
     margin: 0;
-    font: 25px/1 'Luckiest Guy', cursive; /* Google font API */
-    float: left;    
-    color:#666;
-    padding: 5px;       
+	font-family: 'Bree Serif', serif;
+	font-weight: 400;     
+	font-size:22px;
+	float: left;    
+    color:white;
+    padding-left: 15px;       
 }
 
 h6{
