@@ -37,8 +37,10 @@
     	$.getScript("jEditableSelectors.js");
 		$('#topArticleContainer').hide();
         $('#reportArticle').hide();
+        $('#projectArticle').hide();
         initMenu();
         initTopMenu();
+        initActiveMenu();
         getProjects();
 		$('#menu').hide();
         $.getScript("coordinator.js");
@@ -64,12 +66,10 @@
     <aside>
         <nav>
          <ul id="topmenu">
-                       <li>
-                   <a href="#">Select Project</a>
-                    <ul id="coordinatorProjects">                
-                   
-                    </ul>        
-                </li>
+             <li><a href="#"><span class="icon-edit"></span>&nbsp;Edit Pending Projects</a><ul id="pendingProjects"></ul></li>
+         </ul>
+         <ul id="activemenu">
+             <li><a href="#"><span class="icon-file"></span>&nbsp;See Active Projects</a><ul id="coordinatorProjects"></ul></li>
          </ul>
             <ul id="menu">
 
@@ -212,7 +212,7 @@
           
           
           <section class="standardDiv right" id="editionProjectSection">
-          <h2><span class="icon-info-sign"></span>&nbsp;Edition box</h2>
+          <h2><span class="icon-edit-sign"></span>&nbsp;Edition box</h2>
           <table class="menuEditionReport">
           	<thead><tr>
           	  <th show="addWPForm" class="projectEditionBoxTable">New WP</th>
@@ -272,7 +272,7 @@
           
 
            <section class="standardDiv" id="diagramProjectSection">
-				<h2>Project Diagram</h2>
+				<h2><span class="icon-sitemap"></span>&nbsp;Project Diagram</h2>
 				<ul class="contentComment"><li>-Click on any + sign to expand WP and see its children (tasks)</li>
 				<li>-Click on the tiel of any WP and task to see its information on the Item Description box</li>
 				</ul>
@@ -282,15 +282,8 @@
 			</section>
 			
           <section class="standardDiv right" id="viewProjectSection">
-          <h2>WP description</h2>
-          </section>
-         
-         
-         
-         <section class="standardDiv wide" id="newProjectSection">
-         		<h3><span class="icon-flag"></span>&nbsp;New Project Wizard</h3>
-         		<h5><a id="addProject"><span class="icon-plus"></span>&nbsp;Click here to add a new project</a></h5>
-		</section>			
+          <h2><span class="icon-info"></span>&nbsp;WP/Task Details</h2>
+          </section>		
 
 
 			

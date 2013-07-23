@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project id="1370700742588">
+  <metainfo>
+    <title>Project Brooklyn</title>
+    <dateStart>Today</dateStart>
+    <duration>Tomorrow</duration>
+    <coordinator>
+      <partner id="001" />
+    </coordinator>
+    <projectDescription>Test Project</projectDescription>
+    <status>active</status>
+  </metainfo>
+  <workpackage title="REST component" id="1370700815808">
+    <coordinator>
+      <leader id="001" />
+    </coordinator>
+    <dateInit>Sunday</dateInit>
+    <datefinish>Monday</datefinish>
+    <task title="First task" id="1370708721289">
+      <partners>
+        <partner id="001" />
+        <partner id="002" />
+      </partners>
+      <description>esta es la primera</description>
+      <dateInit>today</dateInit>
+      <datefinish>tomorrow</datefinish>
+    </task>
+    <task title="Second task" id="1370708803015">
+      <partners>
+        <partner id="001" />
+      </partners>
+      <description>desc</description>
+      <dateInit>monday</dateInit>
+      <datefinish>tuesday</datefinish>
+    </task>
+    <task title="First task" id="1372815688067">
+      <partners />
+      <description>desc</description>
+      <dateInit />
+      <datefinish />
+    </task>
+    <task title="First task3" id="1372815758942">
+      <partners />
+      <description>descccc</description>
+      <dateInit />
+      <datefinish />
+    </task>
+    <task title="First task4" id="1372816046220">
+      <partners />
+      <description>descccc</description>
+      <dateInit>10/07/2013</dateInit>
+      <datefinish>03/07/2013</datefinish>
+    </task>
+    <partnerWP id="002" effort="3" />
+  </workpackage>
+  <workpackage title="Define UI" id="1370708764067">
+    <coordinator>
+      <leader id="001" />
+    </coordinator>
+    <dateInit>today</dateInit>
+    <datefinish>tomorrow</datefinish>
+    <task title="First task second wp" id="1370711235329">
+      <partners />
+      <description>fedec</description>
+      <dateInit>today</dateInit>
+      <datefinish>tomorrow</datefinish>
+    </task>
+  </workpackage>
+  <reportSchedule>
+    <date>06/19/2013</date>
+    <date>04/07/2013</date>
+  </reportSchedule>
+  <workpackage title="Define UI" id="1372814473218">
+    <coordinator>
+      <leader id="unex" />
+    </coordinator>
+    <dateInit>09/07/2013</dateInit>
+    <datefinish>09/07/2013</datefinish>
+  </workpackage>
+  <workpackage title="Define UI3" id="1372814807615">
+    <coordinator>
+      <leader id="unex" />
+    </coordinator>
+    <dateInit>09/07/2013</dateInit>
+    <datefinish>10/07/2013</datefinish>
+    <partnerWP id="002" effort="2" />
+    <partnerWP id="002" effort="10" />
+    <partnerWP id="003" effort="3" />
+    <partnerWP id="004" effort="4" />
+    <task title="TestTask" id="1374533551740">
+      <partners />
+      <description>desctask</description>
+      <dateInit>24/07/2013</dateInit>
+      <datefinish>30/07/2013</datefinish>
+    </task>
+    <task title="TestTask" id="1374533569238">
+      <partners />
+      <description>desctask</description>
+      <dateInit>24/07/2013</dateInit>
+      <datefinish>30/07/2013</datefinish>
+    </task>
+    <task title="First task" id="1374533666525">
+      <partners />
+      <description>esta es la primera</description>
+      <dateInit>10/07/2013</dateInit>
+      <datefinish>18/07/2013</datefinish>
+      <partnerTask id="002" />
+      <partnerTask id="003" />
+    </task>
+  </workpackage>
+  <workpackage title="Define UI4" id="1372815371315">
+    <coordinator>
+      <leader id="yo" />
+    </coordinator>
+    <dateInit>09/07/2013</dateInit>
+    <datefinish>10/07/2013</datefinish>
+    <partnerWP id="001" effort="1" />
+    <partnerWP id="002" effort="3" />
+    <task title="First taskUI4" id="1372816692855">
+      <partners />
+      <description>descccc</description>
+      <dateInit>10/07/2013</dateInit>
+      <datefinish>03/07/2013</datefinish>
+      <partnerTask id="001" />
+    </task>
+  </workpackage>
+</project>

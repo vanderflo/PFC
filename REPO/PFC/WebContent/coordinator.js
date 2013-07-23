@@ -6,8 +6,11 @@
      		initProject();
      		});
      		
+     		
+     		
      		$("#triggerWP").live("click",function() {
-    			currentview="w";
+     	        $('#projectArticle').hide();
+     			currentview="w";
      			var wpTitle = $(this).attr('wptitle');
     			var wpID = $(this).attr('wpid');
     			currentWP=wpID;
@@ -17,6 +20,7 @@
     		
      		
     		$("#triggerPartner").live("click",function() {
+     	        $('#projectArticle').hide();
     			currentview="p";
     			var partnerID = $(this).attr('partnerid');
     			var partnerName = $(this).attr('partnername');

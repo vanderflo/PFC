@@ -18,7 +18,10 @@
    		});//END #addProjectForm submit
    		*/
      
-
+		$(".editProject").live("click",function() {
+    			var projectId = $(this).attr('projectid');
+    			updateProjectView(projectId);
+         		});
 
 
 	   $("#addReportDateForm").live("submit",function( event ){
@@ -190,7 +193,11 @@
     			});
      		
      	    $( "#addProject" ).live("click", function(e) {
-     	    	$( "#addProjectForm" ).slideToggle();
+     	        $('#projectArticle').show();
+     	    	$("[id$=ProjectSection]").hide();
+     	    	$( "#createProjectSection" ).show();
+     	    	$( "#addProjectForm" ).show();
+     	    	
        	      });
      	    
      	    $( "#addSchedule" ).live("click", function(e) {
@@ -233,8 +240,8 @@
      	    
      		function updateProjectView(projectId){
      			projectIdinUse=projectId;
-     			$("#newProjectSection").empty();
-     			$("#newProjectSection").hide();
+     	        $('#projectArticle').show();
+     			$("#createProjectSection").hide();
      			$("#wpSection").empty();
      			$("#metadataProjectBody").empty();
      			$('#projectTree').empty();

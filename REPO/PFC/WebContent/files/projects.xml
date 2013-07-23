@@ -6,15 +6,15 @@
   </project>
   <project id="Test2">
     <title>Test2</title>
-    <status>active</status>
+    <status>pending</status>
   </project>
-  <project id="1355244535874">
-    <title>Test13</title>
-    <status>active</status>
+  <project id="1370700742588">
+    <title>Project Brooklyn</title>
+    <status>pending</status>
   </project>
   <project id="1355244768180">
     <title>Test14</title>
-    <status>active</status>
+    <status>pending</status>
   </project> 
   <project id="1355246330303">
     <title>Test15</title>

@@ -18,6 +18,16 @@
                 }
               );
             }
+        function initActiveMenu() {
+            $('#activemenu ul').hide(); // Hide the submenu
+            if ($('#activemenu li').has('ul')) $('#activemenu ul').prev().addClass('activeexpandable'); // Expand/collapse a submenu when it exists  
+            $('.activeexpandable').click(
+              function() {
+                  $(this).next().slideToggle();
+                  $(this).toggleClass('activeexpanded');
+                }
+              );
+            }
  		function initProject() {
 			$.ajax({
 				type: "GET",
@@ -69,10 +79,16 @@
 						id=$(this).attr("id");						
 						$(this).find('status').each(function(){
 						status = $(this).text();
-						});						
-						$('#coordinatorProjects').append('<li><a href="#" id="selectProject" class="selectProject" projectid="'+id+'" projecttile="'+title+'">'+ title + '</a><li>');
-
+						});
+						if (status.toLowerCase()=="pending"){
+							$('#pendingProjects').append('<li><a href="#"  class="editProject" projectid="'+id+'" projecttile="'+title+'">'+ title + '</a><li>');
+						}
+						if (status.toLowerCase()=="active"){
+							$('#coordinatorProjects').append('<li><a href="#" id="selectProject" class="selectProject" projectid="'+id+'" projecttile="'+title+'">'+ title + '</a><li>');
+						}
 					});
+					$('#pendingProjects').append('<li><a href="#"  id="addProject"><span class="icon-plus-sign"></span>&nbsp;CREATE NEW PROJECT</a><li>');
+
 
 				}
 			});//END Llamada AJAX
