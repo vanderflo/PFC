@@ -1094,3 +1094,31 @@ font-size:80%;
  div[id*='show']{
  display:none;
  }
+ 
+#headerMenu{
+	float:right;
+	margin-right:15px;
+	padding:8px;
+	
+	} 
+#headerMenu ul,#headerMenu li {
+display: inline;
+list-style-type: none;
+margin: 5px;
+}
+#headerMenu ul {
+font-family: "Trebutchet MS", Helvetica, Tahoma, sans-serif;
+font-size: 12px;
+}
+
+#headerMenu ul li a{
+text-decoration: none;
+color: #ffffff;
+padding: 6px;
+}
+
+#headerMenu ul li a:hover {
+background-color: #ffffff;
+color:#0066CC;
+}
+
