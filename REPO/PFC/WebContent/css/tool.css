@@ -271,8 +271,8 @@ figcaption{
 }
 
 #menu ul a:hover{
-    background: #fafafa;
-    color: #444;
+    background: #0072C6;
+    color: #ffffff;
 }
 
 ///////////// END WP-PARTNER MENU
@@ -296,9 +296,8 @@ figcaption{
 }
 
 #topmenu a:hover,#activemenu a:hover{
-    color: #eee;
-    background: #9c9c9c;
-    background: linear-gradient(top, #bbb, #999);          
+    background: #0072C6;
+    color: #ffffff;       
 }
 
 #topmenu .topexpandable,#activemenu .activeexpandable{
@@ -340,8 +339,8 @@ figcaption{
 }
 
 #topmenu ul a:hover,#activemenu ul a:hover{
-    background: #fafafa;
-    color: #444;
+    background: #0072C6;
+    color: #ffffff;
 }
 
 ///////////// END COORDINATOR MENU
