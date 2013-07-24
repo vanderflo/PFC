@@ -135,8 +135,8 @@
           <form id="addExpensesForm">
           <div class="formHeader">Record new expenses, specifying Type, Amount and a brief explanation</div>
           	<div class="field"><label for="name">Concept:</label>
-          		<select name="concept"><option value="travel" selected="selected">Travel</option><option value="equipment">Equipment</option><option value="outsourcing">Outsourcing</option></select><p class="hint">Choose expenses type</p></div>
-          	<div class="field"><label for="email">Amount:</label><input type="text" class="input" name="amount" id="amount" /><p class="hint">Specify amount</p></div>
+          		<select name="concept"><option value="Travel" selected="selected">Travel Cost</option><option value="Equipment">Purchase of Equipment</option><option value="Item">Large consumable item</option><option value="Other">Other Major Costs</option></select><p class="hint">Choose expenses type</p></div>
+          	<div class="field"><label for="email">Amount (EUR):</label><input type="text" class="input" name="amount" id="amount" /><p class="hint">Specify amount</p></div>
           	<div class="field"><label for="message">Description:</label><input type="text" class="input" name="description" id="description"><p class="hint">Describe expenses</p></div>
           	<div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelExpenses">or CANCEL</a></div>
           </form>
@@ -159,7 +159,7 @@
           
            <form id="addTaskReportInfoForm">
           	<div class="formHeader">Select task and feedback type and add the info</div>
-          	<div class="field"><label for="person">Feedback type:</label><input type="radio" name="id" value="work">Work<br><input type="radio" name="id" value="result">Result</div>          	
+          	<div class="field"><label for="person">Feedback type:</label><input type="radio" name="id" value="work">Work<input type="radio" name="id" value="result">Result</div>          	
           	<div class="field"><label for="name">Task:</label>
           		<select name="taskid" id="infoTaskList"></select><p class="hint">Choose Task to assign effort to</p></div>     
           	<div class="field"><label for="effort">Input:</label><input type="text" class="input" name="value" id="bigtext" /></div>          	
@@ -174,16 +174,6 @@
           </div>
           </section>
                   
-         <section class="standardDiv" id="expenses">
-	         <h2>Expenses</h2>
-	         <div class="contentDiv"><table id="expensesGrid" summary="List of Expenses"><thead><tr><th class="thconcept">Concept</th><th class="thdescription">Description</th><th class="thamount">Amount</th></thead><tbody id="expensesGridBody"></tbody></table>
-	         </div>
-         </section>
-         
-         <section class="standardDiv right" id="comments">
-	         <h2>Report Log</h2>
-	         <div class="contentDiv"><table id="commentsGrid" summary="List of Comments"><thead><tr><th class="thconcept">Type</th><th class="thdescription">Text</th><th class="thamount">Date</th></thead><tbody id="commentsGridBody"></tbody></table></div>
-         </section>
          
          <section class="standardDiv" id="effortSection">
 	         <h2>Effort</h2>
@@ -194,9 +184,23 @@
          
          <section class="standardDiv right" id="tasks">
          <h2>Tasks</h2>
+         <div class="formHeader">Select a task to see its current detailed status</div>
          <select id="taskSelector"></select>  
-         
          </section>
+         
+         <section class="standardDiv" id="expenses">
+	         <h2>Expenses</h2>
+	         <div class="contentDiv"><table id="expensesGrid" summary="List of Expenses"><thead><tr><th class="thconcept">Concept</th><th class="thdescription">Description</th><th class="thamount">Amount (EUR)</th></thead><tbody id="expensesGridBody"></tbody></table>
+	         </div>
+         </section>
+         
+         <section class="standardDiv right" id="comments">
+	         <h2>Report Log</h2>
+	         <div class="contentDiv"><table id="commentsGrid" summary="List of Comments"><thead><tr><th class="thconcept">Type</th><th class="thdescription">Text</th><th class="thamount">Date</th></thead><tbody id="commentsGridBody"></tbody></table></div>
+         </section>
+         
+         
+         
           </article>
         
          <article id="projectArticle">

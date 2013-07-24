@@ -286,13 +286,10 @@ figcaption{
   *display: inline-block;
   *width: 240px;
   text-decoration: none;	            
-  background: #ffffff;
   color: #669;	
   padding: 7px 5px;
   text-transform: uppercase;
   font: bold 11px Arial,Helvetica;          
-  border-radius:5px;
-  box-shadow: 0 1px 0 #ccc;   
 }
 
 #topmenu a:hover,#activemenu a:hover{
@@ -333,9 +330,9 @@ figcaption{
 }
 
 #topmenu ul a,#activemenu ul a{
-    background: #f2f2f2;
     text-transform: none;
-    font-weight: normal;            
+    font-weight: normal;
+    margin-left:15px;            
 }
 
 #topmenu ul a:hover,#activemenu ul a:hover{
@@ -498,6 +495,7 @@ margin-bottom:15px;
               0 1px 0 rgba(255, 255, 255, .3) inset;
   text-shadow: 0 1px 0 rgba(255,255,255, .9);  
   text-align: center;
+  margin:4px;
 }
 
 .button:hover{
@@ -1026,7 +1024,6 @@ border-bottom: solid 1px;
 
 #taskSelector{
 border-radius: 5px 5px 5px 5px;
-float:right;
 font-size:12px;
 height:16px;
 }
@@ -1121,3 +1118,6 @@ background-color: #ffffff;
 color:#0066CC;
 }
 
+#reportGrid .status.rejected{
+	color:red;
+}

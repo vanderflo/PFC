@@ -168,7 +168,7 @@
 					var status= $(this).children('status').text();	
 					var lastupdate= $(this).children('lastupdate').text();	
 					var flag= $(this).children('flag').text().toLowerCase();
-					var row='<tr><td>'+status+'</td><td><a href="#" id="triggerReport" class="topbuttonNO" partnerID="'+partnerID+'" partnername="'+partnerName+'" wptitle="'+reportWP+'" wpid="'+wpIdFromSubreport+'" reportdate="'+reportDate+'">'+reportDate+'</a></td><td>'+partnerName+'</td><td>'+reportWP+'</td><td>1 month</td><td>'+lastupdate.substring(0,10)+'</td><td><span class="icon-flag-'+flag+'"></span></td></tr>';
+					var row='<tr><td class="status '+status.toLowerCase()+'">'+status.toUpperCase()+'</td><td><a href="#" id="triggerReport" class="topbuttonNO" partnerID="'+partnerID+'" partnername="'+partnerName+'" wptitle="'+reportWP+'" wpid="'+wpIdFromSubreport+'" reportdate="'+reportDate+'">'+reportDate+'</a></td><td>'+partnerName+'</td><td>'+reportWP+'</td><td>1 month</td><td>'+lastupdate.substring(0,9)+'</td><td><span class="icon-flag-'+flag+'"></span></td></tr>';
 						if(currentview=="w" && id == wpIdFromSubreport){
 						currentWPtitle=reportWP;
 						$('#reportGridBody').append(row);

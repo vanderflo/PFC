@@ -264,24 +264,39 @@ public class Report {
 			if (eObject.getAttributeValue("WPID").equals(WP) && eObject.getAttributeValue("partner").equals(partnerID)&&eObject.getAttributeValue("date").equals(date)){
 				if (field.equals("comment")){
 					Element eNewComment=new Element("comment");
-					eNewComment.setAttribute("type", "comment");
+					eNewComment.setAttribute("type", "COMMENT");
 					eNewComment.setAttribute("time", Commons.getDate());
 					eNewComment.setText(value);
 					eObject.addContent(eNewComment);
 				}else if(field.equals("explanation")){
 					Element eNewComment=new Element("comment");
-					eNewComment.setAttribute("type", "explanation");
+					eNewComment.setAttribute("type", "RED FLAG");
 					eNewComment.setAttribute("time", Commons.getDate());
 					eNewComment.setText(value);
 					eObject.addContent(eNewComment);
 					eObject.getChild(field).setText(value);
 				}else if(field.equals("feedback")){
 					Element eNewComment=new Element("comment");
-					eNewComment.setAttribute("type", "feedback");
+					eNewComment.setAttribute("type", "FEEDBACK");
 					eNewComment.setAttribute("time", Commons.getDate());
 					eNewComment.setText(value);
 					eObject.addContent(eNewComment);
-				}			
+				}else if(field.equals("status")){
+					Element eNewComment=new Element("comment");
+					eNewComment.setAttribute("type", value.toUpperCase());
+					eNewComment.setAttribute("time", Commons.getDate());
+					eNewComment.setText("Project Status changed to "+value);
+					eObject.addContent(eNewComment);
+					eObject.getChild(field).setText(value);
+				}else if(field.equals("flag")&&value.equals("green")){
+					Element eNewComment=new Element("comment");
+					eNewComment.setAttribute("type", "GREEN FLAG");
+					eNewComment.setAttribute("time", Commons.getDate());
+					eNewComment.setText("Red Flag has been cleared");
+					eObject.addContent(eNewComment);
+					eObject.getChild(field).setText(value);
+				}
+				
 				else{
 				eObject.getChild(field).setText(value);
 				}
