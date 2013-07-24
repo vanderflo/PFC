@@ -87,5 +87,11 @@ $('#editStatus').live('click', function(){
             });
         });
         
+        $('#topMenuHelp').live('click', function(){
+        	$('#helpArticleContainer').show();
+        });
         
+        $('#hideMenuHelp').live('click', function(){
+        	$('#helpArticleContainer').hide();
+        });
 

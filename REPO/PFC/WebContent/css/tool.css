@@ -116,6 +116,8 @@ aside{
     width: 15%;
     margin-right: 20px;
     margin-left: 10px;
+    background-color:white;
+    border-radius:5px;
 }
 
 #content{
@@ -219,19 +221,16 @@ figcaption{
   *display: inline-block;
   *width: 240px;
   text-decoration: none;	            
-  background: #ddd;
-  color: #444;	
+  color: #669;	
   padding: 7px 5px;
   text-transform: uppercase;
-  font: bold 11px Arial,Helvetica;          
-  border-radius:5px;
-  box-shadow: 0 1px 0 #ccc;   
+  font: bold 11px Arial,Helvetica;
+  margin-left:15px;      
 }
 
 #menu a:hover{
-    color: #eee;
-    background: #9c9c9c;
-    background: linear-gradient(top, #bbb, #999);          
+    background: #0072C6;
+    color: #ffffff;
 }
 
 #menu .expandable{
@@ -265,9 +264,9 @@ figcaption{
 }
 
 #menu ul a{
-    background: #f2f2f2;
     text-transform: none;
-    font-weight: normal;            
+    font-weight: normal;
+    margin-left:20px;        
 }
 
 #menu ul a:hover{
@@ -583,7 +582,7 @@ vertical-align: middle;
 #reportGrid
 {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-	font-size: 12px;
+	font-size: 11px;
 	width: 100%;
 	text-align: left;
 	border-collapse: collapse;
@@ -597,7 +596,7 @@ vertical-align: middle;
 }
 #reportGrid td
 {
-	padding: 5px 5px;
+	padding: 1px 5px;
 	color: #669;
 	border-top: 1px solid #e8edff;
 }
@@ -1121,3 +1120,4 @@ color:#0066CC;
 #reportGrid .status.rejected{
 	color:red;
 }
+
