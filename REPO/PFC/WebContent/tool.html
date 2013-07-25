@@ -78,7 +78,7 @@
     <aside>
         <nav>
          <ul id="welcomemenu">
-             <li><a href="#"><span class="icon-list-ul"></span>&nbsp;MAIN MENU</a></li>
+             <li><a><span class="icon-list-ul"></span>&nbsp;MAIN MENU</a></li>
          </ul>
          <ul id="topmenu">
              <li><a href="#"><span class="icon-edit"></span>&nbsp;Edit Pending Projects</a><ul id="pendingProjects"></ul></li>
@@ -109,18 +109,47 @@
     <div id="content">
 		<article id="helpArticleContainer">      
             <section id="lastArticle">
-                <h1><a>Instructions Page</a></h1>
+                <h2>Welcome to UC3M Reporting Tool</h2>
                 <a href="#" id="hideMenuHelp">CLOSE</a>
-                <h2 class="edit">Please select partner bla bla bla bla bla</h2>
-                <figure>
-                    <img src="http://www.red-team-design.com/wp-content/uploads/2011/04/css3-tooltips.png" width="600" height="200" alt="CSS3 tooltips">
-                    <figcaption>CSS3 gradients, box shadows, pseudo-elements.</figcaption>                    
-                </figure>
+
+<h3>Sections</h3>
+<ul id="helpList">
+<li>Projects: Create a new project from scratch or edit an existing one that has not been committed yet
+<ul>
+
+<li>Create new project (from Main Menu)</li>
+<li>Once the basic information has been defined, Project Edition View will be displayed</li>
+<li>Use the Edition Box to:
+<ul><li>Create Work Packages</li>
+<li>Assign partners (and effort) to Work Packages</li>
+<li>Create task(s) and assign to Work Packages</li>
+<li>Assign partner(s) to tasks
+<li>Define Report deadlines
+</ul>
+</ul>
+</li>
+<br>
+<li>Reports: Once a project has been committed, it will be available on this section. When a project is selected on the main menu, the list of reports for this project will be displayed.
+	<ul>
+	<li>Filters: There are two predefined filters that will show up after selecting a project: Filter by Work Package and Filter by Partner. Besides that, the Reports grid includes a search form to filter reports by text.</li>
+	
+	<li>Edition box allows tool users to work on the report:
+	<ul>
+		<li>Actions: Accept/Reject report (for coordinators), Save/Send report (for partners)</li>
+		<li>Expenses: Add expenses, specifying their concept and explanation</li>
+		<li>Comments: Add any comment to the report.</li>
+		<li>Flags: Raise a red flag in case any problem comes up during this reporting period.</li>
+		<li>Effort: Specify the effort spent on this reporting period.</li>
+		<li>Tasks: Define work and result for a specific task.</li>
+	</ul>
+	</li>
+	</ul>
+	</li>
+</ul>
                                 <div class="Table_Menu_Partner" >
 
 	</div>
             </section>
-            <footer>Posted on <span>April 28th, 2011</span></footer>             
         </article>
         <article id="loadingArticleContainer">      
             <section id="loadingArticle"><h1><a>Loading...</a></h1></section>
@@ -196,7 +225,7 @@
           
            <div class="statusContainer" id="statusReport">
 	          <div class="formHeader">In case report is rejected, please add a comment and explain the reason(s)</div>
-	          <button class="color blue button" id="editStatus" value="blocked">Block</button><button id="editStatus" class="color blue button" value="accepted">Accept</button><button id="editStatus" value="rejected" class="color blue button">Reject</button><button id="editStatus" class="color blue button" value="open">Open</button>
+	          <button id="editStatus" class="color blue button" value="accepted">Accept</button><button id="editStatus" value="rejected" class="color blue button">Reject</button><button class="color blue button" id="editStatus" value="saved">Save</button><button id="editStatus" class="color blue button" value="sent">Send</button>
           </div>          
           <div class="statusContainer" id="addFlagForm"></div>          
           </div>
@@ -278,7 +307,7 @@
 		          <input type="hidden" id="projectFieldAddPPartnertoWPForm" name="projectid" value="" />
 		          <div class="field"><label for="wpid">Select WP:</label><select name="wpid" id="selectWpAddPartner"></select></div>
 		          <div class="field"><label for="partnerWP">Partner:</label><select name="partnerWP" id="selectPartnerWP"></select></div>
-		          <div class="field"><label for="effort">Effort:</label><input type="text" class="input" name="effortWP" id="effortWP" /></div>
+		          <div class="field"><label for="effort">Effort (Person Month):</label><input type="text" class="input" name="effortWP" id="effortWP" /></div>
 		          <div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelWP">or CANCEL</a></div>
          	</form>
          	
@@ -312,8 +341,8 @@
 
            <section class="standardDiv" id="diagramProjectSection">
 				<h2><span class="icon-sitemap"></span>&nbsp;Project Diagram</h2>
-				<ul class="contentComment"><li>-Click on any + sign to expand WP and see its children (tasks)</li>
-				<li>-Click on the tiel of any WP and task to see its information on the Item Description box</li>
+				<ul class="contentComment"><li><span class="icon-info-sign"></span>&nbsp;Click on any + sign to expand WP and see its children (tasks)</li>
+				<li><span class="icon-info-sign"></span>&nbsp;Click on the tiel of any WP and task to see its information on the Item Description box</li>
 				</ul>
 				<div id="content">				
 					<ul id="projectTree"></ul>
@@ -322,6 +351,8 @@
 			
           <section class="standardDiv right" id="viewProjectSection">
           <h2><span class="icon-info"></span>&nbsp;WP/Task Details</h2>
+          	<ul class="contentComment"><li><span class="icon-info-sign"></span>&nbsp;Select any item on the left for its details to be displayed on this box</li>
+			</ul>
           </section>		
 
 
@@ -331,8 +362,6 @@
     </div>
 </div>
 </body>
-<footer>
-    Design and code by Fernando Flores</a>
-</footer>
+
 
 </html>

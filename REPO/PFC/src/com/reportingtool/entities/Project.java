@@ -122,7 +122,7 @@ public class Project {
 		
 	}
 	
-	public static Document addWP(Document doc, String title, String partners,String dateInit, String datefinish,String path){
+	public static Document addWP(Document doc, String title, String partners,String dateInit, String datefinish,String description,String path){
 		
 		Element WP = new Element("workpackage");
 		WP.setAttribute("title",title);
@@ -144,10 +144,14 @@ public class Project {
 		
 		Element eDateFinish = new Element("datefinish");
 		eDateFinish.addContent(datefinish);
+		
+		Element eDescription = new Element("description");
+		eDescription.addContent(description);
 				
 		WP.addContent(ePartners);
 		WP.addContent(eDateInit);
 		WP.addContent(eDateFinish);	
+		WP.addContent(eDescription);
 		doc.getRootElement().addContent(WP);
 		System.out.println("***WP added: "+title);
 		Commons.writeFile(path,doc);

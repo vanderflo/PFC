@@ -148,11 +148,11 @@ public String createProject(@FormParam("title") String title,@FormParam("dateSta
 @Path ("/add/WP/{projectId}")
 @POST
 @Produces ("text/xml")
-public String createWP(@PathParam("projectId") String projectId,@FormParam("titleWP") String title,@FormParam("dateInitWP") String dateStart,@FormParam("dateFinishWP") String dateFinish,@FormParam("coordinatorWP") String coordinator) {
+public String createWP(@PathParam("projectId") String projectId,@FormParam("titleWP") String title,@FormParam("descriptionWP") String description,@FormParam("dateInitWP") String dateStart,@FormParam("dateFinishWP") String dateFinish,@FormParam("coordinatorWP") String coordinator) {
 	System.out.println("Creating WP for project "+projectId+". Title:"+title+". Coord:"+coordinator);	
 	Document d = Project.getCurrentProjectDocument(formatFile(projectId));
 	String path=getPath()+projectId;
-	d = Project.addWP(d,title, coordinator,dateStart, dateFinish,path);
+	d = Project.addWP(d,title, coordinator,dateStart, dateFinish,description,path);
 	String result=Commons.docToString(d);
 	return result;
 }

@@ -123,12 +123,14 @@
 		        success: function(response, textStatus, jqXHR){
 		        	console.log("Hooray, it worked!");
 		        	updateProjectView(projectIdinUse);
-		        },
+		        	$(this).find("input[type=text], textarea").val("");
+		        	},
 		        error: function(jqXHR, textStatus, errorThrown){
 		            console.log("The following error occured: "+textStatus, errorThrown);
 		        }
 		    });
 		    event.preventDefault();
+		     
 		});//END #addWPForm submit
      
      $("#addTaskToWPForm").live("submit",function( event ){
@@ -261,9 +263,9 @@
 	    			
 	    			$('#metadataProjectBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Title:</td><td class="tdvalue">'+title+'</td></tr>');
 	    			$('#metadataProjectBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Description:</td><td class="tdvalue">'+description+'</td></tr>');
-	    			$('#metadataProjectBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Date Start</td><td class="tdvalue">'+dateStart+'</td></tr>');
-	    			$('#metadataProjectBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Date Finish</td><td class="tdvalue"> '+dateFinish+'</td></tr>');
-	    			$('#metadataProjectBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Status</td><td class="tdvalue"> '+status+'</td></tr>');
+	    			$('#metadataProjectBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Date Start:</td><td class="tdvalue">'+dateStart+'</td></tr>');
+	    			$('#metadataProjectBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Date Finish:</td><td class="tdvalue"> '+dateFinish+'</td></tr>');
+	    			$('#metadataProjectBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Status:</td><td class="tdvalue"> '+status+'</td></tr>');
 	    		});     			
      			//WP section 
  				$("[id^=selectWpAdd]").empty();
