@@ -14,16 +14,18 @@
 <script type="text/javascript" src="sitemapstyler.js"></script>
 
 <script>
-        var currentProject="Test1";
+        currentProject="Test1";
     	var currentPartner;
     	var currentWP;
     	var currentWPtitle;
     	var currentReport;
     	var currentPartnerName;
-    	var currentview;
+    	currentview="all";
     	var plot1;
         // When document ready, call initMenu() function     	
         $(document).ready(function() { 
+        	
+        	
         	plot1=$.jqplot('chart2', [[[67,1]],[[32,1]],[[10,1]]], {
                 seriesDefaults: {
                     renderer:$.jqplot.BarRenderer, pointLabels: { show: true, location: 'e', edgeTolerance: -15 },
@@ -39,12 +41,15 @@
         $('#reportArticle').hide();
         $('#projectArticle').hide();
         initMenu();
+    	initActiveMenu();
         initTopMenu();
-        initActiveMenu();
-        getProjects();
+		$('#welcomemenu').show();
 		$('#menu').hide();
-        $.getScript("coordinator.js");
-        $.getScript("projectview.js");
+		$('#topmenu').hide();
+		$('#activemenu').hide();
+
+        
+        
         
         });    
     </script>
@@ -60,9 +65,9 @@
        <h1><span class="icon-paste"></span>&nbsp;Reporting Tool</h1>
     <nav id="headerMenu">
 	    <ul id="headerList">
-		    <li><a href="#">Projects</a></li>
-		    <li><a href="#">Reports</a></li>
-		    <li><a href="#">Partners</a></li>
+		    <li><a href="#" id="topMenuProjects">Projects</a></li>
+		    <li><a href="#" id="topMenuReports">Reports</a></li>
+		    <li><a href="#" id="topMenuPartners">Partners</a></li>
 		    <li><a href="#" id="topMenuHelp">Help</a></li>
 	  </ul>
   	</nav>
@@ -72,6 +77,9 @@
 <div id="main" class="clearfix">
     <aside>
         <nav>
+         <ul id="welcomemenu">
+             <li><a href="#"><span class="icon-list-ul"></span>&nbsp;MAIN MENU</a></li>
+         </ul>
          <ul id="topmenu">
              <li><a href="#"><span class="icon-edit"></span>&nbsp;Edit Pending Projects</a><ul id="pendingProjects"></ul></li>
          </ul>
@@ -79,15 +87,18 @@
              <li><a href="#"><span class="icon-file"></span>&nbsp;See Active Projects</a><ul id="coordinatorProjects"></ul></li>
          </ul>
             <ul id="menu">
-
+				<li>
+                   <a id="projectTitle"><span class="icon-filter"></span>&nbsp;QUICK FILTER</a>
+                            
+                </li>
                <li>
-                   <a href="#">Work packages</a>
+                   <a href="#">By Work package</a>
                     <ul id="coordinatorWP">                
                    
                     </ul>        
                 </li>
                 <li>
-                    <a href="#">Partners</a>
+                    <a href="#">By Partner</a>
                     <ul id="coordinatorPartners">
                     </ul>
                 </li>

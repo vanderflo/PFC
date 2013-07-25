@@ -222,10 +222,10 @@ figcaption{
   *width: 240px;
   text-decoration: none;	            
   color: #669;	
-  padding: 7px 5px;
+  padding: 5px 5px;
   text-transform: uppercase;
-  font: bold 11px Arial,Helvetica;
-  margin-left:15px;      
+  font-size: 10px;
+  font-family: Arial,Helvetica;
 }
 
 #menu a:hover{
@@ -1107,7 +1107,6 @@ font-size: 12px;
 }
 
 #headerMenu ul li a{
-text-decoration: none;
 color: #ffffff;
 padding: 6px;
 }
@@ -1121,3 +1120,22 @@ color:#0066CC;
 	color:red;
 }
 
+#projectTitle{
+border-top: 2px solid #666699;
+margin-left:0px;
+font-weight:bold;
+	
+}
+#welcomemenu a{
+color: #666699;
+display: block;
+font: bold 11px Arial,Helvetica;
+padding: 7px 5px;
+text-decoration: none;
+text-transform: uppercase;
+border-bottom: 2px solid #666699;	
+}
+
+.headerMenuSelected{
+text-decoration: underline;	
+}

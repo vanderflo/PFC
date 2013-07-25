@@ -157,6 +157,8 @@
     			$('#topArticle').append('<h1>Reports for Workpackage: '+displayName+'</h1>');
     			}else if (currentview=="p"){
         		$('#topArticle').append('<h1>Reports for Partner: '+displayName+'</h1>');
+    			}else if (currentview=="all"){
+        		$('#topArticle').append('<h1>Reports for Project: '+displayName+'</h1>');
     			}
     			$('#topArticle').append('<div class="tableHeader"><table id="reportGrid" summary="List of Reports"><thead><tr><th class="thstatus">Status</th><th class="thdate">Date</th><th class="thpartner">Partner</th><th class="thwp">Workpackage</th><th class="theffort">Effort</th><th class="thlastupdate">Last Update</th><th class="thflag">Flag</th></tr></thead><tbody id="reportGridBody"></tbody></table></div>');
     			$(xmlReport).find('subreport').each(function(){
@@ -175,6 +177,8 @@
 						}
 						else if(currentview=="p" && id == partnerID){
 						$('#reportGridBody').append(row);
+						}else if(currentview=="all"){
+							$('#reportGridBody').append(row);	
 						}
 					});
      		}

@@ -244,13 +244,12 @@
      			$("#wpSection").empty();
      			$("#metadataProjectBody").empty();
      			$('#projectTree').empty();
+     			$('#projectTree').hide();
+     			$('#reportInformation').hide();
      			$('#projectFieldAddWPForm').attr('value',projectId);
-     			
-     			
-     			$("#newProjectSection").hide();
+       			$("#newProjectSection").hide();
      			//Get Project: call to retrieve project and parse it
      			getProject(projectId);
-     		
      			$(xmlProject).find('metainfo').each(function(){
      				var title = $(this).children('title').text();	
      				var description = $(this).children('projectDescription').text();
@@ -266,10 +265,10 @@
 	    			$('#metadataProjectBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Date Finish</td><td class="tdvalue"> '+dateFinish+'</td></tr>');
 	    			$('#metadataProjectBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Status</td><td class="tdvalue"> '+status+'</td></tr>');
 	    		});     			
-     			//WP section     			
+     			//WP section 
  				$("[id^=selectWpAdd]").empty();
  				$("[id^=selectWpAdd]").append('<option selected="selected">Select WP</option>');
-     			$(xmlProject).find('workpackage').each(function(){					
+     			$(xmlProject).find('workpackage').each(function(){
 					var wpTitle=$(this).attr("title");
 					var wpId=$(this).attr("id");
 					var wpDateStart = $(this).children('dateInit').text();
@@ -278,7 +277,6 @@
      				$('#selectWpAddTask').append('<option value="'+wpId+'">'+wpTitle+'</option>');
      				$('#selectWpAddPartner').append('<option value="'+wpId+'">'+wpTitle+'</option>');
      				$('#selectWpAddTaskPartner').append('<option value="'+wpId+'">'+wpTitle+'</option>');
-     				
      				
      				$('#projectTree').append('<li id=ptWP_'+wpId+'><a href="#" id=aptWP_'+wpId+' wpid='+wpId+'>'+wpTitle+'</a><ul id="tasksWP_'+wpId+'"/></li>');
 					//DisplayItem; crea un div con el contenido de esta tarea y pono hidden, ya se mostrar‡ desde el selector.
@@ -290,7 +288,6 @@
      				$('#showWP_'+wpId).append('<a><span class="spanTitle">Description:</span><span class="spanValue">'+wpDescription+'</span></a><br>');
      				$('#showWP_'+wpId).append('<a><span class="spanTitle">Date start:</span><span class="spanValue">'+wpDateStart+'</span></a><br>');
      				$('#showWP_'+wpId).append('<a><span class="spanTitle">Date finish</span><span class="spanValue">'+wpDateFinish+'</span></a><br>');
-     				
 				
 				//Partners section
 					$('#wp_'+wpId).append('<form id="addPartnerToWP_'+wpId+'"><div class="field"><label for="partnerWP">Partner:</label><select name="partnerWP" id="selectPartnerWP" /></div><div class="field"><label for="effort">Effort:</label><input type="text" class="input" name="effortWP" id="effortWP" /></div><input type="hidden" name="projectid" value="'+projectId+'"/><input type="hidden" name="wpid" value="'+wpId+'"/><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelWP">or CANCEL</a></div></form>');
@@ -377,6 +374,8 @@
 				
 				//$('#schedule').append('<form id="addScheduleForm"><div class="field"><label for="date">Date:</label><input type="text" class="input" name="dateSchedule" readonly="true" id="formDateSchedule" /></div><input type="hidden" name="projectid" value="'+projectId+'"/><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelWP">or CANCEL</a></div></form>');
 				initTree();
+     			$('#projectTree').show();
+     			$('#reportInformation').show();
      		}
      		
 
@@ -431,5 +430,7 @@
        		  $("[id^=showTask]").hide();
        		  $("#showTask_"+taskId).show();
        		  });
+      	   
+      	   
      		
      		

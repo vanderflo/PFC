@@ -55,11 +55,9 @@
 			
 
 			});//END Llamada AJAX
-     		
-     		    
-				getReport();
-     		    
-     		 $('#menu').show();
+     		getReport();
+			showListOfReports(currentProject,"","all");
+     		$('#menu').show();
      		}
  		
  		function getProjects(){
@@ -81,13 +79,13 @@
 						status = $(this).text();
 						});
 						if (status.toLowerCase()=="pending"){
-							$('#pendingProjects').append('<li><a href="#"  class="editProject" projectid="'+id+'" projecttile="'+title+'">'+ title + '</a><li>');
+							$('#pendingProjects').append('<li class="listProjectsPending"><a href="#"  class="editProject" projectid="'+id+'" projecttile="'+title+'">'+ title + '</a><li>');
 						}
 						if (status.toLowerCase()=="active"){
-							$('#coordinatorProjects').append('<li><a href="#" id="selectProject" class="selectProject" projectid="'+id+'" projecttile="'+title+'">'+ title + '</a><li>');
+							$('#coordinatorProjects').append('<li class="listProjectsActive"><a href="#" id="selectProject" class="selectProject" projectid="'+id+'" projecttile="'+title+'">'+ title + '</a><li>');
 						}
 					});
-					$('#pendingProjects').append('<li><a href="#"  id="addProject"><span class="icon-plus-sign"></span>&nbsp;CREATE NEW PROJECT</a><li>');
+					$('#pendingProjects').append('<li><a href="#"  class="listProjectsPending" id="addProject"><span class="icon-plus-sign"></span>&nbsp;CREATE NEW PROJECT</a><li>');
 
 
 				}

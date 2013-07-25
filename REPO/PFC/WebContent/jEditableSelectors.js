@@ -94,4 +94,34 @@ $('#editStatus').live('click', function(){
         $('#hideMenuHelp').live('click', function(){
         	$('#helpArticleContainer').hide();
         });
-
+        
+        $('#topMenuProjects').live('click', function(){
+        	initProjectView();
+        	$('#topMenuReports').removeClass("headerMenuSelected");
+        	$('#topMenuPartners').removeClass("headerMenuSelected");
+        	$('#topMenuProjects').addClass("headerMenuSelected");
+        });
+        
+        $('#topMenuReports').live('click', function(){
+        	initReportView();
+        	$('#topMenuProjects').removeClass("headerMenuSelected");
+        	$('#topMenuPartners').removeClass("headerMenuSelected");
+        	$('#topMenuReports').addClass("headerMenuSelected");
+        });
+        
+        function initProjectView(){
+            $('.listProjectsPending').remove();
+            getProjects();
+            $('#topmenu').show();
+            $('#menu').hide();
+            $('#activemenu').hide();
+  	        $.getScript("projectview.js");
+		}
+        
+        function initReportView(){
+            $('.listProjectsActive').remove();
+            getProjects();
+            $('#activemenu').show();
+            $('#topmenu').hide();
+            $.getScript("coordinator.js");
+  	   	}
