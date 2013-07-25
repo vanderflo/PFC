@@ -244,8 +244,8 @@
      			$("#wpSection").empty();
      			$("#metadataProjectBody").empty();
      			$('#projectTree').empty();
-     			$('#projectTree').hide();
-     			$('#reportInformation').hide();
+     			$('#projectArticle').hide();
+     			$('#loadingArticleContainer').show();
      			$('#projectFieldAddWPForm').attr('value',projectId);
        			$("#newProjectSection").hide();
      			//Get Project: call to retrieve project and parse it
@@ -374,8 +374,8 @@
 				
 				//$('#schedule').append('<form id="addScheduleForm"><div class="field"><label for="date">Date:</label><input type="text" class="input" name="dateSchedule" readonly="true" id="formDateSchedule" /></div><input type="hidden" name="projectid" value="'+projectId+'"/><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelWP">or CANCEL</a></div></form>');
 				initTree();
-     			$('#projectTree').show();
-     			$('#reportInformation').show();
+     			$('#projectArticle').show();
+     			$('#loadingArticleContainer').hide();
      		}
      		
 

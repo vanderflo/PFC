@@ -1139,3 +1139,10 @@ border-bottom: 2px solid #666699;
 .headerMenuSelected{
 text-decoration: underline;	
 }
+#loadingArticleContainer{
+display:none;
+}
+#loadingArticle{
+height: 400px;
+}
+heigth:800px;
