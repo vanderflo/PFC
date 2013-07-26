@@ -376,10 +376,13 @@
      	  
      	  function updateView(){
      		getReport();
-     		if(currentview="w"){
+     		console.log(currentview);
+     		if(currentview=="w"){
      		showListOfReports(currentWPtitle,currentWP,currentview);
-     		}else if(currentview="p"){
+     		}else if(currentview=="p"){
          	showListOfReports(currentPartnerName,currentPartner,currentview);	
+     		}else if(currentview="all"){
+         	showListOfReports(currentProject,"",currentview);	
      		}
  			showReport(currentPartner,currentReport,currentWP,currentPartnerName);
      	  }

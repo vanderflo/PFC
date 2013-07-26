@@ -221,7 +221,7 @@ figcaption{
   *display: inline-block;
   *width: 240px;
   text-decoration: none;	            
-  color: #669;	
+  color: #0072C6;	
   padding: 5px 5px;
   text-transform: uppercase;
   font-size: 10px;
@@ -285,7 +285,7 @@ figcaption{
   *display: inline-block;
   *width: 240px;
   text-decoration: none;	            
-  color: #669;	
+  color: #0072C6;	
   padding: 7px 5px;
   text-transform: uppercase;
   font: bold 11px Arial,Helvetica;          
@@ -565,9 +565,6 @@ margin-bottom:15px;
 
 .statusContainer {
 line-height: 25px;
-font-weight: bold;
-font-size: 13px;
-font-family: arial;
 border-radius: 6px 6px 6px 6px;
 border-color: #f2f2f2;
 border-width:1px;
@@ -597,7 +594,7 @@ vertical-align: middle;
 #reportGrid td
 {
 	padding: 1px 5px;
-	color: #669;
+	color: #0072C6;
 	border-top: 1px solid #e8edff;
 }
 
@@ -897,7 +894,7 @@ form[id*='add'] label {
     font-weight: bold;
     margin-right:10px;
     text-align: right;
-    width: 120px;
+    width: 140px;
     line-height: 25px;
     font-size: 12px;
     }
@@ -1004,7 +1001,7 @@ width: 48%;
 }
 .standardDiv h2{
 	
-color: #669;
+color: #0072C6;
 background-color: transparent;
 margin-top: 0px;
 margin-bottom: 7px;
@@ -1016,8 +1013,8 @@ border-bottom: solid 1px;
 
 #reportArticle h1,#topArticleContainer h1{
     margin-style: 15px;	
-	color: #669;
-	border-bottom: 1px solid #669;
+	color: #0072C6;
+	border-bottom: 1px solid #0072C6;
 }
 
 
@@ -1043,13 +1040,11 @@ height:16px;
 
 .formHeader{
 color: #666;
-font-size: 12px;
 line-height: 12px;
 margin-bottom: 10px;
 margin-top: 15px;
 text-align: center;
-font-weight: bold;
-font-family: arial;
+font-family: 'Noto Sans', sans-serif;
 }
 
 #flagTitle{
@@ -1074,8 +1069,8 @@ padding-left: 10px;
 /* Generated via www.cssmenubuilder.com */
 
 .menuEditionReport{margin:0 auto; padding:0; height:30px; width:100%;border-spacing: 0;border-collapse: collapse;}
-.menuEditionReport th{text-align:center;margin:0; list-style:none;width:16%;padding-left:10px; padding-right:10px;border-right: solid 1px; border-left: solid 1px; cursor:pointer;color:#669; text-decoration:none; font:12px Verdana, Arial, Helvetica, sans-serif;}
-.menuEditionReport th:hover{background-position:0px -60px; color:#669;text-decoration:underline;}
+.menuEditionReport th{text-align:center;margin:0; list-style:none;width:16%;padding-left:10px; padding-right:10px;border-right: solid 1px; border-left: solid 1px; cursor:pointer;color:#0072C6; text-decoration:none; font:12px Verdana, Arial, Helvetica, sans-serif;}
+.menuEditionReport th:hover{background-position:0px -60px; color:#0072C6;text-decoration:underline;}
 /*.menuEditionReport th.active, .menuEditionReport th a.active:hover{line-height:30px; font:12px Verdana, Arial, Helvetica, sans-serif; color:rgb(255,255,255);}*/
 .menuEditionReport th.active span, .menuEditionReport th a.active:hover span{background-color:green;}
 
@@ -1129,13 +1124,13 @@ font-weight:bold;
 	
 }
 #welcomemenu a{
-color: #666699;
+color: #0072C6;
 display: block;
 font: bold 11px Arial,Helvetica;
 padding: 7px 5px;
 text-decoration: none;
 text-transform: uppercase;
-border-bottom: 2px solid #666699;	
+border-bottom: 2px solid #0072C6;	
 }
 
 .headerMenuSelected{
@@ -1163,4 +1158,24 @@ margin: 0px;
 {
 background-position: 0px 5px; 
 margin-left: 14px; 
+}
+
+.spanValue{
+float: left;
+color:black;
+}
+.spanTitle{
+color:black;
+font-family: Arial, Verdana;
+display: block;
+float: left;
+font-weight: bold;
+margin-right: 10px;
+text-align: right;
+width: 120px;
+line-height: 25px;
+font-size: 12px;}
+
+#helpArticleContainer{
+font-family: 'Noto Sans', sans-serif;	
 }

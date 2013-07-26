@@ -8,6 +8,7 @@
 		        data: serializedData,
 		        dataType: "text",
 		        success: function(response){
+		        	$("#addProjectForm")[0].reset();
 		        	updateProjectView(response);
 		        },
 		        error: function(jqXHR, textStatus, errorThrown){
@@ -35,6 +36,7 @@
 		        data: serializedData,
 		        dataType: "text",
 		        success: function(response){
+		        	$("#addReportDateForm")[0].reset();
 		        	updateProjectView(projectIdinUse);
 		        },
 		        error: function(jqXHR, textStatus, errorThrown){
@@ -67,6 +69,7 @@
 		        data: serializedData,
 		        success: function(response, textStatus, jqXHR){
 		        	console.log("Hooray, it worked!");
+		        	$("#addPartnerToWPForm")[0].reset();
 		        	updateProjectView(projectIdinUse);
 		        },
 		        error: function(jqXHR, textStatus, errorThrown){
@@ -100,6 +103,7 @@
 		        data: serializedData,
 		        success: function(response, textStatus, jqXHR){
 		        	console.log("Hooray, it worked!");
+		        	$("#addPartnerToTaskForm")[0].reset();
 		        	updateProjectView(projectIdinUse);
 		        },
 		        error: function(jqXHR, textStatus, errorThrown){
@@ -113,7 +117,8 @@
     
 	
      $("[id^=addWPForm]").live("submit",function( event ){
- 		var $form = $(this),
+    	
+    	 var $form = $(this),
      	serializedData = $form.serialize();
  		var prId=$(this).find('[name=projectid]').val();
 		    $.ajax({
@@ -122,8 +127,8 @@
 		        data: serializedData,
 		        success: function(response, textStatus, jqXHR){
 		        	console.log("Hooray, it worked!");
-		        	updateProjectView(projectIdinUse);
-		        	$(this).find("input[type=text], textarea").val("");
+		        	updateProjectView(projectIdinUse);		        	
+		        	$("#addWPForm")[0].reset();
 		        	},
 		        error: function(jqXHR, textStatus, errorThrown){
 		            console.log("The following error occured: "+textStatus, errorThrown);
@@ -154,6 +159,7 @@
  		        data: serializedData,
  		        success: function(response, textStatus, jqXHR){
  		        	console.log("Hooray, it worked!");
+ 		        	$("#addTaskToWPForm")[0].reset();
  		        	updateProjectView(projectIdinUse);
  		        },
  		        error: function(jqXHR, textStatus, errorThrown){
@@ -239,6 +245,7 @@
      	    
      	    
      		function updateProjectView(projectId){
+     			getPartners();
      			projectIdinUse=projectId;
      	        $('#projectArticle').show();
      	    	$("[id$=ProjectSection]").show();
@@ -289,18 +296,17 @@
      				$('#showWP_'+wpId).append('<a><span class="spanTitle">WP Title:</span><span class="spanValue">'+wpTitle+'</span></a><br>');
      				$('#showWP_'+wpId).append('<a><span class="spanTitle">Description:</span><span class="spanValue">'+wpDescription+'</span></a><br>');
      				$('#showWP_'+wpId).append('<a><span class="spanTitle">Date start:</span><span class="spanValue">'+wpDateStart+'</span></a><br>');
-     				$('#showWP_'+wpId).append('<a><span class="spanTitle">Date finish</span><span class="spanValue">'+wpDateFinish+'</span></a><br>');
+     				$('#showWP_'+wpId).append('<a><span class="spanTitle">Date finish:</span><span class="spanValue">'+wpDateFinish+'</span></a><br>');
 				
 				//Partners section
 					$('#wp_'+wpId).append('<form id="addPartnerToWP_'+wpId+'"><div class="field"><label for="partnerWP">Partner:</label><select name="partnerWP" id="selectPartnerWP" /></div><div class="field"><label for="effort">Effort:</label><input type="text" class="input" name="effortWP" id="effortWP" /></div><input type="hidden" name="projectid" value="'+projectId+'"/><input type="hidden" name="wpid" value="'+wpId+'"/><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelWP">or CANCEL</a></div></form>');
 					
 					//Recuperar todos los partners de este WP y guardarlos en un array.
-					var partnersArray = new Array();
-					getPartners();
+					var partnersArray = new Array();					
 						$(this).find('partnerWP').each(function(){
 							var partnerId=$(this).attr("id");
 							var effort=$(this).attr("effort");
-							$('#showWP_'+wpId).append('<a><span class="spanTitle">Partner '+partnerId+':</span><span class="spanValue">Effort assigned: '+effort+'</span></a><br>');
+							$('#showWP_'+wpId).append('<a><span class="spanTitle">Partner '+partnerId+':</span><span class="spanValue">Effort assigned  '+effort+' person/month</span></a><br>');
 							partnersArray.push(partnerId);
 						});
 					//Recuperar todos los partners del fichero; si no están en el array anterior, anadir al combo box.
