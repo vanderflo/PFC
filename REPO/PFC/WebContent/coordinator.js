@@ -73,7 +73,7 @@
 		    			$('#reportInformationBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Report Date:</td><td class="tdvalue">'+date+'</td></tr>');
 		    			$('#reportInformationBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Workpackage:</td><td class="tdvalue">'+reportWP+'</td></tr>');
 		    			$('#reportInformationBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Total Effort:</td><td class="tdvalue">1 month</td></tr>');
-		    			$('#reportInformationBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Actions:</td><td class="tdvalue"> '+status+'</td></tr>');
+		    			$('#reportInformationBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Status:</td><td class="tdvalue"> '+status+'</td></tr>');
 		    			$('#reportInformationBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Last Update:</td><td class="tdvalue"> '+lastupdate+'</td></tr>');
 
 

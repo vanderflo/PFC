@@ -293,6 +293,7 @@
      				$('#addPartnerToWP_'+wpId).empty();
      				
      				$('#viewProjectSection').append('<div class="statusContainer" id=showWP_'+wpId+'/>');
+     				$('#showWP_'+wpId).append('<h5>Metadata</h5>');
      				$('#showWP_'+wpId).append('<a><span class="spanTitle">WP Title:</span><span class="spanValue">'+wpTitle+'</span></a><br>');
      				$('#showWP_'+wpId).append('<a><span class="spanTitle">Description:</span><span class="spanValue">'+wpDescription+'</span></a><br>');
      				$('#showWP_'+wpId).append('<a><span class="spanTitle">Date start:</span><span class="spanValue">'+wpDateStart+'</span></a><br>');
@@ -302,11 +303,14 @@
 					$('#wp_'+wpId).append('<form id="addPartnerToWP_'+wpId+'"><div class="field"><label for="partnerWP">Partner:</label><select name="partnerWP" id="selectPartnerWP" /></div><div class="field"><label for="effort">Effort:</label><input type="text" class="input" name="effortWP" id="effortWP" /></div><input type="hidden" name="projectid" value="'+projectId+'"/><input type="hidden" name="wpid" value="'+wpId+'"/><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelWP">or CANCEL</a></div></form>');
 					
 					//Recuperar todos los partners de este WP y guardarlos en un array.
+					$('#showWP_'+wpId).append('<h5>Partners</h5>');
+					$('#showWP_'+wpId).append('<table id="effortGrid" summary="List of Effort"><thead><tr><th class="thperson">Partner</th><th class="theeffort">Effort</th></tr></thead><tbody id="effortGridBodyShow_'+wpId+'">');
 					var partnersArray = new Array();					
 						$(this).find('partnerWP').each(function(){
 							var partnerId=$(this).attr("id");
 							var effort=$(this).attr("effort");
-							$('#showWP_'+wpId).append('<a><span class="spanTitle">Partner '+partnerId+':</span><span class="spanValue">Effort assigned  '+effort+' person/month</span></a><br>');
+							$('#effortGridBodyShow_'+wpId).append('<tr><td>'+partnerId+'</td><td>'+effort+'</td></tr>');
+							//$('#showWP_'+wpId).append('<a><span class="spanTitle">Partner '+partnerId+':</span><span class="spanValue">Effort assigned  '+effort+' person/month</span></a><br>');
 							partnersArray.push(partnerId);
 						});
 					//Recuperar todos los partners del fichero; si no están en el array anterior, anadir al combo box.
