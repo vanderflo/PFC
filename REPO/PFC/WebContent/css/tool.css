@@ -902,7 +902,7 @@ form[id*='add'] label {
     color:#666;
     }
     
- #addExpensesForm .input,textarea, form[id*='add'] .input,textarea,select{
+ #addExpensesForm .input,#addExpensesForm .textarea, form[id*='add'] .input,#addExpensesForm .textarea,select{
     font-family: Arial, Verdana;
     font-size: 15px;
     border: 1px solid #b9bdc1;
@@ -911,10 +911,17 @@ form[id*='add'] label {
     border-radius: 5px;
 	background-color: #ebf4fa;
     }
- 
+textarea{
+height:55px;	
+	
+}
 .field{
 height:25px;	
-}   
+}
+
+.field.big{
+height:60px;	
+} 
 #addExpensesForm .hint, form[id*='add'] .hint{
     display:none;
     }
@@ -980,8 +987,8 @@ float:right;
 }
 
 
-#effortSection,#tasks,#expenses,#comments{
-/*height:250px;*/
+#effortSection{
+height:360px;
 }
 
 #metainfo,#editionReport,#editionProjectSection,#metainfoProjectSection{
@@ -1121,6 +1128,18 @@ color:#0066CC;
 #reportGrid .status.rejected{
 	color:red;
 }
+#reportGrid .status.accepted{
+	color:#03E30A;
+}
+#reportGrid .status.saved{
+	color:#E3D803;
+}
+#reportGrid .status.sent{
+	color:orange;
+}
+#reportGrid .status.pending{
+	color:gray;
+}
 
 #projectTitle{
 border-top: 2px solid #666699;
@@ -1185,4 +1204,8 @@ font-family: 'Noto Sans', sans-serif;
 
 #helpArticleContainer h2{
 color:#0072C6;	
+}
+
+#editionReportForms{
+text-align:center;	
 }

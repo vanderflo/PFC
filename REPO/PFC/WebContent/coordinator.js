@@ -51,20 +51,28 @@
     			currentReport=date;
     			currentWP=wpId;
     			currentPartnerName=partnerName;
+    			
+    			var currentEffort;
+    			var wpEffort;
+    			var otherReportsEffort=0;
+    			
     			$(xmlReport).find('subreport').each(function(){
 					var reportWP=$(this).attr("WP");
 					var reportWPID=$(this).attr("WPID");
 					var partnerWP=$(this).attr("partner");
-					var reportDate=$(this).attr("date");					
-					
+					var reportDate=$(this).attr("date");
+					if(partnerID == partnerWP && reportWPID == wpId){
+						var eff=$(this).children('currentEffort').text();
+						otherReportsEffort=otherReportsEffort+parseInt(eff);
+					}
 						if(partnerID == partnerWP && reportWPID == wpId && reportDate==date){
 
 						var status= $(this).children('status').text();	
 						var lastupdate= $(this).children('lastupdate').text();
 						var flag= $(this).children('flag').text().toLowerCase();
 						var explanation= $(this).children('explanation').text();
-						var currentEffort=$(this).children('currentEffort').text();
-						var wpEffort=$(this).children('wpEffort').text();
+						currentEffort=$(this).children('currentEffort').text();
+						wpEffort=$(this).children('wpEffort').text();
 						
 						$('#flagTitle').removeClass();
 						$('#flagTitle').addClass('icon-flag-'+flag);
@@ -136,14 +144,13 @@
 						$('#effortTaskList').append(listOfTasks);
 						$('#infoTaskList').append(listOfTasks);
 						$('#tasks').append(tasksDivs);
-						
-						plot1.series[0].data=[[wpEffort,1]];
-						plot1.series[1].data=[[currentEffort,1]];
-						plot1.series[2].data=[[12,1]];
 					
 						
 						}
 					});
+    			plot1.series[0].data=[[wpEffort,1]];
+				plot1.series[1].data=[[currentEffort,1]];
+				plot1.series[2].data=[[otherReportsEffort,1]];
     	        $('#reportArticle').show();
     	        plot1.replot();
     		}
@@ -212,7 +219,6 @@
        	      $( "#addFlagForm" ).hide();
        	      $( "#addExpensesForm" ).hide();
        	      $( "#addTaskReportEffortForm" ).hide();
-       	      $( "#addTaskReportInfoForm" ).hide();
        	      $( "#addTaskReportInfoForm" ).hide();
        	      $( "#statusReport" ).show();
          	    });

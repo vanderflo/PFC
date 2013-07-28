@@ -171,12 +171,12 @@
 	     <h1 id="reportTitle">Work Report<span id="flagTitle">&nbsp;&nbsp;&nbsp;&nbsp;</span></h1>
          
          <section class="standardDiv" id="metainfo">
-          <h2>The basics</h2>
+          <h2><span class="icon-exclamation-sign"></span>&nbsp;The basics</h2>
           <div class="contentDiv"><table id="reportInformation" summary="Report information"><tbody id="reportInformationBody"></tbody></table></div>
          </section>
          
           <section class="standardDiv right" id="editionReport">
-          <h2>Edition Box</h2>
+          <h2><span class="icon-edit"></span>&nbsp;Edition Box</h2>
           	<table class="menuEditionReport">
           	<thead><tr>
           	  <th class="active" id="showStatusReport">Actions</th>
@@ -220,7 +220,7 @@
           	<div class="field"><label for="person">Feedback type:</label><input type="radio" name="id" value="work">Work<input type="radio" name="id" value="result">Result</div>          	
           	<div class="field"><label for="name">Task:</label>
           		<select name="taskid" id="infoTaskList"></select><p class="hint">Choose Task to assign effort to</p></div>     
-          	<div class="field"><label for="effort">Input:</label><input type="text" class="input" name="value" id="bigtext" /></div>          	
+          	<div class="field big"><label for="effort">Input:</label><textarea  class="input" name="value" id="bigtext"></textarea></div>          	
           	<div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /></div>
           </form>
           
@@ -234,27 +234,27 @@
                   
          
          <section class="standardDiv" id="effortSection">
-	         <h2>Effort</h2>
-	         <div class="contentDiv"><div id="chart2" style="width:400px; height:250px;"></div>
+	         <h2><span class="icon-bar-chart"></span>&nbsp;Effort</h2>
+	         <div class="contentDiv"><div id="chart2" style="width:500px; height:250px;"></div>
 			 <pre class="code brush: js"></pre>
 			</div>
          </section>
          
          <section class="standardDiv right" id="tasks">
-         <h2>Tasks</h2>
+         <h2><span class="icon-tasks"></span>&nbsp;Tasks</h2>
          <div class="formHeader">Select a task to see its current detailed status</div>
          <select id="taskSelector"></select>  
          </section>
          
          <section class="standardDiv" id="expenses">
-	         <h2>Expenses</h2>
+	         <h2><span class="icon-money"></span>&nbsp;Expenses</h2>
 	         <div class="contentDiv"><table id="expensesGrid" summary="List of Expenses"><thead><tr><th class="thconcept">Concept</th><th class="thdescription">Description</th><th class="thamount">Amount (EUR)</th></thead><tbody id="expensesGridBody"></tbody></table>
 	         </div>
          </section>
          
          <section class="standardDiv right" id="comments">
-	         <h2>Report Log</h2>
-	         <div class="contentDiv"><table id="commentsGrid" summary="List of Comments"><thead><tr><th class="thconcept">Type</th><th class="thdescription">Text</th><th class="thamount">Date</th></thead><tbody id="commentsGridBody"></tbody></table></div>
+	         <h2><span class="icon-comments-alt"></span>&nbsp;Report Log</h2>
+	         <div class="contentDiv"><table id="commentsGrid" summary="List of Comments"><thead><tr><th class="thconcept">Action</th><th class="thdescription">Text</th><th class="thamount">Date</th></thead><tbody id="commentsGridBody"></tbody></table></div>
          </section>
          
          
