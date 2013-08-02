@@ -377,7 +377,6 @@ background-image: linear-gradient(135deg, rgba(255, 255, 255, .2) 25%, transpare
 
 /* Animate Background Image */
 
-  -webkit-text-fill-color: transparent;
   -webkit-animation: aitf 10s linear infinite;
 
 /* Activate hardware acceleration for smoother animations */

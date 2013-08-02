@@ -1,0 +1,165 @@
+<xml>
+<game id="1">
+<type>guessPic</type>
+<questions>2</questions>
+<question>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>images/rack11.jpg</qpic>
+</question>
+<option id="1">
+<text>Adriana Lima</text>
+<pic></pic>
+</option>
+<option id="2">
+<text>Miranda Kerr</text>
+<pic></pic>
+</option>
+<option id="3">
+<text>Jessica Alba</text>
+<pic></pic>
+</option>
+<option id="4">
+<text>Alessandra Ambrosio</text>
+<pic></pic>
+</option>
+<answer1>
+<answerok>4</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
+<points>100</points>
+<timebonus>2</timebonus>
+<extrabonus>5</extrabonus>
+</answer1>
+</game>
+<game id="2">
+<type>guessPic</type>
+<question>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>images/rack12.jpg</qpic>
+</question>
+<option id="1">
+<text>Katy Perry</text>
+<pic></pic>
+</option>
+<option id="2">
+<text>Courteney Cox</text>
+<pic></pic>
+</option>
+<option id="3">
+<text>Zoey Deschannel</text>
+<pic></pic>
+</option>
+<option id="4">
+<text>Emma Watson</text>
+<pic></pic>
+</option>
+<answer2>
+<answerok>1</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
+<points>100</points>
+<timebonus>2</timebonus>
+<extrabonus>5</extrabonus>
+</answer2>
+</game>
+
+<game id="3">
+<type>guessPic</type>
+<question>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>images/rack13.jpg</qpic>
+</question>
+<option id="1">
+<text>Alicia Keys</text>
+<pic></pic>
+</option>
+<option id="2">
+<text>Beyonce</text>
+<pic></pic>
+</option>
+<option id="3">
+<text>Rihanna</text>
+<pic></pic>
+</option>
+<option id="4">
+<text>Lolo Jones</text>
+<pic></pic>
+</option>
+<answer3>
+<answerok>3</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
+<points>100</points>
+<timebonus>2</timebonus>
+<extrabonus>5</extrabonus>
+</answer3>
+</game>
+
+
+<game id="4">
+<type>guessPic</type>
+<question>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>images/rack14.jpg</qpic>
+</question>
+<option id="1">
+<text>Taylor Swift</text>
+<pic></pic>
+</option>
+<option id="2">
+<text>Demi Lovato</text>
+<pic></pic>
+</option>
+<option id="3">
+<text>Selena Gomez</text>
+<pic></pic>
+</option>
+<option id="4">
+<text>Miley Cirus</text>
+<pic></pic>
+</option>
+<answer4>
+<answerok>3</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
+<points>100</points>
+<timebonus>2</timebonus>
+<extrabonus>5</extrabonus>
+</answer4>
+</game>
+
+<game id="5">
+<type>guessPic</type>
+<question>
+<qtext>Which Celebrity Is This?</qtext>
+<qpic>images/rack15.jpg</qpic>
+</question>
+<option id="1">
+<text>Jennifer Gardner</text>
+<pic></pic>
+</option>
+<option id="2">
+<text>Anna Hathaway</text>
+<pic></pic>
+</option>
+<option id="3">
+<text>Jennifer Lawrence</text>
+<pic></pic>
+</option>
+<option id="4">
+<text>Emma Watson</text>
+<pic></pic>
+</option>
+<answer5>
+<answerok>3</answerok>
+<messageok>Correct!!!</messageok>
+<messageko>Woof, incorrect!!!</messageko>
+<points>100</points>
+<timebonus>2</timebonus>
+<extrabonus>5</extrabonus>
+</answer5>
+</game>
+
+
+
+</xml>

@@ -80,7 +80,7 @@
 							}
 					var totalScore=userPoints+bonusTime;
 					totalScore=totalScore.toFixed(1);
-					$("#totalScore").text(totalScore+" IS YOUR TOTAL SCORE");
+					$("#totalScore").text("TOTAL SCORE: " +totalScore);
 					$('#contentSectionFinish').show();
         			
         			
@@ -237,7 +237,7 @@
  				
  			}else if(gameType=="rack"){
  				totalQuestions=5;
- 				numGames=2;
+ 				numGames=3;
  				suffix="Rack";
  				if(array_values_rack.length==numGames){
  	 				console.log("Resetting array");
@@ -245,7 +245,7 @@
  	 			}
  			}else if (gameType=="abs"){
  				totalQuestions=5;
- 				numGames=2;
+ 				numGames=3;
  				suffix="Abs";
  				if(array_values_abs.length==numGames){
  	 				console.log("Resetting array");
@@ -395,7 +395,7 @@
         <thead>
             <tr>
                 <th class="place">Rank</th>
-                <th class="points">Points</th>
+                <th class="points">Score</th>
                 <th>Name</th>
             </tr>
         </thead>
