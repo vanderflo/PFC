@@ -274,6 +274,39 @@ public String addExpenses(@FormParam("concept") String concept,@FormParam("descr
 	return "ok";
 }
 
+@Path ("/partners/add")
+@POST
+@Consumes("application/x-www-form-urlencoded")
+public String addPartner(@FormParam("id") String id,@FormParam("name") String name, @FormParam("email") String email,@FormParam("members") String members,@FormParam("action") String action) {
+	Document doc;
+	try {
+		doc = Partner.getCurrentPartnersFile(formatFile(CST.PROJECT_FILE));
+		Partner.addPartner(doc, id, name, email, members, action);
+	} catch (IOException e) {
+		e.printStackTrace();
+		return "ko";
+	}
+	
+	String result=Commons.docToString(doc);
+	return result;
+}
+
+@Path ("/partners/getall")
+@GET
+@Produces ("text/xml")
+public String getPartner() {
+	Document doc;
+	try {
+		doc = Partner.getCurrentPartnersFile(formatFile(CST.PARTNERS_FILE));
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		return "ko";
+	}
+	String result=Commons.docToString(doc);
+	return result;
+}
+
 
 }
 

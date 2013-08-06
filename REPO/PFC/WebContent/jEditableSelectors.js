@@ -109,12 +109,20 @@ $('#editStatus').live('click', function(){
         	$('#topMenuReports').addClass("headerMenuSelected");
         });
         
+        $('#topMenuPartners').live('click', function(){
+        	initPartnersView();
+        	$('#topMenuProjects').removeClass("headerMenuSelected");
+        	$('#topMenuPartners').addClass("headerMenuSelected");
+        	$('#topMenuReports').removeClass("headerMenuSelected");
+        });
+        
         function initProjectView(){
             $('.listProjectsPending').remove();
             getProjects();
             $('#topmenu').show();
             $('#menu').hide();
             $('#activemenu').hide();
+            $('#partnersmenu').hide();
   	        $.getScript("projectview.js");
 		}
         
@@ -123,5 +131,14 @@ $('#editStatus').live('click', function(){
             getProjects();
             $('#activemenu').show();
             $('#topmenu').hide();
+            $('#partnersmenu').hide();
             $.getScript("coordinator.js");
+  	   	}
+        
+        function initPartnersView(){
+            $('.listProjectsActive').remove();
+            $('#topmenu').hide();
+            $('#activemenu').hide();
+            $('#partnersmenu').show();
+            $.getScript("partners.js");
   	   	}

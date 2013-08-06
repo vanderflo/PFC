@@ -175,18 +175,6 @@ public class Dispatcher {
 	
 	
 	public static void getPartnerParamsAndStart(){
-		
-		try {
-			System.out.println(System.getProperty("user.dir"));
-			Document doc = Partner.getCurrentPartnersFile(CST.PARTNERS_FILE);
-			doc = Partner.addPartner(doc,"001","UPM","test@upm.es","Lolo P,Manu G");
-			doc = Partner.addPartner(doc,"002","UC3M","test@uc3m.es","Paco P,Lisardo G");
-			Partner.getPartnerInfo(doc,"001");
-			Commons.writeFile(CST.PARTNERS_FILE,doc);	
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			System.out.println(e);
-		}
 
 		
 	}

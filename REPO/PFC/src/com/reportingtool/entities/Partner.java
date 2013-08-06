@@ -41,7 +41,6 @@ public class Partner {
 		try {
 			document = (Document) builder.build(xmlFile);
 		} catch (JDOMException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
 			System.out.println("There's no file with this name. Lo creamos y punto.");
@@ -111,8 +110,26 @@ public class Partner {
 		
 		}
 	
-	
-	public static Document addPartner(Document doc,String id, String name, String email,String members) throws IOException{
+	public static Document removePartner(Document doc,String id, String name, String email,String members) throws IOException{
+		
+		for(Object object : doc.getRootElement().getChildren("partner")) {
+			Element eObject=(Element)object;
+			
+			if (eObject.getAttributeValue("id").equals(id)){
+					for(Object o : eObject.getChildren()) {
+					Element eTmp=(Element)o;
+					System.out.println("Deleting "+eTmp.getName());
+				}
+								
+			}						
+		}
+		return doc;
+	}
+
+	public static Document addPartner(Document doc,String id, String name, String email,String members,String action) throws IOException{
+		//si existe, modificarlo
+		if (action.equals("edit"))
+		doc=removePartner( doc, id,  name,  email, members);
 		
 		Element partner = new Element("partner");
 		partner.setAttribute("id", id);
