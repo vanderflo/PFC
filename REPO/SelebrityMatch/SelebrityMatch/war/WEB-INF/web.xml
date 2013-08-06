@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?><web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.5" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.5" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 	<servlet>
 		<servlet-name>SelebrityMatch</servlet-name>
 		<servlet-class>com.selebrity.match.SelebrityMatchServlet</servlet-class>
@@ -22,4 +23,26 @@
   <servlet-name>SystemServiceServlet</servlet-name>
   <url-pattern>/_ah/spi/*</url-pattern>
  </servlet-mapping>
-</web-app>
+
+
+
+    <servlet>
+      <servlet-name>Restselebrity</servlet-name>
+      <servlet-class>
+        com.sun.jersey.spi.container.servlet.ServletContainer
+      </servlet-class>
+      <init-param>
+          <param-name>com.sun.jersey.config.property.packages</param-name>
+          <!-- Enter your Jersey resources to speed up initial Jersey loading -->
+          <!-- You can separate the java packages using , -->
+          <param-value>com.selebrity.match</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+      <servlet-name>Restselebrity</servlet-name>
+      <url-pattern>/rest/*</url-pattern>
+    </servlet-mapping>
+
+ </web-app>
