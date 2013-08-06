@@ -1023,7 +1023,7 @@ border-bottom: solid 1px;
 
 
 
-#reportArticle h1,#topArticleContainer h1{
+#reportArticle h1,#topArticleContainer h1,#partnerArticleContainer h1{
     margin-style: 15px;	
 	color: #0072C6;
 	border-bottom: 1px solid #0072C6;
@@ -1092,10 +1092,6 @@ font-size:90%;
 font-family: 'Noto Sans', sans-serif;
 color:#666;
 }
-
-
-
-
 
  div[id*='show']{
  display:none;
@@ -1207,10 +1203,22 @@ font-size: 12px;}
 font-family: 'Noto Sans', sans-serif;	
 }
 
-#helpArticleContainer h2{
+#helpArticleContainer h2,#partnerArticleContainer h2{
 color:#0072C6;	
 }
+
+#partnerArticleContainer h3{
+color:#0072C6;	
+}
+
 
 #editionReportForms{
 text-align:center;	
 }
+.threeColumns ul{ width:760px; margin-bottom:20px; overflow:hidden; border-top:1px solid #ccc; }
+.threeColumns li{ line-height:1.5em; float:left; display:inline; width:33.3%;}
+.threeColumns li:hover {	
+	color: #339;
+	background: #eff2ff;
+	} 
+

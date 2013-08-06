@@ -280,8 +280,9 @@ public String addExpenses(@FormParam("concept") String concept,@FormParam("descr
 public String addPartner(@FormParam("id") String id,@FormParam("name") String name, @FormParam("email") String email,@FormParam("members") String members,@FormParam("action") String action) {
 	Document doc;
 	try {
-		doc = Partner.getCurrentPartnersFile(formatFile(CST.PROJECT_FILE));
-		Partner.addPartner(doc, id, name, email, members, action);
+		doc = Partner.getCurrentPartnersFile(formatFile(CST.PARTNERS_FILE));
+		String path=getPath()+CST.PARTNERS_FILE;
+		Partner.addPartner(doc, id, name, email, members, action,path);
 	} catch (IOException e) {
 		e.printStackTrace();
 		return "ko";

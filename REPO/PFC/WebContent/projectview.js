@@ -405,18 +405,7 @@
      		
      		
      		
-     		function getPartners(){
-     			$.ajax({
-         		    type: "GET",
-         		    url: "http://localhost:8080/PFC/rest/API/partners/",
-     				dataType: "xml",
-     				async: false,
-         		     success : function(data) {
-         		    	xmlPartners = data;
-         		         }
-         		    });
-
-     		}
+     		
      		
      		$("[id^=formDate]").live("focus", function(){
      		    $(this).datepicker({

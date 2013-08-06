@@ -2,12 +2,21 @@ $("#showpartners").live("click",function() {
  		$('#coordinatorWP').empty();
  		$('#coordinatorPartners').empty();
  		$('#projectArticle').hide();
- 		initProject();
- 		});
+ 		$('#partnerArticleContainer').show();
+ 		$('#partnersArticleForm').hide();
+ 		getPartners();
+ 		$('#partnersArticleList').empty();
+ 		$(xmlPartners).find('partner').each(function(){							
+			var partnerID=$(this).attr("id");			
+			var partnerName= $(this).attr("name");
+			$('#partnersArticleList').append('<li>'+partnerID+' ('+partnerName+')'+'</li>');			
+		});//partner 		
+	});
 
-$("#addpartners").live("click",function() {
-		$('#coordinatorWP').empty();
-		$('#coordinatorPartners').empty();
-		$('#projectArticle').hide();
-		initProject();
+$("#addpartner").live("click",function() {
+		$('#partnerArticleContainer').show();
+		$('#partnersArticleForm').show();
+		$('#addNewPartnerForm').show();
 		});
+
+

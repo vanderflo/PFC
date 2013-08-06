@@ -39,6 +39,7 @@
         initSearchBox();	
     	$.getScript("jEditableSelectors.js");
 		$('#topArticleContainer').hide();
+		$('#partnerArticleContainer').hide();
         $('#reportArticle').hide();
         $('#projectArticle').hide();
         initMenu();
@@ -49,11 +50,7 @@
 		$('#topmenu').hide();
 		$('#activemenu').hide();
         $('#partnersmenu').hide();
-
-        
-        
-        
-        });    
+		});    
     </script>
 </head>
 <body>
@@ -103,8 +100,7 @@
                    
                     </ul>        
                 </li>
-                <li>
-                    <a href="#">By Partner</a>
+                <li> <a href="#">By Partner</a>
                     <ul id="coordinatorPartners">
                     </ul>
                 </li>
@@ -118,47 +114,66 @@
                 <h2>Welcome to UC3M Reporting Tool</h2>
                 <a href="#" id="hideMenuHelp">CLOSE</a>
 
-<h3>Sections</h3>
-<ul id="helpList">
-<li>Projects: Create a new project from scratch or edit an existing one that has not been committed yet
-<ul>
-
-<li>Create new project (from Main Menu)</li>
-<li>Once the basic information has been defined, Project Edition View will be displayed</li>
-<li>Use the Edition Box to:
-<ul><li>Create Work Packages</li>
-<li>Assign partners (and effort) to Work Packages</li>
-<li>Create task(s) and assign to Work Packages</li>
-<li>Assign partner(s) to tasks
-<li>Define Report deadlines
-</ul>
-</ul>
-</li>
-<br>
-<li>Reports: Once a project has been committed, it will be available on this section. When a project is selected on the main menu, the list of reports for this project will be displayed.
-	<ul>
-	<li>Filters: There are two predefined filters that will show up after selecting a project: Filter by Work Package and Filter by Partner. Besides that, the Reports grid includes a search form to filter reports by text.</li>
-	
-	<li>Edition box allows tool users to work on the report:
-	<ul>
-		<li>Actions: Accept/Reject report (for coordinators), Save/Send report (for partners)</li>
-		<li>Expenses: Add expenses, specifying their concept and explanation</li>
-		<li>Comments: Add any comment to the report.</li>
-		<li>Flags: Raise a red flag in case any problem comes up during this reporting period.</li>
-		<li>Effort: Specify the effort spent on this reporting period.</li>
-		<li>Tasks: Define work and result for a specific task.</li>
-	</ul>
-	</li>
-	</ul>
-	</li>
-</ul>
-                                <div class="Table_Menu_Partner" >
+					<h3>Sections</h3>
+					<ul id="helpList">
+					<li>Projects: Create a new project from scratch or edit an existing one that has not been committed yet
+					<ul>
+					
+					<li>Create new project (from Main Menu)</li>
+					<li>Once the basic information has been defined, Project Edition View will be displayed</li>
+					<li>Use the Edition Box to:
+					<ul><li>Create Work Packages</li>
+					<li>Assign partners (and effort) to Work Packages</li>
+					<li>Create task(s) and assign to Work Packages</li>
+					<li>Assign partner(s) to tasks
+					<li>Define Report deadlines
+					</ul>
+					</ul>
+					</li>
+					<br>
+					<li>Reports: Once a project has been committed, it will be available on this section. When a project is selected on the main menu, the list of reports for this project will be displayed.
+						<ul>
+						<li>Filters: There are two predefined filters that will show up after selecting a project: Filter by Work Package and Filter by Partner. Besides that, the Reports grid includes a search form to filter reports by text.</li>
+						
+						<li>Edition box allows tool users to work on the report:
+						<ul>
+							<li>Actions: Accept/Reject report (for coordinators), Save/Send report (for partners)</li>
+							<li>Expenses: Add expenses, specifying their concept and explanation</li>
+							<li>Comments: Add any comment to the report.</li>
+							<li>Flags: Raise a red flag in case any problem comes up during this reporting period.</li>
+							<li>Effort: Specify the effort spent on this reporting period.</li>
+							<li>Tasks: Define work and result for a specific task.</li>
+						</ul>
+						</li>
+						</ul>
+						</li>
+					</ul>
+           <div class="Table_Menu_Partner" >
 
 	</div>
             </section>
         </article>
         <article id="loadingArticleContainer">      
             <section id="loadingArticle"><h1><a>Loading...</a></h1></section>
+        </article>
+        
+        <article id="partnerArticleContainer"> 
+        <h1>Partners</h1>    
+           
+            <section id="partnersArticleForm">
+	            <form id="addNewPartnerForm">
+	           		<h3><span class="icon-user"></span>&nbsp;Create new partner</h3>
+	           		<div class="field"><label for="name">Username:</label><input type="text" class="input" name="id"  /></div>
+	           		<div class="field"><label for="name">Institution:</label><input type="text" class="input" name="name"  /></div> 
+	           		<div class="field"><label for="name">Email:</label><input type="text" class="input" name="email" /></div> 
+	           		<div class="field"><label for="name">Members:</label><input type="text" class="input" name="members" /><input type="hidden" name="action" value="new" /></div> 	
+			   		<div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /></div>
+			   	</form>
+		   	</section>
+		   	 <section id="partnersArticle"> 
+		   	 <h3><span class="icon-user"></span>&nbsp;List of partners</h3>           
+            <ul class="threeColumns" id="partnersArticleList"></ul>
+            </section>
         </article>
         
         <article id="topArticleContainer">

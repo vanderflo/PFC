@@ -142,3 +142,35 @@ $('#editStatus').live('click', function(){
             $('#partnersmenu').show();
             $.getScript("partners.js");
   	   	}
+        
+        function getPartners(){
+ 			$.ajax({
+     		    type: "GET",
+     		    url: "http://localhost:8080/PFC/rest/API/partners/",
+ 				dataType: "xml",
+ 				async: false,
+     		     success : function(data) {
+     		    	xmlPartners = data;
+     		         }
+     		    });
+
+ 		}
+        
+ 	   $("#addNewPartnerForm").live("submit",function( event ){
+   		var $form = $(this),
+       	serializedData = $form.serialize();
+		    $.ajax({
+		        url: "http://localhost:8080/PFC/rest/API/partners/add",
+		        type: "post",
+		        aSync: false,
+		        data: serializedData,
+		        dataType: "text",
+		        success: function(response){
+
+		        },
+		        error: function(jqXHR, textStatus, errorThrown){
+		            console.log("The following error occured: "+textStatus, errorThrown);
+		        }
+		    });
+		    event.preventDefault();
+  		});//END #addProjectForm submit

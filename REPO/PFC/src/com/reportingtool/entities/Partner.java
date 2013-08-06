@@ -126,10 +126,13 @@ public class Partner {
 		return doc;
 	}
 
-	public static Document addPartner(Document doc,String id, String name, String email,String members,String action) throws IOException{
+	public static Document addPartner(Document doc,String id, String name, String email,String members,String action,String path) throws IOException{
 		//si existe, modificarlo
+		
 		if (action.equals("edit"))
 		doc=removePartner( doc, id,  name,  email, members);
+		
+		System.out.println("Adding partner: "+id+" "+name);
 		
 		Element partner = new Element("partner");
 		partner.setAttribute("id", id);
@@ -154,7 +157,8 @@ public class Partner {
 		partner.addContent(emailPartner);
 		partner.addContent(passwordPartner);
 		
-		doc.getRootElement().addContent(partner);	
+		doc.getRootElement().addContent(partner);
+		Commons.writeFile(path,doc);
 		return doc;			
 		
 		}
