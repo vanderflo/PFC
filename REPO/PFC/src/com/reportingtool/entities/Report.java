@@ -2,6 +2,7 @@ package com.reportingtool.entities;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
@@ -12,6 +13,9 @@ import java.util.ListIterator;
 import java.util.Vector;
 
 import java.util.Iterator;
+
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
 
 import com.reportingtool.utils.*;
 
@@ -370,7 +374,7 @@ public class Report {
 							effort.addContent(eEffort);
 							taskObject.addContent(effort);
 							System.out.println("Report - Task modified, field "+field+" value "+value);
-							//Get all efforperperson and sum them 
+							//Get all effortperperson and sum them 
 						}
 						break;
 					}
@@ -400,20 +404,71 @@ public class Report {
 
 	
 	
-	public static Document getSubReportForPartner(Document doc,String WP,String partnerID){
-		Document d = new Document(doc.getRootElement());		
+	public static Document getSubReportForPartner(Document doc,String WP,String partnerID,String date){
+		Document d = new Document();		
 		for(Object object : doc.getRootElement().getChildren("subreport")) {
 			Element eObject=(Element)object;
 			
-			if (eObject.getAttributeValue("partnerID").equals(partnerID) && eObject.getAttributeValue("wpID").equals(WP)){
-				d.addContent(eObject);
-			}						
+			if (eObject.getAttributeValue("partner").equals(partnerID) && eObject.getAttributeValue("WPID").equals(WP) && eObject.getAttributeValue("date").equals(date)){
+				eObject.detach();
+				d.setRootElement(eObject);
+				//d.addContent(eObject);
+			}	
+			break;
 		}
 		
 		return d;
-		
-		
 	}
+	
+	public static String parseSubreport(Document d){
+		Element eRootObject=d.getRootElement();
+		//Get basics: partner, date, WP, status
+		String result="<b><u>REPORT</u></b>";
+		result=result+"<br><p><b>BASIC INFO</b><br><u>Partner:</u> "+eRootObject.getAttribute("partner").getValue();
+		result=result+"<br><u>WP:</u> "+eRootObject.getAttribute("WP").getValue();
+		result=result+"<br><u>Date:</u> "+eRootObject.getAttribute("date").getValue();
+		
+		result=result+"</p><br><br><p><u>Last Update:</u> "+eRootObject.getChild("lastupdate").getText();
+		result=result+"<br><u>Status:</u> "+eRootObject.getChild("status").getText();
+		result=result+"<br><u>Flag:</u> "+eRootObject.getChild("flag").getText();
+		result=result+"<br><u>Explanation</u> "+eRootObject.getChild("explanation").getText();
+
+		result=result+"</p><br><b>EFFORT</b><br>Wp Effort: "+eRootObject.getChild("wpEffort").getText();
+		result=result+"<br>Current Effort: "+eRootObject.getChild("currentEffort").getText();
+		
+		for(Object object : eRootObject.getChildren("expenses")) {
+			Element eObject=(Element)object;
+			result=result+"<br>Expenses: "+eObject.getChild("concept").getText();
+			result=result+" "+eObject.getChild("description").getText();
+			result=result+" "+eObject.getChild("amount").getText();
+		}
+		
+		for(Object object : eRootObject.getChildren("task")) {
+			Element eObject=(Element)object;
+			result=result+"<br>Task: "+eObject.getAttribute("title").getValue();
+			result=result+"<br><u>Work:</u>"+eObject.getChild("work").getText();
+			result=result+"<br><u>Result:</u>"+eObject.getChild("result").getText();
+			for(Object objectAux : eObject.getChildren("effort")) {
+				Element eObjectAux=(Element)objectAux;
+				result=result+"<br><u>Team Member:</u>"+eObjectAux.getChild("person").getText();
+				result=result+"<br><u>Effort:</u>"+eObjectAux.getChild("effortperperson").getText();
+				
+			}
+		}
+		
+		for(Object object : eRootObject.getChildren("comment")) {
+			Element eObject=(Element)object;
+			result=result+"<br>Comment: "+eObject.getAttribute("type").getValue();
+			result=result+" "+eObject.getAttribute("time").getValue();
+			result=result+" "+eObject.getText();
+			
+		}
+		
+		System.out.println(result);
+		return result;
+	}
+	
+	
 	
 	public static boolean checkReportDate(String date, String init, String finish){
 		try{
@@ -436,7 +491,22 @@ public class Report {
 	}
 	
 
-	
+	public static String sendReportByEmail(String text,String address){
+		String result="KO";
+		try {
+			Email.generateAndSendEmail(text,address);
+		} catch (AddressException e) {
+			e.printStackTrace();
+			return "KO";
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+			return "KO";
+		} catch (MessagingException e) {
+			e.printStackTrace();
+			return "KO";
+		}
+		return "OK";
+	}
 	
 
 }

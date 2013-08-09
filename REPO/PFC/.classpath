@@ -15,5 +15,6 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="jersey-bundle-1.14.jar"/>
 	<classpathentry kind="lib" path="jdom-2.0.3.jar"/>
+	<classpathentry kind="lib" path="javax.mail.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -215,7 +215,7 @@ public String getReport(@PathParam("projectId") String projectId,@PathParam("wpI
 	String rep_projectId=projectId+"_report";
 	System.out.println("Getting report for project "+projectId+". WpId:"+wpId+". PartnerId:"+partnerId);	
 	Document d = Report.getCurrentReportFile(formatFile(rep_projectId));
-	d = Report.getSubReportForPartner(d,wpId,partnerId);
+	d = Report.getSubReportForPartner(d,wpId,partnerId,"");
 	String result=Commons.docToString(d);
 	return result;
 }
@@ -305,6 +305,31 @@ public String getPartner() {
 		return "ko";
 	}
 	String result=Commons.docToString(doc);
+	return result;
+}
+
+@Path ("/report/sendbyemail/{projectId}/{wpId}/{partnerId}/{reportDate}")
+@POST
+@Produces ("text/xml")
+public String sendReportByEmail(@FormParam("emailaddress") String emailAddress,@PathParam("projectId") String projectId,@PathParam("wpId") String wpId,@PathParam("partnerId") String partnerId,@PathParam("reportDate") String date) {
+	String rep_projectId=projectId+"_report";
+	Document d = Report.getCurrentReportFile(formatFile(rep_projectId));
+	d=Report.getSubReportForPartner(d, wpId, partnerId,date);
+	String emailText=Report.parseSubreport(d);
+	Report.sendReportByEmail(emailText, emailAddress);
+	String result=Commons.docToString(d);
+	return result;
+}
+
+@Path ("/report/sendbyemail/{projectId}/{wpId}/{partnerId}/{reportDate}/{email}")
+@GET
+@Produces ("text/xml")
+public String sendReportByEmailGet(@PathParam("email") String emailAddress,@PathParam("projectId") String projectId,@PathParam("wpId") String wpId,@PathParam("partnerId") String partnerId,@PathParam("reportDate") String date) {
+	String rep_projectId=projectId+"_report";
+	Document d = Report.getCurrentReportFile(formatFile(rep_projectId));
+	d=Report.getSubReportForPartner(d, wpId, partnerId,date);
+	String emailText=Report.parseSubreport(d);
+	String result = Report.sendReportByEmail(emailText, emailAddress);
 	return result;
 }
 
