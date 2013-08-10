@@ -174,3 +174,25 @@ $('#editStatus').live('click', function(){
 		    });
 		    event.preventDefault();
   		});//END #addProjectForm submit
+ 	   
+ 		$("#showemail").live('click', function(){
+ 		$("#emailreport").toggle();
+ 		});
+ 		 
+ 		$("#closeDialog").live('click', function(){
+ 	 		$("#loading").dialog( "close" );
+ 	 	});
+ 		
+ 		
+ 		  $("#loading").dialog({
+  		    hide: 'slide',
+  			show: 'slide',
+  			autoOpen: false,
+  			 position: { 
+  				    my: 'top',
+  				    at: 'top',
+  				    of: $('#addReportEmailForm')
+  				  }
+  		});
+ 		  
+ 		

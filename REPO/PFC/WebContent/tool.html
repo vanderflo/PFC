@@ -6,7 +6,7 @@
 <link href='http://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="jquery-1.8.2.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
 <script type="text/javascript" src="http://www.appelsiini.net/download/jquery.jeditable.js"></script>
 <script type="text/javascript" src="initCoordinatorMenu.js"></script>
 <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -38,6 +38,9 @@
     		});
         initSearchBox();	
     	$.getScript("jEditableSelectors.js");
+    	$("#loading").dialog();
+    	$('#closeDialog').show();
+    	
 		$('#topArticleContainer').hide();
 		$('#partnerArticleContainer').hide();
         $('#reportArticle').hide();
@@ -188,10 +191,27 @@
         
         <article id="reportArticle">
         
-	     <h1 id="reportTitle">Work Report<span id="flagTitle">&nbsp;&nbsp;&nbsp;&nbsp;</span></h1>
+	     <h1 id="reportTitle">Work Report<a id="showemail" href="#"><span class="icon-envelope-alt"></span>&nbsp;Send by email</a></h1>
+        
+		
+		 <section class="standardDiv wide" id="emailreport" style="display:none;">
+          <h2><span class="icon-envelope-alt"></span>&nbsp;Send report via email</h2>
+          	<div id="loading" title="Sending Report"> 
+   				<p>Please wait ...</p>
+   				<div id="closeDialog" style="display:none;">
+		            <a class="button close" href="#">CONTINUE<span></span></a>
+        		</div>
+			</div>
+             <form id="addReportEmailForm">
+          		<div class="field"><label for="email">Email:</label><input type="text" class="input" name="email"  /><p class="hint">Recipient's email address</p></div>
+          		<div class="field big"><label for="message">Comment:</label><textarea id="bigtext" name="emailcomment" class="input"></textarea><p class="hint">Comment to be added to the email</p></div>
+          		<div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="swhowemail">or CANCEL</a></div>
+         	 </form>
          
+         </section>
+		
          <section class="standardDiv" id="metainfo">
-          <h2><span class="icon-exclamation-sign"></span>&nbsp;The basics</h2>
+          <h2><span class="icon-exclamation-sign"></span>&nbsp;The basics<span id="flagTitle">&nbsp;&nbsp;&nbsp;&nbsp;</span></h2>
           <div class="contentDiv"><table id="reportInformation" summary="Report information"><tbody id="reportInformationBody"></tbody></table></div>
          </section>
          

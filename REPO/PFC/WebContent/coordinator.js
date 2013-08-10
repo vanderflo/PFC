@@ -379,6 +379,52 @@
    		    event.preventDefault();
    		});//END send Info
      	  
+    	   $("#addReportEmailForm").live(
+      			  "submit",
+      		function( event ){
+      		var $form = $(this),
+        		$inputs = $form.find("email,emailcomment"),
+            	serializedData = $form.serialize();
+    		    // let's disable the inputs for the duration of the ajax request
+    		    $inputs.attr("disabled", "disabled");
+    		    $.ajax({
+    		        url: "http://localhost:8080/PFC/rest/API/report/sendbyemail/"+currentProject+"/"+currentWP+"/"+currentPartner+"/"+currentReport,
+    		        type: "post",
+    		        data: serializedData,
+    		        beforeSend: function(){
+    		        	$('#confirmButtons').hide();
+    		        	$('#loading').html("<p>Sending report via email...</p>");
+    		            $("#loading").dialog("open");
+    		         },
+    		        // callback handler that will be called on success
+    		        success: function(response, textStatus, jqXHR){
+    		            // log a message to the console
+    		        	$("#addReportEmailForm")[0].reset();
+    		            $('#loading').html("<p>Report Sent!</p><div id='closeDialog' style='display:none;'><a class='button close' href='#'>CONTINUE<span></span></a></div>");
+    		            $('#closeDialog').show();
+    		      
+    		        },
+    		        // callback handler that will be called on error
+    		        error: function(jqXHR, textStatus, errorThrown){
+    		            // log the error to the console
+    		            console.log(
+    		                "The following error occured: "+
+    		                textStatus, errorThrown
+    		            );
+    		        },
+    		        complete: function(){
+    		        	updateView();
+    		        	$("#emailreport").hide();
+    		        }
+    		    });   		
+    		    // prevent default posting of form
+    		    event.preventDefault();
+    		});//END send Info  
+     	  
+    	 
+    	   
+    	
+     	  
      	  
      	  function updateView(){
      		getReport();

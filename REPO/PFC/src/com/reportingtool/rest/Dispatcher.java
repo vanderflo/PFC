@@ -311,11 +311,13 @@ public String getPartner() {
 @Path ("/report/sendbyemail/{projectId}/{wpId}/{partnerId}/{reportDate}")
 @POST
 @Produces ("text/xml")
-public String sendReportByEmail(@FormParam("emailaddress") String emailAddress,@PathParam("projectId") String projectId,@PathParam("wpId") String wpId,@PathParam("partnerId") String partnerId,@PathParam("reportDate") String date) {
+public String sendReportByEmail(@FormParam("email") String emailAddress,@FormParam("emailcomment") String comment,@PathParam("projectId") String projectId,@PathParam("wpId") String wpId,@PathParam("partnerId") String partnerId,@PathParam("reportDate") String date) {
 	String rep_projectId=projectId+"_report";
 	Document d = Report.getCurrentReportFile(formatFile(rep_projectId));
 	d=Report.getSubReportForPartner(d, wpId, partnerId,date);
 	String emailText=Report.parseSubreport(d);
+	if(!comment.equals(null) && comment!="")
+		emailText="<i>"+comment+"</i><br><br><br>"+emailText;
 	Report.sendReportByEmail(emailText, emailAddress);
 	String result=Commons.docToString(d);
 	return result;

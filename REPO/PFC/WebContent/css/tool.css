@@ -12,7 +12,7 @@ ul{
 }
 
 a{
-  color: #6F3736;
+  color: #0072C6;
 }      
 
 /* Clear floats */
@@ -1221,4 +1221,25 @@ text-align:center;
 	color: #339;
 	background: #eff2ff;
 	} 
+
+#showemail{
+display: block;
+font-size: 13px;
+text-align: center;
+text-decoration: none;
+margin: 0 auto;
+float:right;
+}
+#addReportEmailForm{
+	display:block;
+}
+
+#closeDialog{
+	text-align:center;
+}
+
+.close{
+	padding:5px;
+}
+
 
