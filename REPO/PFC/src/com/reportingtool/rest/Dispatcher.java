@@ -3,10 +3,7 @@ package com.reportingtool.rest;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
+
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
@@ -15,12 +12,12 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.WebApplicationException;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
 import javax.servlet.ServletContext;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MultivaluedMap;
-import javax.ws.rs.core.UriInfo;
+import javax.ws.rs.core.Response;
 
 
 import org.jdom2.Document;
@@ -29,7 +26,6 @@ import org.jdom2.Document;
 import com.reportingtool.entities.*;
 import com.reportingtool.utils.CST;
 import com.reportingtool.utils.Commons;
-import com.sun.jersey.core.util.MultivaluedMapImpl;
 
 @Path ("/API")
 @XmlRootElement
@@ -58,21 +54,12 @@ public  String getPath(){
 }
 
 
-/**
-@GET
-@Produces ("text/xml")
-public String sayHello() {
-return "<partners><partner><member>Lolo P</member><member>Manu G</member><id>001</id><email>test@upm.es</email></partner></partners>";
-}
-*/
-
 @Path ("/project/{projectId}")
 @GET
 @Produces ("text/xml")
 public String getProjectInfo(@PathParam("projectId") String projectId) {
 	System.out.println("Getting Project info");	
 	Document d = Project.getProjectInformation(formatFile(projectId),formatFile(CST.PARTNERS_FILE));	
-	//Commons.writeFile(formatFile("Resultado6"),d);
 	String result=Commons.docToString(d);
 	
 
@@ -129,7 +116,7 @@ return "<projects><project><projectId>001</projectId><titleTest1</title><status>
 }
 */
 
-@Path ("/create/project/")
+@Path ("/project/create")
 @POST
 @Produces ("text/xml")
 public String createProject(@FormParam("title") String title,@FormParam("dateStart") String dateStart,@FormParam("dateFinish") String dateFinish,@FormParam("description") String desc,@FormParam("coordinator") String coordinatorID) {
@@ -145,7 +132,7 @@ public String createProject(@FormParam("title") String title,@FormParam("dateSta
 	return result;
 }
 
-@Path ("/add/WP/{projectId}")
+@Path ("/project/add/WP/{projectId}")
 @POST
 @Produces ("text/xml")
 public String createWP(@PathParam("projectId") String projectId,@FormParam("titleWP") String title,@FormParam("descriptionWP") String description,@FormParam("dateInitWP") String dateStart,@FormParam("dateFinishWP") String dateFinish,@FormParam("coordinatorWP") String coordinator) {
@@ -157,7 +144,7 @@ public String createWP(@PathParam("projectId") String projectId,@FormParam("titl
 	return result;
 }
 
-@Path ("/add/schedule/{projectId}")
+@Path ("/project/add/schedule/{projectId}")
 @POST
 @Produces ("text/xml")
 public String addReportSchedule(@PathParam("projectId") String projectId,@FormParam("dateSchedule") String dateReportWP ){
@@ -169,7 +156,7 @@ public String addReportSchedule(@PathParam("projectId") String projectId,@FormPa
 	return result;
 }
 
-@Path ("/add/task/{projectId}/{wpId}")
+@Path ("/project/add/task/{projectId}/{wpId}")
 @POST
 @Produces ("text/xml")
 public String createTask(@PathParam("projectId") String projectId,@PathParam("wpId") String wpId,@FormParam("titleTask") String title,@FormParam("dateInitTask") String dateStart,@FormParam("dateFinishTask") String dateFinish,@FormParam("partnersTask") String partners,@FormParam("descriptionTask") String description) {
@@ -247,7 +234,7 @@ public String editReport(@FormParam("id") String field,@FormParam("value") Strin
 	return value;
 }	
 
-@Path ("/task/edit/{projectId}/{wpId}/{partnerId}/{reportDate}/{taskId}")
+@Path ("/report/task/edit/{projectId}/{wpId}/{partnerId}/{reportDate}/{taskId}")
 @POST
 @Consumes("application/x-www-form-urlencoded")
 public String editTask(@FormParam("id") String field,@FormParam("value") String value, @PathParam("projectId") String projectId,@PathParam("wpId") String wpId,@PathParam("partnerId") String partnerId,@PathParam("reportDate") String date,@PathParam("taskId") String taskId ) {
@@ -277,15 +264,21 @@ public String addExpenses(@FormParam("concept") String concept,@FormParam("descr
 @Path ("/partners/add")
 @POST
 @Consumes("application/x-www-form-urlencoded")
-public String addPartner(@FormParam("id") String id,@FormParam("name") String name, @FormParam("email") String email,@FormParam("members") String members,@FormParam("action") String action) {
+public String addPartner(@FormParam("id") String id,@FormParam("name") String name, @FormParam("email") String email,@FormParam("members") String members,@FormParam("action") String action,@FormParam("password") String password) {
 	Document doc;
 	try {
 		doc = Partner.getCurrentPartnersFile(formatFile(CST.PARTNERS_FILE));
 		String path=getPath()+CST.PARTNERS_FILE;
-		Partner.addPartner(doc, id, name, email, members, action,path);
+		Partner.addPartner(doc, id, name, email, members,password, action,path);
 	} catch (IOException e) {
 		e.printStackTrace();
 		return "ko";
+	} catch (AddressException e) {
+		e.printStackTrace();
+		return "ko";		
+	} catch (MessagingException e) {
+		e.printStackTrace();
+		return "ko";		
 	}
 	
 	String result=Commons.docToString(doc);
@@ -300,7 +293,6 @@ public String getPartner() {
 	try {
 		doc = Partner.getCurrentPartnersFile(formatFile(CST.PARTNERS_FILE));
 	} catch (IOException e) {
-		// TODO Auto-generated catch block
 		e.printStackTrace();
 		return "ko";
 	}
@@ -333,6 +325,52 @@ public String sendReportByEmailGet(@PathParam("email") String emailAddress,@Path
 	String emailText=Report.parseSubreport(d);
 	String result = Report.sendReportByEmail(emailText, emailAddress);
 	return result;
+}
+
+@Path ("/partners/login")
+@POST
+@Produces ("text/xml")
+public String login(@FormParam("loginid") String username,@FormParam("token") String password,@FormParam("n") String date) {
+	if (!Commons.checkTimestamp(date))
+		throw new WebApplicationException(Response.Status.UNAUTHORIZED);
+
+	
+	Document doc;
+	try {
+		doc = Partner.getCurrentPartnersFile(formatFile(CST.PARTNERS_FILE));
+	} catch (IOException e) {
+		e.printStackTrace();
+		return "ko";
+	}
+	if(Partner.login(doc,username,password)){
+		return "ok";
+	}else
+	throw new WebApplicationException(Response.Status.UNAUTHORIZED);
+}
+
+@Path ("/partners/forgot")
+@POST
+@Produces ("text/xml")
+public String forgot(@FormParam("loginforgot") String username,@FormParam("emailforgot") String email) {
+	Document doc;
+	try {
+		doc = Partner.getCurrentPartnersFile(formatFile(CST.PARTNERS_FILE));
+		if(Partner.forgot(doc,username,email)){
+			return "ok";
+		}else
+		throw new WebApplicationException(Response.Status.UNAUTHORIZED);
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		throw new WebApplicationException(Response.Status.UNAUTHORIZED);
+	} catch (AddressException e) {
+		e.printStackTrace();
+		throw new WebApplicationException(Response.Status.UNAUTHORIZED);
+	} catch (MessagingException e) {
+		e.printStackTrace();
+		throw new WebApplicationException(Response.Status.UNAUTHORIZED);
+	}
+	
 }
 
 

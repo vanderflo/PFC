@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project id="1377440679491">
+  <metainfo>
+    <title>Reporting Tool mobile version</title>
+    <dateStart>01-09-2013</dateStart>
+    <dateFinish>31-10-2013</dateFinish>
+    <coordinator>
+      <partner id="001" />
+    </coordinator>
+    <projectDescription>Version of the tool adapted to mobile devices</projectDescription>
+    <status>pending</status>
+  </metainfo>
+  <reportSchedule>
+    <date>25-09-2013</date>
+    <date>29-10-2013</date>
+  </reportSchedule>
+  <workpackage title="WP 1" id="1377440706313">
+    <coordinator>
+      <leader id="001" />
+    </coordinator>
+    <dateInit>01-09-2013</dateInit>
+    <dateFinish>15-09-2013</dateFinish>
+    <description>1</description>
+    <task title="First task" id="1377440727449">
+      <partners />
+      <description>1st</description>
+      <dateInit>01-09-2013</dateInit>
+      <dateFinish>15-09-2013</dateFinish>
+      <partnerTask id="002" />
+    </task>
+    <partnerWP id="002" effort="20" />
+    <task title="Second task" id="1377440920484">
+      <partners />
+      <description>2nd</description>
+      <dateInit>11-09-2013</dateInit>
+      <dateFinish>24-09-2013</dateFinish>
+      <partnerTask id="003" />
+    </task>
+    <partnerWP id="003" effort="15" />
+  </workpackage>
+  <workpackage title="WP 2" id="1377440833338">
+    <coordinator>
+      <leader id="001" />
+    </coordinator>
+    <dateInit>22-09-2013</dateInit>
+    <dateFinish>30-10-2013</dateFinish>
+    <description>2wp</description>
+    <partnerWP id="004" effort="22" />
+    <task title="First task 2nd wp" id="1377440879444">
+      <partners />
+      <description>2.1</description>
+      <dateInit>02-10-2013</dateInit>
+      <dateFinish>09-10-2013</dateFinish>
+    </task>
+    <task title="second task 2nd wp" id="1377441026234">
+      <partners />
+      <description>2.2</description>
+      <dateInit>01-10-2013</dateInit>
+      <dateFinish>09-10-2013</dateFinish>
+      <partnerTask id="004" />
+    </task>
+  </workpackage>
+</project>

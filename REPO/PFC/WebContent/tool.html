@@ -6,16 +6,15 @@
 <link href='http://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="jquery-1.8.2.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
-<script type="text/javascript" src="http://www.appelsiini.net/download/jquery.jeditable.js"></script>
-<script type="text/javascript" src="initCoordinatorMenu.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+<script type="text/javascript" src="initMenu.js"></script>
+<script type="text/javascript" src="start.js"></script>
 <link rel="stylesheet" href="css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="css/jquery.jqplot.min.css" />
 <link href="css/sitemapstyler.css" rel="stylesheet" type="text/css" media="screen" />
 <script type="text/javascript" src="sitemapstyler.js"></script>
 
 <script>
-        currentProject="Test1";
     	var currentPartner;
     	var currentWP;
     	var currentWPtitle;
@@ -37,14 +36,13 @@
                 axes: {yaxis: {renderer: $.jqplot.CategoryAxisRenderer}}
     		});
         initSearchBox();	
-    	$.getScript("jEditableSelectors.js");
-    	$("#loading").dialog();
-    	$('#closeDialog').show();
-    	
+
+    	$('#helpArticleContainer').hide();
 		$('#topArticleContainer').hide();
 		$('#partnerArticleContainer').hide();
         $('#reportArticle').hide();
         $('#projectArticle').hide();
+        $('#headerMenu').hide();
         initMenu();
     	initActiveMenu();
         initTopMenu();
@@ -67,6 +65,7 @@
        <h1><span class="icon-paste"></span>&nbsp;Reporting Tool</h1>
     <nav id="headerMenu">
 	    <ul id="headerList">
+		    <li><a id="welcomemessage"></a></li>
 		    <li><a href="#" id="topMenuProjects">Projects</a></li>
 		    <li><a href="#" id="topMenuReports">Reports</a></li>
 		    <li><a href="#" id="topMenuPartners">Partners</a></li>
@@ -112,6 +111,28 @@
         </nav>
     </aside>
     <div id="content">
+    
+		<article id="loginArticleContainer">      
+            <section id="login">
+               <form id="loginForm">
+	           		<h1><span class="icon-user"></span>&nbsp;Insert your credentials</h1>
+	           		<div class="field"><label for="name">Username:</label><input type="text" class="input" name="loginid"  /></div>
+	           		<div class="field"><label for="name">Password:</label><input type="password" class="input" name="loginpassword" /></div> 
+			   		<div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Login" /><a href="#" id="forgotpassword">&nbsp;Forgot password?</a></div>
+			   	</form>
+			   	
+			 <form id="forgotForm">
+	           		<h1><span class="icon-envelope-alt"></span>&nbsp;Send password via email</h1>
+					<div class="field"><label for="name">Username:</label><input type="text" class="input" name="loginforgot"  /></div>
+	           		<div class="field"><label for="name">Email:</label><input type="text" class="input" name="emailforgot"  /></div>
+			   		<div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Send" /></div>
+			 </form>
+
+            </section>
+        </article>  
+    
+    
+    
 		<article id="helpArticleContainer">      
             <section id="lastArticle">
                 <h2>Welcome to UC3M Reporting Tool</h2>
@@ -169,6 +190,7 @@
 	           		<div class="field"><label for="name">Username:</label><input type="text" class="input" name="id"  /></div>
 	           		<div class="field"><label for="name">Institution:</label><input type="text" class="input" name="name"  /></div> 
 	           		<div class="field"><label for="name">Email:</label><input type="text" class="input" name="email" /></div> 
+	           		<div class="field"><label for="name">Password:</label><input type="password" class="input" name="password" /></div> 
 	           		<div class="field"><label for="name">Members:</label><input type="text" class="input" name="members" /><input type="hidden" name="action" value="new" /></div> 	
 			   		<div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /></div>
 			   	</form>

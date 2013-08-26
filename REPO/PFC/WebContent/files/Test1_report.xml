@@ -2,166 +2,315 @@
 <report>
   <subreport partner="001" partnerName="UPM" WP="HARDWARE" WPID="1355348593079" date="2012-09-20">
     <wpEffort>69</wpEffort>
-    <currentEffort>0</currentEffort>
-    <lastupdate>NO UPDATES</lastupdate>
+    <currentEffort>34</currentEffort>
+    <lastupdate>28/07/13 09:36</lastupdate>
     <expenses id="0">
-    	<concept>Travel</concept>
-    	<description>Flight John</description>
-    	<amount>900 EUR</amount>
-     </expenses>
-     <expenses id="1">
-    	<concept>Equipment</concept>
-    	<description>Laptop Paul</description>
-    	<amount>1900 EUR</amount>
-     </expenses>
-    <status>Saved</status>
-    <flag>Red</flag>
-    <explanation>Latest development still missing  </explanation>
-	<feedback>Sed ut perspiciatis</feedback>
+      <concept>Travel</concept>
+      <description>Flight John</description>
+      <amount>900 EUR</amount>
+    </expenses>
+    <expenses id="1">
+      <concept>Equipment</concept>
+      <description>Laptop Paul</description>
+      <amount>1900 EUR</amount>
+    </expenses>
+    <status>accepted</status>
+    <flag>red</flag>
+    <explanation>Red red red</explanation>
+    <feedback>Sed ut perspiciatis</feedback>
     <task id="11" title="Tarea once">
       <work>A lot</work>
       <result>Bom</result>
       <effort>
-	      <effortperperson>2</effortperperson>
-	      <person>John</person>
+        <effortperperson>2</effortperperson>
+        <person>John</person>
       </effort>
-       <effort>
-	      <effortperperson>3</effortperperson>
-	      <person>Mark</person>
+      <effort>
+        <effortperperson>3</effortperperson>
+        <person>Mark</person>
       </effort>
-        <effort>
-	      <effortperperson>6</effortperperson>
-	      <person>Paul</person>
+      <effort>
+        <effortperperson>6</effortperperson>
+        <person>Paul</person>
+      </effort>
+      <effort id="1374963730791">
+        <effortperperson>3</effortperperson>
+        <person>patrick</person>
+      </effort>
+      <effort id="1374963770209">
+        <effortperperson>2</effortperperson>
+        <person>john</person>
+      </effort>
+      <effort id="1374963793361">
+        <effortperperson>2</effortperperson>
+        <person>luis</person>
+      </effort>
+      <effort id="1374963849455">
+        <effortperperson>4</effortperperson>
+        <person>puyol</person>
       </effort>
     </task>
     <task id="12" title="Tarea doce">
-	  <work>A lot</work>
-      <result>Bom</result>
-            <effort>
-	      <effortperperson>2</effortperperson>
-	      <person>Luis</person>
-      </effort>
-       <effort>
-	      <effortperperson>3</effortperperson>
-	      <person>Pepe</person>
-      </effort>
-        <effort>
-	      <effortperperson>6</effortperperson>
-	      <person>Juan</person>
-      </effort>
-    </task>
-  </subreport>
-  <subreport partner="002" partnerName="UC3M" WP="HARDWARE" WPID="1355348593079" date="2012-09-20">
-    <lastupdate>NO UPDATES</lastupdate>
-    <wpEffort>69</wpEffort>
-    <currentEffort>0</currentEffort>
-    <expenses id="0">
-    	<concept>Travel</concept>
-    	<description>Flight John</description>
-    	<amount>900 EUR</amount>
-     </expenses> 
-        <status>Sent</status>
-    <flag>Green</flag>
-    <explanation>NA</explanation>
-	<feedback>Sed ut perspiciatis</feedback>
-    <task id="12" title="Tarea doce">
-	  <work>A lot</work>
+      <work>A lot</work>
       <result>Bom</result>
       <effort>
-	      <effortperperson>2</effortperperson>
-	      <person>Pedro</person>
+        <effortperperson>2</effortperperson>
+        <person>Luis</person>
       </effort>
-        <effort>
-	      <effortperperson>5</effortperperson>
-	      <person>Raul</person>
+      <effort>
+        <effortperperson>3</effortperperson>
+        <person>Pepe</person>
+      </effort>
+      <effort>
+        <effortperperson>6</effortperperson>
+        <person>Juan</person>
+      </effort>
+      <effort id="1374963757281">
+        <effortperperson>1</effortperperson>
+        <person>john</person>
       </effort>
     </task>
+    <expenses id="1374626741310">
+      <concept>other</concept>
+      <description>flight paul</description>
+      <amount>333</amount>
+    </expenses>
+    <expenses id="1374626877206">
+      <concept>travel</concept>
+      <description>flight paul</description>
+      <amount>333</amount>
+    </expenses>
+    <comment type="ACCEPTED" time="07/23/13 20:48">Project Status changed to accepted</comment>
+    <comment type="REJECTED" time="07/23/13 20:48">Project Status changed to rejected</comment>
+    <comment type="OPEN" time="07/23/13 20:48">Project Status changed to open</comment>
+    <comment type="COMMENT" time="26/07/13 10:59">orem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem</comment>
+    <comment type="ACCEPTED" time="27/07/13 18:36">Project Status changed to accepted</comment>
+    <comment type="SENT" time="27/07/13 18:38">Project Status changed to sent</comment>
+    <comment type="REJECTED" time="27/07/13 18:38">Project Status changed to rejected</comment>
+    <comment type="ACCEPTED" time="27/07/13 18:38">Project Status changed to accepted</comment>
+    <comment type="GREEN FLAG" time="28/07/13 09:35">Red Flag has been cleared</comment>
+    <comment type="RED FLAG" time="28/07/13 09:36">Red red red</comment>
+  </subreport>
+  <subreport partner="001" partnerName="UPM" WP="HARDWARE" WPID="1355348593079" date="2013-09-20">
+    <wpEffort>69</wpEffort>
+    <currentEffort>3</currentEffort>
+    <lastupdate>26/07/13 10:59</lastupdate>
+    <expenses id="0">
+      <concept>Travel</concept>
+      <description>Flight John</description>
+      <amount>900 EUR</amount>
+    </expenses>
+    <expenses id="1">
+      <concept>Equipment</concept>
+      <description>Laptop Paul</description>
+      <amount>1900 EUR</amount>
+    </expenses>
+    <status>Saved</status>
+    <flag>Red</flag>
+    <explanation>Latest development still missing</explanation>
+    <feedback>Sed ut perspiciatis</feedback>
+    <task id="11" title="Tarea once">
+      <work>A lot</work>
+      <result>Bom</result>
+      <effort>
+        <effortperperson>2</effortperperson>
+        <person>John</person>
+      </effort>
+      <effort>
+        <effortperperson>3</effortperperson>
+        <person>Mark</person>
+      </effort>
+      <effort>
+        <effortperperson>6</effortperperson>
+        <person>Paul</person>
+      </effort>
+    </task>
+    <task id="12" title="Tarea doce">
+      <work>A lot</work>
+      <result>Bom</result>
+      <effort>
+        <effortperperson>2</effortperperson>
+        <person>Luis</person>
+      </effort>
+      <effort>
+        <effortperperson>3</effortperperson>
+        <person>Pepe</person>
+      </effort>
+      <effort>
+        <effortperperson>6</effortperperson>
+        <person>Juan</person>
+      </effort>
+    </task>
+    <expenses id="1374626741310">
+      <concept>other</concept>
+      <description>flight paul</description>
+      <amount>333</amount>
+    </expenses>
+    <expenses id="1374626877206">
+      <concept>travel</concept>
+      <description>flight paul</description>
+      <amount>333</amount>
+    </expenses>
+    <comment type="ACCEPTED" time="07/23/13 20:48">Project Status changed to accepted</comment>
+    <comment type="REJECTED" time="07/23/13 20:48">Project Status changed to rejected</comment>
+    <comment type="OPEN" time="07/23/13 20:48">Project Status changed to open</comment>
+    <comment type="COMMENT" time="26/07/13 10:59">orem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem</comment>
+  </subreport>
+  <subreport partner="002" partnerName="UC3M" WP="HARDWARE" WPID="1355348593079" date="2012-09-20">
+    <lastupdate>25/07/13 12:49</lastupdate>
+    <wpEffort>69</wpEffort>
+    <currentEffort>11</currentEffort>
+    <expenses id="0">
+      <concept>Travel</concept>
+      <description>Flight John</description>
+      <amount>900 EUR</amount>
+    </expenses>
+    <status>rejected</status>
+    <flag>green</flag>
+    <explanation>redddd</explanation>
+    <feedback>Sed ut perspiciatis</feedback>
+    <task id="12" title="Tarea doce">
+      <work>Hello</work>
+      <result>Hellooooo</result>
+      <effort>
+        <effortperperson>2</effortperperson>
+        <person>Pedro</person>
+      </effort>
+      <effort>
+        <effortperperson>5</effortperperson>
+        <person>Raul</person>
+      </effort>
+      <effort id="1374632691603">
+        <effortperperson>4</effortperperson>
+        <person>Jon</person>
+      </effort>
+    </task>
+    <comment type="explanation" time="07/23/13 16:50">bla</comment>
+    <comment type="BLOCKED" time="07/23/13 20:38">Project Status changed to blocked</comment>
+    <comment type="ACCEPTED" time="07/23/13 20:40">Project Status changed to accepted</comment>
+    <comment type="ACCEPTED" time="23/07/13 20:51">Project Status changed to accepted</comment>
+    <comment type="REJECTED" time="23/07/13 20:51">Project Status changed to rejected</comment>
+    <comment type="ACCEPTED" time="23/07/13 20:51">Project Status changed to accepted</comment>
+    <comment type="REJECTED" time="23/07/13 20:51">Project Status changed to rejected</comment>
+    <comment type="REJECTED" time="23/07/13 20:51">Project Status changed to rejected</comment>
+    <comment type="OPEN" time="23/07/13 20:52">Project Status changed to open</comment>
+    <comment type="ACCEPTED" time="23/07/13 20:52">Project Status changed to accepted</comment>
+    <comment type="RED FLAG" time="23/07/13 21:05">expla</comment>
+    <comment type="RED FLAG" time="23/07/13 21:10">redddd</comment>
+    <comment type="GREEN FLAG" time="23/07/13 21:10">Red Flag has been cleared</comment>
+    <comment type="GREEN FLAG" time="23/07/13 21:10">Red Flag has been cleared</comment>
+    <comment type="GREEN FLAG" time="23/07/13 21:11">Red Flag has been cleared</comment>
+    <comment type="GREEN FLAG" time="23/07/13 21:12">Red Flag has been cleared</comment>
+    <comment type="comment" time="23/07/13 21:20">this is a comment</comment>
+    <comment type="REJECTED" time="23/07/13 22:12">Project Status changed to rejected</comment>
+    <comment type="REJECTED" time="23/07/13 22:12">Project Status changed to rejected</comment>
+    <comment type="BLOCKED" time="23/07/13 22:12">Project Status changed to blocked</comment>
+    <comment type="ACCEPTED" time="23/07/13 22:12">Project Status changed to accepted</comment>
+    <comment type="ACCEPTED" time="23/07/13 22:12">Project Status changed to accepted</comment>
+    <comment type="OPEN" time="23/07/13 22:12">Project Status changed to open</comment>
+    <comment type="REJECTED" time="23/07/13 22:13">Project Status changed to rejected</comment>
+    <comment type="REJECTED" time="23/07/13 22:14">Project Status changed to rejected</comment>
+    <expenses id="1374770977007">
+      <concept>Equipment</concept>
+      <description>flight paul</description>
+      <amount>900</amount>
+    </expenses>
   </subreport>
   <subreport partner="003" partnerName="UNEX" WP="SOFTWARE" WPID="1355348593078" date="2013-09-20">
     <wpEffort>69</wpEffort>
-    <currentEffort>0</currentEffort>
-    <lastupdate>NO UPDATES</lastupdate>
+    <currentEffort>2</currentEffort>
+    <lastupdate>27/07/13 18:38</lastupdate>
     <expenses id="0">
-    	<concept>Travel</concept>
-    	<description>Flight John</description>
-    	<amount>900 EUR</amount>
-     </expenses>    <status>Saved</status>
+      <concept>Travel</concept>
+      <description>Flight John</description>
+      <amount>900 EUR</amount>
+    </expenses>
+    <status>sent</status>
     <flag>Red</flag>
-    <explanation>Latest development under test </explanation>
-	<feedback>Sed ut perspiciatis</feedback>
+    <explanation>Latest development under test</explanation>
+    <feedback>Sed ut perspiciatis</feedback>
     <task id="21" title="Tarea veintiuno">
-	  <work>A lot</work>
+      <work>A lot</work>
       <result>Bom</result>
-            <effort>
-	      <effortperperson>4</effortperperson>
-	      <person>Fernando</person>
+      <effort>
+        <effortperperson>4</effortperperson>
+        <person>Fernando</person>
       </effort>
-       <effort>
-	      <effortperperson>2</effortperperson>
-	      <person>Pedro</person>
+      <effort>
+        <effortperperson>2</effortperperson>
+        <person>Pedro</person>
       </effort>
-        <effort>
-	      <effortperperson>5</effortperperson>
-	      <person>Raul</person>
+      <effort>
+        <effortperperson>5</effortperperson>
+        <person>Raul</person>
       </effort>
     </task>
+    <comment type="SENT" time="27/07/13 18:38">Project Status changed to sent</comment>
   </subreport>
   <subreport partner="004" partnerName="USC" WP="SOFTWARE" WPID="1355348593078" date="2013-09-20">
     <wpEffort>69</wpEffort>
-    <currentEffort>0</currentEffort>
+    <currentEffort>2</currentEffort>
     <lastupdate>NO UPDATES</lastupdate>
     <expenses id="0">
-    	<concept>Travel</concept>
-    	<description>Flight John</description>
-    	<amount>900 EUR</amount>
-     </expenses>
-     <status>Saved</status>
+      <concept>Travel</concept>
+      <description>Flight John</description>
+      <amount>900 EUR</amount>
+    </expenses>
+    <status>Saved</status>
     <flag>Green</flag>
     <explanation>NA</explanation>
-	<feedback>Sed ut perspiciatis</feedback>
+    <feedback>Sed ut perspiciatis</feedback>
     <task id="22" title="Tarea veintidos">
-	  <work>A lot</work>
+      <work>A lot</work>
       <result>Bom</result>
-       <effort>
-	      <effortperperson>2</effortperperson>
-	      <person>Manuel</person>
+      <effort>
+        <effortperperson>2</effortperperson>
+        <person>Manuel</person>
       </effort>
-       <effort>
-	      <effortperperson>3</effortperperson>
-	      <person>Nicolas</person>
+      <effort>
+        <effortperperson>3</effortperperson>
+        <person>Nicolas</person>
       </effort>
-        <effort>
-	      <effortperperson>3</effortperperson>
-	      <person>David</person>
+      <effort>
+        <effortperperson>3</effortperperson>
+        <person>David</person>
       </effort>
     </task>
   </subreport>
   <subreport partner="001" partnerName="UPM" WP="SOFTWARE" WPID="1355348593078" date="2013-09-20">
     <wpEffort>69</wpEffort>
-    <currentEffort>0</currentEffort> 
-    <lastupdate>NO UPDATES</lastupdate>
+    <currentEffort>6</currentEffort>
+    <lastupdate>25/07/13 16:44</lastupdate>
     <expenses id="0">
-    	 <concept>Travel</concept>
-    	<description>Flight John</description>
-    	<amount>900 EUR</amount>
-     </expenses>    <status>Saved</status>
+      <concept>Travel</concept>
+      <description>Flight John</description>
+      <amount>900 EUR</amount>
+    </expenses>
+    <status>rejected</status>
     <flag>Green</flag>
     <explanation>NA</explanation>
-	<feedback>Sed ut perspiciatis</feedback>
+    <feedback>Sed ut perspiciatis</feedback>
     <task id="22" title="Tarea veintidos">
-       <work>A lot</work>
+      <work>A lot</work>
       <result>Bom</result>
       <effort>
-	      <effortperperson>1</effortperperson>
-	      <person>Lewis</person>
+        <effortperperson>1</effortperperson>
+        <person>Lewis</person>
       </effort>
-       <effort>
-	      <effortperperson>5</effortperperson>
-	      <person>Kimi</person>
+      <effort>
+        <effortperperson>5</effortperperson>
+        <person>Kimi</person>
       </effort>
-        <effort>
-	      <effortperperson>6</effortperperson>
-	      <person>John</person>
-      </effort>    </task>
+      <effort>
+        <effortperperson>6</effortperperson>
+        <person>John</person>
+      </effort>
+    </task>
+    <comment type="ACCEPTED" time="23/07/13 22:13">Project Status changed to accepted</comment>
+    <comment type="SENT" time="25/07/13 16:31">Project Status changed to sent</comment>
+    <comment type="SAVED" time="25/07/13 16:36">Project Status changed to saved</comment>
+    <comment type="REJECTED" time="25/07/13 16:37">Project Status changed to rejected</comment>
+    <comment type="ACCEPTED" time="25/07/13 16:41">Project Status changed to accepted</comment>
+    <comment type="REJECTED" time="25/07/13 16:44">Project Status changed to rejected</comment>
   </subreport>
 </report>

@@ -2,6 +2,7 @@ package com.reportingtool.utils;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.security.MessageDigest;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -94,6 +95,40 @@ public class Commons {
 	    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yy HH:mm");
 	    //return dateFormat.format(now.getTime())+" "+timeZone.getDisplayName();
 	    return dateFormat.format(now.getTime());
+	}
+
+	public static String createWelcomeMessage(String id, String password) {
+		String text="<b><u>Welcome to Reporting Tool UC3M</u></b><br><br>";
+		text=text+"Your login credentials are:<br><br><b>Username:</b>"+id+"<br><b>Password:</b>"+password;
+		return text;
+	}
+	
+	public static String md5(String clear) throws Exception {
+		MessageDigest md = MessageDigest.getInstance("MD5");
+		byte[] b = md.digest(clear.getBytes());
+
+		int size = b.length;
+		StringBuffer h = new StringBuffer(size);
+		for (int i = 0; i < size; i++) {
+		int u = b[i] & 255;
+		if (u < 16) {
+		h.append("0" + Integer.toHexString(u));
+		} else {
+		h.append(Integer.toHexString(u));
+		}
+		}
+		return h.toString();
+		}
+
+	public static boolean checkTimestamp(String date) {
+		long server = System.currentTimeMillis();
+		long client = Long.valueOf(date);
+		System.out.println(server-client);
+		if((server-client)<5000){
+			return true;	
+		}else
+			return false;
+		
 	}
 	
 }

@@ -45,9 +45,10 @@ public class Report {
 		//Get init date y duration
 		Object metainfo= d.getRootElement().getChild("metainfo");	
 		Element eMetainfo=(Element)metainfo;
-		String duration = eMetainfo.getChildText("duration");
 		String dateStart = eMetainfo.getChildText("dateStart");
-		System.out.println("[MAIN] Project duration: "+duration+" | Project start: "+dateStart);
+		String dateFinish = eMetainfo.getChildText("dteFinish");
+
+		System.out.println("[MAIN] | Project start: "+dateStart +" Project Finish: "+dateFinish);
 		//Get reportSchedule y crea un array o vector de arrays
 		Object reportSchedule = d.getRootElement().getChild("reportSchedule");
 		Element eReportSchedule=(Element)reportSchedule;
@@ -64,15 +65,16 @@ public class Report {
 				//if report date falls into WP execution
 				if(checkReportDate(reportDate,wpInit,wpFinish)){
 					System.out.println("[MAIN] "+wpTitle + " applies to report " + reportDate );
-					Iterator<Element> iPartners=eO.getDescendants(Filters.element("partner"));
+					Iterator<Element> iPartners=eO.getDescendants(Filters.element("partnerWP"));
 					Vector<String> partners = new Vector<String>();
 					while (iPartners.hasNext()){
 						Element ePartner=iPartners.next();
 						if (!partners.contains(ePartner.getAttributeValue("id"))){
 						partners.add(ePartner.getAttributeValue("id"));
+						String partnerEffortWP=ePartner.getAttributeValue("effort");
 						//System.out.println(reportDate+" Partner found:"+ ePartner.getAttributeValue("id")+ "for WP: "+wpTitle);
 						System.out.println("<report WP="+wpTitle+" partner="+ePartner.getAttributeValue("id")+" reportDate="+reportDate);
-						addSubReport(doc,reportDate, wpTitle,wpID,ePartner.getAttributeValue("id"),partnersMap.get(ePartner.getAttributeValue("id")),eO.getDescendants(Filters.element("task")));
+						addSubReport(doc,reportDate, wpTitle,wpID,ePartner.getAttributeValue("id"),partnersMap.get(ePartner.getAttributeValue("id")),eO.getDescendants(Filters.element("task")),partnerEffortWP);
 						}else
 							System.out.println("[REPORT] Partner="+ePartner.getAttributeValue("id")+" was already processed for WP "+wpTitle );
 					}
@@ -113,7 +115,7 @@ public class Report {
 
 	
 
-	public static Document addSubReport(Document doc,String date, String WP,String wpID,String partnerID,String partnerName,Iterator<Element> tasks){
+	public static Document addSubReport(Document doc,String date, String WP,String wpID,String partnerID,String partnerName,Iterator<Element> tasks,String wpEffort){
 		
 
 		Element subreport = new Element("subreport");
@@ -125,6 +127,11 @@ public class Report {
 		subreport.setAttribute("partnerName", partnerName);
 
 		Element eLastUpdate= new Element("lastupdate");
+		Element eWpEffort= new Element("wpEffort");
+		eWpEffort.addContent(wpEffort);
+		
+		Element eCurrentEffort= new Element("currentEffort");
+		eCurrentEffort.addContent("0");
 		Element eExpenses= new Element("expenses");
 		Element concept = new Element("concept");
 		Element description = new Element("description");
@@ -142,21 +149,25 @@ public class Report {
 		eStatus.addContent("empty");
 		
 		Element eFlag= new Element("flag");		
-			Element eExplanation= new Element("explanation");
-			eFlag.addContent(eExplanation);
+		Element eExplanation= new Element("explanation");
 		
 
 		subreport.addContent(eExpenses);
+		subreport.addContent(eWpEffort);
+		subreport.addContent(eCurrentEffort);
 		subreport.addContent(eStatus);
 		subreport.addContent(eFlag);
+		subreport.addContent(eExplanation);
 		subreport.addContent(eFeedback);
 		subreport.addContent(eLastUpdate);
 
 		
 		while (tasks.hasNext()){
 		Element task=tasks.next();
-		Iterator<Element> partnersForThisTask=task.getDescendants(Filters.element("partner"));
+		System.out.println("Tasks!");
+		Iterator<Element> partnersForThisTask=task.getDescendants(Filters.element("partnerTask"));
 		while(partnersForThisTask.hasNext()){
+			System.out.println("Tasks-partner");
 			Element p = partnersForThisTask.next();
 			if(p.getAttributeValue("id").equals(partnerID)){
 				Element tReport=addTaskReport(task.getAttributeValue("id"),task.getAttributeValue("title"));
@@ -473,7 +484,7 @@ public class Report {
 	public static boolean checkReportDate(String date, String init, String finish){
 		try{
 		System.out.println("Date: "+date+". Date Init: "+init+". Date Finish:"+finish);
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 		Date dDate = sdf.parse(date , new ParsePosition(0));
 		Date dInit = sdf.parse(init , new ParsePosition(0));
 		Date dFinish = sdf.parse(finish , new ParsePosition(0));

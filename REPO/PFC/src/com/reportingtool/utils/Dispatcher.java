@@ -66,18 +66,24 @@ public class Dispatcher {
 		HashMap<String, String> partners=Partner.getPartnersName(partner);
 		System.out.println(partners.get("001"));**/
 
-		for (int i=0;i<100;i++){
-			long l=System.currentTimeMillis();
-			String id=Long.toString(l);
-			System.out.println(id);
-
+		try {
+			System.out.println(Commons.md5("paloalto"));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
-		Calendar now = Calendar.getInstance();
-	    TimeZone timeZone = now.getTimeZone();
-	    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-	    System.out.println(dateFormat.format(now.getTime())+" "+timeZone.getDisplayName());
-		/*
+		
+		/*System.out.println(System.getProperty("user.dir"));
+		
+		Document report=Project.getCurrentProjectDocument(System.getProperty("user.dir")+"/WebContent/files/"+"1377440679491.xml");
+		report=Report.fillReportFile(report);
+		String result=Commons.docToString(report);
+		
+		System.out.println(result);
+		
+		
+		
 		HashMap<String,String> file=new HashMap<String,String>();
 		Vector<String> list=new Vector<String>();
 		for (int i=1000000000; i<1000065000;i++){

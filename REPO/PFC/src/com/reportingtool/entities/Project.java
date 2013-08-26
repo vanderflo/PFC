@@ -25,7 +25,7 @@ public class Project {
 	public static Document getCurrentProjectDocument(String projectName){
 		SAXBuilder builder = new SAXBuilder();
 		if (!projectName.endsWith(".xml"))
-			projectName=projectName+"xml";
+			projectName=projectName+".xml";
 		File xmlFile = new File(projectName);
 		Document document=new Document();
 		try {
@@ -142,7 +142,7 @@ public class Project {
 		Element eDateInit = new Element("dateInit");
 		eDateInit.addContent(dateInit);
 		
-		Element eDateFinish = new Element("datefinish");
+		Element eDateFinish = new Element("dateFinish");
 		eDateFinish.addContent(datefinish);
 		
 		Element eDescription = new Element("description");
@@ -193,7 +193,7 @@ public class Project {
 		Element eDateInit = new Element("dateInit");
 		eDateInit.addContent(dateInit);
 		
-		Element eDateFinish = new Element("datefinish");
+		Element eDateFinish = new Element("dateFinish");
 		eDateFinish.addContent(datefinish);
 		
 		//Element eEffort = new Element("effort");

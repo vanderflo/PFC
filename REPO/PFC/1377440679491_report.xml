@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report>
+  <subreport partner="004" WP="WP 2" WPID="1377440833338" date="25-09-2013" partnerName="USC">
+    <expenses id="0">
+      <concept />
+      <description />
+      <amount />
+    </expenses>
+    <wpEffort>22</wpEffort>
+    <currentEffort>0</currentEffort>
+    <status>empty</status>
+    <flag />
+    <explanation />
+    <feedback />
+    <lastupdate>NEVER UPDATED</lastupdate>
+    <task id="1377441026234" title="second task 2nd wp">
+      <work />
+      <result />
+      <effort>
+        <personalEffort id="0">
+          <person />
+          <effortPerson />
+        </personalEffort>
+      </effort>
+    </task>
+  </subreport>
+  <subreport partner="004" WP="WP 2" WPID="1377440833338" date="29-10-2013" partnerName="USC">
+    <expenses id="0">
+      <concept />
+      <description />
+      <amount />
+    </expenses>
+    <wpEffort>22</wpEffort>
+    <currentEffort>0</currentEffort>
+    <status>empty</status>
+    <flag />
+    <explanation />
+    <feedback />
+    <lastupdate>NEVER UPDATED</lastupdate>
+    <task id="1377441026234" title="second task 2nd wp">
+      <work />
+      <result />
+      <effort>
+        <personalEffort id="0">
+          <person />
+          <effortPerson />
+        </personalEffort>
+      </effort>
+    </task>
+  </subreport>
+</report>

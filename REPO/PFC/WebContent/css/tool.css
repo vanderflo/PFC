@@ -85,7 +85,7 @@ header a{
 }
 
 header a span{
-    color: yellow;
+    color: white;
 }
 
 /* --------------------------------------------------- */
@@ -609,16 +609,16 @@ th.thstatus  {
   width: 8%;
 }
 th.thdate  {
-  width: 9%;
+  width: 13%;
 }
 th.thpartner  {
-  width: 28%;
+  width: 24%;
 }
 th.thwp  {
-  width: 28%;
+  width: 24%;
 }
 th.theffort  {
-  width: 7%;
+  width: 11%;
 }
 th.thlastupdate  {
   width: 10%;
@@ -881,7 +881,7 @@ border-radius: 0px 6px 6px 0px;
 }
 
 
-#addExpensesForm, form[id*='add']{
+#addExpensesForm, form[id*='add'],#forgotForm{
  
     padding: 5px;
     overflow:auto;
@@ -891,7 +891,7 @@ border-radius: 0px 6px 6px 0px;
 #addWPForm{
 	display:block;
 }
-form[id*='add'] label {
+form[id*='add'] label,#loginForm label,#forgotForm label {
     font-family: Arial, Verdana;
     display: block;
     float: left;
@@ -904,7 +904,7 @@ form[id*='add'] label {
     color:#666;
     }
     
- #addExpensesForm .input,#addExpensesForm .textarea, form[id*='add'] .input,#addExpensesForm .textarea,select{
+ #addExpensesForm .input,#addExpensesForm .textarea, form[id*='add'] .input,#addExpensesForm .textarea,select,#loginForm .input,#forgotForm .input{
     font-family: Arial, Verdana;
     font-size: 15px;
     border: 1px solid #b9bdc1;
@@ -1023,7 +1023,7 @@ border-bottom: solid 1px;
 
 
 
-#reportArticle h1,#topArticleContainer h1,#partnerArticleContainer h1{
+#reportArticle h1,#topArticleContainer h1,#partnerArticleContainer h1,#loginArticleContainer h1{
     margin-style: 15px;	
 	color: #0072C6;
 	border-bottom: 1px solid #0072C6;

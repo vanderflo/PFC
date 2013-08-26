@@ -2,7 +2,7 @@
     		var $form = $(this),
         	serializedData = $form.serialize();
 		    $.ajax({
-		        url: "http://localhost:8080/PFC/rest/API/create/project/",
+		        url: "http://localhost:8080/PFC/rest/API/project/create/",
 		        type: "post",
 		        aSync: false,
 		        data: serializedData,
@@ -22,6 +22,8 @@
 		$(".editProject").live("click",function() {
     			var projectId = $(this).attr('projectid');
     			updateProjectView(projectId);
+    			$("#topArticleContainer").hide();
+    			$("#reportArticle").hide();
          		});
 
 
@@ -30,7 +32,7 @@
         	serializedData = $form.serialize();
      		var prId=$(this).find('[name=projectid]').val();
 		    $.ajax({
-		        url: "http://localhost:8080/PFC/rest/API/add/schedule/"+projectIdinUse,
+		        url: "http://localhost:8080/PFC/rest/API/project/add/schedule/"+projectIdinUse,
 		        type: "post",
 		        aSync: false,
 		        data: serializedData,
@@ -122,7 +124,7 @@
      	serializedData = $form.serialize();
  		var prId=$(this).find('[name=projectid]').val();
 		    $.ajax({
-		    	url: "http://localhost:8080/PFC/rest/API/add/WP/"+projectIdinUse,
+		    	url: "http://localhost:8080/PFC/rest/API/project/add/WP/"+projectIdinUse,
 		    	type: "post",
 		        data: serializedData,
 		        success: function(response, textStatus, jqXHR){
@@ -154,7 +156,7 @@
   		arrayValues='&partnersTask='+arrayValues;
   		serializedData=serializedData+arrayValues;
   			$.ajax({
- 		    	url: "http://localhost:8080/PFC/rest/API/add/task/"+projectIdinUse+"/"+wpId,
+ 		    	url: "http://localhost:8080/PFC/rest/API/project/add/task/"+projectIdinUse+"/"+wpId,
  		    	type: "post",
  		        data: serializedData,
  		        success: function(response, textStatus, jqXHR){
@@ -403,8 +405,7 @@
          		    });
      		}
      		
-     		
-     		
+     
      		
      		
      		$("[id^=formDate]").live("focus", function(){
@@ -413,7 +414,7 @@
      		    	buttonText: "EDIT DATE",
      		    	changeMonth: true,
      		    	changeYear: true,
-     		    	dateFormat: 'dd/mm/yy',
+     		    	dateFormat: 'dd-mm-yy',
      		        inline: true 
      		    });
      		});

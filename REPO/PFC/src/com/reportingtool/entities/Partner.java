@@ -11,6 +11,10 @@ import java.util.List;
 import java.util.StringTokenizer;
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
 
 
 public class Partner {
@@ -126,7 +130,7 @@ public class Partner {
 		return doc;
 	}
 
-	public static Document addPartner(Document doc,String id, String name, String email,String members,String action,String path) throws IOException{
+	public static Document addPartner(Document doc,String id, String name, String email,String members,String password,String action,String path) throws IOException, AddressException, MessagingException{
 		//si existe, modificarlo
 		
 		if (action.equals("edit"))
@@ -140,7 +144,7 @@ public class Partner {
 		Element namePartner= new Element("name");
 		namePartner.addContent(name);
 		Element passwordPartner= new Element("password");
-		passwordPartner.addContent("");
+		passwordPartner.addContent(password);
 		Element emailPartner= new Element("email");
 		emailPartner.addContent(email);
 		
@@ -159,11 +163,58 @@ public class Partner {
 		
 		doc.getRootElement().addContent(partner);
 		Commons.writeFile(path,doc);
+		String emailText=Commons.createWelcomeMessage(id,password);
+		Email.generateAndSendEmail(emailText, email);
 		return doc;			
 		
 		}
 	
+		public static boolean login(Document doc,String user,String password){
+			for(Object object : doc.getRootElement().getChildren("partner")) {
+				Element eObject=(Element)object;
+				
+				if (eObject.getAttributeValue("id").equals(user)){
+					Element ePwd=(Element)eObject.getChild("password");
+					String pwd=ePwd.getValue();	
+					try {
+						pwd=Commons.md5(pwd);
+					} catch (Exception e) {
+						e.printStackTrace();
+						return false;
+					}
+					if(pwd.equals(password))
+						return true;
+					else
+						return false;
+				}						
+			}
+			return false;
+		}
 
+
+
+		public static boolean forgot(Document doc, String username, String email) throws AddressException, UnsupportedEncodingException, MessagingException {
+				for(Object object : doc.getRootElement().getChildren("partner")) {
+					Element eObject=(Element)object;
+					
+					if (eObject.getAttributeValue("id").equals(username)){
+						Element ePwd=(Element)eObject.getChild("password");
+						Element eEmail=(Element)eObject.getChild("email");
+						String sEmail=eEmail.getValue();	
+						if(sEmail.equals(email)){
+							String pwd=ePwd.getValue();
+							String emailText=Commons.createWelcomeMessage(username,pwd);
+							Email.generateAndSendEmail(emailText, email);
+							return true;	
+						}
+							
+						else
+							return false;
+					}						
+				}
+				return false;
+			}
+		
 
 
 }

@@ -1,10 +1,13 @@
 //Llamada AJAX para recuperar la info del proyecto actual
 
      		$("#selectProject").live("click",function() {
-     		$('#coordinatorWP').empty();
-     		$('#coordinatorPartners').empty();
-     		$('#projectArticle').hide();
-     		initProject();
+	     		$('#coordinatorWP').empty();
+	     		$('#coordinatorPartners').empty();
+	     		$('#projectArticle').hide();
+    			var projectId = $(this).attr('projectid');
+    			currentProjectTitle=$(this).attr('projecttitle');
+    			currentProject=projectId;
+	     		initProject(projectId);
      		});
      		
      		
@@ -80,7 +83,7 @@
 		    			$('#reportInformationBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Partner:</td><td class="tdvalue">'+partnerName+'</td></tr>');
 		    			$('#reportInformationBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Report Date:</td><td class="tdvalue">'+date+'</td></tr>');
 		    			$('#reportInformationBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Workpackage:</td><td class="tdvalue">'+reportWP+'</td></tr>');
-		    			$('#reportInformationBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Total Effort:</td><td class="tdvalue">1 month</td></tr>');
+		    			$('#reportInformationBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Current Effort:</td><td class="tdvalue">'+currentEffort+' p/m</td></tr>');
 		    			$('#reportInformationBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Status:</td><td class="tdvalue"> '+status+'</td></tr>');
 		    			$('#reportInformationBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Last Update:</td><td class="tdvalue"> '+lastupdate+'</td></tr>');
 
@@ -168,7 +171,7 @@
     			}else if (currentview=="all"){
         		$('#topArticle').append('<h1>Reports for Project: '+displayName+'</h1>');
     			}
-    			$('#topArticle').append('<div class="tableHeader"><table id="reportGrid" summary="List of Reports"><thead><tr><th class="thstatus">Status</th><th class="thdate">Date</th><th class="thpartner">Partner</th><th class="thwp">Workpackage</th><th class="theffort">Effort</th><th class="thlastupdate">Last Update</th><th class="thflag">Flag</th></tr></thead><tbody id="reportGridBody"></tbody></table></div>');
+    			$('#topArticle').append('<div class="tableHeader"><table id="reportGrid" summary="List of Reports"><thead><tr><th class="thstatus">Status</th><th class="thdate">Date</th><th class="thpartner">Partner</th><th class="thwp">Workpackage</th><th class="theffort">Effort (p/m)</th><th class="thlastupdate">Last Update</th><th class="thflag">Flag</th></tr></thead><tbody id="reportGridBody"></tbody></table></div>');
     			$(xmlReport).find('subreport').each(function(){
     				var wpIdFromSubreport =$(this).attr("WPID");
     				var reportWP=$(this).attr("WP");
@@ -178,7 +181,8 @@
 					var status= $(this).children('status').text();	
 					var lastupdate= $(this).children('lastupdate').text();	
 					var flag= $(this).children('flag').text().toLowerCase();
-					var row='<tr><td class="status '+status.toLowerCase()+'">'+status.toUpperCase()+'</td><td><a href="#" id="triggerReport" class="topbuttonNO" partnerID="'+partnerID+'" partnername="'+partnerName+'" wptitle="'+reportWP+'" wpid="'+wpIdFromSubreport+'" reportdate="'+reportDate+'">'+reportDate+'</a></td><td>'+partnerName+'</td><td>'+reportWP+'</td><td>1 month</td><td>'+lastupdate.substring(0,9)+'</td><td><span class="icon-flag-'+flag+'"></span></td></tr>';
+					var currentReportEffort= $(this).children('currentEffort').text();
+					var row='<tr><td class="status '+status.toLowerCase()+'">'+status.toUpperCase()+'</td><td><a href="#" id="triggerReport" class="topbuttonNO" partnerID="'+partnerID+'" partnername="'+partnerName+'" wptitle="'+reportWP+'" wpid="'+wpIdFromSubreport+'" reportdate="'+reportDate+'">'+reportDate+'</a></td><td>'+partnerName+'</td><td>'+reportWP+'</td><td>'+currentReportEffort+'</td><td>'+lastupdate.substring(0,9)+'</td><td><span class="icon-flag-'+flag+'"></span></td></tr>';
 						if(currentview=="w" && id == wpIdFromSubreport){
 						currentWPtitle=reportWP;
 						$('#reportGridBody').append(row);
@@ -351,7 +355,7 @@
      		var taskId=$(this).find('[name=taskid]').val();
      		 $inputs.attr("disabled", "disabled");
    		    $.ajax({
-   		        url: "http://localhost:8080/PFC/rest/API/task/edit/"+currentProject+"/"+currentWP+"/"+currentPartner+"/"+currentReport+"/"+taskId,
+   		        url: "http://localhost:8080/PFC/rest/API/report/task/edit/"+currentProject+"/"+currentWP+"/"+currentPartner+"/"+currentReport+"/"+taskId,
    		        type: "post",
    		        data: serializedData,
    		        // callback handler that will be called on success
@@ -427,14 +431,14 @@
      	  
      	  
      	  function updateView(){
-     		getReport();
+     		getReport(currentProject);
      		console.log(currentview);
      		if(currentview=="w"){
      		showListOfReports(currentWPtitle,currentWP,currentview);
      		}else if(currentview=="p"){
          	showListOfReports(currentPartnerName,currentPartner,currentview);	
      		}else if(currentview="all"){
-         	showListOfReports(currentProject,"",currentview);	
+         	showListOfReports(currentProjectTitle,"",currentview);	
      		}
  			showReport(currentPartner,currentReport,currentWP,currentPartnerName);
      	  }
