@@ -62,6 +62,8 @@ public class Report {
 				String wpID=eO.getAttributeValue("id");
 				String wpInit=eO.getChildText("dateInit");
 				String wpFinish=eO.getChildText("dateFinish");
+				Element eCoord=eO.getChild("coordinator");
+				String leader=eCoord.getChild("leader").getAttributeValue("id");
 				//if report date falls into WP execution
 				if(checkReportDate(reportDate,wpInit,wpFinish)){
 					System.out.println("[MAIN] "+wpTitle + " applies to report " + reportDate );
@@ -74,7 +76,7 @@ public class Report {
 						String partnerEffortWP=ePartner.getAttributeValue("effort");
 						//System.out.println(reportDate+" Partner found:"+ ePartner.getAttributeValue("id")+ "for WP: "+wpTitle);
 						System.out.println("<report WP="+wpTitle+" partner="+ePartner.getAttributeValue("id")+" reportDate="+reportDate);
-						addSubReport(doc,reportDate, wpTitle,wpID,ePartner.getAttributeValue("id"),partnersMap.get(ePartner.getAttributeValue("id")),eO.getDescendants(Filters.element("task")),partnerEffortWP);
+						addSubReport(doc,reportDate, wpTitle,wpID,ePartner.getAttributeValue("id"),partnersMap.get(ePartner.getAttributeValue("id")),eO.getDescendants(Filters.element("task")),partnerEffortWP,leader);
 						}else
 							System.out.println("[REPORT] Partner="+ePartner.getAttributeValue("id")+" was already processed for WP "+wpTitle );
 					}
@@ -115,7 +117,7 @@ public class Report {
 
 	
 
-	public static Document addSubReport(Document doc,String date, String WP,String wpID,String partnerID,String partnerName,Iterator<Element> tasks,String wpEffort){
+	public static Document addSubReport(Document doc,String date, String WP,String wpID,String partnerID,String partnerName,Iterator<Element> tasks,String wpEffort,String leader){
 		
 
 		Element subreport = new Element("subreport");
@@ -124,6 +126,7 @@ public class Report {
 		subreport.setAttribute("WP", WP);
 		subreport.setAttribute("WPID", wpID);
 		subreport.setAttribute("date", date);
+		subreport.setAttribute("leader", leader);
 		subreport.setAttribute("partnerName", partnerName);
 
 		Element eLastUpdate= new Element("lastupdate");

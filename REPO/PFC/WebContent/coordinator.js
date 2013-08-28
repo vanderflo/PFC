@@ -35,10 +35,21 @@
 
     		$("#triggerReport").live("click",function() {
     			var partnerID = $(this).attr('partnerid');
+    			var coordID = $(this).attr('leader');
     			var date = $(this).attr('reportdate');
     			var wpId=$(this).attr('wpid');
     			var partnerName = $(this).attr('partnername');
-    			showReport(partnerID,date,wpId,partnerName);
+    			if(currentId==coordID){
+    				wpLeader=true;
+    				alert("You are the leader of this Work Package");
+    			}else{
+    				wpLeader=false;
+    			}
+    			if((currentId==partnerID)||(wpLeader)){
+    	        showReport(partnerID,date,wpId,partnerName);
+    			}else{
+    				alert("You don't have permissions to see this report.");
+    			}
     		});
     		
     		$("#testUpdate").live("click",function() {
@@ -156,6 +167,11 @@
 				plot1.series[2].data=[[otherReportsEffort,1]];
     	        $('#reportArticle').show();
     	        plot1.replot();
+    	        $("#forleader").hide();
+    	        if(wpLeader){
+	       	    	  $("#forpartner").show();
+	       	    	  $("#forleader").show();
+	       	      }
     		}
     		
     		
@@ -171,18 +187,19 @@
     			}else if (currentview=="all"){
         		$('#topArticle').append('<h1>Reports for Project: '+displayName+'</h1>');
     			}
-    			$('#topArticle').append('<div class="tableHeader"><table id="reportGrid" summary="List of Reports"><thead><tr><th class="thstatus">Status</th><th class="thdate">Date</th><th class="thpartner">Partner</th><th class="thwp">Workpackage</th><th class="theffort">Effort (p/m)</th><th class="thlastupdate">Last Update</th><th class="thflag">Flag</th></tr></thead><tbody id="reportGridBody"></tbody></table></div>');
+    			$('#topArticle').append('<div class="tableHeader"><table id="reportGrid" summary="List of Reports"><thead><tr><th class="thstatus">Status</th><th class="thdate">Date</th><th class="thpartner">Partner</th><th class="thwp">Workpackage</th><th class="thleader">Leader</th><th class="theffort">Effort (p/m)</th><th class="thlastupdate">Last Update</th><th class="thflag">Flag</th></tr></thead><tbody id="reportGridBody"></tbody></table></div>');
     			$(xmlReport).find('subreport').each(function(){
     				var wpIdFromSubreport =$(this).attr("WPID");
     				var reportWP=$(this).attr("WP");
 					var partnerID=$(this).attr("partner");
 					var partnerName=$(this).attr("partnerName");
+					var leader=$(this).attr("leader");
 					var reportDate=$(this).attr("date");
 					var status= $(this).children('status').text();	
 					var lastupdate= $(this).children('lastupdate').text();	
 					var flag= $(this).children('flag').text().toLowerCase();
 					var currentReportEffort= $(this).children('currentEffort').text();
-					var row='<tr><td class="status '+status.toLowerCase()+'">'+status.toUpperCase()+'</td><td><a href="#" id="triggerReport" class="topbuttonNO" partnerID="'+partnerID+'" partnername="'+partnerName+'" wptitle="'+reportWP+'" wpid="'+wpIdFromSubreport+'" reportdate="'+reportDate+'">'+reportDate+'</a></td><td>'+partnerName+'</td><td>'+reportWP+'</td><td>'+currentReportEffort+'</td><td>'+lastupdate.substring(0,9)+'</td><td><span class="icon-flag-'+flag+'"></span></td></tr>';
+					var row='<tr><td class="status '+status.toLowerCase()+'">'+status.toUpperCase()+'</td><td><a href="#" id="triggerReport" class="topbuttonNO" leader="'+leader+'"  partnerID="'+partnerID+'" partnername="'+partnerName+'" wptitle="'+reportWP+'" wpid="'+wpIdFromSubreport+'" reportdate="'+reportDate+'">'+reportDate+'</a></td><td>'+partnerName+'</td><td>'+reportWP+'</td><td>'+leader.toUpperCase()+'</td><td>'+currentReportEffort+'</td><td>'+lastupdate.substring(0,9)+'</td><td><span class="icon-flag-'+flag+'"></span></td></tr>';
 						if(currentview=="w" && id == wpIdFromSubreport){
 						currentWPtitle=reportWP;
 						$('#reportGridBody').append(row);
@@ -225,6 +242,11 @@
        	      $( "#addTaskReportEffortForm" ).hide();
        	      $( "#addTaskReportInfoForm" ).hide();
        	      $( "#statusReport" ).show();
+       	      $("#forleader").hide();
+       	      if(wpLeader){
+       	    	  $("#forpartner").show();
+       	    	  $("#forleader").show();
+       	      }
          	    });
      	    
      	    $( "#showFeedbackForm" ).live("click", function(e) {

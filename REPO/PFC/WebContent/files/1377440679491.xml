@@ -16,7 +16,7 @@
   </reportSchedule>
   <workpackage title="WP 1" id="1377440706313">
     <coordinator>
-      <leader id="001" />
+      <leader id="stanford" />
     </coordinator>
     <dateInit>01-09-2013</dateInit>
     <dateFinish>15-09-2013</dateFinish>
@@ -40,7 +40,7 @@
   </workpackage>
   <workpackage title="WP 2" id="1377440833338">
     <coordinator>
-      <leader id="001" />
+      <leader id="uc3m" />
     </coordinator>
     <dateInit>22-09-2013</dateInit>
     <dateFinish>30-10-2013</dateFinish>

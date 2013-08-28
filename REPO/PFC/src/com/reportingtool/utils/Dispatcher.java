@@ -66,15 +66,10 @@ public class Dispatcher {
 		HashMap<String, String> partners=Partner.getPartnersName(partner);
 		System.out.println(partners.get("001"));**/
 
-		try {
-			System.out.println(Commons.md5("paloalto"));
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	
 		
 		
-		/*System.out.println(System.getProperty("user.dir"));
+		System.out.println(System.getProperty("user.dir"));
 		
 		Document report=Project.getCurrentProjectDocument(System.getProperty("user.dir")+"/WebContent/files/"+"1377440679491.xml");
 		report=Report.fillReportFile(report);
@@ -82,7 +77,7 @@ public class Dispatcher {
 		
 		System.out.println(result);
 		
-		
+		/*
 		
 		HashMap<String,String> file=new HashMap<String,String>();
 		Vector<String> list=new Vector<String>();

@@ -612,10 +612,13 @@ th.thdate  {
   width: 13%;
 }
 th.thpartner  {
-  width: 24%;
+  width: 18%;
 }
 th.thwp  {
-  width: 24%;
+  width: 18%;
+}
+th.thleader  {
+  width: 12%;
 }
 th.theffort  {
   width: 11%;
@@ -924,7 +927,7 @@ height:25px;
 .field.big{
 height:60px;	
 } 
-#addExpensesForm .hint, form[id*='add'] .hint{
+#addExpensesForm .hint, form[id*='add'] .hint,#statusReport{
     display:none;
     }
 #addFlagForm{

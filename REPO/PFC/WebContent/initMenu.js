@@ -34,30 +34,51 @@
 				url: "http://localhost:8080/PFC/rest/API/project/"+projectid,
 				dataType: "xml",
 				success: function(xml) {
-					$(xml).find('workpackage').each(function(){
-					var wpTitle=$(this).attr("title");
-					var wpId=$(this).attr("id");
-					$('#coordinatorWP').append('<li><a href="#" id="triggerWP" class="triggerWP" wpid="'+wpId+'" wptitle="'+wpTitle+'">'+ wpTitle + '</a><li>');
-					});//workpackage
-				
+					
+					$(xml).find('coordinator').each(function(){
+						$(this).find('partner').each(function(){
+							var coordId=$(this).attr("id");
+							if (coordId==currentId){
+								currentCoordinator=true;
+								alert("You are the coordinator of this project!");
+							}else{
+								currentCoordinator=false;
+							}
+								
+							});
+					});
 					var partnersArray = new Array();
 					$(xml).find('partner').each(function(){
 					var partnerID=$(this).attr("id");
-					if( jQuery.inArray(partnerID, partnersArray) == -1 ){
+					if( jQuery.inArray(partnerID, partnersArray) == -1 || currentCoordinator){
 					var partnerName= $(this).children('name').text();	
 					$('#coordinatorPartners').append('<li><a href="#" id="triggerPartner" class="triggerPartner" partnerID="'+partnerID+'" partnername="'+partnerName+'">'+ partnerName + '</a></li>');
 					partnersArray.push(partnerID);
 					}
 					});//partner
 					
+					if( jQuery.inArray(currentId, partnersArray) == -1 ){
+						$('#coordinatorPartners').empty();
+						alert("You are not part of this project");
+						$('#helpArticleContainer').show();
+						
+					}else{
+					
+					$(xml).find('workpackage').each(function(){
+						var wpTitle=$(this).attr("title");
+						var wpId=$(this).attr("id");
+						$('#coordinatorWP').append('<li><a href="#" id="triggerWP" class="triggerWP" wpid="'+wpId+'" wptitle="'+wpTitle+'">'+ wpTitle + '</a><li>');
+					});//workpackage
+					getReport(projectid);
+					showListOfReports(currentProjectTitle,"","all");
+		     		$('#menu').show();
+					}
 
 				}
 			
 
 			});//END Llamada AJAX
-     		getReport(projectid);
-			showListOfReports(currentProjectTitle,"","all");
-     		$('#menu').show();
+     		
      		}
  		
  		function getProjects(){
