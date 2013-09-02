@@ -199,7 +199,7 @@
 					var lastupdate= $(this).children('lastupdate').text();	
 					var flag= $(this).children('flag').text().toLowerCase();
 					var currentReportEffort= $(this).children('currentEffort').text();
-					var row='<tr><td class="status '+status.toLowerCase()+'">'+status.toUpperCase()+'</td><td><a href="#" id="triggerReport" class="topbuttonNO" leader="'+leader+'"  partnerID="'+partnerID+'" partnername="'+partnerName+'" wptitle="'+reportWP+'" wpid="'+wpIdFromSubreport+'" reportdate="'+reportDate+'">'+reportDate+'</a></td><td>'+partnerName+'</td><td>'+reportWP+'</td><td>'+leader.toUpperCase()+'</td><td>'+currentReportEffort+'</td><td>'+lastupdate.substring(0,9)+'</td><td><span class="icon-flag-'+flag+'"></span></td></tr>';
+					var row='<tr><td class="status '+status.toLowerCase()+'">'+status.toUpperCase()+'</td><td><a href="#" id="triggerReport" class="topbuttonNO" leader="'+leader+'"  partnerID="'+partnerID+'" partnername="'+partnerName.toUpperCase()+'" wptitle="'+reportWP+'" wpid="'+wpIdFromSubreport+'" reportdate="'+reportDate+'">'+reportDate+'</a></td><td>'+partnerName+'</td><td>'+reportWP+'</td><td>'+leader.toUpperCase()+'</td><td>'+currentReportEffort+'</td><td>'+lastupdate.substring(0,9)+'</td><td><span class="icon-flag-'+flag+'"></span></td></tr>';
 						if(currentview=="w" && id == wpIdFromSubreport){
 						currentWPtitle=reportWP;
 						$('#reportGridBody').append(row);

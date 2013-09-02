@@ -204,6 +204,17 @@
      	        $('#projectArticle').show();
      	    	$("[id$=ProjectSection]").hide();
      	    	$( "#createProjectSection" ).show();
+     	    	
+     			getPartners();
+     			$('#coordinator').empty();
+     			var stringOption="";
+     			$(xmlPartners).find('partner').each(function(){							
+     			var partnerID=$(this).attr("id");
+     			var partnerName= $(this).attr("name");
+     			stringOption=stringOption+'<option value="'+partnerID+'">'+partnerID+' ('+partnerName+')';
+     				
+     			});
+     			$('#coordinator').append(stringOption);
      	    	$( "#addProjectForm" ).show();
      	    	
        	      });
@@ -307,6 +318,8 @@
 					//Recuperar todos los partners de este WP y guardarlos en un array.
 					$('#showWP_'+wpId).append('<h5>Partners</h5>');
 					$('#showWP_'+wpId).append('<table id="effortGrid" summary="List of Effort"><thead><tr><th class="thperson">Partner</th><th class="theeffort">Effort</th></tr></thead><tbody id="effortGridBodyShow_'+wpId+'">');
+					//TODO Add DELETE WP Button
+					$('#showWP_'+wpId).append('<br><br><button class="color red button deleteWP" element="workpackage" id="'+wpId+'">DELETE THIS WP</button>');
 					var partnersArray = new Array();					
 						$(this).find('partnerWP').each(function(){
 							var partnerId=$(this).attr("id");
@@ -356,6 +369,8 @@
 							taskPartners.push(partnerId);
 							$('#showTask_'+taskId).append('<a><span class="spanTitle">Partner:</span><span class="spanValue">'+partnerId+'</span></a><br>');
 						});
+						$('#showTask_'+taskId).append('<br><br><button class="color red button deleteTask" element="task" wpid="'+wpId+'" id="'+taskId+'">DELETE THIS TASK</button>');
+
 						//para cada elemento del array de partners del WP, comparar con el array de task y mostrarlo (checkbox?). 
 						//Me vale!!! Pero hayq ue a–adirselo al div de la cajita de edici—n
 						$('#wp_'+wpId).append('<form id="addPartnerToTaskForm_'+taskId+'"></form>');
@@ -369,24 +384,28 @@
 
 						
 					});
-					//$('#wp_'+wpId).append('<a id="addTask" wpid="'+wpId+'"><span class="icon-plus"></span>&nbsp;Click here to add a new Task</a>');
-					//$('#wp_'+wpId).append('<form id="addTaskForm_'+wpId+'"><div class="field"><label for="title">Title:</label><input type="text" class="input" name="titleTask" id="titleTask" /></div><div class="field"><label for="description">Description:</label><input type="text" class="input" name="descriptionTask" id="descriptionTask" /></div><div class="field"><label for="dateInitTask">Date Start:</label><input type="text" class="input" name="dateInitTask" id="formDateInitTask"></div><div class="field"><label for="dateFinishTask">Date Finish:</label><input type="text" class="input" name="dateFinishTask" id="formDateFinishTask"></div><div class="field"><input type="hidden" name="projectid" value="'+projectId+'"/><input type="hidden" name="wpid" value="'+wpId+'"/><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelWP">or CANCEL</a></div></form>');
 					$('#addTaskForm'+wpId).append('<div class="field"><label for="partner">&nsbp;</label><input type="checkbox" class="inpu" name="partnerTask" id="partnerTask" value="001"/>001</div>');
 					$('#addTaskForm'+wpId).append('<div class="field"><label for="partner">&nsbp;</label><input type="checkbox" class="inpu" name="partnerTask" id="partnerTask" value="002"/>002</div>');
 				//End task section
 					
 				
      			});							
-     			//$('#wpSection').append('<h5><a id="addWP" projectid="'+projectId+'"><span class="icon-plus"></span>&nbsp;Click here to add a new WP</a></h5>');
-				//$('#wpSection').append('<form id="addWPForm_'+projectId+'"><div class="field"><label for="title">Title:</label><input type="text" class="input" name="titleWP" id="titleWP" /></div><div class="field"><label for="description">Description:</label><input type="text" class="input" name="descriptionWP" id="descriptionWP" /></div><div class="field"><label for="dateInit">Date Start:</label><input type="text" class="input" name="dateInitWP" id="formDateInitWP"></div><div class="field"><label for="dateFinish">Date Finish:</label><input type="text" class="input" name="dateFinishWP" id="formDateFinishWP"></div><div class="field"><label for="coordinator">Coordinator:</label><input type="text" class="input" name="coordinatorWP" id="coordinatorWP"></div><div class="field"><input type="hidden" name="projectid" value="'+projectId+'"/><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelWP">or CANCEL</a></div></form>');
-     			
+
      			//Report Schedule section
 				$(xmlProject).find('date').each(function(){
 				var date=$(this).text();
     			$('#metadataProjectBody').append('<tr><td class="tdfield"><span class="icon-caret-right"></span>&nbsp;Report Date</td><td class="tdvalue"> '+date+'</td></tr>');
 				});
 				
-				//$('#schedule').append('<form id="addScheduleForm"><div class="field"><label for="date">Date:</label><input type="text" class="input" name="dateSchedule" readonly="true" id="formDateSchedule" /></div><input type="hidden" name="projectid" value="'+projectId+'"/><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelWP">or CANCEL</a></div></form>');
+				$('#selectcoordinatorWP').empty();
+     			var stringOption="";
+	     			$(xmlPartners).find('partner').each(function(){							
+	     			var partnerID=$(this).attr("id");
+	     			var partnerName= $(this).attr("name");
+	     			stringOption=stringOption+'<option value="'+partnerID+'">'+partnerID+' ('+partnerName+')';
+     				});
+     			$('#selectcoordinatorWP').append(stringOption);
+				
 				initTree();
      			$('#projectArticle').show();
      			$('#loadingArticleContainer').hide();
@@ -432,6 +451,49 @@
        		  $("[id^=showTask]").hide();
        		  $("#showTask_"+taskId).show();
        		  });
+      	   
+      	   $( ".deleteWP" ).live("click", function(e) {
+    		  var id=$(this).attr("id");
+    		  var serializedData="projectid="+projectIdinUse+"&id="+id;
+    		  
+  		    $.ajax({
+		        url: "http://localhost:8080/PFC/rest/API/project/delete/wp/"+projectIdinUse+"/"+id,
+		        type: "post",
+		        aSync: false,
+		        data: serializedData,
+		        dataType: "text",
+		        success: function(response){
+		        	updateProjectView(projectIdinUse);
+		        	$("#showWP_"+id).empty();
+		        },
+		        error: function(jqXHR, textStatus, errorThrown){
+		            console.log("The following error occured: "+textStatus, errorThrown);
+		        }
+		    });
+
+    		  });
+      	   
+      	   $( ".deleteTask" ).live("click", function(e) {
+     		  var id=$(this).attr("id");
+     		  var wpid=$(this).attr("wpid");
+     		  var serializedData="projectid="+projectIdinUse+"&id="+id;
+     		  
+   		    $.ajax({
+ 		        url: "http://localhost:8080/PFC/rest/API/project/delete/task/"+projectIdinUse+"/"+wpid+"/"+id,
+ 		        type: "post",
+ 		        aSync: false,
+ 		        data: serializedData,
+ 		        dataType: "text",
+ 		        success: function(response){
+ 		        	updateProjectView(projectIdinUse);
+ 		        	$("#showTask_"+id).empty();
+ 		        },
+ 		        error: function(jqXHR, textStatus, errorThrown){
+ 		            console.log("The following error occured: "+textStatus, errorThrown);
+ 		        }
+ 		    });
+
+     		  });
       	   
       	   
      		

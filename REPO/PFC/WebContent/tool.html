@@ -2,11 +2,11 @@
 <html>
 <head>	
 <link rel="stylesheet" type="text/css" href="css/tool.css" />
-<link href=" http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/themes/base/jquery-ui.css" rel="Stylesheet">
+<link href="css/jquery-ui.css" rel="Stylesheet">
 <link href='http://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="jquery-1.8.2.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+<script type="text/javascript" src="jquery-ui.js"></script>
 <script type="text/javascript" src="initMenu.js"></script>
 <script type="text/javascript" src="start.js"></script>
 <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -331,7 +331,7 @@
 				<div class="field"><label for="description">Description:</label><input type="text" class="input" name="description" id="description" /></div>
 				<div class="field"><label for="dateStart">Date Start:</label><input type="text" class="input" name="dateStart" id="formDateProjectStart"></div>
 				<div class="field"><label for="duration">Date Finish:</label><input type="text" class="input" name="dateFinish" id="formDateProjectFinish"></div>
-				<div class="field"><label for="coordinator">Coordinator:</label><input type="text" class="input" name="coordinator" id="coordinator"></div>
+				<div class="field"><label for="coordinator">Coordinator:</label><select name="coordinator" id="coordinator"></select></div>
 				<div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelProject">or CANCEL</a></div>
 			</form>
           </section>
@@ -361,7 +361,7 @@
 				  <div class="field"><label for="description">Description:</label><input type="text" class="input" name="descriptionWP" id="descriptionWP" /></div>
 				  <div class="field"><label for="dateInit">Date Start:</label><input type="text" class="input" name="dateInitWP" id="formDateInitWP"></div>
 				  <div class="field"><label for="dateFinish">Date Finish:</label><input type="text" class="input" name="dateFinishWP" id="formDateFinishWP"></div>
-				  <div class="field"><label for="coordinator">Coordinator:</label><input type="text" class="input" name="coordinatorWP" id="coordinatorWP"></div>
+				  <div class="field"><label for="coordinator">Coordinator:</label><select name="coordinatorWP" id="selectcoordinatorWP"></select></div>
 				  <input type="hidden" id="projectFieldAddWPForm" name="projectid" value="" />
 				  <div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="cancelWP">or CANCEL</a></div>
 			  </form>
@@ -375,7 +375,7 @@
          	</form>
          	
          	<form id="addPartnerToTaskForm" class="projectEditionBox">
-		          
+		          <div class="formHeader">Please notice that any selection you make will overwrite current value.</div>
 		          <div class="field"><label for="wpid">Select WP:</label><select name="wpid" id="selectWpAddTaskPartner"></select></div>
 		          <div class="field"><label for="taskid">Select Task:</label><select name="taskid" id="selectTaskAddTaskPartner"></select></div>
 		          <div id="divaddPartnerToTaskForm"></div>
@@ -405,7 +405,7 @@
            <section class="standardDiv" id="diagramProjectSection">
 				<h2><span class="icon-sitemap"></span>&nbsp;Project Diagram</h2>
 				<ul class="contentComment"><li><span class="icon-info-sign"></span>&nbsp;Click on any + sign to expand WP and see its children (tasks)</li>
-				<li><span class="icon-info-sign"></span>&nbsp;Click on the tiel of any WP and task to see its information on the Item Description box</li>
+				<li><span class="icon-info-sign"></span>&nbsp;Click on the title of any WP and task to see its information on the Item Description box</li>
 				</ul>
 				<div id="content">				
 					<ul id="projectTree"></ul>

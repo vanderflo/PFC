@@ -373,4 +373,40 @@ public static Document addSchedule(Document doc, String dates){
 	}
 	
 	
+	public static Document removeWp(Document doc,String id,String path){
+		System.out.println("Removing workpackage with id "+id);
+		for(Object object : doc.getRootElement().getChildren("workpackage")) {
+			Element eObject=(Element)object;
+			if (eObject.getAttributeValue("id").equals(id)){	
+				System.out.println("Removing: "+(Namespace)eObject.getNamespace());
+				doc.getRootElement().removeChild("workpackage",(Namespace)eObject.getNamespace());
+				break;
+		   }
+		}
+		Commons.writeFile(path,doc);
+		return doc;		
+	}
+	
+	public static Document removeTask(Document doc,String wpid,String id,String path){
+		System.out.println("Removing task with id "+id);
+		for(Object object : doc.getRootElement().getChildren("workpackage")) {
+			Element eObject=(Element)object;
+			if (eObject.getAttributeValue("id").equals(wpid)){
+				for(Object o : eObject.getChildren("task")) {
+					Element eTask=(Element)o;
+					if(eTask.getAttributeValue("id").equals(id)){
+						eObject.removeChild("task",(Namespace)eTask.getNamespace());
+						break;
+					}
+				}
+				
+				break;
+		   }
+		}
+		Commons.writeFile(path,doc);
+		return doc;		
+	}
+	
+	
+	
 }

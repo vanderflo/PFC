@@ -2,6 +2,7 @@ $("#showpartners").live("click",function() {
  		$('#coordinatorWP').empty();
  		$('#coordinatorPartners').empty();
  		$('#projectArticle').hide();
+ 		$('#topArticleContainer').hide();
  		$('#partnerArticleContainer').show();
  		$('#partnersArticleForm').hide();
  		getPartners();
@@ -17,6 +18,7 @@ $("#addpartner").live("click",function() {
 		$('#partnerArticleContainer').show();
 		$('#partnersArticleForm').show();
 		$('#addNewPartnerForm').show();
+		
 		});
 
 

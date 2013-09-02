@@ -373,6 +373,28 @@ public String forgot(@FormParam("loginforgot") String username,@FormParam("email
 	
 }
 
+@Path ("/project/delete/wp/{projectId}/{id}")
+@POST
+@Produces ("text/xml")
+public String removeElement(@PathParam("projectId") String projectId,@PathParam("id") String id) {
+	Document d = Project.getCurrentProjectDocument(formatFile(projectId));
+	String path=getPath()+projectId;
+	d = Project.removeWp(d,id,path);
+	String result=Commons.docToString(d);
+	return result;
+}
+
+@Path ("/project/delete/task/{projectId}/{wpid}/{id}")
+@POST
+@Produces ("text/xml")
+public String removeTask(@PathParam("wpid") String wpId,@PathParam("projectId") String projectId,@PathParam("id") String id) {
+	Document d = Project.getCurrentProjectDocument(formatFile(projectId));
+	String path=getPath()+projectId;
+	d = Project.removeTask(d,wpId,id,path);
+	String result=Commons.docToString(d);
+	return result;
+}
+
 
 }
 
