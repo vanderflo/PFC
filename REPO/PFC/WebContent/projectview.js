@@ -2,7 +2,7 @@
     		var $form = $(this),
         	serializedData = $form.serialize();
 		    $.ajax({
-		        url: "http://localhost:8080/PFC/rest/API/project/create/",
+		        url: "rest/API/project/create/",
 		        type: "post",
 		        aSync: false,
 		        data: serializedData,
@@ -32,7 +32,7 @@
         	serializedData = $form.serialize();
      		var prId=$(this).find('[name=projectid]').val();
 		    $.ajax({
-		        url: "http://localhost:8080/PFC/rest/API/project/add/schedule/"+projectIdinUse,
+		        url: "rest/API/project/add/schedule/"+projectIdinUse,
 		        type: "post",
 		        aSync: false,
 		        data: serializedData,
@@ -66,7 +66,7 @@
  		var wpId=$(this).find('[name=wpid]').val();
  		
 		    $.ajax({
-		    	url: "http://localhost:8080/PFC/rest/API/project/add/partner/wp/"+projectIdinUse+"/"+wpId,
+		    	url: "rest/API/project/add/partner/wp/"+projectIdinUse+"/"+wpId,
 		    	type: "post",
 		        data: serializedData,
 		        success: function(response, textStatus, jqXHR){
@@ -100,7 +100,7 @@
   		serializedData=serializedData+arrayValues;
  		
 		    $.ajax({
-		    	url: "http://localhost:8080/PFC/rest/API/project/add/partner/task/"+projectIdinUse+"/"+wpId+"/"+taskId,
+		    	url: "rest/API/project/add/partner/task/"+projectIdinUse+"/"+wpId+"/"+taskId,
 		    	type: "post",
 		        data: serializedData,
 		        success: function(response, textStatus, jqXHR){
@@ -124,7 +124,7 @@
      	serializedData = $form.serialize();
  		var prId=$(this).find('[name=projectid]').val();
 		    $.ajax({
-		    	url: "http://localhost:8080/PFC/rest/API/project/add/WP/"+projectIdinUse,
+		    	url: "rest/API/project/add/WP/"+projectIdinUse,
 		    	type: "post",
 		        data: serializedData,
 		        success: function(response, textStatus, jqXHR){
@@ -156,7 +156,7 @@
   		arrayValues='&partnersTask='+arrayValues;
   		serializedData=serializedData+arrayValues;
   			$.ajax({
- 		    	url: "http://localhost:8080/PFC/rest/API/project/add/task/"+projectIdinUse+"/"+wpId,
+ 		    	url: "rest/API/project/add/task/"+projectIdinUse+"/"+wpId,
  		    	type: "post",
  		        data: serializedData,
  		        success: function(response, textStatus, jqXHR){
@@ -203,6 +203,7 @@
      	    $( "#addProject" ).live("click", function(e) {
      	        $('#projectArticle').show();
      	    	$("[id$=ProjectSection]").hide();
+     	    	$("#topArticleContainer").hide();
      	    	$( "#createProjectSection" ).show();
      	    	
      			getPartners();
@@ -415,7 +416,7 @@
      		function getProject(projectId){
      			$.ajax({
          		    type: "GET",
-         		    url: "http://localhost:8080/PFC/rest/API/project/"+projectId,
+         		    url: "rest/API/project/"+projectId,
      				dataType: "xml",
      				async: false,
          		     success : function(data) {
@@ -457,7 +458,7 @@
     		  var serializedData="projectid="+projectIdinUse+"&id="+id;
     		  
   		    $.ajax({
-		        url: "http://localhost:8080/PFC/rest/API/project/delete/wp/"+projectIdinUse+"/"+id,
+		        url: "rest/API/project/delete/wp/"+projectIdinUse+"/"+id,
 		        type: "post",
 		        aSync: false,
 		        data: serializedData,
@@ -479,7 +480,7 @@
      		  var serializedData="projectid="+projectIdinUse+"&id="+id;
      		  
    		    $.ajax({
- 		        url: "http://localhost:8080/PFC/rest/API/project/delete/task/"+projectIdinUse+"/"+wpid+"/"+id,
+ 		        url: "rest/API/project/delete/task/"+projectIdinUse+"/"+wpid+"/"+id,
  		        type: "post",
  		        aSync: false,
  		        data: serializedData,

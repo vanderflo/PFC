@@ -2,6 +2,7 @@ package com.reportingtool.utils;
 
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicLong;
+import java.util.regex.Pattern;
 
 import com.reportingtool.entities.*;
 import org.jdom2.Document;
@@ -9,6 +10,7 @@ import org.jdom2.Element;
 import org.jdom2.filter.Filters;
 
 import java.text.DateFormat;
+import java.text.Normalizer;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -57,6 +59,27 @@ public class Dispatcher {
 		}
 	}
 	
+	public static String remove2(String input) {
+	    // Descomposici—n can—nica
+	    String normalized = Normalizer.normalize(input, Normalizer.Form.NFD);
+	    // Nos quedamos œnicamente con los caracteres ASCII
+	    Pattern pattern = Pattern.compile("\\p{ASCII}+");
+	    return pattern.matcher(normalized).replaceAll("");
+	}//remove2
+	
+	public static String remove1(String input) {
+	    // Cadena de caracteres original a sustituir.
+	    String original = "‡ˆŠ‘’“•—˜šœu–çË€ƒéèêíìîñ…òô†„‚";
+	    // Cadena de caracteres ASCII que reemplazar‡n los originales.
+	    String ascii = "aaaeeeiiiooouuunAAAEEEIIIOOOUUUNcC";
+	    String output = input;
+	    for (int i=0; i<original.length(); i++) {
+	        // Reemplazamos los caracteres especiales.
+	        output = output.replace(original.charAt(i), ascii.charAt(i));
+	    }//for i
+	    return output;
+	}//remove1
+
 	/**
 	 * @param args
 	 */
@@ -66,18 +89,18 @@ public class Dispatcher {
 		HashMap<String, String> partners=Partner.getPartnersName(partner);
 		System.out.println(partners.get("001"));**/
 
-	
 		
 		
 		System.out.println(System.getProperty("user.dir"));
 		
-		Document report=Project.getCurrentProjectDocument(System.getProperty("user.dir")+"/WebContent/files/"+"1377440679491.xml");
+		
+		Document report=Project.getCurrentProjectDocument(System.getProperty("user.dir")+"/WebContent/files/"+"1378152609735.xml");
 		report=Report.fillReportFile(report);
 		String result=Commons.docToString(report);
 		
 		System.out.println(result);
-		
 		/*
+		
 		
 		HashMap<String,String> file=new HashMap<String,String>();
 		Vector<String> list=new Vector<String>();

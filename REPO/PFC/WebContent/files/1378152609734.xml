@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project id="1378152609734">
+  <metainfo>
+    <title>Trilogy 2</title>
+    <dateStart>01-01-2013</dateStart>
+    <dateFinish>31-12-2016</dateFinish>
+    <coordinator>
+      <partner id="uc3m" />
+    </coordinator>
+    <projectDescription>'Trilogy 2: Building the Liquid Net' is aimed at developing a new Internet architecture based on the concept of the liquid network.</projectDescription>
+    <status>pending</status>
+  </metainfo>
+  <reportSchedule>
+    <date>01-04-2013</date>
+  </reportSchedule>
+  <workpackage title="WP1 - Creating Liquidity" id="1378154525423">
+    <coordinator>
+      <leader id="onapp" />
+    </coordinator>
+    <dateInit>01-01-2013</dateInit>
+    <dateFinish>31-12-2015</dateFinish>
+    <description>-</description>
+    <task title="WP1 - Creating Liquidity" id="1378199533940">
+      <partners />
+      <description>-</description>
+      <dateInit>01-01-2013</dateInit>
+      <dateFinish>31-12-2016</dateFinish>
+      <partnerTask id="bt" />
+      <partnerTask id="nec" />
+      <partnerTask id="ucl-uk" />
+      <partnerTask id="ucl-be" />
+      <partnerTask id="intel" />
+      <partnerTask id="upb" />
+      <partnerTask id="nxw" />
+      <partnerTask id="onapp" />
+      <partnerTask id="ucam" />
+      <partnerTask id="tid" />
+    </task>
+    <partnerWP id="bt" effort="2" />
+    <partnerWP id="nec" effort="9" />
+    <partnerWP id="ucl-uk" effort="27" />
+    <partnerWP id="ucl-be" effort="26" />
+    <partnerWP id="intel" effort="22" />
+    <partnerWP id="upb" effort="31" />
+    <partnerWP id="nxw" effort="23" />
+    <partnerWP id="onapp" effort="34" />
+    <partnerWP id="ucam" effort="20.5" />
+    <partnerWP id="tid" effort="10" />
+  </workpackage>
+  <workpackage title="WP2 - Tussle over Liquidity" id="1378155059513">
+    <coordinator>
+      <leader id="tid" />
+    </coordinator>
+    <dateInit>01-01-2013</dateInit>
+    <dateFinish>31-12-2015</dateFinish>
+    <description>-</description>
+    <task title="WP2 - Tussle over Liquidity" id="1378199568901">
+      <partners />
+      <description>-</description>
+      <dateInit>01-01-2013</dateInit>
+      <dateFinish>31-12-2016</dateFinish>
+    </task>
+  </workpackage>
+  <workpackage title="WP3 - Using Liquidity" id="1378155181081">
+    <coordinator>
+      <leader id="nec" />
+    </coordinator>
+    <dateInit>01-01-2013</dateInit>
+    <dateFinish>31-12-2015</dateFinish>
+    <description>-</description>
+    <task title="WP3 - Using Liquidity" id="1378199593079">
+      <partners />
+      <description>-</description>
+      <dateInit>01-01-2013</dateInit>
+      <dateFinish>31-12-2016</dateFinish>
+    </task>
+  </workpackage>
+  <workpackage title="WP4 - Dissemination and standardization" id="1378155318869">
+    <coordinator>
+      <leader id="bt" />
+    </coordinator>
+    <dateInit>01-01-2013</dateInit>
+    <dateFinish>31-12-2015</dateFinish>
+    <description>-</description>
+    <task title="WP4 - Dissemination and standardization" id="1378199625860">
+      <partners />
+      <description>-</description>
+      <dateInit>01-01-2013</dateInit>
+      <dateFinish>31-12-2016</dateFinish>
+    </task>
+  </workpackage>
+  <workpackage title="WP5 - Project Management" id="1378155451096">
+    <coordinator>
+      <leader id="uc3m" />
+    </coordinator>
+    <dateInit>01-01-2013</dateInit>
+    <dateFinish>31-12-2015</dateFinish>
+    <description>-</description>
+    <task title="WP5 - Project Management" id="1378199686871">
+      <partners />
+      <description>-</description>
+      <dateInit>01-01-2013</dateInit>
+      <dateFinish>31-12-2016</dateFinish>
+    </task>
+    <partnerWP id="uc3m" effort="16" />
+  </workpackage>
+</project>

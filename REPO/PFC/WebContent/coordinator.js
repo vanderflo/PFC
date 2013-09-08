@@ -41,15 +41,15 @@
     			var partnerName = $(this).attr('partnername');
     			if(currentId==coordID){
     				wpLeader=true;
-    				alert("You are the leader of this Work Package");
     			}else{
     				wpLeader=false;
     			}
     			if((currentId==partnerID)||(wpLeader)){
-    	        showReport(partnerID,date,wpId,partnerName);
+    	        showReport(partnerID,date,wpId,partnerName,true);
     			}else{
-    				alert("You don't have permissions to see this report.");
+    				showReport(partnerID,date,wpId,partnerName,false);
     			}
+    			return;
     		});
     		
     		$("#testUpdate").live("click",function() {
@@ -57,7 +57,7 @@
     		});
     		
     		
-    		function showReport(partnerID,date,wpId,partnerName){
+    		function showReport(partnerID,date,wpId,partnerName,editable){
     			$('#reportInformationBody').empty();
     			$('#expensesGridBody').empty();
     			$('#addExpensesForm').hide();
@@ -68,7 +68,7 @@
     			
     			var currentEffort;
     			var wpEffort;
-    			var otherReportsEffort=0;
+    			var otherReportsEffort=0.0;
     			
     			$(xmlReport).find('subreport').each(function(){
 					var reportWP=$(this).attr("WP");
@@ -77,7 +77,7 @@
 					var reportDate=$(this).attr("date");
 					if(partnerID == partnerWP && reportWPID == wpId){
 						var eff=$(this).children('currentEffort').text();
-						otherReportsEffort=otherReportsEffort+parseInt(eff);
+						otherReportsEffort=otherReportsEffort+parseFloat(eff);
 					}
 						if(partnerID == partnerWP && reportWPID == wpId && reportDate==date){
 
@@ -164,7 +164,7 @@
 					});
     			plot1.series[0].data=[[wpEffort,1]];
 				plot1.series[1].data=[[currentEffort,1]];
-				plot1.series[2].data=[[otherReportsEffort,1]];
+				plot1.series[2].data=[[otherReportsEffort.toString(),1]];
     	        $('#reportArticle').show();
     	        plot1.replot();
     	        $("#forleader").hide();
@@ -172,6 +172,14 @@
 	       	    	  $("#forpartner").show();
 	       	    	  $("#forleader").show();
 	       	      }
+    	        
+    	        if (editable){
+    	        	$("#editionReport").show();
+    	        	$("#editionReportNotAllowed").hide();
+    	        }else{
+    	        	$("#editionReport").hide();
+    	        	$("#editionReportNotAllowed").show();
+    	        }
     		}
     		
     		
@@ -199,7 +207,7 @@
 					var lastupdate= $(this).children('lastupdate').text();	
 					var flag= $(this).children('flag').text().toLowerCase();
 					var currentReportEffort= $(this).children('currentEffort').text();
-					var row='<tr><td class="status '+status.toLowerCase()+'">'+status.toUpperCase()+'</td><td><a href="#" id="triggerReport" class="topbuttonNO" leader="'+leader+'"  partnerID="'+partnerID+'" partnername="'+partnerName.toUpperCase()+'" wptitle="'+reportWP+'" wpid="'+wpIdFromSubreport+'" reportdate="'+reportDate+'">'+reportDate+'</a></td><td>'+partnerName+'</td><td>'+reportWP+'</td><td>'+leader.toUpperCase()+'</td><td>'+currentReportEffort+'</td><td>'+lastupdate.substring(0,9)+'</td><td><span class="icon-flag-'+flag+'"></span></td></tr>';
+					var row='<tr><td class="status '+status.toLowerCase()+'">'+status.toUpperCase()+'</td><td><a href="#" id="triggerReport" class="topbuttonNO" leader="'+leader+'"  partnerID="'+partnerID+'" partnername="'+partnerName.toUpperCase()+'" wptitle="'+reportWP+'" wpid="'+wpIdFromSubreport+'" reportdate="'+reportDate+'">'+reportDate+'</a></td><td>'+partnerName.toUpperCase()+'</td><td>'+reportWP+'</td><td>'+leader.toUpperCase()+'</td><td>'+currentReportEffort+'</td><td>'+lastupdate.substring(0,9)+'</td><td><span class="icon-flag-'+flag+'"></span></td></tr>';
 						if(currentview=="w" && id == wpIdFromSubreport){
 						currentWPtitle=reportWP;
 						$('#reportGridBody').append(row);
@@ -309,7 +317,7 @@
    		    // let's disable the inputs for the duration of the ajax request
    		    $inputs.attr("disabled", "disabled");
    		    $.ajax({
-   		        url: "http://localhost:8080/PFC/rest/API/report/addexpenses/"+currentProject+"/"+currentWP+"/"+currentPartner+"/"+currentReport,
+   		        url: "rest/API/report/addexpenses/"+currentProject+"/"+currentWP+"/"+currentPartner+"/"+currentReport,
    		        type: "post",
    		        data: serializedData,
    		        // callback handler that will be called on success
@@ -327,6 +335,7 @@
    		            );
    		        },
    		        complete: function(){
+   		        	$("#addExpensesForm")[0].reset();
    		        	updateView();
    		        }
    		    });   		
@@ -343,7 +352,7 @@
     		    // let's disable the inputs for the duration of the ajax request
     		    $inputs.attr("disabled", "disabled");
     		    $.ajax({
-    		        url: "http://localhost:8080/PFC/rest/API/report/edit/"+currentProject+"/"+currentWP+"/"+currentPartner+"/"+currentReport,
+    		        url: "rest/API/report/edit/"+currentProject+"/"+currentWP+"/"+currentPartner+"/"+currentReport,
     		        type: "post",
     		        data: serializedData,
     		        // callback handler that will be called on success
@@ -377,7 +386,7 @@
      		var taskId=$(this).find('[name=taskid]').val();
      		 $inputs.attr("disabled", "disabled");
    		    $.ajax({
-   		        url: "http://localhost:8080/PFC/rest/API/report/task/edit/"+currentProject+"/"+currentWP+"/"+currentPartner+"/"+currentReport+"/"+taskId,
+   		        url: "rest/API/report/task/edit/"+currentProject+"/"+currentWP+"/"+currentPartner+"/"+currentReport+"/"+taskId,
    		        type: "post",
    		        data: serializedData,
    		        // callback handler that will be called on success
@@ -414,20 +423,20 @@
     		    // let's disable the inputs for the duration of the ajax request
     		    $inputs.attr("disabled", "disabled");
     		    $.ajax({
-    		        url: "http://localhost:8080/PFC/rest/API/report/sendbyemail/"+currentProject+"/"+currentWP+"/"+currentPartner+"/"+currentReport,
+    		        url: "rest/API/report/sendemail/"+currentProject+"/"+currentWP+"/"+currentPartner+"/"+currentReport,
     		        type: "post",
     		        data: serializedData,
     		        beforeSend: function(){
-    		        	$('#confirmButtons').hide();
     		        	$('#loading').html("<p>Sending report via email...</p>");
-    		            $("#loading").dialog("open");
+    		            $("#loading").show();
+    		            $('#addReportEmailForm').hide();
     		         },
     		        // callback handler that will be called on success
     		        success: function(response, textStatus, jqXHR){
     		            // log a message to the console
     		        	$("#addReportEmailForm")[0].reset();
     		            $('#loading').html("<p>Report Sent!</p><div id='closeDialog' style='display:none;'><a class='button close' href='#'>CONTINUE<span></span></a></div>");
-    		            $('#closeDialog').show();
+    		            $('#addReportEmailForm').show();
     		      
     		        },
     		        // callback handler that will be called on error
@@ -439,8 +448,10 @@
     		            );
     		        },
     		        complete: function(){
+    		        	alert("Report sent");
     		        	updateView();
     		        	$("#emailreport").hide();
+    		        	
     		        }
     		    });   		
     		    // prevent default posting of form
@@ -462,6 +473,6 @@
      		}else if(currentview="all"){
          	showListOfReports(currentProjectTitle,"",currentview);	
      		}
- 			showReport(currentPartner,currentReport,currentWP,currentPartnerName);
+ 			showReport(currentPartner,currentReport,currentWP,currentPartnerName,true);
      	  }
      	    

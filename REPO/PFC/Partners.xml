@@ -1,25 +1,99 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <partners>
-  <partner id="001">
+  <partner id="uc3m" name="Universidad Carlos III">
     <member>Lolo P</member>
     <member>Manu G</member>
     <email>test@upm.es</email>
-    <name>UPM</name>
+    <name>Universidad Carlos III</name>
   </partner>
-  <partner id="002">
+  <partner id="upm" name="Universidad Politecnica">
     <member>Paco P</member>
     <member>Lisardo G</member>
     <email>test@uc3m.es</email>
-    <name>UC3M</name>
- </partner>
-   <partner id="003">
+    <name>Universidad Politecnica</name>
+  </partner>
+  <partner id="unex" name="Universidad Extremadura">
     <member>Fran</member>
     <email>test@unex.es</email>
-    <name>UNEX</name>
- </partner>
-   <partner id="004">
+    <name>Universidad Extremadura</name>
+  </partner>
+  <partner id="usc" name="University South California">
     <member>John</member>
     <email>test@usc.es</email>
-    <name>USC</name>
- </partner>
+    <name>University South California</name>
+  </partner>
+  <partner id="nyu" name="New York University">
+    <member>John Smith</member>
+    <member>Richard Branson</member>
+    <name>New York University</name>
+    <email>nyu@nyu.edu</email>
+    <password>nuevayork</password>
+  </partner>
+  <partner id="stanford" name="Stanford University">
+    <member>John Smith</member>
+    <member>Richard Branson</member>
+    <name>Stanford University</name>
+    <email>ffloresredondo@gmail.com</email>
+    <password>paloalto</password>
+  </partner>
+  <partner id="bt" name="BRITISH TELECOMMUNICATIONS PUBLIC LIMITED COMPANY">
+    <member>TBD</member>
+    <name>BRITISH TELECOMMUNICATIONS PUBLIC LIMITED COMPANY</name>
+    <email>test@bt.com</email>
+    <password>btbt</password>
+  </partner>
+  <partner id="nec" name="NEC EUROPE LTD">
+    <member>TBD</member>
+    <name>NEC EUROPE LTD</name>
+    <email>nec@nec.com</email>
+    <password>necnec</password>
+  </partner>
+    <partner id="ucl-uk" name="UNIVERSITY COLLEGE LONDON">
+    <member>TBD</member>
+    <name>UNIVERSITY COLLEGE LONDON</name>
+    <email>nec@nec.com</email>
+    <password>uclukucluk</password>
+  </partner>
+  <partner id="ucl-be" name="UNIVERSITE CATHOLIQUE DE LOUVAIN">
+    <member>TBD</member>
+    <name>UNIVERSITE CATHOLIQUE DE LOUVAIN</name>
+    <email>nec@nec.com</email>
+    <password>uclbeuclbe</password>
+  </partner>
+  <partner id="intel" name="INTEL SOFTWARE DEVELOPMENT">
+    <member>TBD</member>
+    <name>INTEL SOFTWARE DEVELOPMENT</name>
+    <email>nec@nec.com</email>
+    <password>uclbeuclbe</password>
+  </partner>
+    <partner id="upb" name="UNIVERSITATEA POLITEHNICA DIN BUCURESTI">
+    <member>TBD</member>
+    <name>UNIVERSITATEA POLITEHNICA DIN BUCURESTI</name>
+    <email>nec@nec.com</email>
+    <password>upbupb</password>
+  </partner>
+  <partner id="nxw" name="NEXTWORKS">
+    <member>TBD</member>
+    <name>NEXTWORKS</name>
+    <email>nec@nec.com</email>
+    <password>nxwnxw</password>
+  </partner>
+  <partner id="onapp" name="ONAPP LIMITED">
+    <member>TBD</member>
+    <name>ONAPP LIMITED</name>
+    <email>nec@nec.com</email>
+    <password>onapponapp</password>
+  </partner>
+    <partner id="ucam" name="THE CHANCELLOR, MASTERS AND SCHOLARS OF THE UNIVERSITY OF CAMBRIDGE">
+    <member>TBD</member>
+    <name>THE CHANCELLOR, MASTERS AND SCHOLARS OF THE UNIVERSITY OF CAMBRIDGE</name>
+    <email>nec@nec.com</email>
+    <password>ucamucam</password>
+  </partner>
+      <partner id="tid" name="TELEFONICA INVESTIGACION Y DESARROLLO SA">
+    <member>TBD</member>
+    <name>TELEFONICA INVESTIGACION Y DESARROLLO SA</name>
+    <email>nec@nec.com</email>
+    <password>tidtid</password>
+  </partner>
 </partners>

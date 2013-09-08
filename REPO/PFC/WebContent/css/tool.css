@@ -996,14 +996,14 @@ float:right;
 height:360px;
 }
 
-#metainfo,#editionReport,#editionProjectSection,#metainfoProjectSection{
+#metainfo,#editionReport,#editionProjectSection,#metainfoProjectSection,#editionReportNotAllowed{
 height:220px;
 }
 
 #metainfo{
 width:48%;
 }
-#editionReport{
+#editionReport,editionReportNotAllowed{
 /*background-image: linear-gradient( #ecfcd2 , #a0bf61 250px);*/
 width: 48%;
 }
@@ -1172,14 +1172,14 @@ height: 400px;
 }
 #lastArticle ul
 {
-list-style-type: square;
+list-style-type: none;
 padding: 0px;
 margin: 20px;
 color:#666;
 }
 #helpList ul
 {
-list-style-type: circle;
+list-style-type: none;
 padding: 0px;
 margin: 0px;
 }
@@ -1242,7 +1242,20 @@ float:right;
 }
 
 .close{
-	padding:5px;
+	padding:10px;
 }
 
+.contentfaq {
+    display: none;
+}
 
+#lastArticle .faq2{
+	margin-left: 10px;
+	list-style-type:none;
+}
+
+#lastArticle .faqlink{
+color:#0072C6;	
+font-size:120%;
+display:block;
+}

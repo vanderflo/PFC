@@ -130,5 +130,14 @@ public class Commons {
 			return false;
 		
 	}
+	public static String formatText(String input) {
+	    String original = "‡ˆŠ‘’“•—˜šœu–çË€ƒéèêíìîñ…òô†„‚";
+	    String ascii = "aaaeeeiiiooouuunAAAEEEIIIOOOUUUNcC";
+	    String output = input;
+	    for (int i=0; i<original.length(); i++) {
+	        output = output.replace(original.charAt(i), ascii.charAt(i));
+	    }//for i
+	    return output;
+	}//remove1
 	
 }

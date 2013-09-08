@@ -31,7 +31,7 @@
                     renderer:$.jqplot.BarRenderer, pointLabels: { show: true, location: 'e', edgeTolerance: -15 },
                     shadowAngle: 135,rendererOptions: {	barDirection: 'horizontal'}
                 },
-                series:[{label:'Effort assigned on this WP'},{label:'Current report effort'},{label:'Effort reported on other reports'}],
+                series:[{label:'Effort assigned on this WP'},{label:'Effort reported in this reporting period'},{label:'Total effort reported for this WP'}],
                 legend: {show: true,placement: 'outside'},
                 axes: {yaxis: {renderer: $.jqplot.CategoryAxisRenderer}}
     		});
@@ -136,47 +136,81 @@
 		<article id="helpArticleContainer">      
             <section id="lastArticle">
                 <h2>Welcome to UC3M Reporting Tool</h2>
-                <a href="#" id="hideMenuHelp">CLOSE</a>
-
-					<h3>Sections</h3>
-					<ul id="helpList">
-					<li>Projects: Create a new project from scratch or edit an existing one that has not been committed yet
-					<ul>
+                <a class="btn btn-danger" href="#" id="hideMenuHelp">
+  				<i class="icon-remove-sign"></i>&nbsp;CLOSE</a>
+				<p>This Tool has been defined to manage the process of reporting work status in projects with multiple partners assigned. Its friendly interface lets you go through all the aspects of reporting, from work done or results got in a specific task to expenses and effort in a given period of time.<br> Take a look on the section below, where basic interactions with the tool are explained.<br></p> 
+				 
+				<a class="faqlink" href="#"><i class="icon-arrow-right"></i>&nbsp;Create Project (Administrator)</a>
+				<div class="contentfaq">
+				<ul>
+				<li><i class="icon-chevron-sign-right"></i>&nbsp;Click on Projects (header menu)</li>
+				<li><i class="icon-chevron-sign-right"></i>&nbsp;Click on 'See Projects' (navigation menu, on the left), then ADD NEW PROJECT</li>
+				<li><i class="icon-chevron-sign-right"></i>&nbsp;Provide basic information (Title, Description, Dates, Coordinator)</li>
+				</ul> 
+				</div>
+				
+				
+				<a class="faqlink" href="#"><i class="icon-arrow-right"></i>&nbsp;Define Project details (Project Coordinator)</a>
+				<div class="contentfaq">
+				<ul>
+				<li><i class="icon-chevron-sign-right"></i>&nbsp;Click on Projects (header menu)</li>
+				<li><i class="icon-chevron-sign-right"></i>&nbsp;Click on See Projects (navigation menu, on the left), then click on the project you want to edit</li>
+				<li><i class="icon-chevron-sign-right"></i>&nbsp;Use "Edition Box" section to edit project. These options are available:</li>
+				<ul class="faq2">
+				<li><i class="icon-li icon-ok"></i>&nbsp;Add WP: New Workpackage, with title, description and start/finish dates </li>
+				<li><i class="icon-li icon-ok"></i>&nbsp;Add task: New Task, with title, description and start/finish dates</li>
+				<li><i class="icon-li icon-ok"></i>&nbsp;Assign partner (and effort) to WP: Select partner to be added to this WP and define his effort</li>
+				<li><i class="icon-li icon-ok"></i>&nbsp;Assign partner to Task: Assign partner to a given task</li>
+				<li><i class="icon-li icon-ok"></i>&nbsp;Add reporting deadline date: Define a new reporting deadline</li>
+				</ul>
+				</ul> 
+				</div>
+				
+				
+				<a class="faqlink" href="#"><i class="icon-arrow-right"></i>&nbsp;List Reports and see details</a>
+				<div class="contentfaq">
+				<ul>
+				<li><i class="icon-chevron-sign-right"></i>&nbsp;Click on Reports (header menu)</li>
+				<li><i class="icon-chevron-sign-right"></i>&nbsp;On the Main Menu (left), click on the Project for which you want to list reports</li>
+				<li><i class="icon-chevron-sign-right"></i>&nbsp;If you are part of this project, you will see the list of subreports for this project</li>
+				<li><i class="icon-chevron-sign-right"></i>&nbsp;You can filter them by WP or Partner from the menu, or by any character/word of your choice using the search box below the list</li>
+				<li><i class="icon-chevron-sign-right"></i>&nbsp;To see details of a specific report, click on its date, and all relevant information will be displayed</li>
+				</ul> 
+				</div>
+				
+				
+				<a class="faqlink" href="#"><i class="icon-arrow-right"></i>&nbsp;Edit a Report</a>
+				<div class="contentfaq">
+				<ul>
+				<li><i class="icon-chevron-sign-right"></i>&nbsp;Click on Reports (header menu)</li>
+				<li><i class="icon-chevron-sign-right"></i>&nbsp;On the Main Menu (left), click on the Project for which you want to list reports</li>
+				<li><i class="icon-chevron-sign-right"></i>&nbsp;If you are part of this project, you will see the list of subreports for this project</li>
+				<li><i class="icon-chevron-sign-right"></i>&nbsp;Click on the subreport you want to edit</li>
+				<li><i class="icon-chevron-sign-right"></i>&nbsp;Use "Edition Box" section to edit report</li>
+				<li><i class="icon-chevron-sign-right"></i>&nbsp;Edition box:</li>
+				<ul class="faq2">
+				<li><i class="icon-li icon-ok"></i>&nbsp;Change status: Save or Send the report (partner); WP leader will approve/reject it on this section</li>
+				<li><i class="icon-li icon-ok"></i>&nbsp;Add expenses: Specify type of expense, amount and person</li>
+				<li><i class="icon-li icon-ok"></i>&nbsp;Justify effort: Specify effort in person/month</li>
+				<li><i class="icon-li icon-ok"></i>&nbsp;Describe work done for a given task: Provide detils about what has been done and the results of the work</li>
+				<li><i class="icon-li icon-ok"></i>&nbsp;Change flag status: Raise a red flag in case there is any issue blocking the project execution</li>
+				<li><i class="icon-li icon-ok"></i>&nbsp;Add a comment: Use this form to add any comment or feedback you may consider relvant</li>
+				</ul>
+				</ul> 
+				</div>
+				
+				<a class="faqlink" href="#"><i class="icon-arrow-right"></i>&nbsp;Send Report via email</a>
+				<div class="contentfaq">
+				<ul>
+				<li><i class="icon-chevron-sign-right"></i>&nbsp;Once you have selected a report to see its details, click on "Send by email" and add an email recipient</li>
+				</ul> 
+				</div>
+				
 					
-					<li>Create new project (from Main Menu)</li>
-					<li>Once the basic information has been defined, Project Edition View will be displayed</li>
-					<li>Use the Edition Box to:
-					<ul><li>Create Work Packages</li>
-					<li>Assign partners (and effort) to Work Packages</li>
-					<li>Create task(s) and assign to Work Packages</li>
-					<li>Assign partner(s) to tasks
-					<li>Define Report deadlines
-					</ul>
-					</ul>
-					</li>
-					<br>
-					<li>Reports: Once a project has been committed, it will be available on this section. When a project is selected on the main menu, the list of reports for this project will be displayed.
-						<ul>
-						<li>Filters: There are two predefined filters that will show up after selecting a project: Filter by Work Package and Filter by Partner. Besides that, the Reports grid includes a search form to filter reports by text.</li>
-						
-						<li>Edition box allows tool users to work on the report:
-						<ul>
-							<li>Actions: Accept/Reject report (for coordinators), Save/Send report (for partners)</li>
-							<li>Expenses: Add expenses, specifying their concept and explanation</li>
-							<li>Comments: Add any comment to the report.</li>
-							<li>Flags: Raise a red flag in case any problem comes up during this reporting period.</li>
-							<li>Effort: Specify the effort spent on this reporting period.</li>
-							<li>Tasks: Define work and result for a specific task.</li>
-						</ul>
-						</li>
-						</ul>
-						</li>
-					</ul>
-           <div class="Table_Menu_Partner" >
-
-	</div>
-            </section>
+           <div class="Table_Menu_Partner" ></div>
+           </section>
         </article>
+        
         <article id="loadingArticleContainer">      
             <section id="loadingArticle"><h1><a>Loading...</a></h1></section>
         </article>
@@ -213,7 +247,7 @@
         
         <article id="reportArticle">
         
-	     <h1 id="reportTitle">Work Report<a id="showemail" href="#"><span class="icon-envelope-alt"></span>&nbsp;Send by email</a></h1>
+	     <h1 id="reportTitle">Work Report<a id="showemail" class="showemail" href="#"><span class="icon-envelope-alt"></span>&nbsp;Send by email</a></h1>
         
 		
 		 <section class="standardDiv wide" id="emailreport" style="display:none;">
@@ -227,7 +261,7 @@
              <form id="addReportEmailForm">
           		<div class="field"><label for="email">Email:</label><input type="text" class="input" name="email"  /><p class="hint">Recipient's email address</p></div>
           		<div class="field big"><label for="message">Comment:</label><textarea id="bigtext" name="emailcomment" class="input"></textarea><p class="hint">Comment to be added to the email</p></div>
-          		<div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a id="swhowemail">or CANCEL</a></div>
+          		<div class="field"><label for="Submit"><a>&nbsp;</a></label><input type="submit" name="Submit" class="button" value="Submit" /><a href="#" class="showemail">or CANCEL</a></div>
          	 </form>
          
          </section>
@@ -237,6 +271,9 @@
           <div class="contentDiv"><table id="reportInformation" summary="Report information"><tbody id="reportInformationBody"></tbody></table></div>
          </section>
          
+         <section class="standardDiv right" id="editionReportNotAllowed">
+          <h2><span class="icon-warning-sign"></span>&nbsp;You don't have permissions to edit this report</h2>
+          </section>
           <section class="standardDiv right" id="editionReport">
           <h2><span class="icon-edit"></span>&nbsp;Edition Box</h2>
           	<table class="menuEditionReport">

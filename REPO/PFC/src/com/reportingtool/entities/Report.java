@@ -40,6 +40,7 @@ public class Report {
 	public static  Document fillReportFile(Document d){
 		Element root = new Element("report");
 		Document doc = new Document(root);			
+		//TODO
 		Document partner=Partner.getCurrentPartnersFile();
 		HashMap<String, String> partnersMap=Partner.getPartnersName(partner);
 		//Get init date y duration
@@ -135,15 +136,15 @@ public class Report {
 		
 		Element eCurrentEffort= new Element("currentEffort");
 		eCurrentEffort.addContent("0");
-		Element eExpenses= new Element("expenses");
+		//Element eExpenses= new Element("expenses");
 		Element concept = new Element("concept");
 		Element description = new Element("description");
 		Element amount = new Element("amount");
-		eExpenses.setAttribute("id","0");
-		eExpenses.addContent(concept);
-		eExpenses.addContent(description);
-		eExpenses.addContent(amount);
-		eLastUpdate.setText("NEVER UPDATED");
+		//eExpenses.setAttribute("id","0");
+		//eExpenses.addContent(concept);
+		//eExpenses.addContent(description);
+		//eExpenses.addContent(amount);
+		eLastUpdate.setText("-");
 		
 
 		Element eFeedback= new Element("feedback");
@@ -155,7 +156,7 @@ public class Report {
 		Element eExplanation= new Element("explanation");
 		
 
-		subreport.addContent(eExpenses);
+		//subreport.addContent(eExpenses);
 		subreport.addContent(eWpEffort);
 		subreport.addContent(eCurrentEffort);
 		subreport.addContent(eStatus);
@@ -202,21 +203,21 @@ public class Report {
 		
 		Element eResult= new Element("result");
 		
-		Element eEffort= new Element("effort");
+		//Element eEffort= new Element("effort");
 		
 		task.addContent(eWork);
 		task.addContent(eResult);
-		Element personalEffort= new Element("personalEffort");
-		Element person= new Element("person");
-		Element effortPerson= new Element("effortPerson");
+		//Element personalEffort= new Element("personalEffort");
+		//Element person= new Element("person");
+		//Element effortPerson= new Element("effortPerson");
 
 
-		personalEffort.setAttribute("id","0");
-		personalEffort.addContent(person);
-		personalEffort.addContent(effortPerson);
-		eEffort.addContent(personalEffort);
+		//personalEffort.setAttribute("id","0");
+		//personalEffort.addContent(person);
+		//personalEffort.addContent(effortPerson);
+		//eEffort.addContent(personalEffort);
 
-		task.addContent(eEffort);
+		//task.addContent(eEffort);
 
 		
 		return task;
@@ -395,11 +396,11 @@ public class Report {
 				}
 				Namespace ns = doc.getRootElement().getNamespace();
 			    ElementFilter ef = new ElementFilter("effortperperson", ns);
-				int effortcount=0;
+				double effortcount=0;
 				Iterator<Element> items = eObject.getDescendants(ef);					
 					while(items.hasNext()){
 						Element el = (Element) items.next ();
-						int i=Integer.parseInt(el.getText());
+						double i=Double.parseDouble(el.getText());
 					    effortcount=effortcount+i;
 					    System.out.println("Effort: "+effortcount);
 					}				
@@ -419,16 +420,19 @@ public class Report {
 	
 	
 	public static Document getSubReportForPartner(Document doc,String WP,String partnerID,String date){
+		System.out.println("Getting subreport for WP: "+WP+", Partner: "+partnerID+", Date:"+date);
 		Document d = new Document();		
 		for(Object object : doc.getRootElement().getChildren("subreport")) {
 			Element eObject=(Element)object;
-			
+			System.out.println(eObject.getAttributeValue("partner")+" "+eObject.getAttributeValue("WPID")+" "+eObject.getAttributeValue("date"));
 			if (eObject.getAttributeValue("partner").equals(partnerID) && eObject.getAttributeValue("WPID").equals(WP) && eObject.getAttributeValue("date").equals(date)){
 				eObject.detach();
-				d.setRootElement(eObject);
-				//d.addContent(eObject);
+				//d.setRootElement(eObject);
+				System.out.println("Subreport identified");
+				d.addContent(eObject);
+				break;
 			}	
-			break;
+			
 		}
 		
 		return d;
@@ -442,24 +446,27 @@ public class Report {
 		result=result+"<br><u>WP:</u> "+eRootObject.getAttribute("WP").getValue();
 		result=result+"<br><u>Date:</u> "+eRootObject.getAttribute("date").getValue();
 		
-		result=result+"</p><br><br><p><u>Last Update:</u> "+eRootObject.getChild("lastupdate").getText();
+		result=result+"<br><u>Last Update:</u> "+eRootObject.getChild("lastupdate").getText();
 		result=result+"<br><u>Status:</u> "+eRootObject.getChild("status").getText();
 		result=result+"<br><u>Flag:</u> "+eRootObject.getChild("flag").getText();
 		result=result+"<br><u>Explanation</u> "+eRootObject.getChild("explanation").getText();
 
-		result=result+"</p><br><b>EFFORT</b><br>Wp Effort: "+eRootObject.getChild("wpEffort").getText();
+		result=result+"</p><br><p><b>EFFORT</b><br>Wp Effort: "+eRootObject.getChild("wpEffort").getText();
 		result=result+"<br>Current Effort: "+eRootObject.getChild("currentEffort").getText();
 		
+		result=result+"</p><br><p><b>EXPENSES</b>";
+
 		for(Object object : eRootObject.getChildren("expenses")) {
 			Element eObject=(Element)object;
 			result=result+"<br>Expenses: "+eObject.getChild("concept").getText();
 			result=result+" "+eObject.getChild("description").getText();
 			result=result+" "+eObject.getChild("amount").getText();
 		}
-		
+		result=result+"</p><p><br><b>TASKS</b>";
+
 		for(Object object : eRootObject.getChildren("task")) {
 			Element eObject=(Element)object;
-			result=result+"<br>Task: "+eObject.getAttribute("title").getValue();
+			result=result+"<br><b>Task: "+eObject.getAttribute("title").getValue()+"</b>";
 			result=result+"<br><u>Work:</u>"+eObject.getChild("work").getText();
 			result=result+"<br><u>Result:</u>"+eObject.getChild("result").getText();
 			for(Object objectAux : eObject.getChildren("effort")) {
@@ -470,6 +477,8 @@ public class Report {
 			}
 		}
 		
+		result=result+"</p><p><br><b>COMMENTS</b>";
+
 		for(Object object : eRootObject.getChildren("comment")) {
 			Element eObject=(Element)object;
 			result=result+"<br>Comment: "+eObject.getAttribute("type").getValue();
@@ -477,7 +486,7 @@ public class Report {
 			result=result+" "+eObject.getText();
 			
 		}
-		
+		result=result+"</p>";
 		System.out.println(result);
 		return result;
 	}

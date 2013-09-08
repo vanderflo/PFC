@@ -123,7 +123,7 @@ public String createProject(@FormParam("title") String title,@FormParam("dateSta
 	System.out.println("Creating Project. Title:"+title);	
 	String result=null;
 	try {
-		result = Project.createProject(getPath(),title, dateStart, dateFinish, coordinatorID, desc, "pending");
+		result = Project.createProject(getPath(),Commons.formatText(title), dateStart, dateFinish, coordinatorID, Commons.formatText(desc), "pending");
 	} catch (IOException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -139,7 +139,7 @@ public String createWP(@PathParam("projectId") String projectId,@FormParam("titl
 	System.out.println("Creating WP for project "+projectId+". Title:"+title+". Coord:"+coordinator);	
 	Document d = Project.getCurrentProjectDocument(formatFile(projectId));
 	String path=getPath()+projectId;
-	d = Project.addWP(d,title, coordinator,dateStart, dateFinish,description,path);
+	d = Project.addWP(d,Commons.formatText(title), coordinator,dateStart, dateFinish,Commons.formatText(description),path);
 	String result=Commons.docToString(d);
 	return result;
 }
@@ -163,7 +163,7 @@ public String createTask(@PathParam("projectId") String projectId,@PathParam("wp
 	System.out.println("Creating Task for project "+projectId+". Title:"+title);	
 	Document d = Project.getCurrentProjectDocument(formatFile(projectId));
 	String path=getPath()+projectId;
-	d = Project.addTask(d,wpId,title,description,partners,dateStart,dateFinish,path);
+	d = Project.addTask(d,wpId,Commons.formatText(title),Commons.formatText(description),partners,dateStart,dateFinish,path);
 	String result=Commons.docToString(d);
 	return result;
 }
@@ -228,7 +228,7 @@ public String editReport(@FormParam("id") String field,@FormParam("value") Strin
 	String rep_projectId=projectId+"_report";
 	Document doc = Report.getCurrentReportFile(formatFile(rep_projectId));
 	String path=getPath()+rep_projectId;
-	Report.updateSubReport(doc, wpId, partnerId, date, field, value,path);
+	Report.updateSubReport(doc, wpId, partnerId, date, Commons.formatText(field), Commons.formatText(value),path);
 	System.out.println("Field:"+field+" - Value:"+value);
 	
 	return value;
@@ -241,7 +241,7 @@ public String editTask(@FormParam("id") String field,@FormParam("value") String 
 	String rep_projectId=projectId+"_report";
 	Document doc = Report.getCurrentReportFile(formatFile(rep_projectId));
 	String path=getPath()+rep_projectId;
-	Report.updateTaskReport(doc, wpId, partnerId, date, taskId,field, value,path);
+	Report.updateTaskReport(doc, wpId, partnerId, date, taskId,Commons.formatText(field), Commons.formatText(value),path);
 	System.out.println("Field:"+field+" - Value:"+value);	
 	return value;
 }
@@ -255,7 +255,7 @@ public String addExpenses(@FormParam("concept") String concept,@FormParam("descr
 	String rep_projectId=projectId+"_report";
 	Document doc = Report.getCurrentReportFile(formatFile(rep_projectId));
 	String path=getPath()+rep_projectId;
-	Report.addExpenses(doc, wpId, partnerId, date, concept,description, amount,path);
+	Report.addExpenses(doc, wpId, partnerId, date, concept,Commons.formatText(description), amount,path);
 	System.out.println("Field:"+concept+" "+description+"- Amount:"+amount);
 	
 	return "ok";
@@ -269,7 +269,7 @@ public String addPartner(@FormParam("id") String id,@FormParam("name") String na
 	try {
 		doc = Partner.getCurrentPartnersFile(formatFile(CST.PARTNERS_FILE));
 		String path=getPath()+CST.PARTNERS_FILE;
-		Partner.addPartner(doc, id, name, email, members,password, action,path);
+		Partner.addPartner(doc, Commons.formatText(id), Commons.formatText(name), email, Commons.formatText(members),password, action,path);
 	} catch (IOException e) {
 		e.printStackTrace();
 		return "ko";
@@ -300,7 +300,7 @@ public String getPartner() {
 	return result;
 }
 
-@Path ("/report/sendbyemail/{projectId}/{wpId}/{partnerId}/{reportDate}")
+@Path ("/report/sendemail/{projectId}/{wpId}/{partnerId}/{reportDate}")
 @POST
 @Produces ("text/xml")
 public String sendReportByEmail(@FormParam("email") String emailAddress,@FormParam("emailcomment") String comment,@PathParam("projectId") String projectId,@PathParam("wpId") String wpId,@PathParam("partnerId") String partnerId,@PathParam("reportDate") String date) {

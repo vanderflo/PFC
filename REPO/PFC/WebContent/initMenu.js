@@ -31,7 +31,7 @@
  		function initProject(projectid) {
 			$.ajax({
 				type: "GET",
-				url: "http://localhost:8080/PFC/rest/API/project/"+projectid,
+				url: "rest/API/project/"+projectid,
 				dataType: "xml",
 				success: function(xml) {
 					
@@ -48,19 +48,22 @@
 							});
 					});
 					var partnersArray = new Array();
-					$(xml).find('partner').each(function(){
-					var partnerID=$(this).attr("id");
-					if( jQuery.inArray(partnerID, partnersArray) == -1 || currentCoordinator){
-					var partnerName= $(this).children('name').text();	
-					$('#coordinatorPartners').append('<li><a href="#" id="triggerPartner" class="triggerPartner" partnerID="'+partnerID+'" partnername="'+partnerName+'">'+ partnerName + '</a></li>');
-					partnersArray.push(partnerID);
-					}
+					$(xml).find('partnerWP').each(function(){
+						var partnerID=$(this).attr("id");
+						console.log("ID:"+partnerID);
+						if( jQuery.inArray(partnerID, partnersArray) == -1 || currentCoordinator){
+						var partnerName= $(this).children('name').text();	
+						$('#coordinatorPartners').append('<li><a href="#" id="triggerPartner" class="triggerPartner" partnerID="'+partnerID+'" partnername="'+partnerName+'">'+ partnerID + '</a></li>');
+						console.log("A–adido:"+partnerID);
+						partnersArray.push(partnerID);
+						}
 					});//partner
 					
 					if( jQuery.inArray(currentId, partnersArray) == -1 ){
 						$('#coordinatorPartners').empty();
 						alert("You are not part of this project");
 						$('#helpArticleContainer').show();
+						return;
 						
 					}else{
 					
@@ -84,7 +87,7 @@
  		function getProjects(){
  			$.ajax({
 				type: "GET",
-				url: "http://localhost:8080/PFC/rest/API/projects",
+				url: "rest/API/projects",
 				dataType: "xml",
 				success: function(xml) {
 					
@@ -124,7 +127,7 @@
  		function getReport(projectid){
  			$.ajax({
      		    type: "GET",
-     		    url: "http://localhost:8080/PFC/rest/API/report/get/"+projectid,
+     		    url: "rest/API/report/get/"+projectid,
  				dataType: "xml",
  				async: false,
      		     success : function(data) {
@@ -165,7 +168,7 @@
  			var color = $(this).attr('color');
  			
  			$.ajax({				
- 				url: "http://localhost:8080/PFC/rest/API/report/edit/"+currentProject+"/"+currentWP+"/"+currentPartner+"/"+currentReport,
+ 				url: "rest/API/report/edit/"+currentProject+"/"+currentWP+"/"+currentPartner+"/"+currentReport,
  				type: "post",
  		        data: {
  		            id: "flag",
@@ -189,7 +192,7 @@
  			var value = $(this).attr('value');
  			
  			$.ajax({				
- 				url: "http://localhost:8080/PFC/rest/API/report/edit/"+currentProject+"/"+currentWP+"/"+currentPartner+"/"+currentReport,
+ 				url: "rest/API/report/edit/"+currentProject+"/"+currentWP+"/"+currentPartner+"/"+currentReport,
  				type: "post",
  		        data: {
  		            id: "status",
@@ -209,7 +212,7 @@
  		    event.preventDefault();
  			});	
  		       $('.editTextArea').live('click', function(){
- 		    		var URL="http://localhost:8080/PFC/rest/API/report/edit/"+currentProject+"/"+currentWP+"/"+currentPartner+"/"+currentReport;
+ 		    		var URL="rest/API/report/edit/"+currentProject+"/"+currentWP+"/"+currentPartner+"/"+currentReport;
  		    		$(this).editable(URL, { 
  		    	         type      : 'textarea',
  		    	         cancel    : 'Cancel',
@@ -226,7 +229,7 @@
  		        
  		        $('.editTask').live('click', function(){
  		    		var taskId=$(this).attr("taskid");
- 		    		var URL="http://localhost:8080/PFC/rest/API/task/edit/"+currentProject+"/"+currentWP+"/"+currentPartner+"/"+currentReport+"/"+taskId;
+ 		    		var URL="rest/API/task/edit/"+currentProject+"/"+currentWP+"/"+currentPartner+"/"+currentReport+"/"+taskId;
  		    		$(this).editable(URL, { 
  		    	         type      : 'textarea',
  		    	         cancel    : 'Cancel',
@@ -297,7 +300,7 @@
  		        function getPartners(){
  		 			$.ajax({
  		     		    type: "GET",
- 		     		    url: "http://localhost:8080/PFC/rest/API/partners/",
+ 		     		    url: "rest/API/partners/",
  		 				dataType: "xml",
  		 				async: false,
  		     		     success : function(data) {
@@ -311,7 +314,7 @@
  		   		var $form = $(this),
  		       	serializedData = $form.serialize();
  				    $.ajax({
- 				        url: "http://localhost:8080/PFC/rest/API/partners/add",
+ 				        url: "rest/API/partners/add",
  				        type: "post",
  				        aSync: false,
  				        data: serializedData,
@@ -331,8 +334,10 @@
  				   event.preventDefault();
  		  		});//END #addProjectForm submit
  		 	   
- 		 		$("#showemail").live('click', function(){
- 		 		$("#emailreport").toggle();
+ 		 		$(".showemail").live('click', function(){
+ 		 			$("#loading").hide();
+ 		 			$("addReportEmailForm").show();
+ 		 			$("#emailreport").toggle();
  		 		});
  		 		 
  		 		$("#closeDialog").live('click', function(){
@@ -359,7 +364,7 @@
  		 			var n = d.getTime();
  		 			var serializedData="loginid="+login+"&loginpassword="+login+"&token="+code(password)+"&n="+n.toString();
  	 				    $.ajax({
- 	 				        url: "http://localhost:8080/PFC/rest/API/partners/login",
+ 	 				        url: "rest/API/partners/login",
  	 				        type: "post",
  	 				        aSync: false,
  	 				        data: serializedData,
@@ -387,7 +392,7 @@
  		 			var $form = $(this),
  	 		       	serializedData = $form.serialize();
  	 				    $.ajax({
- 	 				        url: "http://localhost:8080/PFC/rest/API/partners/forgot",
+ 	 				        url: "rest/API/partners/forgot",
  	 				        type: "post",
  	 				        aSync: false,
  	 				        data: serializedData,
@@ -414,5 +419,10 @@
  		 			$("#loginForm").hide();
  		 			$("#forgotForm").toggle();
  	 		 		});
+ 		 		
+ 		 		$('.faqlink').live('click', function(){
+ 		 	        $('.contentfaq').hide();
+ 		 	        $(this).next('.contentfaq').show();
+ 		 	    });
 
  		

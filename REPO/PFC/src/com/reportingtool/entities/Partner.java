@@ -95,8 +95,8 @@ public class Partner {
 		for(Object object : doc.getRootElement().getChildren("partner")) {
 			Element eObject=(Element)object;
 			String id=eObject.getAttributeValue("id");
-			Element eName=(Element)eObject.getChild("name");
-			String name=eName.getValue();
+			String name=eObject.getAttributeValue("name");
+			System.out.println("PARTNER ID:"+id+" NAME:"+name);
 			result.put(id, name);
 		}
 		return result;
