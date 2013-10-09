@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report>
+  <subreport partner="bt" WP="WP1 - Creating Liquidity" WPID="1378154525423" date="01-04-2013" leader="onapp" partnerName="BRITISH TELECOMMUNICATIONS PUBLIC LIMITED COMPANY">
+    <wpEffort>2</wpEffort>
+    <currentEffort>0</currentEffort>
+    <status>empty</status>
+    <flag />
+    <explanation />
+    <feedback />
+    <lastupdate>-</lastupdate>
+    <task id="1378199533940" title="WP1 - Creating Liquidity">
+      <work />
+      <result />
+    </task>
+  </subreport>
+  <subreport partner="nec" WP="WP1 - Creating Liquidity" WPID="1378154525423" date="01-04-2013" leader="onapp" partnerName="NEC EUROPE LTD">
+    <wpEffort>9</wpEffort>
+    <currentEffort>0</currentEffort>
+    <status>empty</status>
+    <flag />
+    <explanation />
+    <feedback />
+    <lastupdate>-</lastupdate>
+    <task id="1378199533940" title="WP1 - Creating Liquidity">
+      <work />
+      <result />
+    </task>
+  </subreport>
+  <subreport partner="ucl-uk" WP="WP1 - Creating Liquidity" WPID="1378154525423" date="01-04-2013" leader="onapp" partnerName="UNIVERSITY COLLEGE LONDON">
+    <wpEffort>27</wpEffort>
+    <currentEffort>0</currentEffort>
+    <status>empty</status>
+    <flag />
+    <explanation />
+    <feedback />
+    <lastupdate>-</lastupdate>
+    <task id="1378199533940" title="WP1 - Creating Liquidity">
+      <work />
+      <result />
+    </task>
+  </subreport>
+  <subreport partner="ucl-be" WP="WP1 - Creating Liquidity" WPID="1378154525423" date="01-04-2013" leader="onapp" partnerName="UNIVERSITE CATHOLIQUE DE LOUVAIN">
+    <wpEffort>26</wpEffort>
+    <currentEffort>0</currentEffort>
+    <status>empty</status>
+    <flag />
+    <explanation />
+    <feedback />
+    <lastupdate>-</lastupdate>
+    <task id="1378199533940" title="WP1 - Creating Liquidity">
+      <work />
+      <result />
+    </task>
+  </subreport>
+  <subreport partner="intel" WP="WP1 - Creating Liquidity" WPID="1378154525423" date="01-04-2013" leader="onapp" partnerName="INTEL SOFTWARE DEVELOPMENT">
+    <wpEffort>22</wpEffort>
+    <currentEffort>0</currentEffort>
+    <status>empty</status>
+    <flag />
+    <explanation />
+    <feedback />
+    <lastupdate>-</lastupdate>
+    <task id="1378199533940" title="WP1 - Creating Liquidity">
+      <work />
+      <result />
+    </task>
+  </subreport>
+  <subreport partner="upb" WP="WP1 - Creating Liquidity" WPID="1378154525423" date="01-04-2013" leader="onapp" partnerName="UNIVERSITATEA POLITEHNICA DIN BUCURESTI">
+    <wpEffort>31</wpEffort>
+    <currentEffort>0</currentEffort>
+    <status>empty</status>
+    <flag />
+    <explanation />
+    <feedback />
+    <lastupdate>-</lastupdate>
+    <task id="1378199533940" title="WP1 - Creating Liquidity">
+      <work />
+      <result />
+    </task>
+  </subreport>
+  <subreport partner="nxw" WP="WP1 - Creating Liquidity" WPID="1378154525423" date="01-04-2013" leader="onapp" partnerName="NEXTWORKS">
+    <wpEffort>23</wpEffort>
+    <currentEffort>0</currentEffort>
+    <status>empty</status>
+    <flag />
+    <explanation />
+    <feedback />
+    <lastupdate>-</lastupdate>
+    <task id="1378199533940" title="WP1 - Creating Liquidity">
+      <work />
+      <result />
+    </task>
+  </subreport>
+  <subreport partner="onapp" WP="WP1 - Creating Liquidity" WPID="1378154525423" date="01-04-2013" leader="onapp" partnerName="ONAPP LIMITED">
+    <wpEffort>34</wpEffort>
+    <currentEffort>0</currentEffort>
+    <status>empty</status>
+    <flag />
+    <explanation />
+    <feedback />
+    <lastupdate>-</lastupdate>
+    <task id="1378199533940" title="WP1 - Creating Liquidity">
+      <work />
+      <result />
+    </task>
+  </subreport>
+  <subreport partner="ucam" WP="WP1 - Creating Liquidity" WPID="1378154525423" date="01-04-2013" leader="onapp" partnerName="THE CHANCELLOR, MASTERS AND SCHOLARS OF THE UNIVERSITY OF CAMBRIDGE">
+    <wpEffort>20.5</wpEffort>
+    <currentEffort>0</currentEffort>
+    <status>empty</status>
+    <flag />
+    <explanation />
+    <feedback />
+    <lastupdate>-</lastupdate>
+    <task id="1378199533940" title="WP1 - Creating Liquidity">
+      <work />
+      <result />
+    </task>
+  </subreport>
+  <subreport partner="tid" WP="WP1 - Creating Liquidity" WPID="1378154525423" date="01-04-2013" leader="onapp" partnerName="TELEFONICA INVESTIGACION Y DESARROLLO SA">
+    <wpEffort>10</wpEffort>
+    <currentEffort>0</currentEffort>
+    <status>empty</status>
+    <flag />
+    <explanation />
+    <feedback />
+    <lastupdate>-</lastupdate>
+    <task id="1378199533940" title="WP1 - Creating Liquidity">
+      <work />
+      <result />
+    </task>
+  </subreport>
+  <subreport partner="uc3m" WP="WP5 - Project Management" WPID="1378155451096" date="01-04-2013" leader="uc3m" partnerName="Universidad Carlos III">
+    <wpEffort>16</wpEffort>
+    <currentEffort>0</currentEffort>
+    <status>empty</status>
+    <flag />
+    <explanation />
+    <feedback />
+    <lastupdate>-</lastupdate>
+  </subreport>
+</report>
